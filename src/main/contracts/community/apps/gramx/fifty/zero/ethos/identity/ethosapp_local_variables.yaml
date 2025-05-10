@@ -1,0 +1,37 @@
+- name-code: EAIV1001
+  name: Secret Code Text Field Controller
+  type: ELVT1001
+  default:
+- name-code: EAIV1002
+  name: Is Account Logged In
+  type: ELVT1002
+  default:
+    value: false
+- name-code: EAIV1003
+  name: Is Using Ethos Code Name
+  type: ELVT1002
+  default:
+    value: true
+- name-code: EAIV1004
+  name: Ethos Code Name Editing Controller
+  type: ELVT1001
+  default:
+- name-code: EAIV1005
+  name: Is Account Ethos Code Name Validated
+  type: ELVT1002
+  default:
+- name-code: EAIV1006
+  name: Is Account Ethos Code Name Authenticated
+  type: ELVT1002
+  default:
+    value: false
+- name-code: EAIV1023
+  name: Is Account Ethos Code Name Validated
+  type: ELVT1002
+  default:
+    value: false
+- name-code: EAIV1007
+  name: Is Account Ethos Code Name Authenticating
+  type: ELVT1002
+  default:
+    value: false

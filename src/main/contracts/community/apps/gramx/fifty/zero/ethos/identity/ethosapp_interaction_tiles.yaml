@@ -1,0 +1,137 @@
+- name-code: EAIT1002
+  name: Use Ethos Code Name Tile
+  about: It is a tile where user is prompted to use ethos code name
+  conditions:
+    - name-code: EAIV1003
+      value: false
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1006
+- name-code: EAIT1036
+  name: Enter Code Name and Continue Tile
+  about: It is a tile where user enters ethos code name and clicks continue
+  conditions:
+    - name-code: EAIV1023
+      value: false
+  composition:
+    name-code: EIC1012
+    children-components:
+      - EAIC1042
+- name-code: EAIT1037
+  name: Continue to Access Account with Ethos Code Name Tile
+  about: It is a tile where user selects to access account with ethos code name
+  conditions:
+    - name-code: EAIV1023
+      value: true
+  composition:
+    name-code: EIC1012
+    children-components:
+      - EAIC1004
+- name-code: EAIT1003
+  name: Enter Code Name and Continue Tile
+  about: It is a tile where user enters ethos code name and clicks continue
+  conditions:
+    - name-code: EAIV1003
+      value: true
+    - name-code: EAIV1005
+      value: false
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1005
+      - EAIT1036
+      - EAIT1037
+- name-code: EAIT1006
+  name: Authenticator Selections
+  about: It is about something
+  conditions:
+  composition:
+    name-code: EIC1012
+    children-components:
+      - EAIC1002
+- name-code: EAIT1005
+  name: Access Account With Ethos Code Name Authentication Selection Tile
+  about: It is a tile where user selects the authentication method to access their account via their ethos code name
+  conditions:
+    - name-code: EAIV1003
+      value: true
+    - name-code: EAIV1005
+      value: true
+    - name-code: EAIV1006
+      value: false
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1005
+      - EAIT1006
+- name-code: EAIT1007
+  name: Access Account With Ethos Code Name Authenticating Via Secret Code Tile
+  about: It is a tile where user enters their secret code sent via sms.
+  conditions:
+    - name-code: EAIV1003
+      value: true
+    - name-code: EAIV1005
+      value: true
+    - name-code: EAIV1007
+      value: true
+#    - name-code: EAIV1008
+#      value: sms
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1005
+      - EAIC1001
+      - EAIC1041
+- name-code: EAIT1001
+  name: Account Access with Ethos Code Name Collapsable Tile
+  about: It is a tile where user access their account with their ethos code name
+  conditions:
+    - name-code: EAIV1002
+      value: false
+    - name-code: EIV1001
+      values:
+        - web
+        - desktop
+        - mobile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT1002
+      - EAIT1003
+      - EAIT1005
+      - EAIT1007
+- name-code: EAIT1004
+  name: Account Access Tile
+  about: It is a tile where user creates or access their ethos account
+  conditions:
+    - name-code: EAIV1002
+      value: false
+    - name-code: EIV1001
+      values:
+        - web
+        - desktop
+        - mobile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1007
+      - EAIT1001
+- name-code: EAIT1008
+  name: Account Details Tile
+  about: It is a tile where user see’s their account related information
+  conditions:
+    - name-code: EAIV1002
+      value: true
+    - name-code: EIV1001
+      values:
+        - web
+        - desktop
+        - mobile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1003
+      - EAIC1008
+      - EAIC1009
+      - EAIC1010
