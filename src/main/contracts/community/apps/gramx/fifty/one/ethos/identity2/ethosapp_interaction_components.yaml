@@ -1,0 +1,72 @@
+- name-code: EAIC1001
+  name: Authenticate with Secret Code Text Field
+  component:
+    name-code: EIC1009
+    hint-text: 50GRAMx
+    text-controller: EALC1001
+- name-code: EAIC1002
+  name: Sms me to authenticate button
+  component:
+    name-code: EIC1006
+    label: SMS ME
+    on-click: ELCC2001
+- name-code: EAIC1004
+  name: Continue with Ethos Code Name Button
+  component:
+    name-code: EIC1006
+    label: Continue
+    on-click: <Some capability>
+- name-code: EAIC1005
+  name: Ethos Code Name Text Field
+  component:
+    name-code: EIC1016
+    hint-text: Code Name
+    text-controller: EALC1001
+- name-code: EAIC1006
+  name: Use Ethos Code Name Button
+  component:
+    name-code: EIC1008
+    label: Use Ethos Code Name
+    on-click: <Some Lops>
+- name-code: EAIC1007
+  name: Account Access Tile Header
+  component:
+    name-code: EIC1004
+    label: Account Access
+- name-code: EAIC1042
+  name: Continue to Create Account With Ethos Code Name Button
+  component:
+    name-code: EIC1006
+    label: Create Account
+- name-code: EAIC1004
+  name: Continue to Access Account With Ethos Code Name Button
+  component:
+    name-code: EIC1006
+    label: Access Account
+- name-code: EAIC1002
+  name: Sms Me to Authenticate Button
+  component:
+    name-code: EIC1006
+    label: SMS ME
+- name-code: EAIC1041
+  name: Verify Account Authentication Via Secret Code Button
+  component:
+    name-code: EIC1006
+    label: Verify Secret
+- name-code: EAIC1003
+  name: About Tile Header
+  component:
+    name-code: EIC1004
+    label: About
+- name-code: EAIC1008
+  name: Account Name Configuration Item
+  component:
+    name-code: EIC1001
+- name-code: EAIC1009
+  name: Account Assistant Name Configuration Item
+  component:
+    name-code: EIC1001
+- name-code: EAIC1010
+  name: Account Ethos Pay Status Configuration Item
+  component:
+    name-code: EIC1001

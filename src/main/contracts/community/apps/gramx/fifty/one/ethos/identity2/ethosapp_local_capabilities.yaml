@@ -1,0 +1,16 @@
+- name-code: EALC1001
+  name: Discover Secret Code Text Controller
+  context:
+    expects:
+    returns:
+      type: ELVT1001
+    steps:
+      - return: EAIV1001
+- name-code: EALC1002
+  name: Discover Is Account Logged In
+  context:
+    expects:
+    returns:
+      type: ELVT1002
+    steps:
+      - return: EALV1002
