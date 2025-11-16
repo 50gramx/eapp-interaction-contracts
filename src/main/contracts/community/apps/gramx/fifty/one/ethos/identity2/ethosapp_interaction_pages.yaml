@@ -1,7 +1,7 @@
 - name-code: EAIP1001
   name: Ethos Identity
   composition: 
-  - name-code: EIC1005
+    name-code: EIC1005
     childrens-count: 2
     children-components:
       - EAIT1002
