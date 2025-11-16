@@ -1,0 +1,32 @@
+# Simple Game Interaction Tiles
+- name-code: EAIT1001
+  name: Welcome Tile
+  about: Welcome the player and get their name
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+      - EAIC1002
+- name-code: EAIT1002
+  name: Game Play Tile
+  about: Main game play interface
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1003
+      - EAIC1004
+      - EAIC1005
+      - EAIC1006
+      - EAIC1007
+- name-code: EAIT1003
+  name: Game Over Tile
+  about: Display final score and option to restart
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1003
+      - EAIC1004
+      - EAIC1008

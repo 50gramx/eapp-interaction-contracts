@@ -1,0 +1,10 @@
+# Simple Game Interaction Pages
+- name-code: EAIP1001
+  name: Simple Number Guessing Game
+  composition:
+    name-code: EIC1005
+    childrens-count: 3
+    children-components:
+      - EAIT1001
+      - EAIT1002
+      - EAIT1003

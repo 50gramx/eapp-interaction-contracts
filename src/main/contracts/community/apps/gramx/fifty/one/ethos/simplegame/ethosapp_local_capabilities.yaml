@@ -1,0 +1,37 @@
+# Simple Game Local Capabilities
+- name-code: EALC1001
+  name: Update Player Score
+  context:
+    expects:
+      - name: score
+        type: ELVT1003
+    returns:
+      type: ELVT1003
+    steps:
+      - set: EAIV1001
+        to: score
+      - return: EAIV1001
+- name-code: EALC1002
+  name: Increase Game Level
+  context:
+    expects:
+      - name: level
+        type: ELVT1003
+    returns:
+      type: ELVT1003
+    steps:
+      - set: EAIV1002
+        to: level
+      - return: EAIV1002
+- name-code: EALC1003
+  name: Save Player Name
+  context:
+    expects:
+      - name: name
+        type: ELVT1004
+    returns:
+      type: ELVT1004
+    steps:
+      - set: EAIV1003
+        to: name
+      - return: EAIV1003

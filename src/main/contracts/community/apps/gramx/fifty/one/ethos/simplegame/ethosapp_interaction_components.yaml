@@ -1,0 +1,46 @@
+# Simple Game Interaction Components
+- name-code: EAIC1001
+  name: Player Name Text Field
+  component:
+    name-code: EIC1016
+    hint-text: Enter your name
+    text-controller: EALC1003
+- name-code: EAIC1002
+  name: Start Game Button
+  component:
+    name-code: EIC1006
+    label: Start Game
+    on-click: EALC1001
+- name-code: EAIC1003
+  name: Score Display Label
+  component:
+    name-code: EIC1004
+    label: "Score: 0"
+- name-code: EAIC1004
+  name: Level Display Label
+  component:
+    name-code: EIC1004
+    label: "Level: 1"
+- name-code: EAIC1005
+  name: Guess Number Input
+  component:
+    name-code: EIC1009
+    hint-text: Guess a number (1-10)
+    text-controller: EALC1001
+- name-code: EAIC1006
+  name: Submit Guess Button
+  component:
+    name-code: EIC1006
+    label: Submit Guess
+    on-click: EALC1001
+- name-code: EAIC1007
+  name: Game Result Label
+  component:
+    name-code: EIC1004
+    label: "Guess a number to start!"
+- name-code: EAIC1008
+  name: Reset Game Button
+  component:
+    name-code: EIC1006
+    label: Reset Game
+    on-click: EALC1001

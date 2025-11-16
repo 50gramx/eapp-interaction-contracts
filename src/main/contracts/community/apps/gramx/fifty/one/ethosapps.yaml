@@ -1,3 +1,4 @@
 - organisation: ethos
   apps:
     - identity2
+    - simplegame
