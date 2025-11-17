@@ -35,3 +35,37 @@
       - set: EAIV1003
         to: name
       - return: EAIV1003
+- name-code: EALC1004
+  name: Start Game
+  context:
+    expects:
+      - name: playerName
+        type: ELVT1004
+    returns:
+      type: ELVT1002
+    steps:
+      - set: EAIV1003
+        to: playerName
+      - return: true
+- name-code: EALC1005
+  name: Submit Guess
+  context:
+    expects:
+      - name: guess
+        type: ELVT1003
+    returns:
+      type: ELVT1004
+    steps:
+      - return: "Guess processed"
+- name-code: EALC1006
+  name: Reset Game
+  context:
+    expects:
+    returns:
+      type: ELVT1002
+    steps:
+      - set: EAIV1001
+        to: 0
+      - set: EAIV1002
+        to: 1
+      - return: true

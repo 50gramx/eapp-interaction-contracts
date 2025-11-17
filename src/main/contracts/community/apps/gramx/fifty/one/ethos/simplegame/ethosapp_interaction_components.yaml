@@ -10,7 +10,7 @@
   component:
     name-code: EIC1006
     label: Start Game
-    on-click: EALC1001
+    on-click: EALC1004
 - name-code: EAIC1003
   name: Score Display Label
   component:
@@ -26,13 +26,13 @@
   component:
     name-code: EIC1009
     hint-text: Guess a number (1-10)
-    text-controller: EALC1001
+    text-controller: EALC1005
 - name-code: EAIC1006
   name: Submit Guess Button
   component:
     name-code: EIC1006
     label: Submit Guess
-    on-click: EALC1001
+    on-click: EALC1005
 - name-code: EAIC1007
   name: Game Result Label
   component:
@@ -43,4 +43,4 @@
   component:
     name-code: EIC1006
     label: Reset Game
-    on-click: EALC1001
+    on-click: EALC1006
