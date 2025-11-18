@@ -15,7 +15,7 @@
   component:
     name-code: EIC1006
     label: Continue
-    on-click: <Some capability>
+    on-click: EALC1002
 - name-code: EAIC1005
   name: Ethos Code Name Text Field
   component:
@@ -27,7 +27,7 @@
   component:
     name-code: EIC1008
     label: Use Ethos Code Name
-    on-click: <Some Lops>
+    on-click: EALC1002
 - name-code: EAIC1007
   name: Account Access Tile Header
   component:
@@ -38,21 +38,25 @@
   component:
     name-code: EIC1006
     label: Create Account
-- name-code: EAIC1004
+    on-click: EALC1002
+- name-code: EAIC1043
   name: Continue to Access Account With Ethos Code Name Button
   component:
     name-code: EIC1006
     label: Access Account
-- name-code: EAIC1002
+    on-click: EALC1002
+- name-code: EAIC1044
   name: Sms Me to Authenticate Button
   component:
     name-code: EIC1006
     label: SMS ME
+    on-click: ELCC2001
 - name-code: EAIC1041
   name: Verify Account Authentication Via Secret Code Button
   component:
     name-code: EIC1006
     label: Verify Secret
+    on-click: EALC1002
 - name-code: EAIC1003
   name: About Tile Header
   component:

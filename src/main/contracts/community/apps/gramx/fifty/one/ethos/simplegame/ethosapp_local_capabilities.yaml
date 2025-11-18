@@ -52,7 +52,7 @@
         target: EAIV1006
         value: true
       - command: return
-        value: 'true'
+        value: true
 - name-code: EALC1005
   name: Guess Number Text Controller
   context:
@@ -75,7 +75,7 @@
         target: EAIV1001
         value: guess
       - command: return
-        value: "Guess processed: $guess"
+        value: "Guess processed successfully"
 - name-code: EALC1007
   name: Reset Game
   context:
@@ -96,7 +96,7 @@
         target: EAIV1007
         value: false
       - command: return
-        value: 'true'
+        value: true
 - name-code: EALC1008
   name: End Game
   context:
@@ -108,4 +108,4 @@
         target: EAIV1007
         value: true
       - command: return
-        value: 'true'
+        value: true

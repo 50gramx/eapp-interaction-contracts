@@ -11,7 +11,7 @@
   name: Is Using Ethos Code Name
   type: ELVT1002
   default:
-    value: true
+    value: false
 - name-code: EAIV1004
   name: Ethos Code Name Editing Controller
   type: ELVT1001
@@ -20,6 +20,7 @@
   name: Is Account Ethos Code Name Validated
   type: ELVT1002
   default:
+    value: false
 - name-code: EAIV1006
   name: Is Account Ethos Code Name Authenticated
   type: ELVT1002

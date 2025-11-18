@@ -5,7 +5,8 @@
     returns:
       type: ELVT1001
     steps:
-      - return: EAIV1001
+      - command: return
+        value: EAIV1001
 - name-code: EALC1002
   name: Discover Is Account Logged In
   context:
@@ -13,4 +14,5 @@
     returns:
       type: ELVT1002
     steps:
-      - return: EALV1002
+      - command: return
+        value: EAIV1002
