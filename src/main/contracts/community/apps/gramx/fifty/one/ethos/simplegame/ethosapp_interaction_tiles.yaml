@@ -2,7 +2,9 @@
 - name-code: EAIT1001
   name: Welcome Tile
   about: Welcome the player and get their name
-  conditions: []
+  conditions:
+    - name-code: EAIV1006
+      value: false
   composition:
     name-code: EIC1005
     children-components:
@@ -11,7 +13,11 @@
 - name-code: EAIT1002
   name: Game Play Tile
   about: Main game play interface
-  conditions: []
+  conditions:
+    - name-code: EAIV1006
+      value: true
+    - name-code: EAIV1007
+      value: false
   composition:
     name-code: EIC1005
     children-components:
@@ -23,10 +29,13 @@
 - name-code: EAIT1003
   name: Game Over Tile
   about: Display final score and option to restart
-  conditions: []
+  conditions:
+    - name-code: EAIV1007
+      value: true
   composition:
     name-code: EIC1005
     children-components:
       - EAIC1003
       - EAIC1004
       - EAIC1008
+      - EAIC1009

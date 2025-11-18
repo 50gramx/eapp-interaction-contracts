@@ -48,6 +48,9 @@
       - command: set
         target: EAIV1003
         value: playerName
+      - command: set
+        target: EAIV1006
+        value: true
       - command: return
         value: 'true'
 - name-code: EALC1005
@@ -68,8 +71,11 @@
     returns:
       type: ELVT1004
     steps:
+      - command: set
+        target: EAIV1001
+        value: guess
       - command: return
-        value: "Guess processed"
+        value: "Guess processed: $guess"
 - name-code: EALC1007
   name: Reset Game
   context:
@@ -83,5 +89,23 @@
       - command: set
         target: EAIV1002
         value: 1
+      - command: set
+        target: EAIV1006
+        value: false
+      - command: set
+        target: EAIV1007
+        value: false
+      - command: return
+        value: 'true'
+- name-code: EALC1008
+  name: End Game
+  context:
+    expects:
+    returns:
+      type: ELVT1002
+    steps:
+      - command: set
+        target: EAIV1007
+        value: true
       - command: return
         value: 'true'

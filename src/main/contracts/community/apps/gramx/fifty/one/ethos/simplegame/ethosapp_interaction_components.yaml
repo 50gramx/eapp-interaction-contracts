@@ -4,7 +4,7 @@
   component:
     name-code: EIC1016
     hint-text: Enter your name
-    text-controller: EAIV1004
+    text-controller: EALC1003
 - name-code: EAIC1002
   name: Start Game Button
   component:
@@ -44,3 +44,9 @@
     name-code: EIC1006
     label: Reset Game
     on-click: EALC1007
+- name-code: EAIC1009
+  name: End Game Button
+  component:
+    name-code: EIC1006
+    label: End Game
+    on-click: EALC1008

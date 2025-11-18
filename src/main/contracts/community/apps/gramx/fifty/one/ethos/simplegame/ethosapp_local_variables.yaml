@@ -22,3 +22,13 @@
   name: Guess Number Text Controller
   type: ELVT1001
   default:
+- name-code: EAIV1006
+  name: Is Game Started
+  type: ELVT1002
+  default:
+    value: false
+- name-code: EAIV1007
+  name: Is Game Over
+  type: ELVT1002
+  default:
+    value: false
