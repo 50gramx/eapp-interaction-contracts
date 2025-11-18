@@ -28,19 +28,14 @@
       - command: return
         value: EAIV1002
 - name-code: EALC1003
-  name: Save Player Name
+  name: Player Name Text Controller
   context:
     expects:
-      - name: name
-        type: ELVT1004
     returns:
-      type: ELVT1004
+      type: ELVT1001
     steps:
-      - command: set
-        target: EAIV1003
-        value: name
       - command: return
-        value: EAIV1003
+        value: EAIV1004
 - name-code: EALC1004
   name: Start Game
   context:
@@ -56,6 +51,15 @@
       - command: return
         value: 'true'
 - name-code: EALC1005
+  name: Guess Number Text Controller
+  context:
+    expects:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV1005
+- name-code: EALC1006
   name: Submit Guess
   context:
     expects:
@@ -66,7 +70,7 @@
     steps:
       - command: return
         value: "Guess processed"
-- name-code: EALC1006
+- name-code: EALC1007
   name: Reset Game
   context:
     expects:

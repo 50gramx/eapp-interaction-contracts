@@ -14,3 +14,11 @@
   type: ELVT1004
   default:
     value: "Player"
+- name-code: EAIV1004
+  name: Player Name Text Controller
+  type: ELVT1001
+  default:
+- name-code: EAIV1005
+  name: Guess Number Text Controller
+  type: ELVT1001
+  default:

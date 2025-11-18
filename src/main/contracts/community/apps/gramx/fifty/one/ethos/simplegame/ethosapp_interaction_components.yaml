@@ -32,7 +32,7 @@
   component:
     name-code: EIC1006
     label: Submit Guess
-    on-click: EALC1005
+    on-click: EALC1006
 - name-code: EAIC1007
   name: Game Result Label
   component:
@@ -43,4 +43,4 @@
   component:
     name-code: EIC1006
     label: Reset Game
-    on-click: EALC1006
+    on-click: EALC1007
