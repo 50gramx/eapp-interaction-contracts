@@ -8,9 +8,11 @@
     returns:
       type: ELVT1003
     steps:
-      - set: EAIV1001
-        to: score
-      - return: EAIV1001
+      - command: set
+        target: EAIV1001
+        value: score
+      - command: return
+        value: EAIV1001
 - name-code: EALC1002
   name: Increase Game Level
   context:
@@ -20,9 +22,11 @@
     returns:
       type: ELVT1003
     steps:
-      - set: EAIV1002
-        to: level
-      - return: EAIV1002
+      - command: set
+        target: EAIV1002
+        value: level
+      - command: return
+        value: EAIV1002
 - name-code: EALC1003
   name: Save Player Name
   context:
@@ -32,6 +36,48 @@
     returns:
       type: ELVT1004
     steps:
-      - set: EAIV1003
-        to: name
-      - return: EAIV1003
+      - command: set
+        target: EAIV1003
+        value: name
+      - command: return
+        value: EAIV1003
+- name-code: EALC1004
+  name: Start Game
+  context:
+    expects:
+      - name: playerName
+        type: ELVT1004
+    returns:
+      type: ELVT1002
+    steps:
+      - command: set
+        target: EAIV1003
+        value: playerName
+      - command: return
+        value: 'true'
+- name-code: EALC1005
+  name: Submit Guess
+  context:
+    expects:
+      - name: guess
+        type: ELVT1003
+    returns:
+      type: ELVT1004
+    steps:
+      - command: return
+        value: "Guess processed"
+- name-code: EALC1006
+  name: Reset Game
+  context:
+    expects:
+    returns:
+      type: ELVT1002
+    steps:
+      - command: set
+        target: EAIV1001
+        value: 0
+      - command: set
+        target: EAIV1002
+        value: 1
+      - command: return
+        value: 'true'
