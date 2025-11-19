@@ -15,7 +15,7 @@
   name: Score Display Label
   component:
     name-code: EIC1004
-    label: "Score: 0"
+    label: EAIV1001
 - name-code: EAIC1004
   name: Level Display Label
   component:
