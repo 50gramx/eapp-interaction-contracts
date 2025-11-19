@@ -6,6 +6,6 @@
 
 - name-code: EAIV1002
   name: Display Text
-  type: ELVT1001 # TextEditingController
+  type: ELVT1007 # String (was ELVT1001 Controller)
   default:
-    text: "0"
+    value: "0" # Default value for String

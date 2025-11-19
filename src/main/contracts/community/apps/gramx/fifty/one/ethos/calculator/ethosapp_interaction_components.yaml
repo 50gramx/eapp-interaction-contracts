@@ -1,48 +1,165 @@
-- name-code: EAIC1001
+# --- Display ---
+- name-code: EAIC1001 # Display Field
   name: Display Field
   component:
-    name-code: EIC1009 # TextField
-    hint-text: "Total"
-    text-controller: EALC1005 # Get Display Controller
+    name-code: EIC1020 # Typography
+    text: "EAIV1002" # Bind directly to the variable
+    variant: "displayMedium"
+    align: "right"
+    max-lines: 1
+    overflow: "ellipsis"
 
-- name-code: EAIC1002
-  name: Add One Button
+# --- Number Buttons ---
+- name-code: EAIC1002 # Button 0
+  name: Button 0
   component:
-    name-code: EIC1006 # Primary Button
-    label: "+ 1"
-    on-click: EALC1001
+    name-code: EIC1008
+    label: "0"
+    on-click: EALC1001 # Set 0
 
-- name-code: EAIC1003
-  name: Add Ten Button
+- name-code: EAIC1003 # Button 1
+  name: Button 1
   component:
-    name-code: EIC1006 # Primary Button
-    label: "+ 10"
-    on-click: EALC1002
+    name-code: EIC1008
+    label: "1"
+    on-click: EALC1002 # Set 1
 
-- name-code: EAIC1004
-  name: Subtract One Button
+- name-code: EAIC1004 # Button 2
+  name: Button 2
   component:
-    name-code: EIC1008 # Secondary Button
-    label: "- 1"
-    on-click: EALC1003
+    name-code: EIC1008
+    label: "2"
+    on-click: EALC1003 # Set 2
 
-- name-code: EAIC1005
-  name: Reset Button
+- name-code: EAIC1005 # Button 3
+  name: Button 3
   component:
-    name-code: EIC1008 # Secondary Button
-    label: "Reset"
-    on-click: EALC1004
+    name-code: EIC1008
+    label: "3"
+    on-click: EALC1004 # Set 3
 
-- name-code: EAIC1006
-  name: Spacer
+- name-code: EAIC1006 # Button 4
+  name: Button 4
   component:
-    name-code: EIC1001 # Spacer
+    name-code: EIC1008
+    label: "4"
+    on-click: EALC1005 # Set 4
 
-- name-code: EAIC1007
-  name: Button Row
+- name-code: EAIC1007 # Button 5
+  name: Button 5
+  component:
+    name-code: EIC1008
+    label: "5"
+    on-click: EALC1006 # Set 5
+
+- name-code: EAIC1008 # Button 6
+  name: Button 6
+  component:
+    name-code: EIC1008
+    label: "6"
+    on-click: EALC1007 # Set 6
+
+- name-code: EAIC1009 # Button 7
+  name: Button 7
+  component:
+    name-code: EIC1008
+    label: "7"
+    on-click: EALC1008 # Set 7
+
+- name-code: EAIC1010 # Button 8
+  name: Button 8
+  component:
+    name-code: EIC1008
+    label: "8"
+    on-click: EALC1009 # Set 8
+
+- name-code: EAIC1011 # Button 9
+  name: Button 9
+  component:
+    name-code: EIC1008
+    label: "9"
+    on-click: EALC1010 # Set 9
+
+# --- Operation Buttons ---
+- name-code: EAIC1012 # Button Clear
+  name: Button Clear
+  component:
+    name-code: EIC1006
+    label: "C"
+    on-click: EALC1011 # Clear
+
+- name-code: EAIC1013 # Button Divide
+  name: Button Divide
+  component:
+    name-code: EIC1006
+    label: "/"
+    on-click: EALC1011 # Dummy (Clear)
+
+- name-code: EAIC1014 # Button Multiply
+  name: Button Multiply
+  component:
+    name-code: EIC1006
+    label: "X"
+    on-click: EALC1011 # Dummy (Clear)
+
+- name-code: EAIC1015 # Button Subtract
+  name: Button Subtract
+  component:
+    name-code: EIC1006
+    label: "-"
+    on-click: EALC1011 # Dummy (Clear)
+
+- name-code: EAIC1016 # Button Add
+  name: Button Add
+  component:
+    name-code: EIC1006
+    label: "+"
+    on-click: EALC1011 # Dummy (Clear)
+
+- name-code: EAIC1017 # Button Equals
+  name: Button Equals
+  component:
+    name-code: EIC1006
+    label: "="
+    on-click: EALC1011 # Dummy (Clear)
+
+# --- Rows ---
+- name-code: EAIC1018 # Row 7-8-9-Div
+  name: Row 7-8-9-Div
   component:
     name-code: EIC1012 # Row
     children-components:
-      - EAIC1002 # +1
-      - EAIC1003 # +10
-      - EAIC1004 # -1
+      - EAIC1009 # 7
+      - EAIC1010 # 8
+      - EAIC1011 # 9
+      - EAIC1013 # /
+
+- name-code: EAIC1019 # Row 4-5-6-Mul
+  name: Row 4-5-6-Mul
+  component:
+    name-code: EIC1012 # Row
+    children-components:
+      - EAIC1006 # 4
+      - EAIC1007 # 5
+      - EAIC1008 # 6
+      - EAIC1014 # X
+
+- name-code: EAIC1020 # Row 1-2-3-Sub
+  name: Row 1-2-3-Sub
+  component:
+    name-code: EIC1012 # Row
+    children-components:
+      - EAIC1003 # 1
+      - EAIC1004 # 2
+      - EAIC1005 # 3
+      - EAIC1015 # -
+
+- name-code: EAIC1021 # Row 0-C-Eq-Add
+  name: Row 0-C-Eq-Add
+  component:
+    name-code: EIC1012 # Row
+    children-components:
+      - EAIC1002 # 0
+      - EAIC1012 # C
+      - EAIC1017 # =
+      - EAIC1016 # +

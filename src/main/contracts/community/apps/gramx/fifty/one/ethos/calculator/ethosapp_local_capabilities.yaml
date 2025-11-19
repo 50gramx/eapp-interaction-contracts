@@ -1,56 +1,116 @@
-- name-code: EALC1001
-  name: Add One
+# Number Capabilities
+- name-code: EALC1001 # Set 0
+  name: Set 0
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1001 # Total Score
-        value: "EAIV1001 + 1"
-      - command: set
-        target: EAIV1002 # Display Text (Controller)
-        value: EAIV1001 # Update text to match score
-
-- name-code: EALC1002
-  name: Add Ten
-  context:
-    expects: []
-    returns: {}
-    steps:
-      - command: set
-        target: EAIV1001
-        value: "EAIV1001 + 10"
-      - command: set
-        target: EAIV1002
-        value: EAIV1001
-
-- name-code: EALC1003
-  name: Subtract One
-  context:
-    expects: []
-    returns: {}
-    steps:
-      - command: set
-        target: EAIV1001
-        value: "EAIV1001 - 1"
-      - command: set
-        target: EAIV1002
-        value: EAIV1001
-
-- name-code: EALC1004
-  name: Reset
-  context:
-    expects: []
-    returns: {}
-    steps:
-      - command: set
-        target: EAIV1001
-        value: 0
       - command: set
         target: EAIV1002
         value: "0"
 
-- name-code: EALC1005
+- name-code: EALC1002 # Set 1
+  name: Set 1
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "1"
+
+- name-code: EALC1003 # Set 2
+  name: Set 2
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "2"
+
+- name-code: EALC1004 # Set 3
+  name: Set 3
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "3"
+
+- name-code: EALC1005 # Set 4
+  name: Set 4
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "4"
+
+- name-code: EALC1006 # Set 5
+  name: Set 5
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "5"
+
+- name-code: EALC1007 # Set 6
+  name: Set 6
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "6"
+
+- name-code: EALC1008 # Set 7
+  name: Set 7
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "7"
+
+- name-code: EALC1009 # Set 8
+  name: Set 8
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "8"
+
+- name-code: EALC1010 # Set 9
+  name: Set 9
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "9"
+
+- name-code: EALC1011 # Clear
+  name: Clear
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: "0"
+
+# Display Controller Capability
+- name-code: EALC1012 # Get Controller
   name: Get Display Controller
   context:
     expects: []

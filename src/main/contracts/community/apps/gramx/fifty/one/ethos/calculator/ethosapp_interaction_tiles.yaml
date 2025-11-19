@@ -6,7 +6,7 @@
     name-code: EIC1005 # Column
     children-components:
       - EAIC1001 # Display
-      - EAIC1006 # Spacer
-      - EAIC1007 # Button Row
-      - EAIC1006 # Spacer
-      - EAIC1005 # Reset Button
+      - EAIC1018 # Row 7-8-9-/
+      - EAIC1019 # Row 4-5-6-X
+      - EAIC1020 # Row 1-2-3--
+      - EAIC1021 # Row 0-C-=-+
