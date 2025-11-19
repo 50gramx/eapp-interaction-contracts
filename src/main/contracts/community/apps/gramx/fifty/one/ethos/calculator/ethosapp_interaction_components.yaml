@@ -93,35 +93,35 @@
   component:
     name-code: EIC1006
     label: "/"
-    on-click: EALC1011 # Dummy (Clear)
+    on-click: EALC1016 # Press Divide
 
 - name-code: EAIC1014 # Button Multiply
   name: Button Multiply
   component:
     name-code: EIC1006
     label: "X"
-    on-click: EALC1011 # Dummy (Clear)
+    on-click: EALC1015 # Press Multiply
 
 - name-code: EAIC1015 # Button Subtract
   name: Button Subtract
   component:
     name-code: EIC1006
     label: "-"
-    on-click: EALC1011 # Dummy (Clear)
+    on-click: EALC1014 # Press Minus
 
 - name-code: EAIC1016 # Button Add
   name: Button Add
   component:
     name-code: EIC1006
     label: "+"
-    on-click: EALC1011 # Dummy (Clear)
+    on-click: EALC1013 # Press Plus
 
 - name-code: EAIC1017 # Button Equals
   name: Button Equals
   component:
     name-code: EIC1006
     label: "="
-    on-click: EALC1011 # Dummy (Clear)
+    on-click: EALC1017 # Evaluate Expression
 
 # --- Rows ---
 - name-code: EAIC1018 # Row 7-8-9-Div

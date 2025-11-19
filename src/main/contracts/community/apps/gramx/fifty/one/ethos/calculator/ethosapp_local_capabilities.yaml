@@ -1,105 +1,217 @@
-# Number Capabilities
-- name-code: EALC1001 # Set 0
-  name: Set 0
+# Number Capabilities (Enhanced)
+- name-code: EALC1001 # Button 0
+  name: Press 0
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "0"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "0"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "0"]
 
-- name-code: EALC1002 # Set 1
-  name: Set 1
+- name-code: EALC1002 # Button 1
+  name: Press 1
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "1"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "1"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "1"]
 
-- name-code: EALC1003 # Set 2
-  name: Set 2
+- name-code: EALC1003 # Button 2
+  name: Press 2
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "2"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "2"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "2"]
 
-- name-code: EALC1004 # Set 3
-  name: Set 3
+- name-code: EALC1004 # Button 3
+  name: Press 3
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "3"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "3"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "3"]
 
-- name-code: EALC1005 # Set 4
-  name: Set 4
+- name-code: EALC1005 # Button 4
+  name: Press 4
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "4"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "4"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "4"]
 
-- name-code: EALC1006 # Set 5
-  name: Set 5
+- name-code: EALC1006 # Button 5
+  name: Press 5
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "5"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "5"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "5"]
 
-- name-code: EALC1007 # Set 6
-  name: Set 6
+- name-code: EALC1007 # Button 6
+  name: Press 6
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "6"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "6"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "6"]
 
-- name-code: EALC1008 # Set 7
-  name: Set 7
+- name-code: EALC1008 # Button 7
+  name: Press 7
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "7"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "7"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "7"]
 
-- name-code: EALC1009 # Set 8
-  name: Set 8
+- name-code: EALC1009 # Button 8
+  name: Press 8
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "8"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "8"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "8"]
 
-- name-code: EALC1010 # Set 9
-  name: Set 9
+- name-code: EALC1010 # Button 9
+  name: Press 9
   context:
     expects: []
     returns: {}
     steps:
-      - command: set
-        target: EAIV1002
-        value: "9"
+      - command: if
+        condition: [EAIV1002, equals, "0"]
+        then:
+          - command: set
+            target: EAIV1002
+            value: "9"
+        else:
+          - command: string-concat
+            target: EAIV1002
+            values: [EAIV1002, "9"]
 
-- name-code: EALC1011 # Clear
+# Operator Capabilities
+- name-code: EALC1013 # Button +
+  name: Press Plus
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: string-concat
+        target: EAIV1002
+        values: [EAIV1002, "+"]
+
+- name-code: EALC1014 # Button -
+  name: Press Minus
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: string-concat
+        target: EAIV1002
+        values: [EAIV1002, "-"]
+
+- name-code: EALC1015 # Button *
+  name: Press Multiply
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: string-concat
+        target: EAIV1002
+        values: [EAIV1002, "*"]
+
+- name-code: EALC1016 # Button /
+  name: Press Divide
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: string-concat
+        target: EAIV1002
+        values: [EAIV1002, "/"]
+
+# Control Capabilities
+- name-code: EALC1011 # Button C (Clear)
   name: Clear
   context:
     expects: []
@@ -108,6 +220,16 @@
       - command: set
         target: EAIV1002
         value: "0"
+
+- name-code: EALC1017 # Button = (Equals)
+  name: Evaluate Expression
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1002
+        value: EAIV1002  # Triggers BODMAS evaluation
 
 # Display Controller Capability
 - name-code: EALC1012 # Get Controller
