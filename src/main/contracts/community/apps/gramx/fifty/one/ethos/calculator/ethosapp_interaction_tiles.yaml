@@ -6,7 +6,8 @@
     name-code: EIC1005 # Column
     children-components:
       - EAIC1001 # Display
-      - EAIC1018 # Row 7-8-9-/
-      - EAIC1019 # Row 4-5-6-X
-      - EAIC1020 # Row 1-2-3--
-      - EAIC1021 # Row 0-C-=-+
+      - EAIC1021 # Row Top (AC, Backspace, %, /)
+      - EAIC1022 # Row 7-8-9-X
+      - EAIC1023 # Row 4-5-6-Min
+      - EAIC1024 # Row 1-2-3-Plus
+      - EAIC1025 # Row 0-.-Eq

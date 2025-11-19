@@ -85,7 +85,7 @@
   name: Button Clear
   component:
     name-code: EIC1006
-    label: "C"
+    label: EAIV1003  # Dynamic label: "AC" or "C"
     on-click: EALC1011 # Clear
 
 - name-code: EAIC1013 # Button Divide
@@ -123,43 +123,73 @@
     label: "="
     on-click: EALC1017 # Evaluate Expression
 
+- name-code: EAIC1018 # Button Decimal
+  name: Button Decimal
+  component:
+    name-code: EIC1008
+    label: "."
+    on-click: EALC1018 # Press Decimal
+
+- name-code: EAIC1019 # Button Backspace
+  name: Button Backspace
+  component:
+    name-code: EIC1008
+    label: "⌫"
+    on-click: EALC1019 # Backspace
+
+- name-code: EAIC1020 # Button Percentage
+  name: Button Percentage
+  component:
+    name-code: EIC1006
+    label: "%"
+    on-click: EALC1020 # Press Percentage
+
 # --- Rows ---
-- name-code: EAIC1018 # Row 7-8-9-Div
-  name: Row 7-8-9-Div
+- name-code: EAIC1021 # Row Top (AC, Backspace, %, /)
+  name: Row Top
+  component:
+    name-code: EIC1012 # Row
+    children-components:
+      - EAIC1012 # AC/C
+      - EAIC1019 # Backspace
+      - EAIC1020 # %
+      - EAIC1013 # /
+
+- name-code: EAIC1022 # Row 7-8-9-X
+  name: Row 7-8-9-X
   component:
     name-code: EIC1012 # Row
     children-components:
       - EAIC1009 # 7
       - EAIC1010 # 8
       - EAIC1011 # 9
-      - EAIC1013 # /
+      - EAIC1014 # X
 
-- name-code: EAIC1019 # Row 4-5-6-Mul
-  name: Row 4-5-6-Mul
+- name-code: EAIC1023 # Row 4-5-6-Min
+  name: Row 4-5-6-Min
   component:
     name-code: EIC1012 # Row
     children-components:
       - EAIC1006 # 4
       - EAIC1007 # 5
       - EAIC1008 # 6
-      - EAIC1014 # X
+      - EAIC1015 # -
 
-- name-code: EAIC1020 # Row 1-2-3-Sub
-  name: Row 1-2-3-Sub
+- name-code: EAIC1024 # Row 1-2-3-Plus
+  name: Row 1-2-3-Plus
   component:
     name-code: EIC1012 # Row
     children-components:
       - EAIC1003 # 1
       - EAIC1004 # 2
       - EAIC1005 # 3
-      - EAIC1015 # -
+      - EAIC1016 # +
 
-- name-code: EAIC1021 # Row 0-C-Eq-Add
-  name: Row 0-C-Eq-Add
+- name-code: EAIC1025 # Row 0-.-Eq
+  name: Row 0-.-Eq
   component:
     name-code: EIC1012 # Row
     children-components:
       - EAIC1002 # 0
-      - EAIC1012 # C
+      - EAIC1018 # .
       - EAIC1017 # =
-      - EAIC1016 # +
