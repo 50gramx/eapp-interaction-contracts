@@ -68,14 +68,10 @@
     expects:
       - name: guess
         type: ELVT1003
-    returns:
-      type: ELVT1004
     steps:
       - command: set
         target: EAIV1001
         value: guess
-      - command: return
-        value: "Guess processed successfully"
 - name-code: EALC1007
   name: Reset Game
   context:
