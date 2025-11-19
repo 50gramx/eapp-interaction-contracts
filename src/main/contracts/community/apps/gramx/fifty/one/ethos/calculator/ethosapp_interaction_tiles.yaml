@@ -1,0 +1,12 @@
+- name-code: EAIT1001
+  name: Calculator Tile
+  about: Main calculator interface
+  conditions: []
+  composition:
+    name-code: EIC1005 # Column
+    children-components:
+      - EAIC1001 # Display
+      - EAIC1006 # Spacer
+      - EAIC1007 # Button Row
+      - EAIC1006 # Spacer
+      - EAIC1005 # Reset Button

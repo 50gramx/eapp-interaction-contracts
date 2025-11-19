@@ -1,0 +1,61 @@
+- name-code: EALC1001
+  name: Add One
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1001 # Total Score
+        value: "EAIV1001 + 1"
+      - command: set
+        target: EAIV1002 # Display Text (Controller)
+        value: EAIV1001 # Update text to match score
+
+- name-code: EALC1002
+  name: Add Ten
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1001
+        value: "EAIV1001 + 10"
+      - command: set
+        target: EAIV1002
+        value: EAIV1001
+
+- name-code: EALC1003
+  name: Subtract One
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1001
+        value: "EAIV1001 - 1"
+      - command: set
+        target: EAIV1002
+        value: EAIV1001
+
+- name-code: EALC1004
+  name: Reset
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1001
+        value: 0
+      - command: set
+        target: EAIV1002
+        value: "0"
+
+- name-code: EALC1005
+  name: Get Display Controller
+  context:
+    expects: []
+    returns: 
+      value: EAIV1002
+    steps:
+      - command: return
+        value: EAIV1002

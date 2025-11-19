@@ -1,0 +1,6 @@
+- name-code: EAIP1001
+  name: Calculator Main Page
+  composition:
+    name-code: EIC1005 # Column
+    children-components:
+      - EAIT1001 # Calculator Tile

@@ -1,0 +1,48 @@
+- name-code: EAIC1001
+  name: Display Field
+  component:
+    name-code: EIC1009 # TextField
+    hint-text: "Total"
+    text-controller: EALC1005 # Get Display Controller
+
+- name-code: EAIC1002
+  name: Add One Button
+  component:
+    name-code: EIC1006 # Primary Button
+    label: "+ 1"
+    on-click: EALC1001
+
+- name-code: EAIC1003
+  name: Add Ten Button
+  component:
+    name-code: EIC1006 # Primary Button
+    label: "+ 10"
+    on-click: EALC1002
+
+- name-code: EAIC1004
+  name: Subtract One Button
+  component:
+    name-code: EIC1008 # Secondary Button
+    label: "- 1"
+    on-click: EALC1003
+
+- name-code: EAIC1005
+  name: Reset Button
+  component:
+    name-code: EIC1008 # Secondary Button
+    label: "Reset"
+    on-click: EALC1004
+
+- name-code: EAIC1006
+  name: Spacer
+  component:
+    name-code: EIC1001 # Spacer
+
+- name-code: EAIC1007
+  name: Button Row
+  component:
+    name-code: EIC1012 # Row
+    children-components:
+      - EAIC1002 # +1
+      - EAIC1003 # +10
+      - EAIC1004 # -1
