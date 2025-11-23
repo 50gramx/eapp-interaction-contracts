@@ -193,3 +193,58 @@
       - EAIC1002 # 0
       - EAIC1018 # .
       - EAIC1017 # =
+
+# --- New Components Examples ---
+- name-code: EAIC1026 # Example Image
+  name: Example Image
+  component:
+    name-code: EIC1021
+    src: "https://example.com/image.png"
+    width: 100.0
+    height: 100.0
+    fit: "cover"
+    radius: 8.0
+
+- name-code: EAIC1027 # Example Switch
+  name: Example Switch
+  component:
+    name-code: EIC1022
+    type: "switch"
+    value: "false"
+    label: "Enable Feature"
+    on-change: EALC1021 # Toggle Feature
+
+- name-code: EAIC1028 # Example Checkbox
+  name: Example Checkbox
+  component:
+    name-code: EIC1022
+    type: "checkbox"
+    value: "true"
+    label: "Accept Terms"
+    on-change: EALC1022 # Toggle Terms
+
+- name-code: EAIC1029 # Example Card
+  name: Example Card
+  component:
+    name-code: EIC1023
+    elevation: 4.0
+    padding: 16.0
+    child: EAIC1001 # Display Field inside Card
+
+- name-code: EAIC1030 # Example List Item
+  name: Example List Item
+  component:
+    name-code: EIC1024
+    title: "List Item Title"
+    subtitle: "List Item Subtitle"
+    leading: EAIC1027 # Switch as leading
+    trailing: EAIC1028 # Checkbox as trailing
+    on-tap: EALC1023 # Tap Item
+
+- name-code: EAIC1031 # Example Divider
+  name: Example Divider
+  component:
+    name-code: EIC1025
+    height: 16.0
+    thickness: 1.0
+    color: 0xFFE0E0E0

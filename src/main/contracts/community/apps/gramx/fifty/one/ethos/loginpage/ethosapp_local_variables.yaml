@@ -1,0 +1,15 @@
+- name_code: EAIV1001
+  name: Email Text Controller
+  type: ELVT1001
+  default:
+    value: ''
+- name_code: EAIV1002
+  name: Password Text Controller
+  type: ELVT1001
+  default:
+    value: ''
+- name_code: EAIV1003
+  name: Login Success
+  type: ELVT1002
+  default:
+    value: false

@@ -1,0 +1,7 @@
+- name_code: EALC1001
+  name: Login Capability
+  context:
+    expects: null
+    returns: null
+    steps:
+    - return: EAIV1003

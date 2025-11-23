@@ -1,0 +1,25 @@
+- name_code: EAIC1001
+  name: Tile Header
+  component: EIC1004
+  properties:
+    label: Login
+- name_code: EAIC1002
+  name: Email Field
+  component: EIC1009
+  properties:
+    hint-text: Enter your email
+    text-controller: EAIV1001
+    text-value: ''
+- name_code: EAIC1003
+  name: Password Field
+  component: EIC1009
+  properties:
+    hint-text: Enter your password
+    text-controller: EAIV1002
+    text-value: ''
+- name_code: EAIC1004
+  name: Primary Button
+  component: EIC1006
+  properties:
+    label: Login
+    on-click: EALC1001

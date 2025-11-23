@@ -9,3 +9,9 @@
   type: ELVT1007 # String (was ELVT1001 Controller)
   default:
     value: "0" # Default value for String
+
+- name-code: EAIV1003
+  name: Clear Button Label
+  type: ELVT1007 # String
+  default:
+    value: "AC" # Default to "AC" (All Clear)

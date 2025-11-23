@@ -1,0 +1,7 @@
+- number: EAIP1001
+  name: Login Page
+  composition:
+    composition: EIC1005
+    childrens-count: 1
+    children-components:
+      0: EAIT1001

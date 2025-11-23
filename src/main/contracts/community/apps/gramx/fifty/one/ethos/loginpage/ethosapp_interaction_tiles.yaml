@@ -1,0 +1,11 @@
+- name_code: EAIT1001
+  name: Login Tile
+  about: Login form
+  conditions: []
+  composition:
+    name_code: EIC1005
+    children-components:
+    - EAIC1001
+    - EAIC1002
+    - EAIC1003
+    - EAIC1004
