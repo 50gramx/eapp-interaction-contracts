@@ -1,0 +1,49 @@
+- name-code: EALC1001
+  name: Save Favorite Location
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1004
+        value: true
+
+- name-code: EALC1002
+  name: Select Location
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Share Venue
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1004
+  name: RSVP Event
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1005
+  name: Connect with Artist
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Bookmark Experience
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: list-append
+        target: EAIV1010
+        value: EAIV1008
+
+- name-code: EALC1007
+  name: Select Experience
+  context:
+    expects: []
+    returns: {}
