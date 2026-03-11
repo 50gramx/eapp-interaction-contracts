@@ -1,0 +1,47 @@
+- name-code: EALC1001
+  name: Open Game
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Invite Friends
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Join Session
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: Is In Lobby
+        value: true
+
+- name-code: EALC1004
+  name: Cancel Join
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: Is In Lobby
+        value: false
+
+- name-code: EALC1005
+  name: View Achievement Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Post Topic
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: Is Topic Posted
+        value: true

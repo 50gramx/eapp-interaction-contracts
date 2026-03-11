@@ -1,0 +1,46 @@
+- name-code: EAIT1001
+  name: Session Confirmation Tile
+  about: shown to confirm participation in the session
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1004
+      - EAIC1005
+
+- name-code: EAIT1002
+  name: Achievements Tile
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1006
+      - EAIC1008
+
+- name-code: EAIT1003
+  name: Family Games Recommended Tile
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1009
+      - EAIC1010
+
+- name-code: EAIT1004
+  name: Community Forum Tile
+  about: shows the community forum
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - Topic Creation Tile
+
+- name-code: EAIT1005
+  name: Topic Creation Tile
+  about: allows user to create a new topic
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1013
+      - EAIC1014

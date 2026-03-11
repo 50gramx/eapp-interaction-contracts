@@ -1,0 +1,48 @@
+profiles:
+  - role: Casual Gamer
+    description: An individual who enjoys gaming in their free time and seeks social interactions and fun.
+  - role: Hardcore Gamer
+    description: A dedicated gamer who invests significant time and effort into gaming and seeks competitive challenges.
+  - role: Parent
+    description: A guardian looking for safe and age-appropriate gaming options for their children.
+
+personas:
+  - name: Alex Johnson
+    description: A casual gamer who's looking for fun and engaging experiences with friends.
+    userProfileRole: Casual Gamer
+    age: 28
+    bio: Alex works as a graphic designer and enjoys gaming in the evenings and on weekends. They want an app that allows them to connect with friends and explore new games together without the pressure of high-stakes competition.
+    goals:
+      - Find new games to play with friends.
+      - Join multiplayer sessions easily.
+      - Interact with a fun community around gaming.
+    frustrations:
+      - Difficulty in finding friends online.
+      - Overwhelmed by the volume of games available.
+      - Lack of engaging social features.
+  - name: Jamie Lee
+    description: A hardcore gamer who is always on the lookout for the next big challenge.
+    userProfileRole: Hardcore Gamer
+    age: 24
+    bio: Jamie is a computer science student who dedicates most of their free time to competitive gaming. They thrive on achieving high ranks and completing difficult achievements, and they desire an app that can keep up with their pace.
+    goals:
+      - Compete in high-stakes gaming events.
+      - Track personal gaming statistics and achievements.
+      - Connect with other competitive players for team play.
+    frustrations:
+      - Current platforms lack real-time matchmaking.
+      - Inconsistent game quality and updates.
+      - Limited features for tracking achievements and gameplay.
+  - name: Sarah Thompson
+    description: A devoted parent seeking safe gaming options for her children.
+    userProfileRole: Parent
+    age: 35
+    bio: Sarah works full-time and has two children who enjoy video games. She wants to ensure that her kids have access to safe, age-appropriate content and opportunities for social interaction within the gaming community.
+    goals:
+      - Find educational and family-friendly games.
+      - Ensure a safe online environment for her kids.
+      - Connect with other parents for recommendations.
+    frustrations:
+      - Difficulty in understanding gaming ratings and content.
+      - Concern about online safety and interactions.
+      - Lack of parental controls in current apps.

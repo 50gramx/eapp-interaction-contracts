@@ -1,0 +1,43 @@
+- name-code: EAIV1001
+  name: Game Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1002
+  name: Game Description
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Game Image
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1004
+  name: Game Titles
+  type: ELVT1018
+
+- name-code: EAIV1005
+  name: Review Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1006
+  name: Review Description
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1007
+  name: Title Controller
+  type: ELVT1001
+
+- name-code: EAIV1008
+  name: Topic Title
+  type: ELVT1007
+  default:
+    value: ""

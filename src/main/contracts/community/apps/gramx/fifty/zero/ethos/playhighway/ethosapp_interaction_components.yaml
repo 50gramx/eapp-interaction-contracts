@@ -1,0 +1,106 @@
+- name-code: EAIC1001
+  name: Game List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Recommended Game Item
+
+- name-code: EAIC1002
+  name: Recommended Game Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Game Image
+    trailing: Invite Button
+    on-tap: EALC1001
+
+- name-code: EAIC1003
+  name: Invite Button
+  component:
+    name-code: EIC1006
+    label: Invite Friends
+    on-click: EALC1002
+
+- name-code: EAIC1004
+  name: Confirm Button
+  component:
+    name-code: EIC1006
+    label: Confirm
+    on-click: EALC1003
+
+- name-code: EAIC1005
+  name: Cancel Button
+  component:
+    name-code: EIC1008
+    label: Cancel
+    on-click: EALC1004
+
+- name-code: EAIC1006
+  name: Achievements Statistics
+  component:
+    name-code: EIC1023
+    child: Statistics Display
+    elevation: 2
+    padding: 16
+    on-tap: EALC1005
+
+- name-code: EAIC1007
+  name: Statistics Display
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: bodyMedium
+    align: left
+
+- name-code: EAIC1008
+  name: Game Filter
+  component:
+    name-code: EIC1013
+    list-of-entities: Game Titles
+    entity-value-property: Game Title
+
+- name-code: EAIC1009
+  name: Recommended Games List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Game Item
+
+- name-code: EAIC1010
+  name: Reviews List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Review Item
+
+- name-code: EAIC1011
+  name: Game Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    on-tap: EALC1005
+
+- name-code: EAIC1012
+  name: Review Item
+  component:
+    name-code: EIC1024
+    title: EAIV1005
+    subtitle: EAIV1006
+    on-tap: EALC1005
+
+- name-code: EAIC1013
+  name: Title Field
+  component:
+    name-code: EIC1009
+    hint-text: Enter your topic title
+    text-controller: EAIV1007
+    text-value: EAIV1008
+
+- name-code: EAIC1014
+  name: Post Button
+  component:
+    name-code: EIC1006
+    label: Post
+    on-click: EALC1006
