@@ -1,0 +1,55 @@
+- name-code: EAIV1001
+  name: Location Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1002
+  name: Location Description
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Image URL
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1004
+  name: Is Saving
+  type: ELVT1002
+  default:
+    value: "false"
+
+- name-code: EAIV1005
+  name: Filtered Venues
+  type: ELVT1018
+
+- name-code: EAIV1006
+  name: Artist Name
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1007
+  name: Artist Work
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1008
+  name: Experience Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1009
+  name: Experience Description
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1010
+  name: Filtered Experiences
+  type: ELVT1018
