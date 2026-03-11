@@ -1,0 +1,30 @@
+- name-code: EAIT1001
+  name: Quiz Result Tile
+  about: shown when the quiz is completed
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+      - EAIC1002
+      - EAIC1003
+
+- name-code: EAIT1002
+  name: Community Forum Tile
+  about: shown when user is on the community forum
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1008
+      - EAIC1009
+
+- name-code: EAIT1003
+  name: Recommended Quizzes Tile
+  about: displays recommended quizzes based on user's skill level and interests
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1010
+      - EAIC1007
