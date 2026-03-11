@@ -1,0 +1,109 @@
+- name-code: EAIV1001
+  name: Review Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1002
+  name: Review Summary
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Review Analysis Text
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1004
+  name: Commenter Name
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1005
+  name: Comment Text
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1006
+  name: Related Video Title 1
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1007
+  name: Related Video Summary 1
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1008
+  name: Related Video Title 2
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1009
+  name: Related Video Summary 2
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1010
+  name: Related Video Title 3
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1011
+  name: Related Video Summary 3
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1012
+  name: Discussion Controller
+  type: ELVT1001
+
+- name-code: EAIV1013
+  name: Discussion Content
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1014
+  name: Collab Request Controller
+  type: ELVT1001
+
+- name-code: EAIV1015
+  name: Collab Request Text
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1016
+  name: Notification
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1017
+  name: Creator Profile
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1018
+  name: Previous Work
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1019
+  name: Chat Status
+  type: ELVT1002
+  default:
+    value: "false"
