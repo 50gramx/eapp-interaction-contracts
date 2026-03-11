@@ -1,0 +1,35 @@
+- name-code: EAIV1001
+  name: Score
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1002
+  name: Feedback
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Post Content
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1004
+  name: Is Creating
+  type: ELVT1002
+  default:
+    value: "false"
+
+- name-code: EAIV1005
+  name: Quiz Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1006
+  name: Quiz Subtitle
+  type: ELVT1007
+  default:
+    value: ""
