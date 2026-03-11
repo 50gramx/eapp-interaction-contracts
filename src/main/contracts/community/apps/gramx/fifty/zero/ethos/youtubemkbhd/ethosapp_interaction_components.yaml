@@ -1,0 +1,130 @@
+- name-code: EAIC1001
+  name: Reviews List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Review Item
+
+- name-code: EAIC1002
+  name: Review Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Review Image
+    on-tap: EALC1001
+
+- name-code: EAIC1003
+  name: Review Details
+  component:
+    name-code: EIC1005
+    children-components:
+      - Review Analysis
+
+- name-code: EAIC1004
+  name: Review Analysis
+  component:
+    name-code: EIC1020
+    text: EAIV1003
+    variant: bodyMedium
+    align: left
+
+- name-code: EAIC1005
+  name: Comments Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - Comment Item
+
+- name-code: EAIC1006
+  name: Comment Item
+  component:
+    name-code: EIC1024
+    title: EAIV1004
+    subtitle: EAIV1005
+    on-tap: EALC1003
+
+- name-code: EAIC1007
+  name: Video List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Video Item
+
+- name-code: EAIC1008
+  name: Video Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    on-tap: EALC1001
+
+- name-code: EAIC1009
+  name: Trending Tech Videos
+  component:
+    name-code: EIC1026
+    children-components:
+      - Video Item 1
+      - Video Item 2
+      - Video Item 3
+
+- name-code: EAIC1010
+  name: Video Item 1
+  component:
+    name-code: EIC1024
+    title: EAIV1006
+    subtitle: EAIV1007
+    on-tap: EALC1004
+
+- name-code: EAIC1011
+  name: Video Item 2
+  component:
+    name-code: EIC1024
+    title: EAIV1008
+    subtitle: EAIV1009
+    on-tap: EALC1004
+
+- name-code: EAIC1012
+  name: Video Item 3
+  component:
+    name-code: EIC1024
+    title: EAIV1010
+    subtitle: EAIV1011
+    on-tap: EALC1004
+
+- name-code: EAIC1013
+  name: Share Button
+  component:
+    name-code: EIC1006
+    label: Share
+    on-click: EALC1005
+
+- name-code: EAIC1014
+  name: Discussion Field
+  component:
+    name-code: EIC1009
+    hint-text: Start a discussion...
+    text-controller: EAIV1012
+    text-value: EAIV1013
+
+- name-code: EAIC1015
+  name: Post Button
+  component:
+    name-code: EIC1006
+    label: Post
+    on-click: EALC1006
+
+- name-code: EAIC1016
+  name: Collaboration Request Field
+  component:
+    name-code: EIC1009
+    hint-text: Type your request
+    text-controller: EAIV1014
+    text-value: EAIV1015
+
+- name-code: EAIC1017
+  name: Send Request Button
+  component:
+    name-code: EIC1006
+    label: Send Request
+    on-click: EALC1007
