@@ -1,0 +1,45 @@
+- name-code: EALC1001
+  name: Try Another Quiz
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Start Live Quiz
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Select Beginner Trick
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1004
+  name: Select Trick Quiz
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1005
+  name: Start Quiz
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Save Progress
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1007
+  name: Open Post Form
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1004
+        value: true
