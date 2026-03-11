@@ -1,0 +1,36 @@
+- name-code: EAIT1001
+  name: Location List Tile
+  about: displays a list of unique cyberpunk locations
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+      - EAIC1004
+
+- name-code: EAIT1002
+  name: Events List Tile
+  about: displays upcoming cyberpunk events and tech launches
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1008
+      - EAIC1010
+
+- name-code: EAIT1003
+  name: Artist Profiles Tile
+  about: shows profiles of local artists
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1012
+
+- name-code: EAIT1004
+  name: Interactive Experiences List Tile
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1014
