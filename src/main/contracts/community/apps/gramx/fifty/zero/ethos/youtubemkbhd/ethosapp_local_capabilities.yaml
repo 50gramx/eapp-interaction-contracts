@@ -1,0 +1,75 @@
+- name-code: EALC1001
+  name: View Review Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Save Review
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: Saved Reviews
+        value: Review ID
+
+- name-code: EALC1003
+  name: View Comment Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1004
+  name: View Video Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1005
+  name: Share Video
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Post Discussion
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1013
+        value: EAIV1013
+
+- name-code: EALC1007
+  name: Send Collaboration Request
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1016
+        value: Request Sent
+
+- name-code: EALC1008
+  name: View Creator Profile
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1009
+  name: View Previous Work
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1010
+  name: Chat With Creator
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1019
+        value: true
