@@ -1,0 +1,48 @@
+profiles:
+  - role: Traveler
+    description: Individuals seeking unique experiences in a cyberpunk themed environment.
+  - role: City Explorer
+    description: Urban dwellers looking to discover hidden gems and new activities in their city.
+  - role: Tech Enthusiast
+    description: Individuals fascinated by technology and futuristic experiences who seek out the latest trends.
+
+personas:
+  - name: Raven Steele
+    description: A daring traveler exploring the cyberpunk underworld.
+    userProfileRole: Traveler
+    age: 27
+    bio: Raven is a freelance journalist with a passion for adventure and unique cultural experiences. She often seeks out locations that have a blend of tech and art, especially in urban environments. Her motivation lies in documenting her experiences for her blog, and she frequently travels to cities known for their cyberpunk aesthetics. Raven believes in pushing boundaries and often looks for the unconventional.
+    goals:
+      - Find the best cyberpunk-themed places to visit.
+      - Connect with local underground artists and tech enthusiasts.
+      - Document her experiences through articles and videos.
+    frustrations:
+      - Difficulty finding trustworthy sources for unique locations.
+      - Overwhelmed by tourist traps that lack authenticity.
+      - Limited connectivity in remote urban areas.
+  - name: Max Choi
+    description: A tech-savvy city explorer on the lookout for the latest trends.
+    userProfileRole: City Explorer
+    age: 32
+    bio: Max is a software developer living in a bustling metropolis. He thrives on discovering new spots to eat, socialize, or explore. He is particularly interested in places that leverage technology in creative ways, such as VR cafes or immersive art installations. Max enjoys sharing his discoveries on social media and often participates in local meetups centered around tech and innovation.
+    goals:
+      - Discover new tech-driven venues and experiences.
+      - Share discoveries and engage with a community of explorers.
+      - Find cool spots that combine food, art, and technology.
+    frustrations:
+      - Finding information on new venues that are off the beaten path.
+      - Lack of personalized recommendations tailored to his interests.
+      - Navigating urban spaces without efficient maps or guides.
+  - name: Nova Reyes
+    description: A futurist who lives and breathes technology, always on the lookout for the next big thing.
+    userProfileRole: Tech Enthusiast
+    age: 29
+    bio: Nova is an AI researcher and part-time content creator focused on emerging technologies and their applications in everyday life. She is always eager to explore how tech influences city life and seeks activities that challenge her perspectives on digital landscapes. With a vibrant online presence, she often provides insights and critiques about cyberpunk culture.
+    goals:
+      - Stay updated on the latest cyberpunk events and tech releases.
+      - Meet like-minded individuals at tech-focused gatherings.
+      - Find interactive experiences that blend technology and storytelling.
+    frustrations:
+      - Over-saturation of content that lacks depth or originality.
+      - Difficulty in finding local events that focus on emerging tech and culture.
+      - Frustrating user experiences with existing travel and discovery apps.
