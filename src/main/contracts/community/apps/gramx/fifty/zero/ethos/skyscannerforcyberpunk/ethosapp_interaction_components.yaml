@@ -1,0 +1,131 @@
+- name-code: EAIC1001
+  name: Location List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Location Item
+
+- name-code: EAIC1002
+  name: Location Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Location Image
+    on-tap: EALC1002
+
+- name-code: EAIC1003
+  name: Location Image
+  component:
+    name-code: EIC1021
+    src: Image URL
+    width: 100
+    height: 100
+    fit: cover
+    radius: 8
+
+- name-code: EAIC1004
+  name: Save Button
+  component:
+    name-code: EIC1006
+    label: Save Location
+    on-click: EALC1001
+
+- name-code: EAIC1005
+  name: Location List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Venue Image
+    trailing: Share Button
+    on-tap: EALC1002
+
+- name-code: EAIC1006
+  name: Venue Image
+  component:
+    name-code: EIC1021
+    src: Image URL
+    width: 100
+    height: 100
+    fit: cover
+    radius: 8
+
+- name-code: EAIC1007
+  name: Share Button
+  component:
+    name-code: EIC1008
+    label: Share
+    on-click: EALC1003
+
+- name-code: EAIC1008
+  name: Upcoming Events List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Event List Item
+
+- name-code: EAIC1009
+  name: Event List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Event Image
+    trailing: RSVP Button
+    on-tap: EALC1002
+
+- name-code: EAIC1010
+  name: RSVP Button
+  component:
+    name-code: EIC1006
+    label: RSVP
+    on-click: EALC1004
+
+- name-code: EAIC1011
+  name: Event Image
+  component:
+    name-code: EIC1021
+    src: Image URL
+    width: 100px
+    height: 100px
+    fit: cover
+    radius: 8px
+
+- name-code: EAIC1012
+  name: Artist List View
+  component:
+    name-code: EIC1026
+    children-components:
+      - Artist List Item
+
+- name-code: EAIC1013
+  name: Artist List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1006
+    subtitle: EAIV1007
+    on-tap: EALC1005
+
+- name-code: EAIC1014
+  name: Experience List View
+  component:
+    name-code: EIC1026
+    children-components:
+      - Experience List Item
+
+- name-code: EAIC1015
+  name: Experience List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1008
+    subtitle: EAIV1009
+    leading: Bookmark Button
+    on-tap: EALC1007
+
+- name-code: EAIC1016
+  name: Bookmark Button
+  component:
+    name-code: EIC1006
+    label: Bookmark
+    on-click: EALC1006
