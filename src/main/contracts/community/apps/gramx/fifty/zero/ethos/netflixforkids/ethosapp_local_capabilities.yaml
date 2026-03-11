@@ -1,0 +1,58 @@
+- name-code: EALC1001
+  name: Perform Search
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Show Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Add Show to Watchlist
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: list-append
+        target: EAIV1006
+        value: EAIV1003
+      - command: set
+        target: EAIV1005
+        value: true
+
+- name-code: EALC1004
+  name: Show Confirmation Message
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: if
+        condition: [EAIV1005, equals, true]
+        then:
+        - command: set
+          target: Confirmation Message
+          value: 'Show added to Watchlist'
+        else:
+
+- name-code: EALC1005
+  name: Save Screen Time
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1009
+        value: Screen time limit is set to 1 hour
+
+- name-code: EALC1006
+  name: Save Questions
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: list-append
+        target: EAIV1006
+        value: EAIV1010

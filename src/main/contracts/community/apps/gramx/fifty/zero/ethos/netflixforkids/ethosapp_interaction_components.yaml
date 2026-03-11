@@ -1,0 +1,97 @@
+- name-code: EAIC1001
+  name: Search Bar
+  component:
+    name-code: EIC1009
+    hint-text: Enter search term
+    text-controller: EAIV1001
+    text-value: EAIV1002
+
+- name-code: EAIC1002
+  name: Search Button
+  component:
+    name-code: EIC1006
+    label: Search
+    on-click: EALC1001
+
+- name-code: EAIC1003
+  name: Shows List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Show Item
+
+- name-code: EAIC1004
+  name: Show Item
+  component:
+    name-code: EIC1024
+    title: EAIV1003
+    subtitle: EAIV1004
+    leading: 
+    trailing: 
+    on-tap: EALC1002
+
+- name-code: EAIC1005
+  name: Add to Watchlist Button
+  component:
+    name-code: EIC1006
+    label: Add to Watchlist
+    on-click: EALC1003
+
+- name-code: EAIC1006
+  name: Confirmation Message
+  component:
+    name-code: EIC1020
+    text: 'Show added to Watchlist'
+    variant: bodyMedium
+    align: center
+
+- name-code: EAIC1007
+  name: Recommended Shows List
+  component:
+    name-code: EIC1026
+    children-components:
+      - EAIC1004
+
+- name-code: EAIC1008
+  name: Watch Now Button
+  component:
+    name-code: EIC1006
+    label: Watch Now
+    on-click: EALC1003
+
+- name-code: EAIC1009
+  name: Screen Time Field
+  component:
+    name-code: EIC1009
+    hint-text: Enter screen time limit
+    text-controller: EAIV1007
+    text-value: EAIV1008
+
+- name-code: EAIC1010
+  name: Save Button
+  component:
+    name-code: EIC1006
+    label: Save
+    on-click: EALC1005
+
+- name-code: EAIC1011
+  name: Questions List
+  component:
+    name-code: EIC1026
+    children-components:
+      - List Item
+
+- name-code: EAIC1012
+  name: List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1010
+    subtitle: EAIV1011
+    on-tap: EALC1006
+
+- name-code: EAIC1013
+  name: Save Questions Button
+  component:
+    name-code: EIC1006
+    label: Save Questions
+    on-click: EALC1006

@@ -1,0 +1,12 @@
+- name-code: EAIP1001
+  name: Main Page
+
+- name-code: EAIP1002
+  name: Settings Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT1001
+
+- name-code: EAIP1003
+  name: Details Page

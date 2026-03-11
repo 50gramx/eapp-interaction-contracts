@@ -1,0 +1,59 @@
+- name-code: EAIV1001
+  name: Search Controller
+  type: ELVT1001
+
+- name-code: EAIV1002
+  name: Search Term
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Show Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1004
+  name: Age Label
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1005
+  name: Is Show Added
+  type: ELVT1002
+  default:
+    value: "false"
+
+- name-code: EAIV1006
+  name: Watchlist
+  type: ELVT1018
+
+- name-code: EAIV1007
+  name: Screen Time Controller
+  type: ELVT1001
+
+- name-code: EAIV1008
+  name: Screen Time Limit
+  type: ELVT1007
+  default:
+    value: "1 hour"
+
+- name-code: EAIV1009
+  name: Confirmation Message
+  type: ELVT1007
+  default:
+    value: "Screen time limit is set to 1 hour"
+
+- name-code: EAIV1010
+  name: Question Title
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1011
+  name: Question Description
+  type: ELVT1007
+  default:
+    value: ""

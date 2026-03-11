@@ -1,0 +1,9 @@
+- name-code: EAIT1001
+  name: Screen Time Limit Tile
+  about: always visible on settings
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1009
+      - EAIC1010

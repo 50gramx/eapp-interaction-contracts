@@ -1,0 +1,48 @@
+profiles:
+  - role: Parents
+    description: Adults responsible for children's entertainment and education
+  - role: Teachers
+    description: Educators looking for engaging content for kids
+  - role: Children
+    description: Kids looking for age-appropriate entertainment
+
+personas:
+  - name: Jessica Thompson
+    description: A tech-savvy parent who is focused on providing quality entertainment for her children.
+    userProfileRole: Parents
+    age: 34
+    bio: Jessica is a marketing manager with two kids aged 6 and 8. She values educational content and believes that screen time should also contribute to her children's learning. She is constantly searching for engaging shows that align with her parenting values.
+    goals:
+      - Find high-quality, educational content for her kids
+      - Limit screen time effectively while keeping her kids entertained
+      - Ensure the content is suitable for both age groups
+    frustrations:
+      - Difficulty finding age-appropriate content that is also educational
+      - Concerns about inappropriate content on mainstream platforms
+      - Frustration with lengthy searches to find suitable shows
+  - name: Mike Anderson
+    description: A primary school teacher looking for resourceful tools to engage his students.
+    userProfileRole: Teachers
+    age: 40
+    bio: Mike teaches 4th grade and is passionate about integrating technology into his classroom to make learning fun. He seeks visually appealing and educational shows that can be used to supplement his lessons in a way that keeps kids interested.
+    goals:
+      - Find content that supports his lesson plans
+      - Encourage interactive learning through engaging videos
+      - Facilitate discussions with his students based on the content
+    frustrations:
+      - Limited access to content tailored for educational purposes
+      - Difficulty navigating existing platforms for suitable shows
+      - Not enough filtering options for curriculum-related content
+  - name: Liam Rodriguez
+    description: A curious 7-year-old who enjoys adventure and learning.
+    userProfileRole: Children
+    age: 7
+    bio: Liam loves exploring new worlds through animated shows and interactive stories. He's always looking for fun yet educational content that can fuel his imagination and curiosity about science and nature.
+    goals:
+      - Discover new shows that combine adventure and learning
+      - Watch his favorite characters in new stories
+      - Share recommendations with friends
+    frustrations:
+      - Being unable to find fresh content easily
+      - Watching shows that end up boring or too simple
+      - Navigating apps designed for adults that aren't user-friendly for kids
