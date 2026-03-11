@@ -1,0 +1,81 @@
+- name-code: EAIC1001
+  name: Score Display
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: headlineMedium
+    align: center
+
+- name-code: EAIC1002
+  name: Feedback Display
+  component:
+    name-code: EIC1020
+    text: EAIV1002
+    variant: bodyMedium
+    align: left
+
+- name-code: EAIC1003
+  name: Try Another Quiz Button
+  component:
+    name-code: EIC1006
+    label: Try Another Quiz
+    on-click: EALC1001
+
+- name-code: EAIC1004
+  name: Live Scenario Quiz Button
+  component:
+    name-code: EIC1006
+    label: Start Quiz
+    on-click: EALC1002
+
+- name-code: EAIC1005
+  name: Beginner Tricks Section
+  component:
+    name-code: EIC1023
+    child: Beginner Tricks Button
+    elevation: 2
+    padding: 10
+    on-tap: EALC1003
+
+- name-code: EAIC1006
+  name: Beginner Tricks Button
+  component:
+    name-code: EIC1006
+    label: Learn a Trick
+    on-click: EALC1004
+
+- name-code: EAIC1007
+  name: Start Quiz Button
+  component:
+    name-code: EIC1006
+    label: Start Quiz
+    on-click: EALC1005
+
+- name-code: EAIC1008
+  name: Post List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Post Item
+
+- name-code: EAIC1009
+  name: Create Post Button
+  component:
+    name-code: EIC1006
+    label: Create Post
+    on-click: EALC1007
+
+- name-code: EAIC1010
+  name: Quiz List View
+  component:
+    name-code: EIC1026
+    children-components:
+      - Quiz List Item
+
+- name-code: EAIC1011
+  name: Quiz List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1005
+    subtitle: EAIV1006
+    on-tap: EALC1005
