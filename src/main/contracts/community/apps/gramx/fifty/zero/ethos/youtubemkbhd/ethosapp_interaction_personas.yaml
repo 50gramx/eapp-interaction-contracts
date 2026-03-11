@@ -1,0 +1,51 @@
+profiles:
+  - role: Tech Enthusiast
+    description: Individuals who are passionate about the latest technology, gadgets, and reviews. They follow influencers and seek in-depth knowledge about new products.
+  - role: Content Creator
+    description: People who create video content related to technology. They seek inspiration from other creators and look for tools to improve their own content creation.
+  - role: Casual Viewer
+    description: Users who enjoy watching technology-related videos but do not necessarily create content themselves. They appreciate entertaining and informative videos about the latest trends.
+
+personas:
+  - name: Alex Thompson
+    description: A dedicated tech enthusiast who follows the latest gadget releases and reviews religiously.
+    userProfileRole: Tech Enthusiast
+    age: 27
+    bio: Alex has always been fascinated by technology since childhood. He works in IT and spends his free time engrossed in tech blogs and YouTube channels. His motivation is to stay updated on the latest technology and understand the nuances that come with new devices.
+    goals:
+      - Stay updated with the latest tech reviews and comparisons
+      - Engage with a community of fellow tech enthusiasts
+      - Find reliable reviews before making purchasing decisions
+      - Watch in-depth analysis of products and trends
+    frustrations:
+      - Difficulty finding trustworthy reviews amidst the noise
+      - Overwhelmed by too much information in mainstream tech channels
+      - Inconsistent video quality and depth of content
+  - name: Samantha Lee
+    description: An aspiring content creator looking to breakthrough in the tech review space.
+    userProfileRole: Content Creator
+    age: 24
+    bio: Samantha is a recent college graduate in media studies who discovered her passion for tech while working on a project. She aims to start her own tech review channel and seeks inspiration from established creators. Her motivation is to carve out her niche in the competitive landscape of tech content.
+    goals:
+      - Gain inspiration from successful tech reviewers
+      - Learn about the latest trends and products to review
+      - Network with other content creators for collaboration
+      - Find tools and resources for better video production
+    frustrations:
+      - Feeling lost on how to establish herself in the content creation space
+      - Lack of insights on best-selling tech products for reviews
+      - Limited access to a community for feedback and support
+  - name: John Patel
+    description: A casual viewer who enjoys watching entertaining tech videos during his downtime.
+    userProfileRole: Casual Viewer
+    age: 35
+    bio: John works in sales and leads a busy lifestyle. He enjoys watching technology content as a way to unwind and learn about the latest innovations. He has a broad interest in tech but isn’t a hardcore enthusiast.
+    goals:
+      - Enjoy entertaining content related to tech products
+      - Discover new gadgets that can improve daily life
+      - Find easy-to-understand explanations of complex technologies
+      - Gain insights without diving too deep into technical jargon
+    frustrations:
+      - Finding content that is both informative and engaging
+      - Overwhelmed by technical terms he doesn’t understand
+      - Difficulty locating content that matches his casual interest level
