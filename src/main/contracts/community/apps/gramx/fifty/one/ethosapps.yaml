@@ -15,3 +15,7 @@
 - organisation: ethos
   apps:
     - mentalistquiz
+
+- organisation: ethos
+  apps:
+    - netflixforkids
