@@ -1,0 +1,38 @@
+- name-code: EAIT1001
+  name: Latest Reviews Tile
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+      - EAIC1003
+      - EAIC1005
+
+- name-code: EAIT1002
+  name: Popular Tech Reviews Tile
+  about: shows popular tech reviews
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1007
+
+- name-code: EAIT1003
+  name: Community Forum Tile
+  about: shown when user is creating a discussion
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1014
+      - EAIC1015
+
+- name-code: EAIT1004
+  name: Creator Collab Tile
+  about: shown for collaboration requests
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1016
+      - EAIC1017
