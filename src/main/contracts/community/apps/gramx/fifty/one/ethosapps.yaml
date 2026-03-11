@@ -19,3 +19,7 @@
 - organisation: ethos
   apps:
     - netflixforkids
+
+- organisation: ethos
+  apps:
+    - playhighway
