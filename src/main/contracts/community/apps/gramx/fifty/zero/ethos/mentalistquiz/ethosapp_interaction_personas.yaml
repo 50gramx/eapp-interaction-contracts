@@ -1,0 +1,48 @@
+profiles:
+  - role: Mentalism Enthusiast
+    description: Individuals who are passionate about mentalism and want to improve their skills.
+  - role: Professional Mentalist
+    description: Practitioners who perform mentalism professionally and seek new techniques and quizzes to challenge themselves.
+  - role: Mentalism Hobbyist
+    description: Casual users who enjoy mentalism as a fun hobby and use the app for entertainment and learning.
+
+personas:
+  - name: Alex Carter
+    description: A dedicated mentalist enthusiast eager to refine their skills.
+    userProfileRole: Mentalism Enthusiast
+    age: 28
+    bio: Alex has been captivated by the art of mentalism since childhood. With a background in psychology, they are motivated by a desire to understand the human mind and enhance their skills in reading others. Alex engages in mentalism not only as a hobby but as a way to connect with people.
+    goals:
+      - Improve mentalism techniques through regular practice.
+      - Connect with other mentalism enthusiasts.
+      - Learn about the history of mentalism and famous mentalists.
+    frustrations:
+      - Difficulty finding resources to practice mentalism skills.
+      - Limited opportunities to connect with local mentalism groups.
+      - Struggling to gauge personal progress without feedback.
+  - name: Jamie Lee
+    description: A professional mentalist looking to stay sharp and innovate.
+    userProfileRole: Professional Mentalist
+    age: 35
+    bio: Jamie has been performing mentalism for over a decade and is known for their unique style that combines storytelling with psychological tricks. They are always on the lookout for new techniques and quizzes that can challenge their understanding and enhance their performance.
+    goals:
+      - Discover new mentalism techniques.
+      - Challenge themselves with quizzes that simulate live scenarios.
+      - Network with other professionals in the mentalism community.
+    frustrations:
+      - Finding high-quality, relevant materials to train with.
+      - Difficulty in sourcing diverse quiz content.
+      - Balancing performance schedules with practice time.
+  - name: Chris Thompson
+    description: A casual mentalism hobbyist enjoying the thrill of learning new tricks.
+    userProfileRole: Mentalism Hobbyist
+    age: 22
+    bio: Chris stumbled upon mentalism while searching for a creative outlet. They enjoy the process of learning and performing simple tricks for friends. Their motivation stems from a desire to entertain and amaze others without the pressure of performing professionally.
+    goals:
+      - Learn beginner mentalism tricks and techniques.
+      - Practice quizzes for fun and skill development.
+      - Impress friends with newfound mentalism skills.
+    frustrations:
+      - Overwhelmed by the amount of information available.
+      - Difficulty finding beginner-friendly quizzes and resources.
+      - Limited access to community support for novice mentalists.
