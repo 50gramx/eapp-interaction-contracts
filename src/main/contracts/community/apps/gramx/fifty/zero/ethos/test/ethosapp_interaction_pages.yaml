@@ -1,0 +1,8 @@
+- name-code: EAIP1001
+  name: Main Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT1001
+      - EAIT1002
+      - EAIT1003

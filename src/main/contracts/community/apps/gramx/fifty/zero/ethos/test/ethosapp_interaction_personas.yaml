@@ -1,0 +1,46 @@
+profiles:
+  - role: Unskilled Labor Provider
+    description: Individuals looking to offer their labor for various tasks or jobs.
+  - role: Task Requester
+    description: Individuals needing assistance with simple tasks or jobs that require unskilled labor.
+
+personas:
+  - name: Ramesh Kumar
+    description: A part-time labor provider looking for opportunities to earn extra income.
+    userProfileRole: Unskilled Labor Provider
+    age: 28
+    bio: Ramesh is a construction worker who often has free time on weekends and evenings. He wants to utilize that time effectively to earn additional income for his family. He values flexibility and simplicity in job opportunities.
+    goals:
+      - Find quick and flexible labor opportunities in my local area.
+      - Increase my overall monthly income without a rigid schedule.
+      - Build a network of reliable task requesters for consistent work.
+    frustrations:
+      - Struggling to find trustworthy employers who pay fairly.
+      - Experiencing long gaps between available jobs.
+      - Navigating complicated job applications or platforms.
+  - name: Anita Sharma
+    description: A busy professional seeking help with household tasks.
+    userProfileRole: Task Requester
+    age: 35
+    bio: Anita works full-time in a corporate setting and has a hectic schedule. She often finds it challenging to manage household chores and smaller tasks. She is looking for reliable help to ease her burden.
+    goals:
+      - Quickly find someone to help with home cleaning and maintenance.
+      - Ensure the labor provided is reliable and reasonably priced.
+      - Utilize the app to schedule tasks around my busy work hours.
+    frustrations:
+      - Difficulty in finding trustworthy individuals for household jobs.
+      - Previous experiences of unfulfilled commitments from hired help.
+      - Dealing with high costs associated with professional services.
+  - name: Rajesh Patel
+    description: A retiree wanting to supplement his pension through part-time work.
+    userProfileRole: Unskilled Labor Provider
+    age: 62
+    bio: Rajesh recently retired and is looking for ways to stay active and earn some extra money. He has experience in various manual tasks and enjoys engaging with the community.
+    goals:
+      - Find part-time, flexible work opportunities that can fit around my retirement schedule.
+      - Stay socially active by connecting with different people through work.
+      - Make sure any work I do is physically manageable and not overly demanding.
+    frustrations:
+      - Limited access to job opportunities specifically for older workers.
+      - Concerns about the fairness of payment and treatment in the labor field.
+      - Difficulty in using technology to access job platforms effectively.

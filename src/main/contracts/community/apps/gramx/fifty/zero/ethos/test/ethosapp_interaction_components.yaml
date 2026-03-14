@@ -1,0 +1,132 @@
+- name-code: EAIC1001
+  name: Search Opportunities Button
+  component:
+    name-code: EIC1006
+    label: Search Opportunities
+    on-click: EALC1001
+
+- name-code: EAIC1002
+  name: Opportunities List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Task List Item
+
+- name-code: EAIC1003
+  name: Task List Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    leading: Task Timing
+    trailing: Task Pay
+    on-tap: EALC1002
+
+- name-code: EAIC1004
+  name: Request Help Button
+  component:
+    name-code: EIC1006
+    label: Request Help
+    on-click: EALC1003
+
+- name-code: EAIC1005
+  name: Help Type Dropdown
+  component:
+    name-code: EIC1013
+    list-of-entities: Help Type List
+    entity-value-property: helpType
+
+- name-code: EAIC1006
+  name: Timing Dropdown
+  component:
+    name-code: EIC1013
+    list-of-entities: Timing List
+    entity-value-property: timing
+
+- name-code: EAIC1007
+  name: Submit Button
+  component:
+    name-code: EIC1006
+    label: Submit Request
+    on-click: EALC1004
+
+- name-code: EAIC1008
+  name: Opportunity List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Opportunity Item
+
+- name-code: EAIC1009
+  name: Opportunity Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    trailing: Apply Button
+    on-tap: EALC1003
+
+- name-code: EAIC1010
+  name: Apply Button
+  component:
+    name-code: EIC1006
+    label: Apply
+    on-click: EALC1002
+
+- name-code: EAIC1011
+  name: Average Rating
+  component:
+    name-code: EIC1020
+    text: EAIV1009
+    variant: bodyLarge
+    align: center
+
+- name-code: EAIC1012
+  name: Comments List
+  component:
+    name-code: EIC1026
+    children-components:
+      - Comment Item
+
+- name-code: EAIC1013
+  name: Comment Item
+  component:
+    name-code: EIC1024
+    title: EAIV1010
+    subtitle: EAIV1011
+    leading: Profile Picture
+    trailing: Date of Comment
+    on-tap: EALC1005
+
+- name-code: EAIC1014
+  name: Profile Picture
+  component:
+    name-code: EIC1021
+    src: Profile Picture URL
+    width: 50
+    height: 50
+    fit: cover
+    radius: 25
+
+- name-code: EAIC1015
+  name: Date of Comment
+  component:
+    name-code: EIC1020
+    text: EAIV1013
+    variant: bodySmall
+    align: right
+
+- name-code: EAIC1016
+  name: Message Button
+  component:
+    name-code: EIC1006
+    label: Message
+    on-click: EALC1006
+
+- name-code: EAIC1017
+  name: Conversation Thread
+  component:
+    name-code: EIC1024
+    title: EAIV1014
+    subtitle: EAIV1015
+    on-tap: EALC1007

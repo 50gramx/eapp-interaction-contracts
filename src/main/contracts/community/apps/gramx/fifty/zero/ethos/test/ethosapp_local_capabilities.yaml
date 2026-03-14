@@ -1,0 +1,53 @@
+- name-code: EALC1001
+  name: Filter Opportunities
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Apply for Task
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Open Help Request Form
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1007
+        value: Request Form Opened
+
+- name-code: EALC1004
+  name: Submit Help Request
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1007
+        value: Request Submitted
+
+- name-code: EALC1005
+  name: View Comment Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Open Message Form
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1007
+        value: true
+
+- name-code: EALC1007
+  name: View Conversation
+  context:
+    expects: []
+    returns: {}
