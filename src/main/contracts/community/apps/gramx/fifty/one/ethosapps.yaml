@@ -23,3 +23,7 @@
 - organisation: ethos
   apps:
     - playhighway
+
+- organisation: ethos
+  apps:
+    - test
