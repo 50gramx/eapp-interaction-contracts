@@ -1,0 +1,91 @@
+- name-code: EAIC1001
+  name: New Features List
+  component:
+    name-code: EIC1026
+    children-components:
+      - New Feature Item
+
+- name-code: EAIC1002
+  name: New Feature Item
+  component:
+    name-code: EIC1024
+    title: EAIV1001
+    subtitle: EAIV1002
+    on-tap: EALC1001
+
+- name-code: EAIC1003
+  name: Leaderboard Button
+  component:
+    name-code: EIC1006
+    label: Leaderboard
+    on-click: EALC1001
+
+- name-code: EAIC1004
+  name: Ranking Display
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: bodyLarge
+    align: center
+
+- name-code: EAIC1005
+  name: Friends Scores Display
+  component:
+    name-code: EIC1026
+    children-components:
+      - Friend Score Item
+
+- name-code: EAIC1006
+  name: Friends Icon
+  component:
+    name-code: EIC1023
+    child: Invite Friends Button
+    elevation: 2
+    padding: 10
+    on-tap: EALC1002
+
+- name-code: EAIC1007
+  name: Invite Friends Button
+  component:
+    name-code: EIC1006
+    label: Invite
+    on-click: EALC1003
+
+- name-code: EAIC1008
+  name: Reward Message
+  component:
+    name-code: EIC1020
+    text: EAIV1002
+    variant: bodyMedium
+    align: center
+
+- name-code: EAIC1009
+  name: Close Button
+  component:
+    name-code: EIC1006
+    label: Close
+    on-click: EALC1004
+
+- name-code: EAIC1010
+  name: Facebook Option
+  component:
+    name-code: EIC1024
+    title: Share on Facebook
+    subtitle: Post your achievement on Facebook
+    on-tap: EALC1005
+
+- name-code: EAIC1011
+  name: Twitter Option
+  component:
+    name-code: EIC1024
+    title: Share on Twitter
+    subtitle: Tweet your achievement
+    on-tap: EALC1006
+
+- name-code: EAIC1012
+  name: Instagram Option
+  component:
+    name-code: EIC1024
+    title: Share on Instagram
+    subtitle: Post your achievement on Instagram
+    on-tap: EALC1007

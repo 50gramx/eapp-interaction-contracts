@@ -1,0 +1,41 @@
+- name-code: EALC1001
+  name: View Feature Details
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Invite Friends
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1003
+  name: Select Friends
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1004
+  name: Close Reward Notification
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1005
+  name: Share on Facebook
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1006
+  name: Share on Twitter
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1007
+  name: Share on Instagram
+  context:
+    expects: []
+    returns: {}

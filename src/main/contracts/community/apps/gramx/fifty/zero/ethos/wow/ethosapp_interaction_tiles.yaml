@@ -1,0 +1,29 @@
+- name-code: EAIT1001
+  name: New Features Tile
+  about: shown when user taps on 'New Features'
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+
+- name-code: EAIT1002
+  name: Reward Notification Tile
+  about: shown when a user receives an in-game reward
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1008
+      - EAIC1009
+
+- name-code: EAIT1003
+  name: Share Options Tile
+  about: shown when user taps on the 'Share Achievement' button
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1010
+      - EAIC1011
+      - EAIC1012

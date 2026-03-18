@@ -1,0 +1,48 @@
+profiles:
+  - role: Casual Gamer
+    description: Individuals who play games for fun and entertainment in their leisure time.
+  - role: Competitive Gamer
+    description: Gamers who focus on high scores and achievements, often looking for challenges.
+  - role: Social Gamer
+    description: Users who engage with games primarily for social interaction with friends.
+
+personas:
+  - name: Emily Johnson
+    description: A casual gamer looking for a fun and light-hearted gaming experience.
+    userProfileRole: Casual Gamer
+    age: 28
+    bio: Emily is a marketing professional who enjoys unwinding after work with mobile games. She seeks games that are easy to play and donât require extensive commitment. Her primary motivation is entertainment and relaxation.
+    goals:
+      - Find a game that provides quick entertainment
+      - Engage in casual play during breaks
+      - Discover new game features and updates
+    frustrations:
+      - Too complex gameplay mechanics
+      - Games that require too much time investment
+      - Frequent ads disrupting the gaming experience
+  - name: Mark Chen
+    description: A competitive gamer who thrives on challenges and improving scores.
+    userProfileRole: Competitive Gamer
+    age: 25
+    bio: Mark is a software engineer passionate about gaming. He actively seeks out games with leaderboards and achievements to challenge himself. He enjoys improving his skills and ranking among friends.
+    goals:
+      - Achieve high scores and climb leaderboards
+      - Master all game levels
+      - Earn in-game rewards and recognition
+    frustrations:
+      - Lack of engaging competitive features
+      - Difficulty in finding equally skilled opponents
+      - Slow updates leading to stagnant gameplay
+  - name: Samantha Lopez
+    description: A social gamer who enjoys connecting with friends through gaming.
+    userProfileRole: Social Gamer
+    age: 32
+    bio: Samantha works as a teacher and uses gaming as a way to bond with her friends. She enjoys games that allow for cooperative play and social interaction, often inviting friends to join her during gaming sessions.
+    goals:
+      - Connect and play with friends
+      - Participate in social events within the game
+      - Share progress and achievements on social media
+    frustrations:
+      - Limited social features
+      - Difficulty in coordinating playtime with friends
+      - Games that don't encourage social interactions
