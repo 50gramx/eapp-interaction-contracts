@@ -27,3 +27,7 @@
 - organisation: ethos
   apps:
     - test
+
+- organisation: ethos
+  apps:
+    - wow
