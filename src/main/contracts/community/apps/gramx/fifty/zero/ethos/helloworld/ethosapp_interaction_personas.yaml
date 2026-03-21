@@ -1,0 +1,48 @@
+profiles:
+  - role: Casual User
+    description: Individuals looking for simple and straightforward digital experiences.
+  - role: Tech Enthusiast
+    description: People who enjoy exploring new apps and technology features, valuing minimalism.
+  - role: Accessibility Advocate
+    description: Users who focus on accessible applications that help them or others in specific needs.
+
+personas:
+  - name: Alex Johnson
+    description: A busy professional who appreciates simplicity in digital interactions.
+    userProfileRole: Casual User
+    age: 28
+    bio: Alex is a marketing manager who juggles multiple tasks daily. With a busy schedule, he prefers apps that don’t require much time or complexity. He finds joy in quick and easy solutions that reduce stress.
+    goals:
+      - Access a quick greeting for motivation.
+      - Enjoy a distraction-free digital experience.
+      - Share the app with friends for fun.
+    frustrations:
+      - Overly complicated apps with too many features.
+      - Time wasted navigating through unnecessary content.
+      - Noise from unnecessary notifications.
+  - name: Linda Carter
+    description: A tech-savvy individual who loves minimalistic designs and functionalities.
+    userProfileRole: Tech Enthusiast
+    age: 25
+    bio: Linda is a software developer who enjoys testing new apps and designs. She has a keen eye for clean interfaces and values apps that are straightforward and focus on core functionalities.
+    goals:
+      - Explore the app for its simplicity.
+      - Use it as a fun project for learning.
+      - Share insights with the developer community.
+    frustrations:
+      - Apps that are cluttered and hard to navigate.
+      - Frequent updates that change the user experience.
+      - Lack of customization options.
+  - name: Tom Smith
+    description: An accessibility advocate aiming to use tech to help others.
+    userProfileRole: Accessibility Advocate
+    age: 35
+    bio: Tom works at a non-profit organization focused on supporting individuals with disabilities. He frequently seeks out apps that prioritize accessibility, helping his colleagues share tools that enhance user experiences for everyone.
+    goals:
+      - Identify accessible apps for casual digital interactions.
+      - Promote tools that help the broader community.
+      - Assess the app's usability for people with various needs.
+    frustrations:
+      - Applications that neglect accessibility standards.
+      - Limited resources informing about accessible tech.
+      - Difficulty evaluating usability for diverse audiences.

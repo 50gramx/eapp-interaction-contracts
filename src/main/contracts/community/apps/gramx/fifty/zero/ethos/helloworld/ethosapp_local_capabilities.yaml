@@ -1,0 +1,11 @@
+- name-code: EALC1001
+  name: Navigate To Next
+  context:
+    expects: []
+    returns: {}
+
+- name-code: EALC1002
+  name: Navigate To Other
+  context:
+    expects: []
+    returns: {}

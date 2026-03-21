@@ -1,0 +1,37 @@
+- name-code: EAIC1001
+  name: Greeting Text
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: headlineLarge
+    align: center
+
+- name-code: EAIC1002
+  name: Greeting Message
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: headlineMedium
+    align: center
+
+- name-code: EAIC1003
+  name: Navigation Elements
+  component:
+    name-code: EIC1005
+    children-components:
+      - Navigation Button
+      - Other Navigation Element
+
+- name-code: EAIC1004
+  name: Navigation Button
+  component:
+    name-code: EIC1006
+    label: Navigate
+    on-click: EALC1001
+
+- name-code: EAIC1005
+  name: Other Navigation Element
+  component:
+    name-code: EIC1006
+    label: Other Navigate
+    on-click: EALC1002
