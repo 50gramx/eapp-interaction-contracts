@@ -1,0 +1,8 @@
+- name-code: EAIT1001
+  name: Greeting Tile
+  about: always visible to display the greeting message
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001

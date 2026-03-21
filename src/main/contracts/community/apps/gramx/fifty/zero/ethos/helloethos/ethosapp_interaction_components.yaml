@@ -1,0 +1,7 @@
+- name-code: EAIC1001
+  name: Greeting Text
+  component:
+    name-code: EIC1020
+    text: EAIV1001
+    variant: headlineLarge
+    align: center

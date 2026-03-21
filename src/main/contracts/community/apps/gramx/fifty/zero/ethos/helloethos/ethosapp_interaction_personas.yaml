@@ -1,0 +1,48 @@
+profiles:
+  - role: Casual User
+    description: An individual who seeks simplicity and minimal distractions in their technology.
+  - role: Tech Enthusiast
+    description: A person who enjoys exploring unique and straightforward applications.
+  - role: Professional Developer
+    description: A software developer looking for simple test cases or inspirational concepts.
+
+personas:
+  - name: Alice Johnson
+    description: A busy professional who prefers to keep things simple and straightforward.
+    userProfileRole: Casual User
+    age: 35
+    bio: Alice is a marketing manager who often feels overwhelmed by complex apps and tools. She values efficiency and prefers applications that help her focus on what matters without unnecessary features. Alice often turns to minimalistic apps that allow her to quickly access information without distractions.
+    goals:
+      - Quickly view a simple greeting
+      - Find inspiration in minimalism
+      - Enjoy a distraction-free experience
+    frustrations:
+      - Too many features in most apps
+      - Constant notifications that interrupt her flow
+      - Complicated user interfaces
+  - name: Tom Reed
+    description: A tech enthusiast who enjoys discovering quirky and unique applications.
+    userProfileRole: Tech Enthusiast
+    age: 28
+    bio: Tom is a software engineer who loves exploring new apps and technology trends. He enjoys fun and unique concepts that might not serve a practical purpose but offer an interesting experience. Tom often shares his findings with his friends and values creativity in app design.
+    goals:
+      - Discover unique app ideas
+      - Share simple concepts with friends
+      - Enjoy a light-hearted experience
+    frustrations:
+      - Most apps are over-complicated
+      - Lack of originality in app design
+      - Finding a simplistic app can be tedious
+  - name: George Smith
+    description: A professional developer looking for simple solutions and inspiration.
+    userProfileRole: Professional Developer
+    age: 40
+    bio: George is a senior developer who often works on complex projects. He appreciates elegant simplicity in design and often looks for inspiration for his own projects. He enjoys experimenting with new ideas and likes to test concepts that focus solely on functionality.
+    goals:
+      - Use the app as a minimalist design reference
+      - Experiment with simple app functionalities
+      - Gain inspiration for personal projects
+    frustrations:
+      - Complex apps that distract from core functionalities
+      - Finding clear examples of minimal design
+      - Difficulty in finding clean and straightforward apps

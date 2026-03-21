@@ -1,0 +1,5 @@
+- name-code: EAIV1001
+  name: Greeting Message
+  type: ELVT1007
+  default:
+    value: "Hello World"
