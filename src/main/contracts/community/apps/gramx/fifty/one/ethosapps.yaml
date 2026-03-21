@@ -31,3 +31,7 @@
 - organisation: ethos
   apps:
     - wow
+
+- organisation: ethos
+  apps:
+    - helloethos
