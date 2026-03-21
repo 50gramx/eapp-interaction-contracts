@@ -1,3 +1,6 @@
 - organisation: ethos
   apps:
     - identity 
+- organisation: ethos
+  apps:
+    - helloworld
