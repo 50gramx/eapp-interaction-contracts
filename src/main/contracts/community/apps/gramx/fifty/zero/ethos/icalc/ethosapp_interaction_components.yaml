@@ -93,3 +93,101 @@
     name-code: EIC1006
     label: Memory Save
     on-click: EALC1002
+
+- name-code: EAIC1014
+  name: Number Button 0
+  component:
+    name-code: EIC1006
+    label: 0
+    on-click: EALC1001
+
+- name-code: EAIC1015
+  name: Number Button 1
+  component:
+    name-code: EIC1006
+    label: 1
+    on-click: EALC1001
+
+- name-code: EAIC1016
+  name: Number Button 2
+  component:
+    name-code: EIC1006
+    label: 2
+    on-click: EALC1001
+
+- name-code: EAIC1017
+  name: Number Button 3
+  component:
+    name-code: EIC1006
+    label: 3
+    on-click: EALC1001
+
+- name-code: EAIC1018
+  name: Number Button 4
+  component:
+    name-code: EIC1006
+    label: 4
+    on-click: EALC1001
+
+- name-code: EAIC1019
+  name: Number Button 5
+  component:
+    name-code: EIC1006
+    label: 5
+    on-click: EALC1001
+
+- name-code: EAIC1020
+  name: Number Button 6
+  component:
+    name-code: EIC1006
+    label: 6
+    on-click: EALC1001
+
+- name-code: EAIC1021
+  name: Number Button 7
+  component:
+    name-code: EIC1006
+    label: 7
+    on-click: EALC1001
+
+- name-code: EAIC1022
+  name: Number Button 8
+  component:
+    name-code: EIC1006
+    label: 8
+    on-click: EALC1001
+
+- name-code: EAIC1023
+  name: Number Button 9
+  component:
+    name-code: EIC1006
+    label: 9
+    on-click: EALC1001
+
+- name-code: EAIC1024
+  name: Addition Button
+  component:
+    name-code: EIC1006
+    label: Addition
+    on-click: EALC1001
+
+- name-code: EAIC1025
+  name: Subtraction Button
+  component:
+    name-code: EIC1006
+    label: Subtraction
+    on-click: EALC1001
+
+- name-code: EAIC1026
+  name: Multiplication Button
+  component:
+    name-code: EIC1006
+    label: Multiplication
+    on-click: EALC1001
+
+- name-code: EAIC1027
+  name: Division Button
+  component:
+    name-code: EIC1006
+    label: Division
+    on-click: EALC1001

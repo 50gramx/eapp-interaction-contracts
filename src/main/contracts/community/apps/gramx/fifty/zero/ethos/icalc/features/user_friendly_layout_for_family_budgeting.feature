@@ -1,5 +1,5 @@
 Feature: icalc
-  # As a budget manager named Rachel Wong, I want an intuitive layout with 0-9 buttons and simple function buttons so that I can easily manage my family's expenses.
+  # As a User, I want to User-friendly Layout for Family Budgeting so that 
 
   @EAIV1001 @EAIV1002 @EAIV1003 @EAIV1004 @EAIV1005 @EAIV1006 @EALC1001 @EAIP1001 @EAIC1001 @EAIC1011 @EAIC1003 @EAIC1012 @EAIT1001 @EAIT1002
   Scenario: User-friendly Layout for Family Budgeting

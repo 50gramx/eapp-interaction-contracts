@@ -1,15 +1,15 @@
 profiles:
-  - role: Student
+  - role: 
     description: High school or college students who need a calculator for academic purposes.
-  - role: Professional
+  - role: 
     description: Working adults who require a calculator for daily tasks and work-related calculations.
-  - role: Casual User
+  - role: 
     description: Individuals who need a calculator for occasional use, like shopping or budgeting.
 
 personas:
   - name: Emily Chen
-    description: A college student majoring in engineering who frequently uses calculations for her classes.
-    userProfileRole: Student
+    description: Emily is a dedicated engineering student who often finds herself needing accurate and efficient calculations for her assignments and exams. She values simplicity and functionality in the tools she uses.
+    userProfileRole: 
     age: 21
     bio: Emily is a dedicated engineering student who often finds herself needing accurate and efficient calculations for her assignments and exams. She values simplicity and functionality in the tools she uses.
     goals:
@@ -22,8 +22,8 @@ personas:
       - Struggles with apps that have too many features she doesn't need.
       - Needs a light-weight app that doesn't slow down her phone.
   - name: Michael Smith
-    description: A finance manager who uses calculations for budgeting and analysis at work.
-    userProfileRole: Professional
+    description: Michael works in finance, where precise calculations are a daily requirement. He prefers tools that enhance productivity and accuracy while being user-friendly.
+    userProfileRole: 
     age: 35
     bio: Michael works in finance, where precise calculations are a daily requirement. He prefers tools that enhance productivity and accuracy while being user-friendly.
     goals:
@@ -36,8 +36,8 @@ personas:
       - Finds some tools unreliable or slow during high-pressure situations.
       - Often needs to switch between multiple apps to fulfill different needs.
   - name: Rachel Wong
-    description: A stay-at-home mom who occasionally needs a calculator for household budgeting and shopping.
-    userProfileRole: Casual User
+    description: Rachel manages her family's budget and keeps track of expenses. She looks for simplicity in her tools so that she can easily calculate costs without technical complexity.
+    userProfileRole: 
     age: 40
     bio: Rachel manages her family's budget and keeps track of expenses. She looks for simplicity in her tools so that she can easily calculate costs without technical complexity.
     goals:

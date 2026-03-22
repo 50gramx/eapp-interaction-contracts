@@ -18,3 +18,30 @@
       - EAIC1011
       - EAIC1012
       - EAIC1013
+      - EAIC1014
+      - EAIC1015
+      - EAIC1016
+      - EAIC1017
+      - EAIC1018
+      - EAIC1019
+      - EAIC1020
+      - EAIC1021
+      - EAIC1022
+      - EAIC1023
+      - Function Buttons Tile
+
+- name-code: EAIT1002
+  name: Function Buttons Tile
+  about: always visible
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1024
+      - EAIC1025
+      - EAIC1026
+      - EAIC1027
+      - EAIC1001
+      - EAIC1011
+      - EAIC1003
+      - EAIC1012

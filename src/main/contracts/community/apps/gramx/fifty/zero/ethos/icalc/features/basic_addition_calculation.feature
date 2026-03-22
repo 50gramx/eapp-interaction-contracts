@@ -1,4 +1,4 @@
-Feature: ioscalc
+Feature: icalc
   # As a student named Emily Chen, I want to perform basic addition calculations so that I can quickly solve problems during my study sessions.
 
   @EAIV1001 @EAIV1002 @EAIV1003 @EAIV1004 @EAIV1005 @EAIV1006 @EALC1001 @EAIP1001 @EAIC1001 @EAIC1002 @EAIC1003 @EAIC1004 @EAIC1005 @EAIT1001

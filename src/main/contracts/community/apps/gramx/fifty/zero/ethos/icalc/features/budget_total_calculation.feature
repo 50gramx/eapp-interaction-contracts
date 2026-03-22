@@ -1,4 +1,4 @@
-Feature: ioscalc
+Feature: icalc
   # As a casual user named Rachel Wong, I want to quickly add up my household expenses while shopping so that I can stay within my budget.
 
   @EAIV1007 @EAIV1008 @EAIC1008 @EAIC1009 @EAIC1010 @EAIV1001 @EAIV1002 @EAIV1004 @EAIV1005 @EAIV1006 @EALC1001 @EAIP1001 @EAIC1001 @EAIC1003 @EAIC1004 @EAIC1005 @EAIT1001
