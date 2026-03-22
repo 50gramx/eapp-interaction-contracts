@@ -4,3 +4,7 @@
 - organisation: ethos
   apps:
     - helloworld
+
+- organisation: ethos
+  apps:
+    - icalc
