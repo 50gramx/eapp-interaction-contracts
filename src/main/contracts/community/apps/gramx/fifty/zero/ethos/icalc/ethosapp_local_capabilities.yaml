@@ -1,0 +1,19 @@
+- name-code: EALC1001
+  name: Calculate Result
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1006
+        value: 8
+
+- name-code: EALC1002
+  name: Save Memory
+  context:
+    expects: []
+    returns: {}
+    steps:
+      - command: set
+        target: EAIV1009
+        value: EAIV1006

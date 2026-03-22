@@ -1,0 +1,20 @@
+- name-code: EAIT1001
+  name: Calculator Tile
+  about: the main interaction area for performing calculations
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC1001
+      - EAIC1002
+      - EAIC1003
+      - EAIC1004
+      - EAIC1005
+      - EAIC1006
+      - EAIC1007
+      - EAIC1008
+      - EAIC1009
+      - EAIC1010
+      - EAIC1011
+      - EAIC1012
+      - EAIC1013

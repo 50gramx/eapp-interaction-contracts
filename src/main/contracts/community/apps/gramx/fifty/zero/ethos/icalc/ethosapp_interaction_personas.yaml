@@ -1,0 +1,51 @@
+profiles:
+  - role: Student
+    description: High school or college students who need a calculator for academic purposes.
+  - role: Professional
+    description: Working adults who require a calculator for daily tasks and work-related calculations.
+  - role: Casual User
+    description: Individuals who need a calculator for occasional use, like shopping or budgeting.
+
+personas:
+  - name: Emily Chen
+    description: A college student majoring in engineering who frequently uses calculations for her classes.
+    userProfileRole: Student
+    age: 21
+    bio: Emily is a dedicated engineering student who often finds herself needing accurate and efficient calculations for her assignments and exams. She values simplicity and functionality in the tools she uses.
+    goals:
+      - Easily perform complex calculations for classwork.
+      - Quickly access formulas and functions without hassle.
+      - Improve her efficiency during study sessions.
+      - Have a clean layout that minimizes distractions.
+    frustrations:
+      - Current calculators are often too complicated.
+      - Struggles with apps that have too many features she doesn't need.
+      - Needs a light-weight app that doesn't slow down her phone.
+  - name: Michael Smith
+    description: A finance manager who uses calculations for budgeting and analysis at work.
+    userProfileRole: Professional
+    age: 35
+    bio: Michael works in finance, where precise calculations are a daily requirement. He prefers tools that enhance productivity and accuracy while being user-friendly.
+    goals:
+      - Streamline financial calculations for reports.
+      - Have quick access to business functions like percentages and ratios.
+      - Maintain accuracy without overcomplicated features.
+      - Utilize the app on-the-go for quick estimates.
+    frustrations:
+      - Existing calculator apps are often too basic or lack necessary functions.
+      - Finds some tools unreliable or slow during high-pressure situations.
+      - Often needs to switch between multiple apps to fulfill different needs.
+  - name: Rachel Wong
+    description: A stay-at-home mom who occasionally needs a calculator for household budgeting and shopping.
+    userProfileRole: Casual User
+    age: 40
+    bio: Rachel manages her family's budget and keeps track of expenses. She looks for simplicity in her tools so that she can easily calculate costs without technical complexity.
+    goals:
+      - Quickly add up expenses while shopping.
+      - Schedule monthly budgets and compare them to actual spending.
+      - Get a quick answer to simple calculations without hassle.
+      - Have an intuitive interface that is easy to use.
+    frustrations:
+      - Current apps are either too complex for her needs or too simplistic.
+      - Distracted by features she doesn’t understand or need.
+      - Annoyed by ads or unnecessary pop-ups in other calculator apps.

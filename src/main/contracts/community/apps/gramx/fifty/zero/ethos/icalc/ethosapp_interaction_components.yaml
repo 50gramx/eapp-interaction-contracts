@@ -1,0 +1,95 @@
+- name-code: EAIC1001
+  name: First Number Field
+  component:
+    name-code: EIC1009
+    hint-text: Enter first number
+    text-controller: EAIV1001
+    text-value: EAIV1002
+
+- name-code: EAIC1002
+  name: Addition Function Dropdown
+  component:
+    name-code: EIC1013
+    list-of-entities: Operators List
+    entity-value-property: name
+
+- name-code: EAIC1003
+  name: Second Number Field
+  component:
+    name-code: EIC1009
+    hint-text: Enter second number
+    text-controller: EAIV1004
+    text-value: EAIV1005
+
+- name-code: EAIC1004
+  name: Equals Button
+  component:
+    name-code: EIC1006
+    label: Equals
+    on-click: EALC1001
+
+- name-code: EAIC1005
+  name: Result Display
+  component:
+    name-code: EIC1020
+    text: EAIV1006
+    variant: headlineMedium
+    align: center
+
+- name-code: EAIC1006
+  name: Percentage Dropdown
+  component:
+    name-code: EIC1013
+    list-of-entities: Operators List
+    entity-value-property: Display Name
+
+- name-code: EAIC1007
+  name: Calculation Result Text
+  component:
+    name-code: EIC1020
+    text: EAIV1006
+    variant: headlineMedium
+    align: center
+
+- name-code: EAIC1008
+  name: Addition Button 1
+  component:
+    name-code: EIC1006
+    label: Addition
+    on-click: EALC1001
+
+- name-code: EAIC1009
+  name: Addition Button 2
+  component:
+    name-code: EIC1006
+    label: Addition
+    on-click: EALC1001
+
+- name-code: EAIC1010
+  name: Third Number Field
+  component:
+    name-code: EIC1009
+    hint-text: Enter third expense
+    text-controller: EAIV1007
+    text-value: EAIV1008
+
+- name-code: EAIC1011
+  name: Operator Dropdown
+  component:
+    name-code: EIC1013
+    list-of-entities: Operators List
+    entity-value-property: operator
+
+- name-code: EAIC1012
+  name: Calculate Button
+  component:
+    name-code: EIC1006
+    label: Calculate
+    on-click: EALC1001
+
+- name-code: EAIC1013
+  name: Memory Save Button
+  component:
+    name-code: EIC1006
+    label: Memory Save
+    on-click: EALC1002

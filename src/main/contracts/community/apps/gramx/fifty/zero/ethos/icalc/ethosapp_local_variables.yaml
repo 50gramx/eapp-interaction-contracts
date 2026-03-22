@@ -1,0 +1,45 @@
+- name-code: EAIV1001
+  name: First Number Controller
+  type: ELVT1001
+
+- name-code: EAIV1002
+  name: First Number
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1003
+  name: Operators List
+  type: ELVT1018
+
+- name-code: EAIV1004
+  name: Second Number Controller
+  type: ELVT1001
+
+- name-code: EAIV1005
+  name: Second Number
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1006
+  name: Calculation Result
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1007
+  name: Third Number Controller
+  type: ELVT1001
+
+- name-code: EAIV1008
+  name: Third Number
+  type: ELVT1007
+  default:
+    value: ""
+
+- name-code: EAIV1009
+  name: Memory Value
+  type: ELVT1007
+  default:
+    value: ""
