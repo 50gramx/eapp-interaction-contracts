@@ -1,7 +1,7 @@
 Feature: icalc
-  # As a budget-conscious individual named Rachel Wong, I want to easily add multiple expenses without unnecessary steps so that I can keep track of my family's budget quickly.
+  # As a Budget Manager named Rachel Wong, I want to quickly add up my family's expenses while shopping so that I can stay within budget.
 
-  @EALC1003 @EAIC1006 @EAIC1007 @EAIC1008 @EAIC1009 @EAIV1001 @EAIV1002 @EAIV1003 @EAIV1004 @EAIV1005 @EAIV1007 @EAIV1008 @EAIV1006 @EALC1001 @EAIP1001 @EAIC1001 @EAIC1002 @EAIC1003 @EAIC1004 @EAIT1001 @EAIT1002
+  @EAIC1011 @EAIC1012 @EAIV1001 @EAIV1002 @EAIV1004 @EAIV1005 @EAIV1007 @EAIV1008 @EAIV1006 @EALC1003 @EALC1001 @EAIP1001 @EAIC1001 @EAIC1003 @EAIC1006 @EAIC1004 @EAIC1008 @EAIT1001
   Scenario: Budget Total Calculation
     Given I am on the Main Page of the ioscalc app
     When I enter my first expense '20'
