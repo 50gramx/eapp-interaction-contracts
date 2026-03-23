@@ -1,7 +1,7 @@
 Feature: icalc
-  # As a User, I want to Intuitive Function Buttons so that 
+  # As an engineering student named Emily Chen, I want to easily find function buttons so that I can perform calculations efficiently.
 
-  @EAIC1024 @EAIC1025 @EAIC1026 @EAIC1027 @EAIT1002 @EALC1001 @EAIP1001
+  @EALC1004 @EALC1005 @EALC1006 @EAIC1013 @EAIC1014 @EAIC1015 @EALC1003 @EAIP1001 @EAIC1009 @EAIT1002
   Scenario: Intuitive Function Buttons
     Given I am on the Main Page of the ioscalc app
     When I look for the function buttons
