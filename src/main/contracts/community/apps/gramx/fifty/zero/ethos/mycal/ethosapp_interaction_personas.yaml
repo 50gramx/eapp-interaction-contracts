@@ -1,0 +1,48 @@
+profiles:
+  - role: Student
+    description: A person who uses the calculator for academic purposes, including mathematics and science homework.
+  - role: Professional
+    description: An adult who uses the calculator for work-related tasks, including budgeting, finance, and data analysis.
+  - role: Casual User
+    description: A user who occasionally needs a simple tool for quick calculations while shopping or cooking.
+
+personas:
+  - name: Emily Johnson
+    description: Emily is a dedicated student who often finds herself working on complex math problems for her engineering classes. She prefers tools that are straightforward, allowing her to focus on problem-solving instead of navigating complicated interfaces.
+    userProfileRole: Student
+    age: 21
+    bio: Emily is a dedicated student who often finds herself working on complex math problems for her engineering classes. She prefers tools that are straightforward, allowing her to focus on problem-solving instead of navigating complicated interfaces.
+    goals:
+      - Quickly perform basic calculations while studying.
+      - Easily access a clean interface for distraction-free usage.
+      - Seamlessly switch between different mathematical functions.
+    frustrations:
+      - Overly complex calculators that have unnecessary features.
+      - Difficulty in finding user-friendly apps that don’t require a steep learning curve.
+      - The need to install multiple apps for different calculation types.
+  - name: David Chen
+    description: David works with numbers all day, analyzing financial data and creating reports. He often needs a reliable calculator that allows him to perform basic calculations quickly without any overhead.
+    userProfileRole: Professional
+    age: 35
+    bio: David works with numbers all day, analyzing financial data and creating reports. He often needs a reliable calculator that allows him to perform basic calculations quickly without any overhead.
+    goals:
+      - Increase efficiency during financial reporting tasks.
+      - Use a reliable calculator without unnecessary distractions.
+      - Access a history of calculations for quick reference.
+    frustrations:
+      - Calculator apps that cannot handle larger datasets or complex functions.
+      - Inconsistent performance of free calculator apps.
+      - Difficulty in accessing previously calculated values.
+  - name: Lisa Carter
+    description: Lisa is a busy mom who juggles multiple responsibilities, including budgeting for groceries and household expenses. She frequently needs a simple and intuitive calculator to keep track of expenses while shopping.
+    userProfileRole: Casual User
+    age: 40
+    bio: Lisa is a busy mom who juggles multiple responsibilities, including budgeting for groceries and household expenses. She frequently needs a simple and intuitive calculator to keep track of expenses while shopping.
+    goals:
+      - Quickly calculate totals while shopping.
+      - Use a straightforward app without learning complex operations.
+      - Keep track of her budget easily with minimal effort.
+    frustrations:
+      - Complicated interfaces that make quick calculations tedious.
+      - Lack of a straightforward method to reset calculations easily.
+      - Cumbersome apps that take too long to load or crash often.
