@@ -12,3 +12,7 @@
 - organisation: ethos
   apps:
     - mycal
+
+- organisation: ethos
+  apps:
+    - test
