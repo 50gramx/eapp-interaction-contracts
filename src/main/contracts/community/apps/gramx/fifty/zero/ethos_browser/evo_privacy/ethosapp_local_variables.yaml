@@ -1,0 +1,6 @@
+# Live shield status — stream emits [{isEnabled, label, sublabel}] on every change
+- name-code: EAIV3001
+  name: Shield Status
+  type: ELVT1020
+  default:
+    platform-stream: privacy.status

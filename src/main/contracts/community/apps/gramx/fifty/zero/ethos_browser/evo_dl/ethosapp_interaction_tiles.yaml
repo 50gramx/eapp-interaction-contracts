@@ -1,0 +1,29 @@
+# Tiles have no conditions — the _ReactiveListView renders its own empty state
+# when the list is empty, so no separate empty-state tile is needed.
+
+- name-code: EAIT2001
+  name: Active Downloads Tile
+  about: Live list of active, queued, and paused downloads
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC2007
+      - EAIC2001
+
+- name-code: EAIT2002
+  name: Completed Downloads Tile
+  about: List of completed downloads
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC2008
+      - EAIC2002
+
+- name-code: EAIT2003
+  name: Failed Downloads Tile
+  about: List of failed and cancelled downloads
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC2009
+      - EAIC2003

@@ -1,0 +1,108 @@
+# ── Active downloads list (EIC1026 reactive with item-type: download-card) ────
+
+- name-code: EAIC2001
+  name: Active Downloads List
+  component:
+    name-code: EIC1026
+    source: EAIV2001
+    item-type: download-card
+    on-item-pause: EALC2001
+    on-item-resume: EALC2002
+    on-item-cancel: EALC2003
+
+# ── Completed downloads list ──────────────────────────────────────────────────
+
+- name-code: EAIC2002
+  name: Completed Downloads List
+  component:
+    name-code: EIC1026
+    source: EAIV2002
+    item-type: download-card
+    on-item-open: EALC2004
+    on-item-locate: EALC2005
+    on-item-cancel: EALC2003
+
+# ── Failed downloads list ─────────────────────────────────────────────────────
+
+- name-code: EAIC2003
+  name: Failed Downloads List
+  component:
+    name-code: EIC1026
+    source: EAIV2003
+    item-type: download-card
+    on-item-cancel: EALC2003
+
+# ── Empty state labels ────────────────────────────────────────────────────────
+
+- name-code: EAIC2004
+  name: Empty Active Label
+  component:
+    name-code: EIC1020
+    text: Nothing downloading right now
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC2005
+  name: Empty Completed Label
+  component:
+    name-code: EIC1020
+    text: No completed downloads yet
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC2006
+  name: Empty Failed Label
+  component:
+    name-code: EIC1020
+    text: Nothing failed
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+# ── Section headers ───────────────────────────────────────────────────────────
+
+- name-code: EAIC2007
+  name: Active Header
+  component:
+    name-code: EIC1004
+    label: Active Downloads
+
+- name-code: EAIC2008
+  name: Completed Header
+  component:
+    name-code: EIC1004
+    label: Completed
+
+- name-code: EAIC2009
+  name: Failed Header
+  component:
+    name-code: EIC1004
+    label: Failed
+
+# ── Page sections (column wrappers) ──────────────────────────────────────────
+
+- name-code: EAIC2010
+  name: Active Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC2007
+      - EAIC2001
+
+- name-code: EAIC2011
+  name: Completed Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC2008
+      - EAIC2002
+
+- name-code: EAIC2012
+  name: Failed Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC2009
+      - EAIC2003

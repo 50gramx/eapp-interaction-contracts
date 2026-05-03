@@ -1,0 +1,8 @@
+name-code: evo_dl
+name: EVO Downloads
+org: ethos_browser
+version: 1.0.0
+about: EVO Parallel Download Engine — active, completed, and failed downloads
+icon: download
+platform: core
+design-language: level

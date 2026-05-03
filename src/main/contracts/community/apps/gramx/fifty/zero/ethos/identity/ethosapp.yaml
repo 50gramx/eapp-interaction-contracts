@@ -1,2 +1,5 @@
-first-page: EAIP1001
-design-language: level
+name-code: ETHOS_BROWSER_EVO_IDENTITY
+name: Identity
+org: ethos_browser
+version: 1.0.0
+icon: default_browser

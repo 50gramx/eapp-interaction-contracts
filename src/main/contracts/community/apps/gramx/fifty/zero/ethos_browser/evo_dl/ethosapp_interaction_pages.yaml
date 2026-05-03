@@ -1,0 +1,8 @@
+- name-code: EAIP2001
+  name: Downloads Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT2001
+      - EAIT2002
+      - EAIT2003

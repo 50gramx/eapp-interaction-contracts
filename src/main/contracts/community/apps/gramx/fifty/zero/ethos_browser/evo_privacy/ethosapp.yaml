@@ -1,0 +1,8 @@
+name-code: evo_privacy
+name: EvoShield
+org: ethos_browser
+version: 1.0.0
+about: Privacy and ad-blocking controls — manage EvoShield from a dedicated panel
+icon: shield
+platform: core
+design-language: level

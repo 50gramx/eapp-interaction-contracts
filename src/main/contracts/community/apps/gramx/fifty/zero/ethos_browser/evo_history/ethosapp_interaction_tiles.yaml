@@ -1,0 +1,26 @@
+# Main history tile — search + live history list
+- name-code: EAIT4001
+  name: History Main Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC4001
+      - EAIC4002
+
+# Search results tile — shows when user has typed a search query
+# (EAIV4003 is populated by EALC4002 on change; empty = no search active)
+- name-code: EAIT4002
+  name: Search Results Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC4003
+
+# Footer tile with destructive action
+- name-code: EAIT4003
+  name: History Footer Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC4005
+      - EAIC4004

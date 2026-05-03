@@ -1,0 +1,21 @@
+# ELVT1020 variables — live platform-stream lists.
+# The engine subscribes at load time via PlatformHandlerRegistry.
+# Each variable is always List<Map<String,dynamic>> and updates reactively.
+
+- name-code: EAIV2001
+  name: Active Downloads
+  type: ELVT1020
+  default:
+    platform-stream: download.active
+
+- name-code: EAIV2002
+  name: Completed Downloads
+  type: ELVT1020
+  default:
+    platform-stream: download.completed
+
+- name-code: EAIV2003
+  name: Failed Downloads
+  type: ELVT1020
+  default:
+    platform-stream: download.failed

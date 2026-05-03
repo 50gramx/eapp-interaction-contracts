@@ -1,0 +1,49 @@
+# Search field — fires EALC4002 on each keystroke (300ms debounce)
+- name-code: EAIC4001
+  name: Search Field
+  component:
+    name-code: EIC1009
+    hint-text: Search history...
+    text-controller: EALC4001
+    on-change: EALC4002
+
+# Full history list — reactive, grouped by date
+- name-code: EAIC4002
+  name: History List
+  component:
+    name-code: EIC1026
+    source: EAIV4001
+    item-type: grouped
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: time
+    group-label-field: label
+    on-item-tap: EALC4003
+
+# Search results list — same shape, shown when search has text
+- name-code: EAIC4003
+  name: Search Results List
+  component:
+    name-code: EIC1026
+    source: EAIV4003
+    item-type: grouped
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: time
+    group-label-field: label
+    on-item-tap: EALC4003
+
+# Clear all button
+- name-code: EAIC4004
+  name: Clear History Button
+  component:
+    name-code: EIC1008
+    label: Clear All History
+    on-click: EALC4005
+
+# Divider
+- name-code: EAIC4005
+  name: Divider
+  component:
+    name-code: EIC1025
+    height: 1

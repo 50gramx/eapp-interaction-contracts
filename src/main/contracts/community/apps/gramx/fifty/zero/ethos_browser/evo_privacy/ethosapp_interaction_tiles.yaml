@@ -1,0 +1,8 @@
+- name-code: EAIT3001
+  name: Privacy Main Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC3001
+      - EAIC3004
+      - EAIC3005

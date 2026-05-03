@@ -1,72 +1,51 @@
-- name-code: EAIC1001
-  name: Authenticate with Secret Code Text Field
+# Status card — reactive list-item showing current identity state.
+# Rebuilds automatically when identity.status stream emits.
+- name-code: EAIC7001
+  name: Identity Status Card
+  component:
+    name-code: EIC1026
+    source: EAIV7001
+    item-type: list-item
+    title-field: statusLabel
+    subtitle-field: statusSublabel
+
+# Username / activation code input field.
+# text-controller wires EIC1009 to EAIV7002 (ELVT1001).
+# on-change buffers text in Dart via identity.storeInput (300ms debounced).
+- name-code: EAIC7002
+  name: Username Field
   component:
     name-code: EIC1009
-    hint-text: 50GRAMx
-    text-controller: EALC1001
-- name-code: EAIC1002
-  name: Sms me to authenticate button
+    hint-text: Enter username or activation code...
+    text-controller: EALC7001
+
+# Primary action: Create Guest Account.
+- name-code: EAIC7003
+  name: Create Guest Button
   component:
     name-code: EIC1006
-    label: SMS ME
-    on-click: ELCC2001
-- name-code: EAIC1004
-  name: Continue with Ethos Code Name Button
-  component:
-    name-code: EIC1006
-    label: Continue
-    on-click: <Some capability>
-- name-code: EAIC1005
-  name: Ethos Code Name Text Field
-  component:
-    name-code: EIC1016
-    hint-text: Code Name
-    text-controller: EALC1001
-- name-code: EAIC1006
-  name: Use Ethos Code Name Button
+    label: Create Guest Account
+    on-click: EALC7004
+
+# Secondary action: Activate Account.
+- name-code: EAIC7004
+  name: Activate Button
   component:
     name-code: EIC1008
-    label: Use Ethos Code Name
-    on-click: <Some Lops>
-- name-code: EAIC1007
-  name: Account Access Tile Header
+    label: Activate Account
+    on-click: EALC7005
+
+# Divider between action and footer sections.
+- name-code: EAIC7005
+  name: Divider
   component:
-    name-code: EIC1004
-    label: Account Access
-- name-code: EAIC1042
-  name: Continue to Create Account With Ethos Code Name Button
+    name-code: EIC1025
+    height: 1
+
+# Reset button — dev/testing utility.
+- name-code: EAIC7006
+  name: Reset Identity Button
   component:
-    name-code: EIC1006
-    label: Create Account
-- name-code: EAIC1004
-  name: Continue to Access Account With Ethos Code Name Button
-  component:
-    name-code: EIC1006
-    label: Access Account
-- name-code: EAIC1002
-  name: Sms Me to Authenticate Button
-  component:
-    name-code: EIC1006
-    label: SMS ME
-- name-code: EAIC1041
-  name: Verify Account Authentication Via Secret Code Button
-  component:
-    name-code: EIC1006
-    label: Verify Secret
-- name-code: EAIC1003
-  name: About Tile Header
-  component:
-    name-code: EIC1004
-    label: About
-- name-code: EAIC1008
-  name: Account Name Configuration Item
-  component:
-    name-code: EIC1001
-- name-code: EAIC1009
-  name: Account Assistant Name Configuration Item
-  component:
-    name-code: EIC1001
-- name-code: EAIC1010
-  name: Account Ethos Pay Status Configuration Item
-  component:
-    name-code: EIC1001
+    name-code: EIC1008
+    label: Reset Identity
+    on-click: EALC7006

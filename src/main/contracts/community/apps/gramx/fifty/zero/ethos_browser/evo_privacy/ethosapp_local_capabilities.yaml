@@ -1,0 +1,13 @@
+- name-code: EALC3001
+  name: Enable Shield
+  context:
+    steps:
+      - command: platform-invoke
+        handler: privacy.enable
+
+- name-code: EALC3002
+  name: Disable Shield
+  context:
+    steps:
+      - command: platform-invoke
+        handler: privacy.disable

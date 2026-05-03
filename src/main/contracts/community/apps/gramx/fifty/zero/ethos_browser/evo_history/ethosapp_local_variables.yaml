@@ -1,0 +1,18 @@
+# Live history — stream emits grouped [{type: header/item, ...}] on any change
+- name-code: EAIV4001
+  name: Recent History
+  type: ELVT1020
+  default:
+    platform-stream: history.recent
+
+# Search text controller
+- name-code: EAIV4002
+  name: Search Controller
+  type: ELVT1001
+  default: {}
+
+# Filtered search results — updated by EALC4002 on each search
+- name-code: EAIV4003
+  name: Search Results
+  type: ELVT1018
+  default: {}

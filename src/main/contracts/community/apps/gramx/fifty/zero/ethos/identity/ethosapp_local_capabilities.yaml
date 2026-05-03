@@ -1,16 +1,47 @@
-- name-code: EALC1001
-  name: Discover Secret Code Text Controller
+# Return the TextEditingController for the username input field.
+- name-code: EALC7001
+  name: Get Username Controller
   context:
-    expects:
     returns:
       type: ELVT1001
     steps:
-      - return: EAIV1001
-- name-code: EALC1002
-  name: Discover Is Account Logged In
+      - command: return
+        value: EAIV7002
+
+# Extract index 0 from the live status list into the snapshot map.
+- name-code: EALC7003
+  name: Sync Snapshot
   context:
-    expects:
-    returns:
-      type: ELVT1002
     steps:
-      - return: EALV1002
+      - command: list-get
+        source: EAIV7001
+        index: 0
+        assign-to: EAIV7003
+
+# Create a new guest identity.
+# Dart generates UUID, persists to SharedPreferences, emits updated stream.
+- name-code: EALC7004
+  name: Create Guest Account
+  context:
+    steps:
+      - command: platform-invoke
+        handler: identity.createGuest
+
+# Activate the guest account.
+# Passes the username controller directly.
+- name-code: EALC7005
+  name: Activate Account
+  context:
+    steps:
+      - command: platform-invoke
+        handler: identity.activate
+        params:
+          username: EAIV7002
+
+# Reset identity — dev/testing utility.
+- name-code: EALC7006
+  name: Reset Identity
+  context:
+    steps:
+      - command: platform-invoke
+        handler: identity.reset

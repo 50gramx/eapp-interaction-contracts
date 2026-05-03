@@ -1,0 +1,8 @@
+name-code: evo_history
+name: History
+org: ethos_browser
+version: 1.0.0
+about: Browsing history — grouped by date, tap to revisit any page
+icon: history
+platform: core
+design-language: level

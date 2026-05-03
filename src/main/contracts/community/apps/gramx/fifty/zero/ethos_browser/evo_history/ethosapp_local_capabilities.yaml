@@ -1,0 +1,55 @@
+# Return the TextEditingController for the search field
+- name-code: EALC4001
+  name: Get Search Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV4002
+
+# Fired on search field change (300ms debounced by engine)
+# Calls history.search → stores grouped results in EAIV4003
+- name-code: EALC4002
+  name: Search History
+  context:
+    expects:
+      - text: ELVT1007
+    steps:
+      - command: platform-invoke
+        handler: history.search
+        params:
+          query: text
+        assign-to: EAIV4003
+
+# Open a history entry URL in the browser
+- name-code: EALC4003
+  name: Open History Entry
+  context:
+    expects:
+      - url: ELVT1011
+    steps:
+      - command: platform-invoke
+        handler: browser.navigate
+        params:
+          url: url
+
+# Delete a single entry by id
+- name-code: EALC4004
+  name: Delete Entry
+  context:
+    expects:
+      - id: ELVT1006
+    steps:
+      - command: platform-invoke
+        handler: history.delete
+        params:
+          id: id
+
+# Clear all history
+- name-code: EALC4005
+  name: Clear All History
+  context:
+    steps:
+      - command: platform-invoke
+        handler: history.clear

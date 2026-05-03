@@ -1,0 +1,40 @@
+# Status list — reactive, shows one item with label + sublabel from stream
+- name-code: EAIC3001
+  name: Shield Status List
+  component:
+    name-code: EIC1026
+    source: EAIV3001
+    item-type: list-item
+    title-field: label
+    subtitle-field: sublabel
+
+# Action buttons
+- name-code: EAIC3002
+  name: Enable Shield Button
+  component:
+    name-code: EIC1006
+    label: Enable Shield
+    on-click: EALC3001
+
+- name-code: EAIC3003
+  name: Disable Shield Button
+  component:
+    name-code: EIC1008
+    label: Pause Shield
+    on-click: EALC3002
+
+# Divider between status and controls
+- name-code: EAIC3004
+  name: Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+# Action row
+- name-code: EAIC3005
+  name: Action Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC3002
+      - EAIC3003

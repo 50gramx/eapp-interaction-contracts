@@ -1,37 +1,20 @@
-- name-code: EAIV1001
-  name: Secret Code Text Field Controller
+# Live identity state — auto-subscribes to platform stream, UI rebuilds on change.
+# Emits: [{isGuest, isActivated, hasAccount, accountId, username, statusLabel, statusSublabel}]
+- name-code: EAIV7001
+  name: Identity Status
+  type: ELVT1020
+  default:
+    platform-stream: identity.status
+
+# TextEditingController for the username/activation-code input field.
+# Must be ELVT1001 so EIC1009 can wire text-controller to it.
+- name-code: EAIV7002
+  name: Username Controller
   type: ELVT1001
-  default:
-- name-code: EAIV1002
-  name: Is Account Logged In
-  type: ELVT1002
-  default:
-    value: false
-- name-code: EAIV1003
-  name: Is Using Ethos Code Name
-  type: ELVT1002
-  default:
-    value: true
-- name-code: EAIV1004
-  name: Ethos Code Name Editing Controller
-  type: ELVT1001
-  default:
-- name-code: EAIV1005
-  name: Is Account Ethos Code Name Validated
-  type: ELVT1002
-  default:
-- name-code: EAIV1006
-  name: Is Account Ethos Code Name Authenticated
-  type: ELVT1002
-  default:
-    value: false
-- name-code: EAIV1023
-  name: Is Account Ethos Code Name Validated
-  type: ELVT1002
-  default:
-    value: false
-- name-code: EAIV1007
-  name: Is Account Ethos Code Name Authenticating
-  type: ELVT1002
-  default:
-    value: false
+  default: {}
+
+# Single identity snapshot extracted from the stream list (index 0).
+- name-code: EAIV7003
+  name: Identity Snapshot
+  type: ELVT1019
+  default: {}

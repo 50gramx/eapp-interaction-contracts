@@ -1,0 +1,58 @@
+# ── Download action capabilities ──────────────────────────────────────────────
+# All use platform-invoke — the engine calls into PlatformHandlerRegistry.
+# No Dart imports, no browser-specific code in the engine.
+
+- name-code: EALC2001
+  name: Pause Download
+  context:
+    expects:
+      - taskId: ELVT1012
+    steps:
+      - command: platform-invoke
+        handler: download.pause
+        params:
+          taskId: taskId
+
+- name-code: EALC2002
+  name: Resume Download
+  context:
+    expects:
+      - taskId: ELVT1012
+    steps:
+      - command: platform-invoke
+        handler: download.resume
+        params:
+          taskId: taskId
+
+- name-code: EALC2003
+  name: Cancel Download
+  context:
+    expects:
+      - taskId: ELVT1012
+    steps:
+      - command: platform-invoke
+        handler: download.cancel
+        params:
+          taskId: taskId
+
+- name-code: EALC2004
+  name: Open File
+  context:
+    expects:
+      - taskId: ELVT1012
+    steps:
+      - command: platform-invoke
+        handler: download.open
+        params:
+          taskId: taskId
+
+- name-code: EALC2005
+  name: Locate File
+  context:
+    expects:
+      - taskId: ELVT1012
+    steps:
+      - command: platform-invoke
+        handler: download.locate
+        params:
+          taskId: taskId
