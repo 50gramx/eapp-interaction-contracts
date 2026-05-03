@@ -1,6 +1,22 @@
+# Community 50 — Eutopia Browser eApps
+# Only entries with `live: true` are loaded and discoverable in the live browser.
+# Plain string entries (legacy format) are not live-gated and will be skipped.
+
+- organisation: ethos_browser
+  apps:
+    - name: evo_dl
+      live: true
+    - name: evo_privacy
+      live: true
+    - name: evo_history
+      live: true
+
 - organisation: ethos
   apps:
-    - identity 
+    - name: identity
+      live: true
+
+# Legacy entries — no live flag, skipped by live browser
 - organisation: ethos
   apps:
     - helloworld
