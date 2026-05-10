@@ -1,15 +1,8 @@
-# Open the self-contained WASM demo (bundled HTML with benchmark + crypto UI)
+# Both capabilities use wasm.run — demo mode shows the benchmark UI
+# AND registers the pod so it appears in evo_pods Pod Manager.
+
 - name-code: EALC8001
   name: Launch WASM Demo
-  context:
-    steps:
-      - command: platform-invoke
-        handler: browser.openWasmDemo
-
-# Deploy the same module as a generic WASM pod via wasm.run.
-# Swap EAIV8001 for any WASM URL — no Dart changes needed.
-- name-code: EALC8002
-  name: Run as Pod
   context:
     steps:
       - command: platform-invoke
@@ -22,3 +15,18 @@
           mode: "demo"
           pod-name: "evo.add.demo"
           label: "add(i32,i32)→i32 · 41 bytes"
+
+- name-code: EALC8002
+  name: Run as Service Pod
+  context:
+    steps:
+      - command: platform-invoke
+        handler: wasm.run
+        params:
+          module: EAIV8001
+          memory: EAIV8002
+          max_memory: EAIV8003
+          timeout: EAIV8004
+          mode: "service"
+          pod-name: "evo.add.service"
+          label: "add · service pod"

@@ -29,7 +29,7 @@
   name: Run Pod Button
   component:
     name-code: EIC1008
-    label: "Run as Pod (wasm.run)"
+    label: "Run as Headless Service Pod"
     on-click: EALC8002
 
 - name-code: EAIC8012
