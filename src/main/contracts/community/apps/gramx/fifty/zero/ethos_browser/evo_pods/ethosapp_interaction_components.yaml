@@ -2,14 +2,14 @@
   name: Header
   component:
     name-code: EIC1004
-    text: "Active WASM Pods"
+    text: "Active Pods"
     level: 1
 
 - name-code: EAIC5002
-  name: Pod Count Label
+  name: Subtitle
   component:
     name-code: EIC1020
-    text: "Live — updates as pods start and stop."
+    text: "WASM and native pods — live metrics, updated every 3 s."
     style: caption
 
 - name-code: EAIC5003
@@ -25,5 +25,5 @@
     source: EAIV5001
     item-type: list-item
     title-field: name
-    subtitle-field: status
-    trailing-text-field: exportLabel
+    subtitle-field: memoryMb
+    trailing-text-field: tokensPerSec
