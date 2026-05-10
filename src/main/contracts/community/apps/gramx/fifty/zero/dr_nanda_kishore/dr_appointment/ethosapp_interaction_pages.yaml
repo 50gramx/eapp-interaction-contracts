@@ -1,13 +1,6 @@
-# Single scrollable page: Hero → About → Book → Expertise → Research → Recognition → Voices
 - name-code: EAIP1001
   name: Doctor Profile Page
   composition:
     name-code: EIC1005
     children-components:
       - EAIT9001
-      - EAIT9002
-      - EAIT9003
-      - EAIT9004
-      - EAIT9005
-      - EAIT9006
-      - EAIT9007

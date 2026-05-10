@@ -20,4 +20,5 @@
           max_memory: EAIV8003
           timeout: EAIV8004
           mode: "demo"
+          pod-name: "evo.add.demo"
           label: "add(i32,i32)→i32 · 41 bytes"

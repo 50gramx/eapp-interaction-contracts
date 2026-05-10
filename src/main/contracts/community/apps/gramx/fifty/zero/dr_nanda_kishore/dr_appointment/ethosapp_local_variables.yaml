@@ -1,23 +1,6 @@
-# Booking mode: "online" | "inperson"
+# Path to the bundled app HTML inside eapp-live assets.
+# Swap this for any other HTML asset path — no Dart changes needed.
 - name-code: EAIV9001
-  name: Selected Booking Mode
+  name: App Asset Path
   type: ELVT1007
-  default: ""
-
-# Phone URI for call action
-- name-code: EAIV9002
-  name: Phone URI
-  type: ELVT1007
-  default: "tel:+918061222000"
-
-# Hospital booking URL
-- name-code: EAIV9003
-  name: Booking URL
-  type: ELVT1007
-  default: "https://www.sparshhospital.com/doctors/dr-nanda-kishore-s-k/"
-
-# WhatsApp URI
-- name-code: EAIV9004
-  name: WhatsApp URI
-  type: ELVT1007
-  default: "https://wa.me/918061222000"
+  default: "lib/assets/apps/dr_appointment/index.html"
