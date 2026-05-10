@@ -1,6 +1,1 @@
-# Path to the bundled app HTML inside eapp-live assets.
-# Swap this for any other HTML asset path — no Dart changes needed.
-- name-code: EAIV9001
-  name: App Asset Path
-  type: ELVT1007
-  default: "lib/assets/apps/dr_appointment/index.html"
+[]

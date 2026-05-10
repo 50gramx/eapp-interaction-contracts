@@ -1,6 +1,3 @@
-# Open the full doctor appointment site from the bundled asset.
-# asset.open reads lib/assets/apps/dr_appointment/index.html and opens it
-# as a data URI tab — no network, no custom Dart, photo inlined as base64.
 - name-code: EALC9001
   name: Open Profile
   context:
@@ -8,4 +5,4 @@
       - command: platform-invoke
         handler: asset.open
         params:
-          path: EAIV9001
+          path: "lib/assets/apps/dr_appointment/index.html"
