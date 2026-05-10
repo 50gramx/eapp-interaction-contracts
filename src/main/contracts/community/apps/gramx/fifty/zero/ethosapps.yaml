@@ -12,6 +12,10 @@
       live: true
     - name: evo_wasm
       live: true
+    - name: evo_pods
+      live: true
+    - name: evo_llm
+      live: true
 
 - organisation: ethos
   apps:

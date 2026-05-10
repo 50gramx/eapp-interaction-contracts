@@ -1,0 +1,29 @@
+- name-code: EAIC5001
+  name: Header
+  component:
+    name-code: EIC1004
+    text: "Active WASM Pods"
+    level: 1
+
+- name-code: EAIC5002
+  name: Pod Count Label
+  component:
+    name-code: EIC1020
+    text: "Live — updates as pods start and stop."
+    style: caption
+
+- name-code: EAIC5003
+  name: Spacer
+  component:
+    name-code: EIC1001
+    size: 16
+
+- name-code: EAIC5004
+  name: Pod List
+  component:
+    name-code: EIC1026
+    source: EAIV5001
+    item-type: list-item
+    title-field: name
+    subtitle-field: status
+    trailing-text-field: exportLabel

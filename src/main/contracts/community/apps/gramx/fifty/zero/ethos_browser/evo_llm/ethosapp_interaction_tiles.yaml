@@ -1,0 +1,9 @@
+- name-code: EAIT6001
+  name: LLM Chat Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC6001
+      - EAIC6002
+      - EAIC6003
+      - EAIC6004

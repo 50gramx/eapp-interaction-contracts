@@ -1,0 +1,6 @@
+# Live list of running WASM pods — auto-updates on register/unregister
+- name-code: EAIV5001
+  name: Pod List
+  type: ELVT1020
+  default:
+    platform-stream: pod.list

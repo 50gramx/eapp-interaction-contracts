@@ -1,0 +1,26 @@
+- name-code: EAIC6001
+  name: App Name
+  component:
+    name-code: EIC1004
+    text: "Phi-3 · Local AI Chat"
+    level: 1
+
+- name-code: EAIC6002
+  name: Description
+  component:
+    name-code: EIC1020
+    text: "On-device conversation — Ollama (instant) or Transformers.js WASM (~2.3 GB first-run). No cloud, no API key."
+    style: body
+
+- name-code: EAIC6003
+  name: Spacer
+  component:
+    name-code: EIC1001
+    size: 20
+
+- name-code: EAIC6004
+  name: Open Chat Button
+  component:
+    name-code: EIC1006
+    label: "Open Chat"
+    on-click: EALC6001

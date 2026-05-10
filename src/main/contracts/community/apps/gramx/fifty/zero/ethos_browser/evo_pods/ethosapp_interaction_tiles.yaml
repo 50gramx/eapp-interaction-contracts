@@ -1,0 +1,9 @@
+- name-code: EAIT5001
+  name: Pod Manager Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5001
+      - EAIC5002
+      - EAIC5003
+      - EAIC5004

@@ -1,0 +1,8 @@
+- name-code: EALC5001
+  name: Stop Pod
+  context:
+    steps:
+      - command: platform-invoke
+        handler: pod.stop
+        params:
+          pod-name: EAIV5002

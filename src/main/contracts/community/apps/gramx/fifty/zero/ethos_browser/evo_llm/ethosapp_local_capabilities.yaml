@@ -1,0 +1,8 @@
+- name-code: EALC6001
+  name: Open LLM Chat
+  context:
+    steps:
+      - command: platform-invoke
+        handler: asset.open
+        params:
+          path: "lib/assets/apps/llm_chat/index.html"

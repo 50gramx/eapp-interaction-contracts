@@ -1,0 +1,6 @@
+- name-code: EAIP5001
+  name: Pod Manager Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT5001
