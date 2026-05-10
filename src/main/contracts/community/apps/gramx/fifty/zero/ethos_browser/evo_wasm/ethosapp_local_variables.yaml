@@ -1,1 +1,21 @@
-[]
+# Demo pod: the 41-byte WASM add(i32,i32)→i32 module, inline as a data URI.
+# Real pods would point to a remote URL: https://cdn.example.com/node.wasm
+- name-code: EAIV8001
+  name: Demo Pod Module URI
+  type: ELVT1007
+  default: "data:application/wasm;base64,AGFzbQEAAAABBwFgAn9/AX8DAgEABwcBA2FkZAAACgkBBwAgACABags="
+
+- name-code: EAIV8002
+  name: Demo Pod Memory Pages
+  type: ELVT1007
+  default: "1"
+
+- name-code: EAIV8003
+  name: Demo Pod Max Memory Pages
+  type: ELVT1007
+  default: "4"
+
+- name-code: EAIV8004
+  name: Demo Pod Timeout Ms
+  type: ELVT1007
+  default: "5000"

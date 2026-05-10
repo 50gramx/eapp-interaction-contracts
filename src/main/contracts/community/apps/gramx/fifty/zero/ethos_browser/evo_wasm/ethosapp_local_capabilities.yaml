@@ -1,6 +1,23 @@
+# Open the self-contained WASM demo (bundled HTML with benchmark + crypto UI)
 - name-code: EALC8001
   name: Launch WASM Demo
   context:
     steps:
       - command: platform-invoke
         handler: browser.openWasmDemo
+
+# Deploy the same module as a generic WASM pod via wasm.run.
+# Swap EAIV8001 for any WASM URL — no Dart changes needed.
+- name-code: EALC8002
+  name: Run as Pod
+  context:
+    steps:
+      - command: platform-invoke
+        handler: wasm.run
+        params:
+          module: EAIV8001
+          memory: EAIV8002
+          max_memory: EAIV8003
+          timeout: EAIV8004
+          mode: "demo"
+          label: "add(i32,i32)→i32 · 41 bytes"

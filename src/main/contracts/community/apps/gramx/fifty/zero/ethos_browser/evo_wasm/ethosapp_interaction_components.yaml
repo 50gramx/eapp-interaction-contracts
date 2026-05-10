@@ -25,6 +25,20 @@
     label: "Open WASM Demo Tab"
     on-click: EALC8001
 
+- name-code: EAIC8011
+  name: Run Pod Button
+  component:
+    name-code: EIC1008
+    label: "Run as Pod (wasm.run)"
+    on-click: EALC8002
+
+- name-code: EAIC8012
+  name: Pod Label
+  component:
+    name-code: EIC1020
+    text: "Pod params: module=EAIV8001 · memory=1 page (64 KB) · max=4 pages · timeout=5000 ms"
+    style: caption
+
 - name-code: EAIC8005
   name: Divider
   component:
