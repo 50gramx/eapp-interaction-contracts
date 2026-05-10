@@ -1,0 +1,6 @@
+name-code: EAIP8001
+name: EVO WASM
+description: WebAssembly demo running natively inside the Eutopia Browser
+org: ethos_browser
+community: 50
+version: 1.0.0

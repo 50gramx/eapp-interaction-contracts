@@ -1,0 +1,29 @@
+# Open hospital booking page for online consultation
+- name-code: EALC9001
+  name: Book Online Consultation
+  context:
+    steps:
+      - command: platform-invoke
+        handler: browser.navigate
+        params:
+          url: EAIV9003
+
+# Call hospital reception
+- name-code: EALC9002
+  name: Call Hospital
+  context:
+    steps:
+      - command: platform-invoke
+        handler: browser.navigate
+        params:
+          url: EAIV9002
+
+# Open WhatsApp for appointment query
+- name-code: EALC9003
+  name: WhatsApp Appointment
+  context:
+    steps:
+      - command: platform-invoke
+        handler: browser.navigate
+        params:
+          url: EAIV9004

@@ -1,0 +1,6 @@
+- name-code: EALC8001
+  name: Launch WASM Demo
+  context:
+    steps:
+      - command: platform-invoke
+        handler: browser.openWasmDemo

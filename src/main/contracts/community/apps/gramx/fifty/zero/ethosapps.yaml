@@ -10,10 +10,17 @@
       live: true
     - name: evo_history
       live: true
+    - name: evo_wasm
+      live: true
 
 - organisation: ethos
   apps:
     - name: identity
+      live: true
+
+- organisation: dr_nanda_kishore
+  apps:
+    - name: dr_appointment
       live: true
 
 # Legacy entries — no live flag, skipped by live browser

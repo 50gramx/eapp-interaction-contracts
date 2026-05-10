@@ -1,0 +1,137 @@
+# Hero — name, role, qualifications, location, CTA
+- name-code: EAIT9001
+  name: Hero Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9001
+      - EAIC9041
+      - EAIC9002
+      - EAIC9003
+      - EAIC9041
+      - EAIC9004
+      - EAIC9042
+      - EAIC9005
+      - EAIC9042
+      - EAIC9006
+
+# About — two prose paragraphs
+- name-code: EAIT9002
+  name: About Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9007
+      - EAIC9041
+      - EAIC9008
+      - EAIC9041
+      - EAIC9009
+
+# Book an Appointment — contact info + action buttons
+- name-code: EAIT9003
+  name: Book Appointment Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9043
+      - EAIC9042
+      - EAIC9010
+      - EAIC9041
+      - EAIC9011
+      - EAIC9042
+      - EAIC9012
+      - EAIC9041
+      - EAIC9013
+      - EAIC9041
+      - EAIC9014
+
+# Expertise — 6 specialties
+- name-code: EAIT9004
+  name: Expertise Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9043
+      - EAIC9042
+      - EAIC9015
+      - EAIC9041
+      - EAIC9016
+      - EAIC9041
+      - EAIC9017
+      - EAIC9041
+      - EAIC9018
+      - EAIC9041
+      - EAIC9019
+      - EAIC9041
+      - EAIC9020
+      - EAIC9041
+      - EAIC9021
+
+# Research — 6 publications
+- name-code: EAIT9005
+  name: Research Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9043
+      - EAIC9042
+      - EAIC9022
+      - EAIC9041
+      - EAIC9023
+      - EAIC9041
+      - EAIC9024
+      - EAIC9041
+      - EAIC9025
+      - EAIC9041
+      - EAIC9026
+      - EAIC9041
+      - EAIC9027
+      - EAIC9041
+      - EAIC9028
+
+# Recognition — awards and memberships
+- name-code: EAIT9006
+  name: Recognition Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9043
+      - EAIC9042
+      - EAIC9029
+      - EAIC9041
+      - EAIC9030
+      - EAIC9041
+      - EAIC9031
+      - EAIC9041
+      - EAIC9032
+      - EAIC9041
+      - EAIC9033
+
+# Patient Voices — 3 testimonials
+- name-code: EAIT9007
+  name: Testimonials Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9042
+      - EAIC9043
+      - EAIC9042
+      - EAIC9034
+      - EAIC9042
+      - EAIC9035
+      - EAIC9041
+      - EAIC9036
+      - EAIC9042
+      - EAIC9037
+      - EAIC9041
+      - EAIC9038
+      - EAIC9042
+      - EAIC9039
+      - EAIC9041
+      - EAIC9040
+      - EAIC9042

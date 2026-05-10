@@ -1,0 +1,70 @@
+- name-code: EAIC8001
+  name: WASM Header
+  component-type: EIC1004
+  properties:
+    text: WebAssembly Demo
+    level: 1
+
+- name-code: EAIC8002
+  name: WASM Description
+  component-type: EIC1020
+  properties:
+    text: >
+      This demo runs a native WASM binary and WebCrypto keypair generation
+      directly inside the Eutopia Browser WebView — no servers, no native code.
+      This is the same primitive that powers the local node service tab.
+    style: body
+
+- name-code: EAIC8003
+  name: Spacer
+  component-type: EIC1001
+  properties:
+    size: 24
+
+- name-code: EAIC8004
+  name: Launch Button
+  component-type: EIC1006
+  properties:
+    label: Open WASM Demo Tab
+    on-click: EALC8001
+
+- name-code: EAIC8005
+  name: Divider
+  component-type: EIC1025
+  properties:
+    height: 32
+
+- name-code: EAIC8006
+  name: What Runs Label
+  component-type: EIC1004
+  properties:
+    text: What runs in the demo
+    level: 2
+
+- name-code: EAIC8007
+  name: Step 1
+  component-type: EIC1020
+  properties:
+    text: "1 — WASM module instantiated from a 41-byte binary (add function)"
+    style: body
+
+- name-code: EAIC8008
+  name: Step 2
+  component-type: EIC1020
+  properties:
+    text: "2 — 2M WASM calls benchmarked against equivalent JavaScript"
+    style: body
+
+- name-code: EAIC8009
+  name: Step 3
+  component-type: EIC1020
+  properties:
+    text: "3 — ECDSA P-256 keypair generated, message signed and verified via WebCrypto"
+    style: body
+
+- name-code: EAIC8010
+  name: Step 4
+  component-type: EIC1020
+  properties:
+    text: "4 — Architecture diagram showing the service tab postMessage bridge"
+    style: body
