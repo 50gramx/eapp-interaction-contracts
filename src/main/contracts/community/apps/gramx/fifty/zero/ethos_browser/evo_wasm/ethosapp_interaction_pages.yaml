@@ -1,4 +1,6 @@
-- name-code: EAIP1001
-  name: WASM Demo
-  tiles:
-    - EAIT8001
+- name-code: EAIP8001
+  name: WASM Demo Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT8001

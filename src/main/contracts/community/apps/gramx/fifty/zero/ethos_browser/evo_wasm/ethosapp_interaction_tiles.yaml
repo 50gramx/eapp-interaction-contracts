@@ -1,13 +1,15 @@
 - name-code: EAIT8001
   name: WASM Demo Tile
-  components:
-    - EAIC8001
-    - EAIC8002
-    - EAIC8003
-    - EAIC8004
-    - EAIC8005
-    - EAIC8006
-    - EAIC8007
-    - EAIC8008
-    - EAIC8009
-    - EAIC8010
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC8001
+      - EAIC8002
+      - EAIC8003
+      - EAIC8004
+      - EAIC8005
+      - EAIC8006
+      - EAIC8007
+      - EAIC8008
+      - EAIC8009
+      - EAIC8010
