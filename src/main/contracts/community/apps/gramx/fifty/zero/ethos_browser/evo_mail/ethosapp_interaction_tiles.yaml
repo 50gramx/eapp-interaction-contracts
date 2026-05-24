@@ -1,0 +1,9 @@
+- name-code: EAIT7001
+  name: Eutopia Mail Tile
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC7001
+      - EAIC7002
+      - EAIC7003
+      - EAIC7004

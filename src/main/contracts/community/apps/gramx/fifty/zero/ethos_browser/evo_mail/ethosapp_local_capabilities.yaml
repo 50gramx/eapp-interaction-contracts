@@ -1,0 +1,8 @@
+- name-code: EALC7001
+  name: Open Eutopia Mail
+  context:
+    steps:
+      - command: platform-invoke
+        handler: asset.open
+        params:
+          path: "lib/assets/apps/mail_chat/index.html"

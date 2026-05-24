@@ -1,0 +1,6 @@
+- name-code: EAIP7001
+  name: Eutopia Mail Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT7001

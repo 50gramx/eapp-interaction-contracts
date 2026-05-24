@@ -1,0 +1,26 @@
+- name-code: EAIC7001
+  name: App Name
+  component:
+    name-code: EIC1004
+    text: "Eutopia Mail · P2P"
+    level: 1
+
+- name-code: EAIC7002
+  name: Description
+  component:
+    name-code: EIC1020
+    text: "End-to-end encrypted mail over direct peer connections. No central server. Plaintext never leaves your device. v0: LAN-direct between paired peers."
+    style: body
+
+- name-code: EAIC7003
+  name: Spacer
+  component:
+    name-code: EIC1001
+    size: 20
+
+- name-code: EAIC7004
+  name: Open Mail Button
+  component:
+    name-code: EIC1006
+    label: "Open Mail"
+    on-click: EALC7001
