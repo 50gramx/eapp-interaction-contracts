@@ -16,6 +16,8 @@
       live: true
     - name: evo_llm
       live: true
+    - name: evo_mail
+      live: true
 
 - organisation: ethos
   apps:
