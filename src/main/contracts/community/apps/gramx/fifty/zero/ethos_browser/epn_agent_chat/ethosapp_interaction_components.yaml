@@ -15,9 +15,15 @@
   component:
     name-code: EIC1026
     source: EAIV6002
-    item-type: list-item
-    title-field: text
-    subtitle-field: role
+    item-type: chat-message
+    text-field: text
+    sender-field: role
+    self-sender-values:
+      - You
+    error-sender-values:
+      - error
+    show-sender-label: true
+    show-avatar: true
     scrollable: true
     max-height: 440
 
