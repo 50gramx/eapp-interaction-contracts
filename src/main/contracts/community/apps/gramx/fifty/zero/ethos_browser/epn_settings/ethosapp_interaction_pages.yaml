@@ -1,0 +1,7 @@
+- name-code: EAIP12001
+  name: Settings Page
+  on-appear: EALC12001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT12001

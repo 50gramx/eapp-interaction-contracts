@@ -1,0 +1,194 @@
+# ── Balance section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC8001
+  name: Balance Header
+  component:
+    name-code: EIC1004
+    label: EthosCoin Balance
+
+- name-code: EAIC8002
+  name: Balance Amount Label
+  component:
+    name-code: EIC1020
+    text: EAIV8001.balance_etc
+    variant: headline5
+    align: center
+    color: 0xFF1565C0
+
+- name-code: EAIC8003
+  name: Balance ETC Unit Label
+  component:
+    name-code: EIC1020
+    text: ETC
+    variant: caption
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC8004
+  name: Balance MicroETC Label
+  component:
+    name-code: EIC1020
+    text: EAIV8001.balance_uetc
+    variant: caption
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC8005
+  name: Refresh Balance Button
+  component:
+    name-code: EIC1008
+    label: Refresh
+    on-click: EALC8001
+
+# ── Channels section ──────────────────────────────────────────────────────────
+
+- name-code: EAIC8006
+  name: Channels Header
+  component:
+    name-code: EIC1004
+    label: Payment Channels
+
+- name-code: EAIC8007
+  name: Channel List View
+  component:
+    name-code: EIC1026
+    source: EAIV8002
+    item-type: list-item
+    title-field: id
+    subtitle-field: peer_b_did
+    trailing-field: status
+    scrollable: true
+    max-height: 240
+
+- name-code: EAIC8008
+  name: No Channels Label
+  component:
+    name-code: EIC1020
+    text: No open channels. Open one below to pay a peer.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+# ── Open Channel section ──────────────────────────────────────────────────────
+
+- name-code: EAIC8009
+  name: Open Channel Header
+  component:
+    name-code: EIC1004
+    label: Open Channel
+
+- name-code: EAIC8010
+  name: Peer DID Input
+  component:
+    name-code: EIC1009
+    hint-text: did:epn:…
+    text-controller: EALC8003
+
+- name-code: EAIC8011
+  name: Amount Input
+  component:
+    name-code: EIC1009
+    hint-text: Deposit amount in μETC (e.g. 1000000)
+    text-controller: EALC8004
+
+- name-code: EAIC8012
+  name: Open Channel Button
+  component:
+    name-code: EIC1006
+    label: Open Channel
+    on-click: EALC8005
+
+- name-code: EAIC8013
+  name: Action Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV8003
+    variant: caption
+    color: 0xFF4CAF50
+
+# ── Settle section ────────────────────────────────────────────────────────────
+
+- name-code: EAIC8014
+  name: Settle Header
+  component:
+    name-code: EIC1004
+    label: Settle Channel
+
+- name-code: EAIC8015
+  name: Channel ID Input
+  component:
+    name-code: EIC1009
+    hint-text: ch-…
+    text-controller: EAIV8006
+
+- name-code: EAIC8016
+  name: Settle Button
+  component:
+    name-code: EIC1006
+    label: Settle
+    on-click: EALC8006
+
+# ── Dividers ──────────────────────────────────────────────────────────────────
+
+- name-code: EAIC8017
+  name: Divider 1
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC8018
+  name: Divider 2
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC8019
+  name: Divider 3
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Layout sections ───────────────────────────────────────────────────────────
+
+- name-code: EAIC8020
+  name: Balance Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC8001
+      - EAIC8002
+      - EAIC8003
+      - EAIC8004
+      - EAIC8005
+      - EAIC8017
+
+- name-code: EAIC8021
+  name: Channels Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC8006
+      - EAIC8007
+      - EAIC8008
+      - EAIC8018
+
+- name-code: EAIC8022
+  name: Open Channel Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC8009
+      - EAIC8010
+      - EAIC8011
+      - EAIC8012
+      - EAIC8013
+      - EAIC8019
+
+- name-code: EAIC8023
+  name: Settle Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC8014
+      - EAIC8015
+      - EAIC8016

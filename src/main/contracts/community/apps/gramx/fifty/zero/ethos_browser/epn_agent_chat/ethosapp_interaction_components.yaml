@@ -1,0 +1,129 @@
+# ── Header ────────────────────────────────────────────────────────────────────
+
+- name-code: EAIC6001
+  name: Evo Header
+  component:
+    name-code: EIC1004
+    label: Evo — EP&N Concierge
+
+# ── Message list ──────────────────────────────────────────────────────────────
+
+# Reactive list — updated on every send. Each item: {role, text}.
+# role field (You / Evo / error) shows as subtitle badge.
+- name-code: EAIC6002
+  name: Messages List
+  component:
+    name-code: EIC1026
+    source: EAIV6002
+    item-type: list-item
+    title-field: text
+    subtitle-field: role
+    scrollable: true
+    max-height: 440
+
+# Empty state — shown when EAIV6002 is empty.
+- name-code: EAIC6003
+  name: Empty State Label
+  component:
+    name-code: EIC1020
+    text: Ask Evo anything about your node — deployments, status, costs.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+# ── Composer ──────────────────────────────────────────────────────────────────
+
+- name-code: EAIC6004
+  name: Input Field
+  component:
+    name-code: EIC1009
+    hint-text: Ask Evo anything…
+    text-controller: EALC6001
+    on-change: EALC6004
+
+- name-code: EAIC6005
+  name: Send Button
+  component:
+    name-code: EIC1006
+    label: Send
+    on-click: EALC6002
+
+# ── Divider ───────────────────────────────────────────────────────────────────
+
+- name-code: EAIC6006
+  name: Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Action row: Send + Clear ──────────────────────────────────────────────────
+
+- name-code: EAIC6007
+  name: Action Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC6005
+      - EAIC6008
+
+# ── Clear button ──────────────────────────────────────────────────────────────
+
+- name-code: EAIC6008
+  name: Clear Button
+  component:
+    name-code: EIC1008
+    label: Clear
+    on-click: EALC6003
+
+# ── Persona picker ────────────────────────────────────────────────────────────
+
+- name-code: EAIC6011
+  name: Evo Button
+  component:
+    name-code: EIC1008
+    label: "Evo ✦"
+    on-click: EALC6005
+
+- name-code: EAIC6012
+  name: Sigma Button
+  component:
+    name-code: EIC1008
+    label: "Sigma ⚙"
+    on-click: EALC6006
+
+- name-code: EAIC6013
+  name: Lume Button
+  component:
+    name-code: EIC1008
+    label: "Lume ◎"
+    on-click: EALC6007
+
+- name-code: EAIC6014
+  name: Persona Picker Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC6011
+      - EAIC6012
+      - EAIC6013
+
+# ── Layout columns ────────────────────────────────────────────────────────────
+
+- name-code: EAIC6009
+  name: Chat History Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6001
+      - EAIC6014
+      - EAIC6002
+
+# Input field (full width in column) + action buttons below it.
+- name-code: EAIC6010
+  name: Composer Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6006
+      - EAIC6004
+      - EAIC6007

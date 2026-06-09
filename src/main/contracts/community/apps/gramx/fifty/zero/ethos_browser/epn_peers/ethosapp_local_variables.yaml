@@ -1,0 +1,35 @@
+# Node identity map — {did, peer_id, addrs, epnd_version, online}.
+- name-code: EAIV7001
+  name: Node Identity
+  type: ELVT1020
+  default: {}
+
+# Live peer list — each item: {did, peer_id, addrs, operator_ids, connected_at}.
+- name-code: EAIV7002
+  name: Peer List
+  type: ELVT1020
+  default: []
+
+# TextEditingController for the multiaddr connect input.
+- name-code: EAIV7003
+  name: Multiaddr Controller
+  type: ELVT1001
+  default: {}
+
+# Result message from the last connect attempt.
+- name-code: EAIV7004
+  name: Connect Result
+  type: ELVT1007
+  default: ""
+
+# TextEditingController for the DID search input.
+- name-code: EAIV7005
+  name: Find DID Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the DHT "find by DID" lookup — a CapabilityAd map or {error:...}.
+- name-code: EAIV7006
+  name: Find Result
+  type: ELVT1020
+  default: {}

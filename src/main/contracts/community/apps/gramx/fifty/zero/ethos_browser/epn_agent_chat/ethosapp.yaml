@@ -1,0 +1,8 @@
+name-code: epn_agent_chat
+name: Evo
+org: ethos_browser
+version: 1.0.0
+about: Chat with Evo — your EP&N node concierge
+icon: smart_toy
+platform: core
+design-language: level

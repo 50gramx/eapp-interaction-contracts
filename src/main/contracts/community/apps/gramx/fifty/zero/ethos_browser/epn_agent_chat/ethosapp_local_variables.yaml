@@ -1,0 +1,12 @@
+# TextEditingController for the composer input field.
+- name-code: EAIV6001
+  name: Input Controller
+  type: ELVT1001
+  default: {}
+
+# Growing list of chat messages — [{role, text}].
+# Updated by EALC6002 (send) via assign-to.
+- name-code: EAIV6002
+  name: Messages
+  type: ELVT1020
+  default: {}

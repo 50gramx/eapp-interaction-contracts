@@ -1,0 +1,16 @@
+name-code: epn_settings
+name: Settings
+org: ethos_browser
+version: 1.0.0
+about: Configure EP&N node policies — spend limits, KYC level, bootstrap peers, and agent escalation rules.
+icon: settings
+platform: core
+design-language: level
+keywords:
+  - settings
+  - policy
+  - spend
+  - kyc
+  - bootstrap
+  - peers
+  - epn

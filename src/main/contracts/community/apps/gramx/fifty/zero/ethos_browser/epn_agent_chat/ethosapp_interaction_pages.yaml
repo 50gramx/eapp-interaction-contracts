@@ -1,0 +1,6 @@
+- name-code: EAIP6001
+  name: Evo Chat Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT6001

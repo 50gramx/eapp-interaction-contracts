@@ -1,0 +1,16 @@
+name-code: epn_deployments
+name: Operators
+org: ethos_browser
+version: 1.0.0
+about: Install, manage, and monitor EP&N Deployment-Operators. Spin pods up or down and chat with their AI personas.
+icon: extension
+platform: core
+design-language: level
+keywords:
+  - deployments
+  - operators
+  - pods
+  - install
+  - gpu
+  - ollama
+  - epn

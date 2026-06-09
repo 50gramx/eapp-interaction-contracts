@@ -1,0 +1,232 @@
+# ── Identity section ──────────────────────────────────────────────────────────
+
+- name-code: EAIC7001
+  name: Identity Header
+  component:
+    name-code: EIC1004
+    label: This Node
+
+- name-code: EAIC7002
+  name: DID Label
+  component:
+    name-code: EIC1020
+    text: EAIV7001.did
+    variant: body2
+
+- name-code: EAIC7003
+  name: PeerID Label
+  component:
+    name-code: EIC1020
+    text: EAIV7001.peer_id
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC7004
+  name: Refresh Identity Button
+  component:
+    name-code: EIC1008
+    label: Refresh
+    on-click: EALC7001
+
+# ── Peers section ─────────────────────────────────────────────────────────────
+
+- name-code: EAIC7005
+  name: Peers Header
+  component:
+    name-code: EIC1004
+    label: Connected Peers
+
+- name-code: EAIC7006
+  name: Peer List View
+  component:
+    name-code: EIC1026
+    source: EAIV7002
+    item-type: list-item
+    title-field: did
+    subtitle-field: trust_label
+    trailing-field: gpu_class
+    scrollable: true
+    max-height: 280
+
+- name-code: EAIC7007
+  name: No Peers Label
+  component:
+    name-code: EIC1020
+    text: No peers connected yet. Share your multiaddr or add a bootstrap peer.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC7011
+  name: Refresh Peers Button
+  component:
+    name-code: EIC1008
+    label: Refresh Peers
+    on-click: EALC7002
+
+# ── Connect section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC7012
+  name: Connect Header
+  component:
+    name-code: EIC1004
+    label: Connect to Peer
+
+- name-code: EAIC7013
+  name: Multiaddr Input
+  component:
+    name-code: EIC1009
+    hint-text: /ip4/1.2.3.4/tcp/50590/p2p/12D3…
+    text-controller: EALC7003
+
+- name-code: EAIC7014
+  name: Connect Button
+  component:
+    name-code: EIC1006
+    label: Connect
+    on-click: EALC7004
+
+- name-code: EAIC7015
+  name: Connect Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV7004
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC7016
+  name: Connect Action Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC7014
+      - EAIC7011
+
+# ── Find by DID section ───────────────────────────────────────────────────────
+
+- name-code: EAIC7019
+  name: Find Header
+  component:
+    name-code: EIC1004
+    label: Find Peer by DID
+
+- name-code: EAIC7020
+  name: DID Search Input
+  component:
+    name-code: EIC1009
+    hint-text: did:epn:…
+    text-controller: EALC7005
+
+- name-code: EAIC7021
+  name: Find Button
+  component:
+    name-code: EIC1006
+    label: Search DHT
+    on-click: EALC7006
+
+- name-code: EAIC7022
+  name: Find Result DID Label
+  component:
+    name-code: EIC1020
+    text: EAIV7006.did
+    variant: body2
+
+- name-code: EAIC7023
+  name: Find Result PeerID Label
+  component:
+    name-code: EIC1020
+    text: EAIV7006.peer_id
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC7024
+  name: Find Result Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV7006.error
+    variant: caption
+    color: 0xFFE53935
+
+- name-code: EAIC7027
+  name: Find Result Trust Label
+  component:
+    name-code: EIC1020
+    text: EAIV7006.trust_label
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC7028
+  name: Find Result GPU Label
+  component:
+    name-code: EIC1020
+    text: EAIV7006.gpu_class
+    variant: caption
+    color: 0xFF1565C0
+
+- name-code: EAIC7025
+  name: Find Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7019
+      - EAIC7020
+      - EAIC7021
+      - EAIC7022
+      - EAIC7023
+      - EAIC7027
+      - EAIC7028
+      - EAIC7024
+
+# ── Dividers ──────────────────────────────────────────────────────────────────
+
+- name-code: EAIC7017
+  name: Divider 1
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC7018
+  name: Divider 2
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC7026
+  name: Divider 3
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Layout columns ────────────────────────────────────────────────────────────
+
+- name-code: EAIC7008
+  name: Identity Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7001
+      - EAIC7002
+      - EAIC7003
+      - EAIC7004
+      - EAIC7017
+
+- name-code: EAIC7009
+  name: Peers Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7005
+      - EAIC7006
+      - EAIC7007
+      - EAIC7018
+
+- name-code: EAIC7010
+  name: Connect Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7012
+      - EAIC7013
+      - EAIC7016
+      - EAIC7015
+      - EAIC7026

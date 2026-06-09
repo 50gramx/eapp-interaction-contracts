@@ -1,0 +1,84 @@
+# Fetch wallet balance from REST /v1/wallet and store in EAIV8001.
+- name-code: EALC8001
+  name: Load Wallet
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV8001
+
+# Fetch channel list from gRPC ListChannels and store in EAIV8002.
+- name-code: EALC8002
+  name: Load Channels
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV8002
+
+# Load both wallet and channels on page appear.
+- name-code: EALC8007
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV8001
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV8002
+
+# Return the peer DID TextEditingController.
+- name-code: EALC8003
+  name: Get Peer Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV8004
+
+# Return the amount TextEditingController.
+- name-code: EALC8004
+  name: Get Amount Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV8005
+
+# Open a payment channel to the peer DID in EAIV8004 with capacity from EAIV8005.
+- name-code: EALC8005
+  name: Open Channel
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.open_channel
+        params:
+          peer_did: EAIV8004
+          amount_uetc: EAIV8005
+        assign-to: EAIV8003
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV8002
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV8001
+
+# Settle the channel in EAIV8006.
+- name-code: EALC8006
+  name: Settle Channel
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.settle
+        params:
+          channel_id: EAIV8006
+        assign-to: EAIV8003
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV8002
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV8001

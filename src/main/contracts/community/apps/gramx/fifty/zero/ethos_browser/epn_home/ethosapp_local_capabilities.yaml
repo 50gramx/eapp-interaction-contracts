@@ -1,0 +1,55 @@
+# Spin up the built-in FileSystem operator.
+- name-code: EALC5001
+  name: Start FileSystem
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.spinup
+        params:
+          deployment_id: epn.filesystem.v1-dep
+
+# Spin down the FileSystem operator.
+- name-code: EALC5002
+  name: Stop FileSystem
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.spindown
+        params:
+          deployment_id: epn.filesystem.v1-dep
+
+# Refresh the KYC status from the REST API.
+- name-code: EALC5003
+  name: Load KYC Status
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.kyc
+        assign-to: EAIV5002
+
+# Initiate EMAIL-level self-attestation, then refresh KYC status.
+- name-code: EALC5004
+  name: Attest Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        assign-to: EAIV5003
+      - command: platform-invoke
+        handler: epn.identity.kyc
+        assign-to: EAIV5002
+
+# Init page — loads node identity, KYC, and wallet balance on appear.
+- name-code: EALC5005
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV5004
+      - command: platform-invoke
+        handler: epn.identity.kyc
+        assign-to: EAIV5002
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV5005

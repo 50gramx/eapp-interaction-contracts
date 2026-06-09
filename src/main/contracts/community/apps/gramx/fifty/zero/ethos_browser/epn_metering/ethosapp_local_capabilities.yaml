@@ -1,0 +1,32 @@
+# Load all metering data on page appear.
+- name-code: EALC11001
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV11001
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV11002
+      - command: platform-invoke
+        handler: epn.node.resources
+        assign-to: EAIV11004
+      - command: platform-invoke
+        handler: epn.metering.summary
+        assign-to: EAIV11005
+
+# Refresh all metering data.
+- name-code: EALC11002
+  name: Refresh
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.wallet.balance
+        assign-to: EAIV11001
+      - command: platform-invoke
+        handler: epn.wallet.channels
+        assign-to: EAIV11002
+      - command: platform-invoke
+        handler: epn.metering.summary
+        assign-to: EAIV11005

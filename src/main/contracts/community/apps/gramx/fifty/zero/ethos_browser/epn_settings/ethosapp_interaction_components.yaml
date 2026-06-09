@@ -1,0 +1,160 @@
+# ── Spend Policy section ──────────────────────────────────────────────────────
+
+- name-code: EAIC12001
+  name: Spend Header
+  component:
+    name-code: EIC1004
+    label: Spend Limits
+
+- name-code: EAIC12002
+  name: Current Max Hour Label
+  component:
+    name-code: EIC1020
+    text: EAIV12001.max_per_hour_uetc
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12003
+  name: Current Max Peer Label
+  component:
+    name-code: EIC1020
+    text: EAIV12001.max_per_peer_uetc
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12004
+  name: Max Per Hour Input
+  component:
+    name-code: EIC1009
+    hint-text: Max μETC per hour (0 = unlimited)
+    text-controller: EALC12002
+
+- name-code: EAIC12005
+  name: Max Per Peer Input
+  component:
+    name-code: EIC1009
+    hint-text: Max μETC per peer (0 = unlimited)
+    text-controller: EALC12003
+
+- name-code: EAIC12006
+  name: Confirm Above Input
+  component:
+    name-code: EIC1009
+    hint-text: Confirm payments above μETC (0 = never)
+    text-controller: EALC12004
+
+- name-code: EAIC12007
+  name: Save Spend Button
+  component:
+    name-code: EIC1006
+    label: Save Limits
+    on-click: EALC12005
+
+- name-code: EAIC12008
+  name: Save Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV12005
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC12009
+  name: Spend Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12010
+  name: Spend Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12001
+      - EAIC12002
+      - EAIC12003
+      - EAIC12004
+      - EAIC12005
+      - EAIC12006
+      - EAIC12007
+      - EAIC12008
+      - EAIC12009
+
+# ── Identity & KYC section ────────────────────────────────────────────────────
+
+- name-code: EAIC12011
+  name: KYC Header
+  component:
+    name-code: EIC1004
+    label: Identity & Trust
+
+- name-code: EAIC12012
+  name: KYC Level Label
+  component:
+    name-code: EIC1020
+    text: EAIV12006.kyc_level_name
+    variant: body1
+
+- name-code: EAIC12013
+  name: KYC Expires Label
+  component:
+    name-code: EIC1020
+    text: EAIV12006.kyc_expires_at
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12014
+  name: KYC Expiring Warning
+  component:
+    name-code: EIC1020
+    text: EAIV12006.expiring_soon
+    variant: caption
+    color: 0xFFFF9800
+
+- name-code: EAIC12015
+  name: Attest Email Button
+  component:
+    name-code: EIC1006
+    label: Re-attest Email
+    on-click: EALC12006
+
+- name-code: EAIC12016
+  name: KYC Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12017
+  name: KYC Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12011
+      - EAIC12012
+      - EAIC12013
+      - EAIC12014
+      - EAIC12015
+      - EAIC12016
+
+# ── About section ─────────────────────────────────────────────────────────────
+
+- name-code: EAIC12018
+  name: About Header
+  component:
+    name-code: EIC1004
+    label: About This Node
+
+- name-code: EAIC12019
+  name: Version Label
+  component:
+    name-code: EIC1020
+    text: EP&N Daemon v0.1.0 — Phase F
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12020
+  name: About Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12018
+      - EAIC12019

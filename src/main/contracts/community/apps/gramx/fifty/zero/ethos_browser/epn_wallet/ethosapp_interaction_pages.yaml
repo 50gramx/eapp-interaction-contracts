@@ -1,0 +1,7 @@
+- name-code: EAIP8001
+  name: Wallet Page
+  on-appear: EALC8007
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT8001

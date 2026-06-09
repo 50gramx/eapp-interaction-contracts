@@ -1,0 +1,7 @@
+- name-code: EAIP11001
+  name: Metering Page
+  on-appear: EALC11001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT11001

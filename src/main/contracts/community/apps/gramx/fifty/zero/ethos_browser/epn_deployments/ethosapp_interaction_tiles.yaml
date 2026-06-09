@@ -1,0 +1,10 @@
+- name-code: EAIT9001
+  name: Deployments Tile
+  about: Active EP&N operators, AI personas, and deployment management
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9005
+      - EAIC9009
+      - EAIC9019
+      - EAIC9024

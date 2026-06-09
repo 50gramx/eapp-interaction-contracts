@@ -1,4 +1,4 @@
-# Community 50 — Eutopia Browser eApps
+# Community 50 - Eutopia Browser and EP&N eApps
 # Only entries with `live: true` are loaded and discoverable in the live browser.
 # Plain string entries (legacy format) are not live-gated and will be skipped.
 
@@ -18,6 +18,20 @@
       live: true
     - name: evo_mail
       live: true
+    - name: epn_home
+      live: true
+    - name: epn_agent_chat
+      live: true
+    - name: epn_peers
+      live: true
+    - name: epn_wallet
+      live: true
+    - name: epn_deployments
+      live: true
+    - name: epn_metering
+      live: true
+    - name: epn_settings
+      live: true
 
 - organisation: ethos
   apps:
@@ -29,7 +43,7 @@
     - name: dr_appointment
       live: true
 
-# Legacy entries — no live flag, skipped by live browser
+# Legacy entries - no live flag, skipped by live browser
 - organisation: ethos
   apps:
     - helloworld

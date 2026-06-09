@@ -1,0 +1,35 @@
+# Current spend policy — {max_per_hour_uetc, max_per_peer_uetc, confirm_above_uetc}.
+- name-code: EAIV12001
+  name: Spend Policy
+  type: ELVT1020
+  default: {}
+
+# TextEditingController for max spend per hour (μETC).
+- name-code: EAIV12002
+  name: Max Per Hour Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for max spend per peer (μETC).
+- name-code: EAIV12003
+  name: Max Per Peer Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for confirm-above threshold (μETC).
+- name-code: EAIV12004
+  name: Confirm Above Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last save action.
+- name-code: EAIV12005
+  name: Save Result
+  type: ELVT1007
+  default: ""
+
+# KYC status — {kyc_level, kyc_level_name, kyc_expires_at, valid, expiring_soon}.
+- name-code: EAIV12006
+  name: KYC Status
+  type: ELVT1020
+  default: {}

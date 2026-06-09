@@ -1,0 +1,74 @@
+# Fetch this node's identity from the REST API and store in EAIV7001.
+- name-code: EALC7001
+  name: Load Identity
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV7001
+
+# Fetch the list of connected peers (enriched with trust_score + gpu_class) and store in EAIV7002.
+- name-code: EALC7002
+  name: Load Peers
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.list
+        assign-to: EAIV7002
+
+# Load identity + peers together on page appear.
+- name-code: EALC7007
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV7001
+      - command: platform-invoke
+        handler: epn.peers.list
+        assign-to: EAIV7002
+
+# Return the TextEditingController so the input field can bind to it.
+- name-code: EALC7003
+  name: Get Multiaddr Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV7003
+
+# Connect to a peer by multiaddr string (read from the controller text).
+- name-code: EALC7004
+  name: Connect Peer
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.connect
+        params:
+          multiaddr: EAIV7003
+        assign-to: EAIV7004
+      - command: platform-invoke
+        handler: epn.peers.list
+        assign-to: EAIV7002
+
+# Return the DID search TextEditingController.
+- name-code: EALC7005
+  name: Get Find DID Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV7005
+
+# Query the DHT for a peer's capability ad by DID (read from the controller).
+- name-code: EALC7006
+  name: Find Peer by DID
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.find
+        params:
+          did: EAIV7005
+        assign-to: EAIV7006

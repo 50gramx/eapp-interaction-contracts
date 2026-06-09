@@ -1,0 +1,73 @@
+# Return the TextEditingController so the composer field can bind to it.
+- name-code: EALC6001
+  name: Get Input Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV6001
+
+# Called by the Send button — reads _currentInput stored by EALC6004.
+- name-code: EALC6002
+  name: Send Message
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.chat.send
+        assign-to: EAIV6002
+
+# Clear conversation history and reset the session.
+- name-code: EALC6003
+  name: Clear Chat
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.chat.clear
+        assign-to: EAIV6002
+
+# Called on-change of the input field (engine passes current text as 'text' param).
+# Stores it in _currentInput so EALC6002 can read it on Send.
+- name-code: EALC6004
+  name: Update Input Text
+  context:
+    expects:
+      - text: ELVT1007
+    steps:
+      - command: platform-invoke
+        handler: epn.chat.input.set
+        params:
+          text: text
+
+# ── Persona switchers ─────────────────────────────────────────────────────────
+# Each clears the conversation and routes subsequent messages to the chosen agent.
+
+- name-code: EALC6005
+  name: Use Evo
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.chat.persona.set
+        params:
+          persona_id: ""
+        assign-to: EAIV6002
+
+- name-code: EALC6006
+  name: Use Sigma
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.chat.persona.set
+        params:
+          persona_id: epn.sigma.v1
+        assign-to: EAIV6002
+
+- name-code: EALC6007
+  name: Use Lume
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.chat.persona.set
+        params:
+          persona_id: epn.ollama.v1
+        assign-to: EAIV6002

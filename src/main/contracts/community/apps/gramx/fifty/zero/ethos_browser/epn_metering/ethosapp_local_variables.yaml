@@ -1,0 +1,29 @@
+# Wallet balance and summary — {balance_uetc, balance_etc, updated_at}.
+- name-code: EAIV11001
+  name: Wallet Info
+  type: ELVT1020
+  default: {}
+
+# Payment channels — [{id, peer_a_did, peer_b_did, balance_a_utc, balance_b_utc, status}].
+- name-code: EAIV11002
+  name: Channels
+  type: ELVT1020
+  default: []
+
+# Active deployments — [{id, name, status, operator_id}].
+- name-code: EAIV11003
+  name: Deployments
+  type: ELVT1020
+  default: []
+
+# Node resource summary — {gpu_class, vram_gib, ram_gib, vcpu, storage_gib}.
+- name-code: EAIV11004
+  name: Resources
+  type: ELVT1020
+  default: {}
+
+# Metering summary — computed: {earned_uetc, spent_uetc, open_channels, running_operators}.
+- name-code: EAIV11005
+  name: Metering Summary
+  type: ELVT1020
+  default: {}

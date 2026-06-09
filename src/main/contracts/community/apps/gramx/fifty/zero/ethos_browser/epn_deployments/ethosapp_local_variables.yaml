@@ -1,0 +1,36 @@
+# Live deployment list — streams from epnd every 5 s.
+- name-code: EAIV9001
+  name: Deployments
+  type: ELVT1020
+  default:
+    platform-stream: epn.deployments.list
+
+# Available AI personas — [{id, name, role, deployment_id, is_concierge}].
+- name-code: EAIV9002
+  name: Personas
+  type: ELVT1020
+  default: []
+
+# TextEditingController for the operator ID to install.
+- name-code: EAIV9003
+  name: Install Operator ID Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the deployment ID to spin up/down.
+- name-code: EAIV9004
+  name: Target Deployment ID Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last install/spinup/spindown action.
+- name-code: EAIV9005
+  name: Action Result
+  type: ELVT1007
+  default: ""
+
+# Log output for the selected deployment (last N lines).
+- name-code: EAIV9006
+  name: Deployment Logs
+  type: ELVT1007
+  default: ""

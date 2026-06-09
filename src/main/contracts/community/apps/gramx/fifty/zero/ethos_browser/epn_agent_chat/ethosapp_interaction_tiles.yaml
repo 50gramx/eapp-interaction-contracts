@@ -1,0 +1,8 @@
+- name-code: EAIT6001
+  name: Evo Chat Tile
+  about: Full-screen chat with the Evo EP&N concierge
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC6009
+      - EAIC6010

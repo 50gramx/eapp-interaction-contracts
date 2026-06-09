@@ -1,0 +1,7 @@
+- name-code: EAIP9001
+  name: Deployments Page
+  on-appear: EALC9001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT9001

@@ -1,0 +1,73 @@
+# Load deployments + personas on page appear.
+- name-code: EALC9001
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.personas
+        assign-to: EAIV9002
+
+# Return the operator ID TextEditingController.
+- name-code: EALC9002
+  name: Get Install Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV9003
+
+# Return the deployment ID TextEditingController.
+- name-code: EALC9003
+  name: Get Target Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV9004
+
+# Install an operator from the operator ID in EAIV9003.
+- name-code: EALC9004
+  name: Install Operator
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.install
+        params:
+          operator_id: EAIV9003
+        assign-to: EAIV9005
+
+# Spin up the deployment ID in EAIV9004.
+- name-code: EALC9005
+  name: Spin Up
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.spinup
+        params:
+          deployment_id: EAIV9004
+        assign-to: EAIV9005
+
+# Spin down the deployment ID in EAIV9004.
+- name-code: EALC9006
+  name: Spin Down
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.spindown
+        params:
+          deployment_id: EAIV9004
+        assign-to: EAIV9005
+
+# Fetch recent logs for the deployment ID in EAIV9004.
+- name-code: EALC9007
+  name: Fetch Logs
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.deployments.logs_snapshot
+        params:
+          deployment_id: EAIV9004
+          tail_lines: 50
+        assign-to: EAIV9006

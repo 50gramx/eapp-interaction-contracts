@@ -1,0 +1,233 @@
+# ── Summary section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC11001
+  name: Summary Header
+  component:
+    name-code: EIC1004
+    label: Activity Summary
+
+- name-code: EAIC11002
+  name: Earned Label
+  component:
+    name-code: EIC1020
+    text: EAIV11005.earned_uetc
+    variant: body1
+    color: 0xFF4CAF50
+
+- name-code: EAIC11003
+  name: Earned Caption
+  component:
+    name-code: EIC1020
+    text: μETC earned from peers
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11004
+  name: Spent Label
+  component:
+    name-code: EIC1020
+    text: EAIV11005.spent_uetc
+    variant: body1
+    color: 0xFFE53935
+
+- name-code: EAIC11005
+  name: Spent Caption
+  component:
+    name-code: EIC1020
+    text: μETC spent on peers
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11006
+  name: Open Channels Label
+  component:
+    name-code: EIC1020
+    text: EAIV11005.open_channels
+    variant: body1
+
+- name-code: EAIC11007
+  name: Open Channels Caption
+  component:
+    name-code: EIC1020
+    text: open payment channels
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11008
+  name: Running Operators Label
+  component:
+    name-code: EIC1020
+    text: EAIV11005.running_operators
+    variant: body1
+
+- name-code: EAIC11009
+  name: Running Operators Caption
+  component:
+    name-code: EIC1020
+    text: operators running
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11010
+  name: Refresh Button
+  component:
+    name-code: EIC1008
+    label: Refresh
+    on-click: EALC11002
+
+- name-code: EAIC11011
+  name: Summary Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11012
+  name: Summary Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11001
+      - EAIC11002
+      - EAIC11003
+      - EAIC11004
+      - EAIC11005
+      - EAIC11006
+      - EAIC11007
+      - EAIC11008
+      - EAIC11009
+      - EAIC11010
+      - EAIC11011
+
+# ── Resource section ──────────────────────────────────────────────────────────
+
+- name-code: EAIC11013
+  name: Resources Header
+  component:
+    name-code: EIC1004
+    label: Node Resources
+
+- name-code: EAIC11014
+  name: GPU Class Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.gpu_class
+    variant: body2
+
+- name-code: EAIC11015
+  name: VRAM Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.vram_gib
+    variant: body2
+
+- name-code: EAIC11016
+  name: vCPU Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.vcpu
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11017
+  name: RAM Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.ram_gib
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11018
+  name: Resources Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11019
+  name: Resources Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11013
+      - EAIC11014
+      - EAIC11015
+      - EAIC11016
+      - EAIC11017
+      - EAIC11018
+
+# ── Channels section ──────────────────────────────────────────────────────────
+
+- name-code: EAIC11020
+  name: Channels Header
+  component:
+    name-code: EIC1004
+    label: Payment Channels
+
+- name-code: EAIC11021
+  name: Channels List
+  component:
+    name-code: EIC1026
+    source: EAIV11002
+    item-type: list-item
+    title-field: id
+    subtitle-field: peer_b_did
+    trailing-field: status
+    scrollable: true
+    max-height: 200
+
+- name-code: EAIC11022
+  name: No Channels Label
+  component:
+    name-code: EIC1020
+    text: No payment channels open yet.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11023
+  name: Channels Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11020
+      - EAIC11021
+      - EAIC11022
+
+# ── Wallet balance ────────────────────────────────────────────────────────────
+
+- name-code: EAIC11024
+  name: Balance Header
+  component:
+    name-code: EIC1004
+    label: Wallet Balance
+
+- name-code: EAIC11025
+  name: Balance Label
+  component:
+    name-code: EIC1020
+    text: EAIV11001.balance_etc
+    variant: headline6
+    color: 0xFF1565C0
+
+- name-code: EAIC11026
+  name: Balance Caption
+  component:
+    name-code: EIC1020
+    text: ETC
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11027
+  name: Balance Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11028
+  name: Balance Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11024
+      - EAIC11025
+      - EAIC11026
+      - EAIC11027

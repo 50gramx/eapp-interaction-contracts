@@ -1,0 +1,198 @@
+# ── Active Deployments section ────────────────────────────────────────────────
+
+- name-code: EAIC9001
+  name: Deployments Header
+  component:
+    name-code: EIC1004
+    label: Active Operators
+
+- name-code: EAIC9002
+  name: Deployments List
+  component:
+    name-code: EIC1026
+    source: EAIV9001
+    item-type: list-item
+    title-field: name
+    subtitle-field: status
+    trailing-field: operator_id
+    scrollable: true
+    max-height: 280
+
+- name-code: EAIC9003
+  name: No Deployments Label
+  component:
+    name-code: EIC1020
+    text: No operators installed. Use the form below to install one.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC9004
+  name: Deployments Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC9005
+  name: Deployments Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9001
+      - EAIC9002
+      - EAIC9003
+      - EAIC9004
+
+# ── Personas section ──────────────────────────────────────────────────────────
+
+- name-code: EAIC9006
+  name: Personas Header
+  component:
+    name-code: EIC1004
+    label: AI Personas
+
+- name-code: EAIC9007
+  name: Personas List
+  component:
+    name-code: EIC1026
+    source: EAIV9002
+    item-type: list-item
+    title-field: name
+    subtitle-field: role
+    trailing-field: id
+    scrollable: true
+    max-height: 180
+
+- name-code: EAIC9008
+  name: Personas Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC9009
+  name: Personas Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9006
+      - EAIC9007
+      - EAIC9008
+
+# ── Manage section (spinup/spindown/logs) ────────────────────────────────────
+
+- name-code: EAIC9010
+  name: Manage Header
+  component:
+    name-code: EIC1004
+    label: Manage Deployment
+
+- name-code: EAIC9011
+  name: Target Deployment Input
+  component:
+    name-code: EIC1009
+    hint-text: Deployment ID (e.g. epn.gpu.v1-dep)
+    text-controller: EALC9003
+
+- name-code: EAIC9012
+  name: Spin Up Button
+  component:
+    name-code: EIC1006
+    label: Spin Up
+    on-click: EALC9005
+
+- name-code: EAIC9013
+  name: Spin Down Button
+  component:
+    name-code: EIC1008
+    label: Spin Down
+    on-click: EALC9006
+
+- name-code: EAIC9014
+  name: Fetch Logs Button
+  component:
+    name-code: EIC1008
+    label: View Logs
+    on-click: EALC9007
+
+- name-code: EAIC9015
+  name: Manage Action Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9012
+      - EAIC9013
+      - EAIC9014
+
+- name-code: EAIC9016
+  name: Action Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV9005
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC9017
+  name: Logs Label
+  component:
+    name-code: EIC1020
+    text: EAIV9006
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC9018
+  name: Manage Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC9019
+  name: Manage Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9010
+      - EAIC9011
+      - EAIC9015
+      - EAIC9016
+      - EAIC9017
+      - EAIC9018
+
+# ── Install section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC9020
+  name: Install Header
+  component:
+    name-code: EIC1004
+    label: Install Operator
+
+- name-code: EAIC9021
+  name: Operator ID Input
+  component:
+    name-code: EIC1009
+    hint-text: Operator ID (e.g. epn.ollama.v1)
+    text-controller: EALC9002
+
+- name-code: EAIC9022
+  name: Install Button
+  component:
+    name-code: EIC1006
+    label: Install
+    on-click: EALC9004
+
+- name-code: EAIC9023
+  name: Install Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV9005
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC9024
+  name: Install Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9020
+      - EAIC9021
+      - EAIC9022
+      - EAIC9023

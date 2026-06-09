@@ -1,0 +1,10 @@
+- name-code: EAIT5001
+  name: EP&N Home Tile
+  about: Node status, wallet balance, active operators, and identity trust level
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5025
+      - EAIC5030
+      - EAIC5008
+      - EAIC5016

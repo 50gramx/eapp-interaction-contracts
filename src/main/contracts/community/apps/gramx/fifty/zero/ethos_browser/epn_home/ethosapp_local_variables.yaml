@@ -1,0 +1,30 @@
+# Live deployment list — polls epnd via gRPC every 5 s and pushes updates.
+- name-code: EAIV5001
+  name: Deployments
+  type: ELVT1020
+  default:
+    platform-stream: epn.deployments.list
+
+# KYC status map — {kyc_level, kyc_level_name, kyc_expires_at, issuer_did, valid}.
+- name-code: EAIV5002
+  name: KYC Status
+  type: ELVT1020
+  default: {}
+
+# Result of the last attest-email action — {session_id} or {error}.
+- name-code: EAIV5003
+  name: Attest Result
+  type: ELVT1020
+  default: {}
+
+# Node identity — {did, peer_id, addrs, online}.
+- name-code: EAIV5004
+  name: Node Identity
+  type: ELVT1020
+  default: {}
+
+# Wallet info — {balance_uetc, balance_etc, updated_at}.
+- name-code: EAIV5005
+  name: Wallet Info
+  type: ELVT1020
+  default: {}

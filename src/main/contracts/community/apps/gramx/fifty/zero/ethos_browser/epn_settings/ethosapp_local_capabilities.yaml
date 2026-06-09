@@ -1,0 +1,69 @@
+# Load spend policy and KYC on page appear.
+- name-code: EALC12001
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.settings.spend.get
+        assign-to: EAIV12001
+      - command: platform-invoke
+        handler: epn.identity.kyc
+        assign-to: EAIV12006
+
+# Return the max-per-hour TextEditingController.
+- name-code: EALC12002
+  name: Get Max Per Hour Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12002
+
+# Return the max-per-peer TextEditingController.
+- name-code: EALC12003
+  name: Get Max Per Peer Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12003
+
+# Return the confirm-above TextEditingController.
+- name-code: EALC12004
+  name: Get Confirm Above Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12004
+
+# Save spend policy from the three input controllers.
+- name-code: EALC12005
+  name: Save Spend Policy
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.settings.spend.set
+        params:
+          max_per_hour_uetc: EAIV12002
+          max_per_peer_uetc: EAIV12003
+          confirm_above_uetc: EAIV12004
+        assign-to: EAIV12001
+      - command: platform-invoke
+        handler: epn.settings.spend.get
+        assign-to: EAIV12001
+
+# Initiate KYC email self-attestation.
+- name-code: EALC12006
+  name: Attest Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        assign-to: EAIV12005
+      - command: platform-invoke
+        handler: epn.identity.kyc
+        assign-to: EAIV12006

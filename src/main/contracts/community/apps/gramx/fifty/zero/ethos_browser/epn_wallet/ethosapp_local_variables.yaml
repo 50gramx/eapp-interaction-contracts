@@ -1,0 +1,35 @@
+# Wallet balance info — {node_did, balance_uetc, balance_etc, updated_at}.
+- name-code: EAIV8001
+  name: Wallet Info
+  type: ELVT1020
+  default: {}
+
+# List of payment channels — each: {id, peer_a_did, peer_b_did, balance_a_utc, balance_b_utc, nonce, status, opened_at}.
+- name-code: EAIV8002
+  name: Channel List
+  type: ELVT1020
+  default: []
+
+# Result message from the last action (settle, open, etc.).
+- name-code: EAIV8003
+  name: Action Result
+  type: ELVT1007
+  default: ""
+
+# TextEditingController for the peer DID input when opening a channel.
+- name-code: EAIV8004
+  name: Open Channel Peer Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the deposit amount input (μETC).
+- name-code: EAIV8005
+  name: Open Channel Amount Controller
+  type: ELVT1001
+  default: {}
+
+# Channel ID for settle action — populated when user selects a channel.
+- name-code: EAIV8006
+  name: Selected Channel ID
+  type: ELVT1007
+  default: ""
