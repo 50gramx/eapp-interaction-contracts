@@ -28,6 +28,23 @@
     label: Refresh
     on-click: EALC7001
 
+- name-code: EAIC7029
+  name: My Multiaddr QR Label
+  component:
+    name-code: EIC1020
+    text: Scan to pair (multiaddr)
+    variant: caption
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC7030
+  name: My Multiaddr QR
+  component:
+    name-code: EIC1027
+    data: EAIV7001.addrs.0
+    size: 200
+    background-color: 0xFFFFFFFF
+
 # ── Peers section ─────────────────────────────────────────────────────────────
 
 - name-code: EAIC7005
@@ -208,6 +225,8 @@
       - EAIC7002
       - EAIC7003
       - EAIC7004
+      - EAIC7030
+      - EAIC7029
       - EAIC7017
 
 - name-code: EAIC7009
