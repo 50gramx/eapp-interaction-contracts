@@ -1,9 +1,10 @@
 - name-code: EAIT12001
   name: Settings Tile
-  about: Spend limits, KYC identity, and node configuration
+  about: Spend limits, escalation policy, energy preference, KYC identity, and node configuration
   composition:
     name-code: EIC1005
     children-components:
       - EAIC12010
+      - EAIC12029
       - EAIC12017
       - EAIC12020

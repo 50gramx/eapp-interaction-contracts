@@ -40,7 +40,7 @@
   name: Confirm Above Input
   component:
     name-code: EIC1009
-    hint-text: Confirm payments above μETC (0 = never)
+    hint-text: "Escalation threshold: confirm payments above μETC (0 = never)"
     text-controller: EALC12004
 
 - name-code: EAIC12007
@@ -78,6 +78,79 @@
       - EAIC12007
       - EAIC12008
       - EAIC12009
+
+# ── Energy Preference section (WU-G.7.2) ──────────────────────────────────────
+
+- name-code: EAIC12021
+  name: Energy Header
+  component:
+    name-code: EIC1004
+    label: Energy Preference
+
+- name-code: EAIC12022
+  name: Current Energy Policy Label
+  component:
+    name-code: EIC1020
+    text: EAIV12007.policy
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12023
+  name: Current Energy Geo Label
+  component:
+    name-code: EIC1020
+    text: EAIV12007.geo
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC12024
+  name: Energy Policy Input
+  component:
+    name-code: EIC1009
+    hint-text: "Batch placement: prefer-cheapest or prefer-green"
+    text-controller: EALC12007
+
+- name-code: EAIC12025
+  name: Energy Geo Input
+  component:
+    name-code: EIC1009
+    hint-text: "Geo region for carbon-intensity lookups (e.g. in-mum)"
+    text-controller: EALC12008
+
+- name-code: EAIC12026
+  name: Save Energy Button
+  component:
+    name-code: EIC1006
+    label: Save Energy Preference
+    on-click: EALC12009
+
+- name-code: EAIC12027
+  name: Energy Save Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV12010
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC12028
+  name: Energy Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12029
+  name: Energy Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12021
+      - EAIC12022
+      - EAIC12023
+      - EAIC12024
+      - EAIC12025
+      - EAIC12026
+      - EAIC12027
+      - EAIC12028
 
 # ── Identity & KYC section ────────────────────────────────────────────────────
 

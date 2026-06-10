@@ -33,3 +33,27 @@
   name: KYC Status
   type: ELVT1020
   default: {}
+
+# Current energy policy — {policy, geo} (WU-G.7.2).
+- name-code: EAIV12007
+  name: Energy Policy
+  type: ELVT1020
+  default: {}
+
+# TextEditingController for the energy policy ("prefer-cheapest" | "prefer-green").
+- name-code: EAIV12008
+  name: Energy Policy Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the geo region (e.g. "in-mum") used for carbon-intensity lookups.
+- name-code: EAIV12009
+  name: Energy Geo Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last energy-policy save action.
+- name-code: EAIV12010
+  name: Energy Save Result
+  type: ELVT1007
+  default: ""

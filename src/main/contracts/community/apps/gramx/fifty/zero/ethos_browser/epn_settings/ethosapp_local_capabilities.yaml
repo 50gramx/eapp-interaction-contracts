@@ -1,4 +1,4 @@
-# Load spend policy and KYC on page appear.
+# Load spend policy, KYC, and energy policy on page appear.
 - name-code: EALC12001
   name: Init Page
   context:
@@ -9,6 +9,9 @@
       - command: platform-invoke
         handler: epn.identity.kyc
         assign-to: EAIV12006
+      - command: platform-invoke
+        handler: epn.settings.energy.get
+        assign-to: EAIV12007
 
 # Return the max-per-hour TextEditingController.
 - name-code: EALC12002
@@ -55,6 +58,38 @@
       - command: platform-invoke
         handler: epn.settings.spend.get
         assign-to: EAIV12001
+
+# Return the energy-policy TextEditingController.
+- name-code: EALC12007
+  name: Get Energy Policy Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12008
+
+# Return the energy-geo TextEditingController.
+- name-code: EALC12008
+  name: Get Energy Geo Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12009
+
+# Save energy policy + geo from the input controllers.
+- name-code: EALC12009
+  name: Save Energy Policy
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.settings.energy.set
+        params:
+          policy: EAIV12008
+          geo: EAIV12009
+        assign-to: EAIV12007
 
 # Initiate KYC email self-attestation.
 - name-code: EALC12006
