@@ -136,6 +136,83 @@
     variant: caption
     color: 0xFF9E9E9E
 
+# ── Multi-network resource snapshot (WU-G.7.2) ────────────────────────────────
+
+- name-code: EAIC11029
+  name: RAM Pool Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.ram_pool_gib
+    variant: body2
+
+- name-code: EAIC11030
+  name: RAM Pool Caption
+  component:
+    name-code: EIC1020
+    text: GiB shareable RAM pool
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11031
+  name: vCPU Seconds Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.vcpu_seconds
+    variant: body2
+
+- name-code: EAIC11032
+  name: vCPU Seconds Caption
+  component:
+    name-code: EIC1020
+    text: vCPU-seconds/hour available
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11033
+  name: Storage Tiers Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.storage_block_gib
+    variant: body2
+
+- name-code: EAIC11034
+  name: Storage Tiers Caption
+  component:
+    name-code: EIC1020
+    text: GiB block storage to lend
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11035
+  name: Egress Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.egress_gbps
+    variant: body2
+
+- name-code: EAIC11036
+  name: Egress Caption
+  component:
+    name-code: EIC1020
+    text: Gb/s egress bandwidth
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC11037
+  name: Energy Rate Label
+  component:
+    name-code: EIC1020
+    text: EAIV11004.energy_kwh_rate
+    variant: body2
+
+- name-code: EAIC11038
+  name: Energy Rate Caption
+  component:
+    name-code: EIC1020
+    text: kWh/hour estimated draw (EAIV11004.energy_source)
+    variant: caption
+    color: 0xFF9E9E9E
+
 - name-code: EAIC11018
   name: Resources Divider
   component:
@@ -152,6 +229,16 @@
       - EAIC11015
       - EAIC11016
       - EAIC11017
+      - EAIC11029
+      - EAIC11030
+      - EAIC11031
+      - EAIC11032
+      - EAIC11033
+      - EAIC11034
+      - EAIC11035
+      - EAIC11036
+      - EAIC11037
+      - EAIC11038
       - EAIC11018
 
 # ── Channels section ──────────────────────────────────────────────────────────

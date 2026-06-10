@@ -187,6 +187,13 @@
     variant: caption
     color: 0xFF4CAF50
 
+- name-code: EAIC9025
+  name: Install CID Input
+  component:
+    name-code: EIC1009
+    hint-text: "Or paste a marketplace package CID (sha256:...)"
+    text-controller: EALC9008
+
 - name-code: EAIC9024
   name: Install Section
   component:
@@ -194,5 +201,6 @@
     children-components:
       - EAIC9020
       - EAIC9021
+      - EAIC9025
       - EAIC9022
       - EAIC9023

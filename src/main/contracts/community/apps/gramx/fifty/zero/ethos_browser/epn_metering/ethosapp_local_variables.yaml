@@ -16,7 +16,11 @@
   type: ELVT1020
   default: []
 
-# Node resource summary — {gpu_class, vram_gib, ram_gib, vcpu, storage_gib}.
+# Node resource summary across all 7 EP&N resource networks — populated from
+# NodeService.Resources: {gpu_class, vram_gib, gpu_tflops, ram_gib, ram_pool_gib,
+# ram_bw_class, vcpu, vcpu_seconds, cpu_arch, simd, storage_gib, storage_block_gib,
+# storage_object_gib, storage_archival_gib, redundancy, egress_gbps, relay_slots,
+# energy_kwh_rate, energy_source}.
 - name-code: EAIV11004
   name: Resources
   type: ELVT1020

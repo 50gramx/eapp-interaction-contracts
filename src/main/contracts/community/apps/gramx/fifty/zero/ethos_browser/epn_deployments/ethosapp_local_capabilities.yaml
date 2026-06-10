@@ -27,7 +27,9 @@
       - command: return
         value: EAIV9004
 
-# Install an operator from the operator ID in EAIV9003.
+# Install an operator from the operator ID in EAIV9003, or by package CID
+# (EAIV9007) if the operator ID field is left blank — resolved via the
+# marketplace package distributor on the daemon side.
 - name-code: EALC9004
   name: Install Operator
   context:
@@ -36,7 +38,18 @@
         handler: epn.deployments.install
         params:
           operator_id: EAIV9003
+          cid: EAIV9007
         assign-to: EAIV9005
+
+# Return the package CID TextEditingController.
+- name-code: EALC9008
+  name: Get Install CID Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV9007
 
 # Spin up the deployment ID in EAIV9004.
 - name-code: EALC9005

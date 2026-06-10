@@ -34,3 +34,9 @@
   name: Deployment Logs
   type: ELVT1007
   default: ""
+
+# TextEditingController for a marketplace package CID to install (epn_market post -> CID).
+- name-code: EAIV9007
+  name: Install Package CID Controller
+  type: ELVT1001
+  default: {}
