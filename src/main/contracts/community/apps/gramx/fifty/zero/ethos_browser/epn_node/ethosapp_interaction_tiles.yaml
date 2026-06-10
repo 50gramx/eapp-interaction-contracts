@@ -1,0 +1,8 @@
+- name-code: EAIT14001
+  name: Node Tile
+  about: Start, stop and monitor your local EP&N node
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC14014
+      - EAIC14015

@@ -1,0 +1,20 @@
+# Live node lifecycle status — {state, did, peer_id, online, offline_reason,
+# externally_managed, failure}. Fed by the epn.node.status platform stream.
+# state ∈ notRunning | starting | running | degraded | externallyManaged | failed
+- name-code: EAIV14001
+  name: Node Status
+  type: ELVT1020
+  default:
+    platform-stream: epn.node.status
+
+# Result of the last start attempt — the status map after starting, or {failure:...}.
+- name-code: EAIV14002
+  name: Start Result
+  type: ELVT1020
+  default: {}
+
+# Result of the last stop attempt — the status map after stopping.
+- name-code: EAIV14003
+  name: Stop Result
+  type: ELVT1020
+  default: {}

@@ -1,0 +1,126 @@
+# ── Status section ────────────────────────────────────────────────────────────
+
+- name-code: EAIC14001
+  name: Status Header
+  component:
+    name-code: EIC1004
+    label: Node Status
+
+- name-code: EAIC14002
+  name: State Label
+  component:
+    name-code: EIC1020
+    text: EAIV14001.state
+    variant: body1
+
+- name-code: EAIC14003
+  name: DID Label
+  component:
+    name-code: EIC1020
+    text: EAIV14001.did
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC14004
+  name: PeerID Label
+  component:
+    name-code: EIC1020
+    text: EAIV14001.peer_id
+    variant: caption
+    color: 0xFF9E9E9E
+
+# Shown when the node is reachable but p2p is down — explains why.
+- name-code: EAIC14005
+  name: Offline Reason Label
+  component:
+    name-code: EIC1020
+    text: EAIV14001.offline_reason
+    variant: caption
+    color: 0xFFFF9800
+
+# Shown when a start we attempted never became healthy.
+- name-code: EAIC14006
+  name: Failure Label
+  component:
+    name-code: EIC1020
+    text: EAIV14001.failure
+    variant: caption
+    color: 0xFFE53935
+
+# ── Actions section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC14007
+  name: Actions Header
+  component:
+    name-code: EIC1004
+    label: Controls
+
+- name-code: EAIC14008
+  name: Start Button
+  component:
+    name-code: EIC1006
+    label: Start Node
+    on-click: EALC14001
+
+- name-code: EAIC14009
+  name: Stop Button
+  component:
+    name-code: EIC1008
+    label: Stop Node
+    on-click: EALC14002
+
+- name-code: EAIC14010
+  name: Action Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14008
+      - EAIC14009
+
+- name-code: EAIC14011
+  name: Bootstrap Button
+  component:
+    name-code: EIC1008
+    label: Set up compute node (installs k3s)
+    on-click: EALC14003
+
+- name-code: EAIC14012
+  name: Control Hint
+  component:
+    name-code: EIC1020
+    text: Your node stays off until you start it. Starting joins the EP&N network and may use compute, storage and bandwidth.
+    variant: caption
+    color: 0xFF9E9E9E
+
+# ── Dividers ──────────────────────────────────────────────────────────────────
+
+- name-code: EAIC14013
+  name: Divider 1
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Layout sections ───────────────────────────────────────────────────────────
+
+- name-code: EAIC14014
+  name: Status Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14001
+      - EAIC14002
+      - EAIC14003
+      - EAIC14004
+      - EAIC14005
+      - EAIC14006
+      - EAIC14013
+
+- name-code: EAIC14015
+  name: Actions Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14007
+      - EAIC14010
+      - EAIC14011
+      - EAIC14012

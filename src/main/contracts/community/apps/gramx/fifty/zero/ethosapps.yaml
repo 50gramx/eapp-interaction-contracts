@@ -22,6 +22,8 @@
       live: true
     - name: epn_agent_chat
       live: true
+    - name: epn_node
+      live: true
     - name: epn_peers
       live: true
     - name: epn_wallet

@@ -1,0 +1,27 @@
+# Start the local node (plain `serve`). Detect-before-spawn: adopts a daemon
+# that is already running instead of launching a second one.
+- name-code: EALC14001
+  name: Start Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.start
+        assign-to: EAIV14002
+
+# Stop the local node — only if this app started it.
+- name-code: EALC14002
+  name: Stop Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.stop
+        assign-to: EAIV14003
+
+# First-run start that also provisions k3s (opt-in compute node).
+- name-code: EALC14003
+  name: Bootstrap Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.bootstrap
+        assign-to: EAIV14002

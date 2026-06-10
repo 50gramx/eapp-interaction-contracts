@@ -1,0 +1,8 @@
+# Status is driven by the epn.node.status platform-stream (EAIV14001), so no
+# on-appear fetch is needed — the page updates live as the node state changes.
+- name-code: EAIP14001
+  name: Node Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT14001

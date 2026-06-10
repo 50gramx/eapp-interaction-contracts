@@ -1,0 +1,17 @@
+name-code: epn_node
+name: Node
+org: ethos_browser
+version: 1.0.0
+about: Start, stop and monitor your local EP&N node. The node is off until you start it — you are always in control.
+icon: power_settings_new
+platform: core
+design-language: level
+keywords:
+  - node
+  - daemon
+  - epnd
+  - start
+  - stop
+  - status
+  - lifecycle
+  - epn
