@@ -1,0 +1,7 @@
+- name-code: EAIP13001
+  name: Resource Market Page
+  on-appear: EALC13001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT13001

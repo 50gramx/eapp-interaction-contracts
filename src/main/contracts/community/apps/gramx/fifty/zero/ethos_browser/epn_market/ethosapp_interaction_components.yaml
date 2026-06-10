@@ -1,0 +1,318 @@
+# ── Browse offers section ───────────────────────────────────────────────────
+
+- name-code: EAIC13001
+  name: Browse Header
+  component:
+    name-code: EIC1004
+    label: Resource Market
+
+- name-code: EAIC13002
+  name: Filter Input
+  component:
+    name-code: EIC1009
+    hint-text: "Filter: gpu_second, vcpu_second, gb_hour, gb_month, egress_gb, relay_second, kwh, all"
+    text-controller: EALC13002
+
+- name-code: EAIC13003
+  name: Apply Filter Button
+  component:
+    name-code: EIC1006
+    label: Apply Filter
+    on-click: EALC13003
+
+- name-code: EAIC13004
+  name: Min Price Label
+  component:
+    name-code: EIC1020
+    text: EAIV13003.min_price_utc
+    variant: body2
+
+- name-code: EAIC13005
+  name: Min Price Caption
+  component:
+    name-code: EIC1020
+    text: min uETC/unit
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13006
+  name: Avg Price Label
+  component:
+    name-code: EIC1020
+    text: EAIV13003.avg_price_utc
+    variant: body2
+
+- name-code: EAIC13007
+  name: Avg Price Caption
+  component:
+    name-code: EIC1020
+    text: avg uETC/unit
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13008
+  name: Max Price Label
+  component:
+    name-code: EIC1020
+    text: EAIV13003.max_price_utc
+    variant: body2
+
+- name-code: EAIC13009
+  name: Max Price Caption
+  component:
+    name-code: EIC1020
+    text: max uETC/unit
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13010
+  name: Offer Count Label
+  component:
+    name-code: EIC1020
+    text: EAIV13003.offer_count
+    variant: caption
+    color: 0xFF1565C0
+
+- name-code: EAIC13011
+  name: Offer Count Caption
+  component:
+    name-code: EIC1020
+    text: offers matching filter
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13012
+  name: Offers List
+  component:
+    name-code: EIC1026
+    source: EAIV13001
+    item-type: list-item
+    title-field: resource_label
+    subtitle-field: node_did
+    trailing-field: price_utc
+    on-item-tap: EALC13008
+    scrollable: true
+    max-height: 240
+
+- name-code: EAIC13013
+  name: No Offers Label
+  component:
+    name-code: EIC1020
+    text: No offers posted yet. Be the first to post one below.
+    variant: body2
+    align: center
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13014
+  name: Filter Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC13002
+      - EAIC13003
+
+- name-code: EAIC13015
+  name: Price Summary Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC13004
+      - EAIC13006
+      - EAIC13008
+      - EAIC13010
+
+- name-code: EAIC13016
+  name: Price Caption Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC13005
+      - EAIC13007
+      - EAIC13009
+      - EAIC13011
+
+# ── Post offer section ───────────────────────────────────────────────────────
+
+- name-code: EAIC13017
+  name: Post Header
+  component:
+    name-code: EIC1004
+    label: Post an Offer
+
+- name-code: EAIC13018
+  name: Post Resource Type Input
+  component:
+    name-code: EIC1009
+    hint-text: "Resource type: gpu_second, vcpu_second, gb_hour, gb_month, egress_gb, relay_second, kwh"
+    text-controller: EALC13004
+
+- name-code: EAIC13019
+  name: Post Capacity Input
+  component:
+    name-code: EIC1009
+    hint-text: Capacity available (units depend on resource type)
+    text-controller: EALC13005
+
+- name-code: EAIC13020
+  name: Post Price Input
+  component:
+    name-code: EIC1009
+    hint-text: Price per unit (uETC)
+    text-controller: EALC13006
+
+- name-code: EAIC13021
+  name: Post Offer Button
+  component:
+    name-code: EIC1006
+    label: Post Offer
+    on-click: EALC13007
+
+- name-code: EAIC13022
+  name: Post Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV13007.id
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC13023
+  name: Post Result Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV13007.error
+    variant: caption
+    color: 0xFFE53935
+
+# ── Rent (place bid) section ─────────────────────────────────────────────────
+
+- name-code: EAIC13024
+  name: Rent Header
+  component:
+    name-code: EIC1004
+    label: Rent Selected Offer
+
+- name-code: EAIC13025
+  name: Selected Resource Label
+  component:
+    name-code: EIC1020
+    text: EAIV13008.resource_label
+    variant: body1
+
+- name-code: EAIC13026
+  name: Selected Node Label
+  component:
+    name-code: EIC1020
+    text: EAIV13008.node_did
+    variant: caption
+    color: 0xFF9E9E9E
+
+- name-code: EAIC13027
+  name: Selected Price Label
+  component:
+    name-code: EIC1020
+    text: EAIV13008.price_utc
+    variant: caption
+    color: 0xFF1565C0
+
+- name-code: EAIC13028
+  name: Bid Capacity Input
+  component:
+    name-code: EIC1009
+    hint-text: Requested capacity
+    text-controller: EALC13009
+
+- name-code: EAIC13029
+  name: Bid Max Price Input
+  component:
+    name-code: EIC1009
+    hint-text: Max price per unit (uETC)
+    text-controller: EALC13010
+
+- name-code: EAIC13030
+  name: Bid Duration Input
+  component:
+    name-code: EIC1009
+    hint-text: Duration (seconds)
+    text-controller: EALC13011
+
+- name-code: EAIC13031
+  name: Place Bid Button
+  component:
+    name-code: EIC1006
+    label: Rent This
+    on-click: EALC13012
+
+- name-code: EAIC13032
+  name: Bid Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV13012.match_id
+    variant: caption
+    color: 0xFF4CAF50
+
+- name-code: EAIC13033
+  name: Bid Result Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV13012.error
+    variant: caption
+    color: 0xFFE53935
+
+# ── Dividers ──────────────────────────────────────────────────────────────────
+
+- name-code: EAIC13034
+  name: Browse Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC13035
+  name: Post Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Layout sections ───────────────────────────────────────────────────────────
+
+- name-code: EAIC13036
+  name: Browse Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC13001
+      - EAIC13014
+      - EAIC13015
+      - EAIC13016
+      - EAIC13012
+      - EAIC13013
+      - EAIC13034
+
+- name-code: EAIC13037
+  name: Post Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC13017
+      - EAIC13018
+      - EAIC13019
+      - EAIC13020
+      - EAIC13021
+      - EAIC13022
+      - EAIC13023
+      - EAIC13035
+
+- name-code: EAIC13038
+  name: Rent Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC13024
+      - EAIC13025
+      - EAIC13026
+      - EAIC13027
+      - EAIC13028
+      - EAIC13029
+      - EAIC13030
+      - EAIC13031
+      - EAIC13032
+      - EAIC13033

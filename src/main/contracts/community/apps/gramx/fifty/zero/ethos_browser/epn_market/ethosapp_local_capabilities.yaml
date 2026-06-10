@@ -1,0 +1,147 @@
+# Load all offers (unfiltered) and the overall price summary on page appear.
+- name-code: EALC13001
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.market.list_offers
+        assign-to: EAIV13001
+      - command: platform-invoke
+        handler: epn.market.price_summary
+        assign-to: EAIV13003
+
+# Return the resource-type filter TextEditingController.
+- name-code: EALC13002
+  name: Get Filter Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13002
+
+# Re-list offers and recompute the price summary using the current filter text.
+- name-code: EALC13003
+  name: Apply Filter
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.market.list_offers
+        params:
+          resource_type: EAIV13002
+        assign-to: EAIV13001
+      - command: platform-invoke
+        handler: epn.market.price_summary
+        params:
+          resource_type: EAIV13002
+        assign-to: EAIV13003
+
+# Return the "post offer" resource-type TextEditingController.
+- name-code: EALC13004
+  name: Get Post Resource Type Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13004
+
+# Return the "post offer" capacity TextEditingController.
+- name-code: EALC13005
+  name: Get Post Capacity Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13005
+
+# Return the "post offer" price TextEditingController.
+- name-code: EALC13006
+  name: Get Post Price Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13006
+
+# Post a new CapabilityAd to the gossip network, then refresh the offer list and summary.
+- name-code: EALC13007
+  name: Post Offer
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.market.post_offer
+        params:
+          resource_type: EAIV13004
+          capacity: EAIV13005
+          price_utc: EAIV13006
+        assign-to: EAIV13007
+      - command: platform-invoke
+        handler: epn.market.list_offers
+        params:
+          resource_type: EAIV13002
+        assign-to: EAIV13001
+      - command: platform-invoke
+        handler: epn.market.price_summary
+        params:
+          resource_type: EAIV13002
+        assign-to: EAIV13003
+
+# Called via on-item-tap from the offers list (engine passes the tapped offer's
+# full map, including 'id', as expects-params).
+- name-code: EALC13008
+  name: Select Offer
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: platform-invoke
+        handler: epn.market.select_offer
+        params:
+          id: id
+        assign-to: EAIV13008
+
+# Return the "rent this" requested-capacity TextEditingController.
+- name-code: EALC13009
+  name: Get Bid Capacity Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13009
+
+# Return the "rent this" max-price TextEditingController.
+- name-code: EALC13010
+  name: Get Bid Max Price Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13010
+
+# Return the "rent this" duration TextEditingController.
+- name-code: EALC13011
+  name: Get Bid Duration Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV13011
+
+# Place a bid against the currently selected offer.
+- name-code: EALC13012
+  name: Place Bid
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.market.place_bid
+        params:
+          requested_capacity: EAIV13009
+          max_price_utc: EAIV13010
+          duration_seconds: EAIV13011
+        assign-to: EAIV13012

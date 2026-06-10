@@ -32,6 +32,8 @@
       live: true
     - name: epn_settings
       live: true
+    - name: epn_market
+      live: true
 
 - organisation: ethos
   apps:

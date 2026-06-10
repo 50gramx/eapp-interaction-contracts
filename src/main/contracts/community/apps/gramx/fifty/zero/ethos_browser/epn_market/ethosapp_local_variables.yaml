@@ -1,0 +1,73 @@
+# Live offer list — each item: {id, node_did, peer_id, resource_type, resource_label,
+# capacity, price_utc, min_buyer_kyc, expires_at, posted_at}.
+- name-code: EAIV13001
+  name: Offers
+  type: ELVT1020
+  default: []
+
+# TextEditingController for the resource-type filter input.
+# Accepts: gpu_second, vcpu_second, gb_hour, gb_month, egress_gb, relay_second, kwh, or "all".
+- name-code: EAIV13002
+  name: Filter Controller
+  type: ELVT1001
+  default: {}
+
+# Price summary for the current filter — {min_price_utc, max_price_utc, avg_price_utc, offer_count}.
+- name-code: EAIV13003
+  name: Price Summary
+  type: ELVT1020
+  default: {}
+
+# TextEditingController for the "post offer" resource-type input.
+- name-code: EAIV13004
+  name: Post Resource Type Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the "post offer" capacity input.
+- name-code: EAIV13005
+  name: Post Capacity Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the "post offer" price (uETC per unit) input.
+- name-code: EAIV13006
+  name: Post Price Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last "post offer" — the posted Offer map, or {error: ...}.
+- name-code: EAIV13007
+  name: Post Result
+  type: ELVT1020
+  default: {}
+
+# Currently selected offer (tapped from the offers list) — full offer map.
+- name-code: EAIV13008
+  name: Selected Offer
+  type: ELVT1020
+  default: {}
+
+# TextEditingController for the "rent this" requested-capacity input.
+- name-code: EAIV13009
+  name: Bid Capacity Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the "rent this" max-price (uETC per unit) input.
+- name-code: EAIV13010
+  name: Bid Max Price Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the "rent this" duration (seconds) input.
+- name-code: EAIV13011
+  name: Bid Duration Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last "place bid" — {match_id, agreed_price_utc, matched_at} or {error: ...}.
+- name-code: EAIV13012
+  name: Bid Result
+  type: ELVT1020
+  default: {}
