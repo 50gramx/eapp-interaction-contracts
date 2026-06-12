@@ -5,7 +5,7 @@ version: 1.0.0
 about: View this node's DID, peer ID, multiaddrs and connected EP&N peers. Connect to new peers by multiaddr.
 icon: hub
 platform: core
-design-language: level
+design-language: carbon
 keywords:
   - peers
   - p2p

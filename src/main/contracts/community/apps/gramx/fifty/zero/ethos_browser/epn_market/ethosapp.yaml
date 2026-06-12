@@ -5,7 +5,7 @@ version: 1.0.0
 about: Browse, post, and bid on EP&N resource offers gossiped across the peer network.
 icon: storefront
 platform: core
-design-language: level
+design-language: carbon
 keywords:
   - market
   - offers
