@@ -5,5 +5,5 @@ version: 1.0.0
 about: EP&N DePIN Node — manage operators, deployments, and node identity
 icon: hub
 platform: core
-design-language: level
+design-language: carbon
 color-scheme: two-tone
