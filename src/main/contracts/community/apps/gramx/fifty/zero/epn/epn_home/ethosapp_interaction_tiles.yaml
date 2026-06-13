@@ -3,6 +3,8 @@
   about: Node status, quick actions, room launcher, wallet balance, active operators, and identity trust level
   composition:
     name-code: EIC1005
+    max-width: 960
+    align: center
     children-components:
       - EAIC5025
       - EAIC5036

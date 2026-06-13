@@ -54,6 +54,54 @@
         handler: epn.wallet.balance
         assign-to: EAIV5005
 
+# Start the local node from Home — invokes the SAME host platform handler that
+# epn_node uses (epn.node.start → NodeController singleton). The shared surface
+# between sibling eApps is the host handler, not the other eApp's contract, so
+# no cross-eApp contract reference is needed. Refreshes identity after so the
+# hero reflects the new (online) state.
+- name-code: EALC5014
+  name: Start Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.start
+        assign-to: EAIV5006
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV5004
+
+# Stop the local node from Home — same shared host handler epn_node uses
+# (epn.node.stop only stops a daemon we started). Refreshes identity after.
+- name-code: EALC5015
+  name: Stop Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.stop
+        assign-to: EAIV5006
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV5004
+
+# First-run setup: install the node binary in-app (epn.node.install), then start
+# with k3s provisioning (bootstrap). Removes the EPND_PATH dependency — the node
+# ships via the app. All three steps reuse shared host handlers.
+- name-code: EALC5016
+  name: Set Up Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.install
+        assign-to: EAIV5006
+      - command: platform-invoke
+        handler: epn.node.start
+        params:
+          bootstrap: "true"
+        assign-to: EAIV5006
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV5004
+
 # ── Cross-eApp room navigation (nav-link, EIC1035) ────────────────────────────
 # Each opens a sibling eApp in the `epn` org via the host's nav capability.
 

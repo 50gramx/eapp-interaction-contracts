@@ -6,16 +6,19 @@
     name-code: EIC1004
     label: Your node, at a glance
 
-# Hero card — node state + the start act (agency copy from the design).
+# Hero card — reactive on node lifecycle state (EAIV5007.state) via EIC1036.
+# Each state renders its own card with honest copy + the right action.
+
+# ── OFF (notRunning) ──
 - name-code: EAIC5018
-  name: Hero State Title
+  name: Hero Off Title
   component:
     name-code: EIC1020
     text: Your node is off
     variant: headline6
 
 - name-code: EAIC5019
-  name: Hero State Body
+  name: Hero Off Body
   component:
     name-code: EIC1020
     text: Nothing runs, nothing listens, nothing leaves this machine until you press start. That act is yours alone.
@@ -27,10 +30,10 @@
   component:
     name-code: EIC1006
     label: Start my node
-    on-click: EALC5006
+    on-click: EALC5014
 
 - name-code: EAIC5021
-  name: Hero Card Column
+  name: Hero Off Column
   component:
     name-code: EIC1005
     children-components:
@@ -38,11 +41,179 @@
       - EAIC5019
       - EAIC5020
 
-- name-code: EAIC5022
-  name: Hero Card
+- name-code: EAIC5060
+  name: Hero Off Card
   component:
     name-code: EIC1023
     child: EAIC5021
+
+# ── STARTING ──
+- name-code: EAIC5065
+  name: Hero Starting Title
+  component:
+    name-code: EIC1020
+    text: Starting — because you asked it to.
+    variant: headline6
+
+- name-code: EAIC5066
+  name: Hero Starting Body
+  component:
+    name-code: EIC1020
+    text: Bringing the node up. Nothing else on this machine changed.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5067
+  name: Hero Starting Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5065
+      - EAIC5066
+
+- name-code: EAIC5061
+  name: Hero Starting Card
+  component:
+    name-code: EIC1023
+    child: EAIC5067
+
+# ── RUNNING ──
+- name-code: EAIC5068
+  name: Hero Running Title
+  component:
+    name-code: EIC1020
+    text: Running
+    variant: headline6
+    color: positive
+
+- name-code: EAIC5069
+  name: Hero Running Body
+  component:
+    name-code: EIC1020
+    text: Running because you started it. We never stop what we didn't start — and neither does anyone else.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5070
+  name: Hero Stop Button
+  component:
+    name-code: EIC1008
+    label: Stop my node
+    on-click: EALC5015
+
+- name-code: EAIC5071
+  name: Hero Running Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5068
+      - EAIC5069
+      - EAIC5070
+
+- name-code: EAIC5062
+  name: Hero Running Card
+  component:
+    name-code: EIC1023
+    child: EAIC5071
+
+# ── ADOPTED (externallyManaged) ──
+- name-code: EAIC5072
+  name: Hero Adopted Title
+  component:
+    name-code: EIC1020
+    text: Running (adopted)
+    variant: headline6
+
+- name-code: EAIC5073
+  name: Hero Adopted Body
+  component:
+    name-code: EIC1020
+    text: A node you didn't start is already running here. We left it untouched — stop it where it was started.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5074
+  name: Hero Adopted Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5072
+      - EAIC5073
+
+- name-code: EAIC5064
+  name: Hero Adopted Card
+  component:
+    name-code: EIC1023
+    child: EAIC5074
+
+# ── FAILED / NEEDS SETUP ──
+- name-code: EAIC5075
+  name: Hero Failed Title
+  component:
+    name-code: EIC1020
+    text: Couldn't start
+    variant: headline6
+    color: negative
+
+- name-code: EAIC5076
+  name: Hero Failed Body
+  component:
+    name-code: EIC1020
+    text: EAIV5007.failure
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5077
+  name: Hero Setup Button
+  component:
+    name-code: EIC1006
+    label: Set up & start
+    on-click: EALC5016
+
+- name-code: EAIC5078
+  name: Hero Retry Button
+  component:
+    name-code: EIC1008
+    label: Retry
+    on-click: EALC5014
+
+- name-code: EAIC5079
+  name: Hero Failed Button Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC5077
+      - EAIC5078
+
+- name-code: EAIC5080
+  name: Hero Failed Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5075
+      - EAIC5076
+      - EAIC5079
+
+- name-code: EAIC5063
+  name: Hero Failed Card
+  component:
+    name-code: EIC1023
+    child: EAIC5080
+
+# ── MATCH: pick the card for the current node state ──
+- name-code: EAIC5022
+  name: Hero State Match
+  component:
+    name-code: EIC1036
+    source: EAIV5007.state
+    cases:
+      notRunning: EAIC5060
+      starting: EAIC5061
+      running: EAIC5062
+      degraded: EAIC5062
+      externallyManaged: EAIC5064
+      failed: EAIC5063
+    default: EAIC5060
 
 # Identity card — "This is yours" (sovereign DID framing).
 - name-code: EAIC5049

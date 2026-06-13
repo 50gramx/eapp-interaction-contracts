@@ -28,3 +28,18 @@
   name: Wallet Info
   type: ELVT1020
   default: {}
+
+# Result of the last node start/stop action — {state, pid} or {error}.
+- name-code: EAIV5006
+  name: Node Action Result
+  type: ELVT1020
+  default: {}
+
+# Live node lifecycle state — streamed from the host every ~3s. Shape:
+# {state, did, peer_id, online, offline_reason, externally_managed, failure}.
+# state ∈ notRunning | starting | running | degraded | externallyManaged | failed.
+- name-code: EAIV5007
+  name: Node State
+  type: ELVT1020
+  default:
+    platform-stream: epn.node.status
