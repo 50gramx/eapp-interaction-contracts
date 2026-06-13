@@ -35,7 +35,7 @@
     text: Ask Evo anything about your node — deployments, status, costs.
     variant: body2
     align: center
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 # ── Composer ──────────────────────────────────────────────────────────────────
 
@@ -122,6 +122,7 @@
     children-components:
       - EAIC6001
       - EAIC6014
+      - EAIC6003
       - EAIC6002
 
 # Input field (full width in column) + action buttons below it.

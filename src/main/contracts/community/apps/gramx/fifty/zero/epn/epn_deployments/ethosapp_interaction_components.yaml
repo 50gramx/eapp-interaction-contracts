@@ -7,25 +7,19 @@
     label: Active Operators
 
 - name-code: EAIC9002
-  name: Deployments List
+  name: Deployments Table
   component:
-    name-code: EIC1026
+    name-code: EIC1032
     source: EAIV9001
-    item-type: list-item
-    title-field: name
-    subtitle-field: status
-    trailing-field: operator_id
-    scrollable: true
-    max-height: 280
-
-- name-code: EAIC9003
-  name: No Deployments Label
-  component:
-    name-code: EIC1020
-    text: No operators installed. Use the form below to install one.
-    variant: body2
-    align: center
-    color: 0xFF9E9E9E
+    columns:
+      - Operator
+      - Status
+      - ID
+    fields:
+      - name
+      - status
+      - operator_id
+    empty-message: No operators installed. Use the form below to install one.
 
 - name-code: EAIC9004
   name: Deployments Divider
@@ -40,7 +34,6 @@
     children-components:
       - EAIC9001
       - EAIC9002
-      - EAIC9003
       - EAIC9004
 
 # ── Personas section ──────────────────────────────────────────────────────────
@@ -52,16 +45,19 @@
     label: AI Personas
 
 - name-code: EAIC9007
-  name: Personas List
+  name: Personas Table
   component:
-    name-code: EIC1026
+    name-code: EIC1032
     source: EAIV9002
-    item-type: list-item
-    title-field: name
-    subtitle-field: role
-    trailing-field: id
-    scrollable: true
-    max-height: 180
+    columns:
+      - Persona
+      - Role
+      - ID
+    fields:
+      - name
+      - role
+      - id
+    empty-message: No AI personas available yet.
 
 - name-code: EAIC9008
   name: Personas Divider
@@ -129,7 +125,7 @@
     name-code: EIC1020
     text: EAIV9005
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC9017
   name: Logs Label
@@ -137,7 +133,7 @@
     name-code: EIC1020
     text: EAIV9006
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC9018
   name: Manage Divider
@@ -185,7 +181,7 @@
     name-code: EIC1020
     text: EAIV9005
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC9025
   name: Install CID Input

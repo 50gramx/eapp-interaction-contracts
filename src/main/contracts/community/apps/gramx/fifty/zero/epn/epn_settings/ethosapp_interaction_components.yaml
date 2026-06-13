@@ -12,7 +12,7 @@
     name-code: EIC1020
     text: EAIV12001.max_per_hour_uetc
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12003
   name: Current Max Peer Label
@@ -20,7 +20,7 @@
     name-code: EIC1020
     text: EAIV12001.max_per_peer_uetc
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12004
   name: Max Per Hour Input
@@ -56,7 +56,7 @@
     name-code: EIC1020
     text: EAIV12005
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC12009
   name: Spend Divider
@@ -93,7 +93,7 @@
     name-code: EIC1020
     text: EAIV12007.policy
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12023
   name: Current Energy Geo Label
@@ -101,7 +101,7 @@
     name-code: EIC1020
     text: EAIV12007.geo
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12024
   name: Energy Policy Input
@@ -130,7 +130,7 @@
     name-code: EIC1020
     text: EAIV12010
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC12028
   name: Energy Divider
@@ -173,7 +173,7 @@
     name-code: EIC1020
     text: EAIV12006.kyc_expires_at
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12014
   name: KYC Expiring Warning
@@ -181,7 +181,7 @@
     name-code: EIC1020
     text: EAIV12006.expiring_soon
     variant: caption
-    color: 0xFFFF9800
+    color: caution
 
 - name-code: EAIC12015
   name: Attest Email Button
@@ -222,7 +222,7 @@
     name-code: EIC1020
     text: EP&N Daemon v0.1.0 — Phase F
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC12020
   name: About Section

@@ -6,6 +6,7 @@ about: View your EthosCoin balance, manage payment channels with peers, and revi
 icon: account_balance_wallet
 platform: core
 design-language: level
+color-scheme: two-tone
 keywords:
   - wallet
   - balance

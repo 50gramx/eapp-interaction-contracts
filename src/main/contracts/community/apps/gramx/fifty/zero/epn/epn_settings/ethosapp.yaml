@@ -6,6 +6,7 @@ about: Configure EP&N node policies — spend limits, KYC level, bootstrap peers
 icon: settings
 platform: core
 design-language: level
+color-scheme: two-tone
 keywords:
   - settings
   - policy

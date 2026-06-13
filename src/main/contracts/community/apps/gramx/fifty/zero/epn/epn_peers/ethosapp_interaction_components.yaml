@@ -19,7 +19,7 @@
     name-code: EIC1020
     text: EAIV7001.peer_id
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC7004
   name: Refresh Identity Button
@@ -35,7 +35,7 @@
     text: Scan to pair (multiaddr)
     variant: caption
     align: center
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC7030
   name: My Multiaddr QR
@@ -43,7 +43,7 @@
     name-code: EIC1027
     data: EAIV7001.addrs.0
     size: 200
-    background-color: 0xFFFFFFFF
+    background-color: surface
 
 # ── Peers section ─────────────────────────────────────────────────────────────
 
@@ -53,26 +53,27 @@
     name-code: EIC1004
     label: Connected Peers
 
-- name-code: EAIC7006
-  name: Peer List View
+- name-code: EAIC7031
+  name: Verified Family Badge
   component:
-    name-code: EIC1026
-    source: EAIV7002
-    item-type: list-item
-    title-field: did
-    subtitle-field: trust_label
-    trailing-field: gpu_class
-    scrollable: true
-    max-height: 280
+    name-code: EIC1030
+    label: verified family
+    status: positive
 
-- name-code: EAIC7007
-  name: No Peers Label
+- name-code: EAIC7006
+  name: Peer Table
   component:
-    name-code: EIC1020
-    text: No peers connected yet. Share your multiaddr or add a bootstrap peer.
-    variant: body2
-    align: center
-    color: 0xFF9E9E9E
+    name-code: EIC1032
+    source: EAIV7002
+    columns:
+      - Peer
+      - Address
+      - Trust
+    fields:
+      - did
+      - addrs.0
+      - trust_label
+    empty-message: No peers connected yet. Share your multiaddr or add a bootstrap peer.
 
 - name-code: EAIC7011
   name: Refresh Peers Button
@@ -109,7 +110,7 @@
     name-code: EIC1020
     text: EAIV7004
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC7016
   name: Connect Action Row
@@ -154,7 +155,7 @@
     name-code: EIC1020
     text: EAIV7006.peer_id
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC7024
   name: Find Result Error Label
@@ -162,7 +163,7 @@
     name-code: EIC1020
     text: EAIV7006.error
     variant: caption
-    color: 0xFFE53935
+    color: negative
 
 - name-code: EAIC7027
   name: Find Result Trust Label
@@ -170,7 +171,7 @@
     name-code: EIC1020
     text: EAIV7006.trust_label
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC7028
   name: Find Result GPU Label
@@ -178,7 +179,7 @@
     name-code: EIC1020
     text: EAIV7006.gpu_class
     variant: caption
-    color: 0xFF1565C0
+    color: primary
 
 - name-code: EAIC7025
   name: Find Section
@@ -235,8 +236,8 @@
     name-code: EIC1005
     children-components:
       - EAIC7005
+      - EAIC7031
       - EAIC7006
-      - EAIC7007
       - EAIC7018
 
 - name-code: EAIC7010

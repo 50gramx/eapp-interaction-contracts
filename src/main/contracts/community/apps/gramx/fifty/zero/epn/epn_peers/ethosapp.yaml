@@ -6,6 +6,7 @@ about: View this node's DID, peer ID, multiaddrs and connected EP&N peers. Conne
 icon: hub
 platform: core
 design-language: carbon
+color-scheme: two-tone
 keywords:
   - peers
   - p2p

@@ -6,6 +6,7 @@ about: Real-time resource usage, earnings from peers, and spending across the EP
 icon: bar_chart
 platform: core
 design-language: carbon
+color-scheme: two-tone
 keywords:
   - metering
   - usage

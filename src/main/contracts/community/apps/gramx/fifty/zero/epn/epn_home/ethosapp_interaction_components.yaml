@@ -185,6 +185,14 @@
     desc: Spend limits, KYC, bootstrap peers.
     on-click: EALC5012
 
+- name-code: EAIC5048
+  name: Nav Room Evo
+  component:
+    name-code: EIC1035
+    label: Evo
+    desc: Chat with your EP&N concierge.
+    on-click: EALC5013
+
 - name-code: EAIC5045
   name: The Rooms Section
   component:
@@ -198,6 +206,7 @@
       - EAIC5042
       - EAIC5043
       - EAIC5044
+      - EAIC5048
 
 # ── Ambient local cue ──────────────────────────────────────────────────────────
 

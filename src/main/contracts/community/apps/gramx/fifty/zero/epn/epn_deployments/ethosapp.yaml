@@ -6,6 +6,7 @@ about: Install, manage, and monitor EP&N Deployment-Operators. Spin pods up or d
 icon: extension
 platform: core
 design-language: carbon
+color-scheme: two-tone
 keywords:
   - deployments
   - operators

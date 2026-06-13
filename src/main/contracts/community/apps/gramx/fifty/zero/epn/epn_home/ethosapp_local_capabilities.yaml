@@ -126,3 +126,13 @@
         handler: epn.nav.open
         params:
           app: epn_settings
+
+# Open Evo, the EP&N concierge.
+- name-code: EALC5013
+  name: Open Evo
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_agent_chat

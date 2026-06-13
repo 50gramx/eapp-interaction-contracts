@@ -20,66 +20,38 @@
     label: Apply Filter
     on-click: EALC13003
 
-- name-code: EAIC13004
-  name: Min Price Label
+- name-code: EAIC13040
+  name: Min Price Metric
   component:
-    name-code: EIC1020
-    text: EAIV13003.min_price_utc
-    variant: body2
+    name-code: EIC1031
+    value: EAIV13003.min_price_utc
+    label: Min price
+    caption: uETC/unit
 
-- name-code: EAIC13005
-  name: Min Price Caption
+- name-code: EAIC13041
+  name: Avg Price Metric
   component:
-    name-code: EIC1020
-    text: min uETC/unit
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV13003.avg_price_utc
+    label: Avg price
+    caption: uETC/unit
 
-- name-code: EAIC13006
-  name: Avg Price Label
+- name-code: EAIC13042
+  name: Max Price Metric
   component:
-    name-code: EIC1020
-    text: EAIV13003.avg_price_utc
-    variant: body2
+    name-code: EIC1031
+    value: EAIV13003.max_price_utc
+    label: Max price
+    caption: uETC/unit
 
-- name-code: EAIC13007
-  name: Avg Price Caption
+- name-code: EAIC13043
+  name: Offer Count Metric
   component:
-    name-code: EIC1020
-    text: avg uETC/unit
-    variant: caption
-    color: 0xFF9E9E9E
-
-- name-code: EAIC13008
-  name: Max Price Label
-  component:
-    name-code: EIC1020
-    text: EAIV13003.max_price_utc
-    variant: body2
-
-- name-code: EAIC13009
-  name: Max Price Caption
-  component:
-    name-code: EIC1020
-    text: max uETC/unit
-    variant: caption
-    color: 0xFF9E9E9E
-
-- name-code: EAIC13010
-  name: Offer Count Label
-  component:
-    name-code: EIC1020
-    text: EAIV13003.offer_count
-    variant: caption
-    color: 0xFF1565C0
-
-- name-code: EAIC13011
-  name: Offer Count Caption
-  component:
-    name-code: EIC1020
-    text: offers matching filter
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV13003.offer_count
+    label: Offers
+    caption: matching filter
+    status: primary
 
 - name-code: EAIC13012
   name: Offers List
@@ -101,7 +73,7 @@
     text: No offers posted yet. Be the first to post one below.
     variant: body2
     align: center
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC13014
   name: Filter Row
@@ -116,20 +88,16 @@
   component:
     name-code: EIC1012
     children-components:
-      - EAIC13004
-      - EAIC13006
-      - EAIC13008
-      - EAIC13010
+      - EAIC13040
+      - EAIC13041
 
 - name-code: EAIC13016
-  name: Price Caption Row
+  name: Offer Count Row
   component:
     name-code: EIC1012
     children-components:
-      - EAIC13005
-      - EAIC13007
-      - EAIC13009
-      - EAIC13011
+      - EAIC13042
+      - EAIC13043
 
 # ── Post offer section ───────────────────────────────────────────────────────
 
@@ -173,7 +141,7 @@
     name-code: EIC1020
     text: EAIV13007.id
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC13023
   name: Post Result Error Label
@@ -181,7 +149,7 @@
     name-code: EIC1020
     text: EAIV13007.error
     variant: caption
-    color: 0xFFE53935
+    color: negative
 
 # ── Rent (place bid) section ─────────────────────────────────────────────────
 
@@ -204,7 +172,7 @@
     name-code: EIC1020
     text: EAIV13008.node_did
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC13027
   name: Selected Price Label
@@ -212,7 +180,7 @@
     name-code: EIC1020
     text: EAIV13008.price_utc
     variant: caption
-    color: 0xFF1565C0
+    color: primary
 
 - name-code: EAIC13028
   name: Bid Capacity Input
@@ -248,7 +216,7 @@
     name-code: EIC1020
     text: EAIV13012.match_id
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC13033
   name: Bid Result Error Label
@@ -256,7 +224,7 @@
     name-code: EIC1020
     text: EAIV13012.error
     variant: caption
-    color: 0xFFE53935
+    color: negative
 
 # ── Dividers ──────────────────────────────────────────────────────────────────
 

@@ -7,66 +7,54 @@
     label: Activity Summary
 
 - name-code: EAIC11002
-  name: Earned Label
+  name: Earned Metric
   component:
-    name-code: EIC1020
-    text: EAIV11005.earned_uetc
-    variant: body1
-    color: 0xFF4CAF50
-
-- name-code: EAIC11003
-  name: Earned Caption
-  component:
-    name-code: EIC1020
-    text: μETC earned from peers
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV11005.earned_uetc
+    label: Earned (μETC)
+    caption: from peers
+    status: positive
 
 - name-code: EAIC11004
-  name: Spent Label
+  name: Spent Metric
   component:
-    name-code: EIC1020
-    text: EAIV11005.spent_uetc
-    variant: body1
-    color: 0xFFE53935
-
-- name-code: EAIC11005
-  name: Spent Caption
-  component:
-    name-code: EIC1020
-    text: μETC spent on peers
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV11005.spent_uetc
+    label: Spent (μETC)
+    caption: on peers
+    status: negative
 
 - name-code: EAIC11006
-  name: Open Channels Label
+  name: Open Channels Metric
   component:
-    name-code: EIC1020
-    text: EAIV11005.open_channels
-    variant: body1
-
-- name-code: EAIC11007
-  name: Open Channels Caption
-  component:
-    name-code: EIC1020
-    text: open payment channels
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV11005.open_channels
+    label: Open channels
+    caption: payment channels
 
 - name-code: EAIC11008
-  name: Running Operators Label
+  name: Running Operators Metric
   component:
-    name-code: EIC1020
-    text: EAIV11005.running_operators
-    variant: body1
+    name-code: EIC1031
+    value: EAIV11005.running_operators
+    label: Running operators
+    caption: operators currently running
 
-- name-code: EAIC11009
-  name: Running Operators Caption
+- name-code: EAIC11051
+  name: Earned/Spent Row
   component:
-    name-code: EIC1020
-    text: operators running
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1012
+    children-components:
+      - EAIC11002
+      - EAIC11004
+
+- name-code: EAIC11052
+  name: Channels/Operators Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC11006
+      - EAIC11008
 
 - name-code: EAIC11010
   name: Refresh Button
@@ -81,20 +69,23 @@
     name-code: EIC1025
     height: 1
 
+- name-code: EAIC11050
+  name: Local Work Callout
+  component:
+    name-code: EIC1033
+    kind: info
+    title: Local work this week — 0
+    body: Every unit visible. Local work shows 0, always.
+
 - name-code: EAIC11012
   name: Summary Section
   component:
     name-code: EIC1005
     children-components:
       - EAIC11001
-      - EAIC11002
-      - EAIC11003
-      - EAIC11004
-      - EAIC11005
-      - EAIC11006
-      - EAIC11007
-      - EAIC11008
-      - EAIC11009
+      - EAIC11051
+      - EAIC11052
+      - EAIC11050
       - EAIC11010
       - EAIC11011
 
@@ -126,7 +117,7 @@
     name-code: EIC1020
     text: EAIV11004.vcpu
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11017
   name: RAM Label
@@ -134,7 +125,7 @@
     name-code: EIC1020
     text: EAIV11004.ram_gib
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 # ── Multi-network resource snapshot (WU-G.7.2) ────────────────────────────────
 
@@ -151,7 +142,7 @@
     name-code: EIC1020
     text: GiB shareable RAM pool
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11031
   name: vCPU Seconds Label
@@ -166,7 +157,7 @@
     name-code: EIC1020
     text: vCPU-seconds/hour available
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11033
   name: Storage Tiers Label
@@ -181,7 +172,7 @@
     name-code: EIC1020
     text: GiB block storage to lend
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11035
   name: Egress Label
@@ -196,7 +187,7 @@
     name-code: EIC1020
     text: Gb/s egress bandwidth
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11037
   name: Energy Rate Label
@@ -211,7 +202,7 @@
     name-code: EIC1020
     text: kWh/hour estimated draw (EAIV11004.energy_source)
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC11018
   name: Resources Divider
@@ -250,25 +241,19 @@
     label: Payment Channels
 
 - name-code: EAIC11021
-  name: Channels List
+  name: Channels Table
   component:
-    name-code: EIC1026
+    name-code: EIC1032
     source: EAIV11002
-    item-type: list-item
-    title-field: id
-    subtitle-field: peer_b_did
-    trailing-field: status
-    scrollable: true
-    max-height: 200
-
-- name-code: EAIC11022
-  name: No Channels Label
-  component:
-    name-code: EIC1020
-    text: No payment channels open yet.
-    variant: body2
-    align: center
-    color: 0xFF9E9E9E
+    columns:
+      - Channel
+      - Peer
+      - Status
+    fields:
+      - id
+      - peer_b_did
+      - status
+    empty-message: No payment channels open yet.
 
 - name-code: EAIC11023
   name: Channels Section
@@ -277,7 +262,6 @@
     children-components:
       - EAIC11020
       - EAIC11021
-      - EAIC11022
 
 # ── Wallet balance ────────────────────────────────────────────────────────────
 
@@ -288,20 +272,13 @@
     label: Wallet Balance
 
 - name-code: EAIC11025
-  name: Balance Label
+  name: Balance Metric
   component:
-    name-code: EIC1020
-    text: EAIV11001.balance_etc
-    variant: headline6
-    color: 0xFF1565C0
-
-- name-code: EAIC11026
-  name: Balance Caption
-  component:
-    name-code: EIC1020
-    text: ETC
-    variant: caption
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV11001.balance_etc
+    label: Wallet balance
+    caption: ETC
+    status: primary
 
 - name-code: EAIC11027
   name: Balance Divider
@@ -316,5 +293,4 @@
     children-components:
       - EAIC11024
       - EAIC11025
-      - EAIC11026
       - EAIC11027

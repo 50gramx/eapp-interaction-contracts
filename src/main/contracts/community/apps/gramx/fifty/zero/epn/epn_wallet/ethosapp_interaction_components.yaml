@@ -7,22 +7,13 @@
     label: EthosCoin Balance
 
 - name-code: EAIC8002
-  name: Balance Amount Label
+  name: Balance Metric
   component:
-    name-code: EIC1020
-    text: EAIV8001.balance_etc
-    variant: headline5
-    align: center
-    color: 0xFF1565C0
-
-- name-code: EAIC8003
-  name: Balance ETC Unit Label
-  component:
-    name-code: EIC1020
-    text: ETC
-    variant: caption
-    align: center
-    color: 0xFF9E9E9E
+    name-code: EIC1031
+    value: EAIV8001.balance_etc
+    label: Wallet balance
+    caption: ETC
+    status: primary
 
 - name-code: EAIC8004
   name: Balance MicroETC Label
@@ -31,7 +22,7 @@
     text: EAIV8001.balance_uetc
     variant: caption
     align: center
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC8005
   name: Refresh Balance Button
@@ -49,25 +40,19 @@
     label: Payment Channels
 
 - name-code: EAIC8007
-  name: Channel List View
+  name: Channels Table
   component:
-    name-code: EIC1026
+    name-code: EIC1032
     source: EAIV8002
-    item-type: list-item
-    title-field: id
-    subtitle-field: peer_b_did
-    trailing-field: status
-    scrollable: true
-    max-height: 240
-
-- name-code: EAIC8008
-  name: No Channels Label
-  component:
-    name-code: EIC1020
-    text: No open channels. Open one below to pay a peer.
-    variant: body2
-    align: center
-    color: 0xFF9E9E9E
+    columns:
+      - Channel
+      - Peer
+      - Status
+    fields:
+      - id
+      - peer_b_did
+      - status
+    empty-message: No open channels. Open one below to pay a peer.
 
 # ── Open Channel section ──────────────────────────────────────────────────────
 
@@ -104,7 +89,7 @@
     name-code: EIC1020
     text: EAIV8003
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 # ── Settle section ────────────────────────────────────────────────────────────
 
@@ -127,6 +112,14 @@
     name-code: EIC1006
     label: Settle
     on-click: EALC8006
+
+- name-code: EAIC8024
+  name: Signed Settlement Callout
+  component:
+    name-code: EIC1033
+    kind: info
+    title: Settlements are signed
+    body: Every channel settlement is cryptographically signed by both peers.
 
 # ── Dividers ──────────────────────────────────────────────────────────────────
 
@@ -157,7 +150,6 @@
     children-components:
       - EAIC8001
       - EAIC8002
-      - EAIC8003
       - EAIC8004
       - EAIC8005
       - EAIC8017
@@ -169,7 +161,6 @@
     children-components:
       - EAIC8006
       - EAIC8007
-      - EAIC8008
       - EAIC8018
 
 - name-code: EAIC8022
@@ -192,3 +183,4 @@
       - EAIC8014
       - EAIC8015
       - EAIC8016
+      - EAIC8024
