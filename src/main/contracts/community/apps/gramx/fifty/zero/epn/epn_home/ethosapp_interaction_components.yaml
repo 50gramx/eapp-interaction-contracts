@@ -1,64 +1,106 @@
-# ── Node Status section ───────────────────────────────────────────────────────
+# ── Glance: node-state hero + identity (design: "Your node, at a glance") ──────
 
 - name-code: EAIC5017
-  name: Node Status Header
+  name: Glance Title
   component:
     name-code: EIC1004
-    label: Your node
+    label: Your node, at a glance
 
+# Hero card — node state + the start act (agency copy from the design).
 - name-code: EAIC5018
-  name: Node DID Label
+  name: Hero State Title
+  component:
+    name-code: EIC1020
+    text: Your node is off
+    variant: headline6
+
+- name-code: EAIC5019
+  name: Hero State Body
+  component:
+    name-code: EIC1020
+    text: Nothing runs, nothing listens, nothing leaves this machine until you press start. That act is yours alone.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5020
+  name: Hero Start Button
+  component:
+    name-code: EIC1006
+    label: Start my node
+    on-click: EALC5006
+
+- name-code: EAIC5021
+  name: Hero Card Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5018
+      - EAIC5019
+      - EAIC5020
+
+- name-code: EAIC5022
+  name: Hero Card
+  component:
+    name-code: EIC1023
+    child: EAIC5021
+
+# Identity card — "This is yours" (sovereign DID framing).
+- name-code: EAIC5049
+  name: Identity Card Title
+  component:
+    name-code: EIC1020
+    text: This is yours
+    variant: headline6
+
+- name-code: EAIC5050
+  name: Identity DID
   component:
     name-code: EIC1020
     text: EAIV5004.did
     variant: caption
-    color: on-surface-subtle
+    color: on-surface-muted
 
-- name-code: EAIC5019
-  name: Node Online Label
+- name-code: EAIC5051
+  name: Identity Body
   component:
     name-code: EIC1020
-    text: EAIV5004.online
-    variant: caption
-    color: positive
+    text: Your address in the mesh. No one issued it; no one can take it. It travels with you.
+    variant: body2
+    color: on-surface-muted
 
-- name-code: EAIC5020
-  name: Node Peer ID Label
+- name-code: EAIC5052
+  name: Identity Link
   component:
-    name-code: EIC1020
-    text: EAIV5004.peer_id
-    variant: caption
-    color: on-surface-subtle
+    name-code: EIC1035
+    label: Identity & peers
+    desc: See who you are and who you are connected to.
+    on-click: EALC5009
 
-- name-code: EAIC5021
-  name: KYC Inline Label
+- name-code: EAIC5053
+  name: Identity Card Column
   component:
-    name-code: EIC1020
-    text: EAIV5002.kyc_level_name
-    variant: caption
-    color: primary
-
-- name-code: EAIC5022
-  name: Node DID Row
-  component:
-    name-code: EIC1012
+    name-code: EIC1005
     children-components:
-      - EAIC5018
-      - EAIC5019
+      - EAIC5049
+      - EAIC5050
+      - EAIC5051
+      - EAIC5052
 
+- name-code: EAIC5054
+  name: Identity Card
+  component:
+    name-code: EIC1023
+    child: EAIC5053
+
+# 2-up hero row.
 - name-code: EAIC5023
-  name: Node Details Row
+  name: Glance Row
   component:
     name-code: EIC1012
+    distribute: true
     children-components:
-      - EAIC5020
-      - EAIC5021
-
-- name-code: EAIC5024
-  name: Node Status Divider
-  component:
-    name-code: EIC1025
-    height: 1
+      - EAIC5022
+      - EAIC5054
 
 - name-code: EAIC5025
   name: Node Status Section
@@ -66,9 +108,7 @@
     name-code: EIC1005
     children-components:
       - EAIC5017
-      - EAIC5022
       - EAIC5023
-      - EAIC5024
 
 # ── What now (quick actions → other rooms) ────────────────────────────────────
 
