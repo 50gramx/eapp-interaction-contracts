@@ -1,8 +1,9 @@
 name-code: epn_home
 name: EP&N Node
-org: ethos_browser
+org: epn
 version: 1.0.0
 about: EP&N DePIN Node — manage operators, deployments, and node identity
 icon: hub
 platform: core
 design-language: level
+color-scheme: two-tone

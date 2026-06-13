@@ -18,6 +18,12 @@
       live: true
     - name: evo_mail
       live: true
+
+# EP&N DePIN node platform — its own organisation so the dashboard's
+# org-solution shell scopes the nine eApps as one product, distinct from the
+# browser (evo_*) apps.
+- organisation: epn
+  apps:
     - name: epn_home
       live: true
     - name: epn_agent_chat

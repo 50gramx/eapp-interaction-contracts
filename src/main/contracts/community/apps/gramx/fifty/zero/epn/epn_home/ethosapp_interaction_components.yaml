@@ -12,7 +12,7 @@
     name-code: EIC1020
     text: EAIV5004.did
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC5019
   name: Node Online Label
@@ -20,7 +20,7 @@
     name-code: EIC1020
     text: EAIV5004.online
     variant: caption
-    color: 0xFF4CAF50
+    color: positive
 
 - name-code: EAIC5020
   name: Node Peer ID Label
@@ -28,7 +28,7 @@
     name-code: EIC1020
     text: EAIV5004.peer_id
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC5021
   name: KYC Inline Label
@@ -36,7 +36,7 @@
     name-code: EIC1020
     text: EAIV5002.kyc_level_name
     variant: caption
-    color: 0xFF1565C0
+    color: primary
 
 - name-code: EAIC5022
   name: Node DID Row
@@ -84,7 +84,7 @@
     name-code: EIC1020
     text: EAIV5005.balance_etc
     variant: headline6
-    color: 0xFF1565C0
+    color: primary
 
 - name-code: EAIC5028
   name: Wallet ETC Unit
@@ -92,7 +92,7 @@
     name-code: EIC1020
     text: ETC
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC5029
   name: Wallet Divider
@@ -137,7 +137,7 @@
     text: Daemon not running. Start it with epnd serve --bootstrap
     variant: body2
     align: center
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC5006
   name: Operators Divider
@@ -182,7 +182,7 @@
     name-code: EIC1020
     text: EAIV5002.kyc_expires_at
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC5014
   name: Attest Email Button
@@ -197,7 +197,7 @@
     name-code: EIC1020
     text: EAIV5003.error
     variant: caption
-    color: 0xFFE53935
+    color: negative
 
 - name-code: EAIC5016
   name: KYC Section

@@ -1,6 +1,6 @@
 name-code: epn_node
 name: Node
-org: ethos_browser
+org: epn
 version: 1.0.0
 about: Start, stop and monitor your local EP&N node. The node is off until you start it — you are always in control.
 icon: power_settings_new

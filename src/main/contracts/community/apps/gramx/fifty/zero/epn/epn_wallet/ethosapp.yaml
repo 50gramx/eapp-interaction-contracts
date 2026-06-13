@@ -1,6 +1,6 @@
 name-code: epn_wallet
 name: Wallet
-org: ethos_browser
+org: epn
 version: 1.0.0
 about: View your EthosCoin balance, manage payment channels with peers, and review recent settlements.
 icon: account_balance_wallet
