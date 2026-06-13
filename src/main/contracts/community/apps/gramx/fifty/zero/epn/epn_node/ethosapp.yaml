@@ -6,6 +6,7 @@ about: Start, stop and monitor your local EP&N node. The node is off until you s
 icon: power_settings_new
 platform: core
 design-language: level
+color-scheme: two-tone
 keywords:
   - node
   - daemon

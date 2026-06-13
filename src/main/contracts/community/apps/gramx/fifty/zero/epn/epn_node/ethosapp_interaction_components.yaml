@@ -4,14 +4,15 @@
   name: Status Header
   component:
     name-code: EIC1004
-    label: Node Status
+    label: Your node
 
 - name-code: EAIC14002
   name: State Label
   component:
     name-code: EIC1020
     text: EAIV14001.state
-    variant: body1
+    variant: headline6
+    color: primary
 
 - name-code: EAIC14003
   name: DID Label
@@ -19,7 +20,7 @@
     name-code: EIC1020
     text: EAIV14001.did
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 - name-code: EAIC14004
   name: PeerID Label
@@ -27,7 +28,7 @@
     name-code: EIC1020
     text: EAIV14001.peer_id
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 # Shown when the node is reachable but p2p is down — explains why.
 - name-code: EAIC14005
@@ -36,7 +37,7 @@
     name-code: EIC1020
     text: EAIV14001.offline_reason
     variant: caption
-    color: 0xFFFF9800
+    color: caution
 
 # Shown when a start we attempted never became healthy.
 - name-code: EAIC14006
@@ -45,7 +46,7 @@
     name-code: EIC1020
     text: EAIV14001.failure
     variant: caption
-    color: 0xFFE53935
+    color: negative
 
 # ── Actions section ───────────────────────────────────────────────────────────
 
@@ -90,7 +91,7 @@
     name-code: EIC1020
     text: Your node stays off until you start it. Starting joins the EP&N network and may use compute, storage and bandwidth.
     variant: caption
-    color: 0xFF9E9E9E
+    color: on-surface-subtle
 
 # ── Dividers ──────────────────────────────────────────────────────────────────
 

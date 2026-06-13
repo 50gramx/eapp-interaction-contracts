@@ -53,3 +53,76 @@
       - command: platform-invoke
         handler: epn.wallet.balance
         assign-to: EAIV5005
+
+# ── Cross-eApp room navigation (nav-link, EIC1035) ────────────────────────────
+# Each opens a sibling eApp in the `epn` org via the host's nav capability.
+
+# Open the Node room.
+- name-code: EALC5006
+  name: Open Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_node
+
+# Open the Metering room.
+- name-code: EALC5007
+  name: Open Metering
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_metering
+
+# Open the Operators (deployments) room.
+- name-code: EALC5008
+  name: Open Operators
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_deployments
+
+# Open the Network (peers) room.
+- name-code: EALC5009
+  name: Open Network
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_peers
+
+# Open the Resource Market room.
+- name-code: EALC5010
+  name: Open Market
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_market
+
+# Open the Wallet room.
+- name-code: EALC5011
+  name: Open Wallet
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_wallet
+
+# Open the Settings room.
+- name-code: EALC5012
+  name: Open Settings
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_settings

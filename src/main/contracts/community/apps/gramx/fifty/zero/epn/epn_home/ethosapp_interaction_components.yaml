@@ -4,7 +4,7 @@
   name: Node Status Header
   component:
     name-code: EIC1004
-    label: Node Status
+    label: Your node
 
 - name-code: EAIC5018
   name: Node DID Label
@@ -69,6 +69,144 @@
       - EAIC5022
       - EAIC5023
       - EAIC5024
+
+# ── What now (quick actions → other rooms) ────────────────────────────────────
+
+- name-code: EAIC5031
+  name: What Now Header
+  component:
+    name-code: EIC1004
+    label: What now
+
+- name-code: EAIC5032
+  name: Nav Show My Node
+  component:
+    name-code: EIC1035
+    label: Show me my node
+    desc: Status, identity, and start/stop controls.
+    on-click: EALC5006
+
+- name-code: EAIC5033
+  name: Nav See What You Earned
+  component:
+    name-code: EIC1035
+    label: See what you earned
+    desc: Every unit visible. Local work shows 0, always.
+    on-click: EALC5007
+
+- name-code: EAIC5034
+  name: Nav Install Operator
+  component:
+    name-code: EIC1035
+    label: Install operator
+    desc: Add a new operator to your node.
+    on-click: EALC5008
+
+- name-code: EAIC5035
+  name: Nav Connect By Address
+  component:
+    name-code: EIC1035
+    label: Connect by address
+    desc: Add a peer by its multiaddr.
+    on-click: EALC5009
+
+- name-code: EAIC5036
+  name: What Now Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5031
+      - EAIC5032
+      - EAIC5033
+      - EAIC5034
+      - EAIC5035
+
+# ── The rooms (full room launcher) ─────────────────────────────────────────────
+
+- name-code: EAIC5037
+  name: The Rooms Header
+  component:
+    name-code: EIC1004
+    label: The rooms
+
+- name-code: EAIC5038
+  name: Nav Room Node
+  component:
+    name-code: EIC1035
+    label: Node
+    desc: Status, identity, start/stop.
+    on-click: EALC5006
+
+- name-code: EAIC5039
+  name: Nav Room Network
+  component:
+    name-code: EIC1035
+    label: Network
+    desc: Peers and connections.
+    on-click: EALC5009
+
+- name-code: EAIC5040
+  name: Nav Room Operators
+  component:
+    name-code: EIC1035
+    label: Operators
+    desc: Installed operators and deployments.
+    on-click: EALC5008
+
+- name-code: EAIC5041
+  name: Nav Room Resource Market
+  component:
+    name-code: EIC1035
+    label: Resource Market
+    desc: Offers for compute, storage, and more.
+    on-click: EALC5010
+
+- name-code: EAIC5042
+  name: Nav Room Wallet
+  component:
+    name-code: EIC1035
+    label: Wallet
+    desc: Balance, channels, settlements.
+    on-click: EALC5011
+
+- name-code: EAIC5043
+  name: Nav Room Metering
+  component:
+    name-code: EIC1035
+    label: Metering
+    desc: Earned and spent, local work.
+    on-click: EALC5007
+
+- name-code: EAIC5044
+  name: Nav Room Settings
+  component:
+    name-code: EIC1035
+    label: Settings
+    desc: Spend limits, KYC, bootstrap peers.
+    on-click: EALC5012
+
+- name-code: EAIC5045
+  name: The Rooms Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5037
+      - EAIC5038
+      - EAIC5039
+      - EAIC5040
+      - EAIC5041
+      - EAIC5042
+      - EAIC5043
+      - EAIC5044
+
+# ── Ambient local cue ──────────────────────────────────────────────────────────
+
+- name-code: EAIC5046
+  name: Ambient Local Cue
+  component:
+    name-code: EIC1030
+    label: local · your browsing stays on this device
+    status: neutral
 
 # ── Wallet summary section ────────────────────────────────────────────────────
 
