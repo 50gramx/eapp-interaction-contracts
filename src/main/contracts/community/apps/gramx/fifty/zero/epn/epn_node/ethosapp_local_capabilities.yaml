@@ -25,3 +25,63 @@
       - command: platform-invoke
         handler: epn.node.bootstrap
         assign-to: EAIV14002
+
+# ── Sovereign endpoint capabilities ──
+- name-code: EALC14012
+  name: Load Identity
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV14012
+
+- name-code: EALC14010
+  name: Get Expose Target Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV14010
+
+- name-code: EALC14011
+  name: Expose Service
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.tunnel.expose
+        params:
+          target: EAIV14010
+        assign-to: EAIV14011
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV14012
+
+- name-code: EALC14013
+  name: Get Peer Maddr Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV14013
+
+- name-code: EALC14014
+  name: Get Local Port Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV14014
+
+- name-code: EALC14015
+  name: Connect Endpoint
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.tunnel.connect
+        params:
+          peer: EAIV14013
+          local_port: EAIV14014
+        assign-to: EAIV14015

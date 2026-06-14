@@ -125,3 +125,116 @@
       - EAIC14010
       - EAIC14011
       - EAIC14012
+
+# ── Sovereign Endpoint section (share a service / connect to a peer's) ────────
+
+- name-code: EAIC14040
+  name: Share Header
+  component:
+    name-code: EIC1004
+    label: Share a service
+
+- name-code: EAIC14041
+  name: Share Note
+  component:
+    name-code: EIC1020
+    text: Expose a local service over your node — a stable, DID-backed endpoint. No account, no splash page. Give the address below to a peer.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14042
+  name: Expose Target Input
+  component:
+    name-code: EIC1009
+    hint-text: "Local service to share (e.g. 127.0.0.1:3000)"
+    text-controller: EALC14010
+
+- name-code: EAIC14043
+  name: Expose Button
+  component:
+    name-code: EIC1006
+    label: Share this
+    on-click: EALC14011
+
+- name-code: EAIC14044
+  name: Expose Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV14011
+    variant: caption
+    color: positive
+
+- name-code: EAIC14045
+  name: My Address Caption
+  component:
+    name-code: EIC1020
+    text: Your address to share
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14046
+  name: My Multiaddr
+  component:
+    name-code: EIC1020
+    text: EAIV14012.addrs.0
+    variant: mono
+
+- name-code: EAIC14047
+  name: Endpoint Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC14048
+  name: Connect Header
+  component:
+    name-code: EIC1004
+    label: Connect to a service
+
+- name-code: EAIC14049
+  name: Peer Maddr Input
+  component:
+    name-code: EIC1009
+    hint-text: "Peer address (/ip4/.../p2p/...)"
+    text-controller: EALC14013
+
+- name-code: EAIC14050
+  name: Local Port Input
+  component:
+    name-code: EIC1009
+    hint-text: "Local port to bind (e.g. 9000)"
+    text-controller: EALC14014
+
+- name-code: EAIC14051
+  name: Connect Button
+  component:
+    name-code: EIC1006
+    label: Connect
+    on-click: EALC14015
+
+- name-code: EAIC14052
+  name: Connect Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV14015
+    variant: caption
+    color: on-surface-muted
+
+- name-code: EAIC14053
+  name: Endpoint Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14040
+      - EAIC14041
+      - EAIC14042
+      - EAIC14043
+      - EAIC14044
+      - EAIC14045
+      - EAIC14046
+      - EAIC14047
+      - EAIC14048
+      - EAIC14049
+      - EAIC14050
+      - EAIC14051
+      - EAIC14052

@@ -2,6 +2,7 @@
 # on-appear fetch is needed — the page updates live as the node state changes.
 - name-code: EAIP14001
   name: Node Page
+  on-appear: EALC14012
   composition:
     name-code: EIC1005
     children-components:

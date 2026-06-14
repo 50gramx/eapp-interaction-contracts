@@ -18,3 +18,29 @@
   name: Stop Result
   type: ELVT1020
   default: {}
+
+# ── Sovereign endpoint: share a local service / connect to a peer's ──
+- name-code: EAIV14010
+  name: Expose Target Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV14011
+  name: Expose Result
+  type: ELVT1007
+  default: ""
+- name-code: EAIV14012
+  name: My Identity
+  type: ELVT1020
+  default: {}
+- name-code: EAIV14013
+  name: Peer Maddr Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV14014
+  name: Local Port Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV14015
+  name: Connect Result
+  type: ELVT1007
+  default: ""
