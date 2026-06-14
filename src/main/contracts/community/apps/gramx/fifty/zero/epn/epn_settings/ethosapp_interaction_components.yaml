@@ -69,6 +69,7 @@
   component:
     name-code: EIC1005
     children-components:
+      - EAIC12060
       - EAIC12001
       - EAIC12002
       - EAIC12003
@@ -455,3 +456,41 @@
       - EAIC12053
       - EAIC12054
       - EAIC12055
+
+# ── Design framing: House-rules chip + Private ring (COMING) ──────────────────
+- name-code: EAIC12060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: LEVEL · personal
+    status: neutral
+
+- name-code: EAIC12061
+  name: Private Ring Header
+  component:
+    name-code: EIC1004
+    label: Private ring
+
+- name-code: EAIC12062
+  name: Private Ring Badge
+  component:
+    name-code: EIC1030
+    label: COMING
+    status: neutral
+
+- name-code: EAIC12063
+  name: Private Ring Copy
+  component:
+    name-code: EIC1020
+    text: Draw a circle around your own machines — home, office, team. Inside the ring, everything stays among you — free, private, yours. The warm version of an allow-list.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC12064
+  name: Private Ring Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12061
+      - EAIC12062
+      - EAIC12063
