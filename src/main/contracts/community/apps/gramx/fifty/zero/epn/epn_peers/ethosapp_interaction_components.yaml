@@ -4,7 +4,30 @@
   name: Identity Header
   component:
     name-code: EIC1004
-    label: This Node
+    label: Your identity — sovereign, portable
+
+- name-code: EAIC7050
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: CARBON · instrument
+    status: neutral
+
+- name-code: EAIC7051
+  name: Sovereign Copy
+  component:
+    name-code: EIC1020
+    text: One device, one root identity. Roles — operator, lender, buyer — are hats on the same head, not new identities.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC7052
+  name: Reachable Caption
+  component:
+    name-code: EIC1020
+    text: Reachable at — your addresses, where peers can knock
+    variant: caption
+    color: on-surface-subtle
 
 - name-code: EAIC7002
   name: DID Label
@@ -223,11 +246,14 @@
     name-code: EIC1005
     children-components:
       - EAIC7001
+      - EAIC7050
+      - EAIC7051
       - EAIC7002
       - EAIC7003
-      - EAIC7004
+      - EAIC7052
       - EAIC7030
       - EAIC7029
+      - EAIC7004
       - EAIC7017
 
 - name-code: EAIC7009

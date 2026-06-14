@@ -3,6 +3,8 @@
   about: Node identity and connected EP&N peers
   composition:
     name-code: EIC1005
+    max-width: 960
+    align: center
     children-components:
       - EAIC7008
       - EAIC7009
