@@ -3,6 +3,8 @@
   about: EthosCoin balance and payment channels
   composition:
     name-code: EIC1005
+    max-width: 960
+    align: center
     children-components:
       - EAIC8020
       - EAIC8021

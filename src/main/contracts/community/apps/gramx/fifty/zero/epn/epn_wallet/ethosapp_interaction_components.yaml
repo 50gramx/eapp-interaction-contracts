@@ -149,6 +149,8 @@
     name-code: EIC1005
     children-components:
       - EAIC8001
+      - EAIC8060
+      - EAIC8061
       - EAIC8002
       - EAIC8004
       - EAIC8005
@@ -184,3 +186,28 @@
       - EAIC8015
       - EAIC8016
       - EAIC8024
+      - EAIC8062
+
+# ── Design framing (chip + traceable copy + free-tier footer) ─────────────────
+- name-code: EAIC8060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: LEVEL · personal
+    status: neutral
+
+- name-code: EAIC8061
+  name: Traceable Copy
+  component:
+    name-code: EIC1020
+    text: Every unit traceable to a signed settlement. Nothing here moved without your policy allowing it.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC8062
+  name: Free Tier Footer
+  component:
+    name-code: EIC1020
+    text: Your local work this week cost 0.00 EC. It always will.
+    variant: caption
+    color: on-surface-subtle
