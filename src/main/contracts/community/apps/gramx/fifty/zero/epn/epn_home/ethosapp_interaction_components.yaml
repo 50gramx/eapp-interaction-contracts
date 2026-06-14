@@ -342,7 +342,9 @@
 - name-code: EAIC5036
   name: What Now Section
   component:
-    name-code: EIC1005
+    name-code: EIC1037
+    columns: 2
+    spacing: 16
     children-components:
       - EAIC5031
       - EAIC5032
@@ -425,7 +427,9 @@
 - name-code: EAIC5045
   name: The Rooms Section
   component:
-    name-code: EIC1005
+    name-code: EIC1037
+    columns: 3
+    spacing: 16
     children-components:
       - EAIC5037
       - EAIC5038
