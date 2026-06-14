@@ -15,6 +15,9 @@
       - command: platform-invoke
         handler: epn.identity.keys_status
         assign-to: EAIV12013
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV12019
 
 # Return the max-per-hour TextEditingController.
 - name-code: EALC12002
@@ -196,3 +199,45 @@
           memory: EAIV12016
           disk: EAIV12017
         assign-to: EAIV12018
+
+# ── Nodes & device management ─────────────────────────────────────────────────
+- name-code: EALC12018
+  name: Load Nodes
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV12019
+
+- name-code: EALC12019
+  name: Get Remove Node Id Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12020
+
+- name-code: EALC12020
+  name: Remove Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.remove
+        params:
+          node_id: EAIV12020
+        assign-to: EAIV12021
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV12019
+
+- name-code: EALC12021
+  name: Clean Device
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.device.clean
+        assign-to: EAIV12021
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV12019

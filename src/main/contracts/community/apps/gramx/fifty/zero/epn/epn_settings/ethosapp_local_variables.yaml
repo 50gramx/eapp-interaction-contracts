@@ -99,3 +99,17 @@
   name: Resources Save Result
   type: ELVT1007
   default: ""
+
+# Nodes & device management.
+- name-code: EAIV12019
+  name: Nodes List
+  type: ELVT1020
+  default: {}
+- name-code: EAIV12020
+  name: Remove Node Id Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV12021
+  name: Node Mgmt Result
+  type: ELVT1007
+  default: ""

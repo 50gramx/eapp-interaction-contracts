@@ -375,3 +375,83 @@
       - EAIC12044
       - EAIC12045
       - EAIC12046
+
+# ── Nodes & Device section ────────────────────────────────────────────────────
+
+- name-code: EAIC12048
+  name: Nodes Header
+  component:
+    name-code: EIC1004
+    label: Nodes & Device
+
+- name-code: EAIC12049
+  name: Nodes Note
+  component:
+    name-code: EIC1020
+    text: Each node is isolated (own identity, wallet, and WSL distro). Remove a node by id, or clean every EP&N node and distro from this device.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC12050
+  name: Nodes Table
+  component:
+    name-code: EIC1032
+    source: EAIV12019.nodes
+    columns:
+      - Node
+      - Distro
+      - State
+    fields:
+      - id
+      - distro
+      - state
+    empty-message: No EP&N nodes on this device yet.
+
+- name-code: EAIC12051
+  name: Remove Node Id Input
+  component:
+    name-code: EIC1009
+    hint-text: "Node id to remove (blank = primary)"
+    text-controller: EALC12019
+
+- name-code: EAIC12052
+  name: Remove Node Button
+  component:
+    name-code: EIC1008
+    label: Remove node
+    on-click: EALC12020
+
+- name-code: EAIC12053
+  name: Clean Device Button
+  component:
+    name-code: EIC1008
+    label: Clean device (remove everything)
+    on-click: EALC12021
+
+- name-code: EAIC12054
+  name: Node Mgmt Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV12021
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC12055
+  name: Nodes Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12056
+  name: Nodes Device Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12048
+      - EAIC12049
+      - EAIC12050
+      - EAIC12051
+      - EAIC12052
+      - EAIC12053
+      - EAIC12054
+      - EAIC12055
