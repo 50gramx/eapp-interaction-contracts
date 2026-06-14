@@ -231,3 +231,147 @@
     children-components:
       - EAIC12018
       - EAIC12019
+
+# ── AI Keys section ───────────────────────────────────────────────────────────
+
+- name-code: EAIC12030
+  name: AI Keys Header
+  component:
+    name-code: EIC1004
+    label: AI Keys
+
+- name-code: EAIC12031
+  name: AI Keys Note
+  component:
+    name-code: EIC1020
+    text: Local models run free with no key. Add a key only for cloud models. Keys are saved on this device and never leave it.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC12032
+  name: Anthropic Key Input
+  component:
+    name-code: EIC1009
+    hint-text: Anthropic API key (sk-ant-...)
+    text-controller: EALC12010
+
+- name-code: EAIC12033
+  name: Save Anthropic Button
+  component:
+    name-code: EIC1006
+    label: Save Anthropic key
+    on-click: EALC12012
+
+- name-code: EAIC12034
+  name: OpenAI Key Input
+  component:
+    name-code: EIC1009
+    hint-text: OpenAI API key (sk-...)
+    text-controller: EALC12011
+
+- name-code: EAIC12035
+  name: Save OpenAI Button
+  component:
+    name-code: EIC1006
+    label: Save OpenAI key
+    on-click: EALC12013
+
+- name-code: EAIC12036
+  name: Key Save Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV12014
+    variant: caption
+    color: positive
+
+- name-code: EAIC12037
+  name: AI Keys Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12038
+  name: AI Keys Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12030
+      - EAIC12031
+      - EAIC12032
+      - EAIC12033
+      - EAIC12034
+      - EAIC12035
+      - EAIC12036
+      - EAIC12037
+
+# ── Node Resources section (device-aware sizing) ──────────────────────────────
+
+- name-code: EAIC12039
+  name: Resources Header
+  component:
+    name-code: EIC1004
+    label: Node Resources
+
+- name-code: EAIC12040
+  name: Resources Note
+  component:
+    name-code: EIC1020
+    text: Auto-sized to your machine's safe minimum. Override below — higher lets you lend more, but adds device load. Blank = auto.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC12041
+  name: CPUs Input
+  component:
+    name-code: EIC1009
+    hint-text: "CPU cores (e.g. 2)"
+    text-controller: EALC12014
+
+- name-code: EAIC12042
+  name: Memory Input
+  component:
+    name-code: EIC1009
+    hint-text: "Memory (e.g. 4G)"
+    text-controller: EALC12015
+
+- name-code: EAIC12043
+  name: Disk Input
+  component:
+    name-code: EIC1009
+    hint-text: "Disk (e.g. 30G)"
+    text-controller: EALC12016
+
+- name-code: EAIC12044
+  name: Save Resources Button
+  component:
+    name-code: EIC1006
+    label: Save Resources
+    on-click: EALC12017
+
+- name-code: EAIC12045
+  name: Resources Save Result Label
+  component:
+    name-code: EIC1020
+    text: EAIV12018
+    variant: caption
+    color: positive
+
+- name-code: EAIC12046
+  name: Resources Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC12047
+  name: Node Resources Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12039
+      - EAIC12040
+      - EAIC12041
+      - EAIC12042
+      - EAIC12043
+      - EAIC12044
+      - EAIC12045
+      - EAIC12046

@@ -12,6 +12,9 @@
       - command: platform-invoke
         handler: epn.settings.energy.get
         assign-to: EAIV12007
+      - command: platform-invoke
+        handler: epn.identity.keys_status
+        assign-to: EAIV12013
 
 # Return the max-per-hour TextEditingController.
 - name-code: EALC12002
@@ -102,3 +105,94 @@
       - command: platform-invoke
         handler: epn.identity.kyc
         assign-to: EAIV12006
+
+# ── AI keys (device-level, local-only) ────────────────────────────────────────
+# Return the Anthropic key TextEditingController.
+- name-code: EALC12010
+  name: Get Anthropic Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12011
+
+# Return the OpenAI key TextEditingController.
+- name-code: EALC12011
+  name: Get OpenAI Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12012
+
+# Save the Anthropic key device-level (~/.epn/anthropic.key), then refresh status.
+- name-code: EALC12012
+  name: Save Anthropic Key
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.set_key
+        params:
+          provider: anthropic
+          key: EAIV12011
+        assign-to: EAIV12014
+      - command: platform-invoke
+        handler: epn.identity.keys_status
+        assign-to: EAIV12013
+
+# Save the OpenAI key device-level (~/.epn/openai.key), then refresh status.
+- name-code: EALC12013
+  name: Save OpenAI Key
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.set_key
+        params:
+          provider: openai
+          key: EAIV12012
+        assign-to: EAIV12014
+      - command: platform-invoke
+        handler: epn.identity.keys_status
+        assign-to: EAIV12013
+
+# ── Node resources (device-aware sizing override) ─────────────────────────────
+- name-code: EALC12014
+  name: Get CPUs Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12015
+
+- name-code: EALC12015
+  name: Get Memory Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12016
+
+- name-code: EALC12016
+  name: Get Disk Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12017
+
+- name-code: EALC12017
+  name: Save Node Resources
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.set_resources
+        params:
+          cpus: EAIV12015
+          memory: EAIV12016
+          disk: EAIV12017
+        assign-to: EAIV12018

@@ -32,6 +32,22 @@
     label: Start my node
     on-click: EALC5014
 
+- name-code: EAIC5081
+  name: Device Health Header
+  component:
+    name-code: EIC1020
+    text: Device check
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC5082
+  name: Device Health Reason
+  component:
+    name-code: EIC1020
+    text: EAIV5008.reasons.0
+    variant: caption
+    color: caution
+
 - name-code: EAIC5021
   name: Hero Off Column
   component:
@@ -39,6 +55,8 @@
     children-components:
       - EAIC5018
       - EAIC5019
+      - EAIC5081
+      - EAIC5082
       - EAIC5020
 
 - name-code: EAIC5060

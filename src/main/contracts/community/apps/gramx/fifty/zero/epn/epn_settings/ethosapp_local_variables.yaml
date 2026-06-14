@@ -57,3 +57,45 @@
   name: Energy Save Result
   type: ELVT1007
   default: ""
+
+# TextEditingController for the Anthropic API key input.
+- name-code: EAIV12011
+  name: Anthropic Key Controller
+  type: ELVT1001
+  default: {}
+
+# TextEditingController for the OpenAI API key input.
+- name-code: EAIV12012
+  name: OpenAI Key Controller
+  type: ELVT1001
+  default: {}
+
+# Which device-level keys are set — {anthropic: bool, openai: bool}.
+- name-code: EAIV12013
+  name: Keys Status
+  type: ELVT1020
+  default: {}
+
+# Result of the last save-key action.
+- name-code: EAIV12014
+  name: Key Save Result
+  type: ELVT1007
+  default: ""
+
+# Node-resource override controllers + result (device-aware sizing).
+- name-code: EAIV12015
+  name: CPUs Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV12016
+  name: Memory Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV12017
+  name: Disk Controller
+  type: ELVT1001
+  default: {}
+- name-code: EAIV12018
+  name: Resources Save Result
+  type: ELVT1007
+  default: ""

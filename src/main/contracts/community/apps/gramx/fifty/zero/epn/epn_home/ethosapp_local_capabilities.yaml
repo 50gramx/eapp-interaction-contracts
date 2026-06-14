@@ -45,6 +45,9 @@
   context:
     steps:
       - command: platform-invoke
+        handler: epn.node.capacity
+        assign-to: EAIV5008
+      - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV5004
       - command: platform-invoke

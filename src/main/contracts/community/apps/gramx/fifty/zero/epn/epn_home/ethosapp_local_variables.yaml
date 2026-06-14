@@ -43,3 +43,10 @@
   type: ELVT1020
   default:
     platform-stream: epn.node.status
+
+# Device-health capacity plan from `epnd plan` — {host_cores, free_ram_gib,
+# free_disk_gib, recommended, pressure, reasons[], decision_needed, foreign_running}.
+- name-code: EAIV5008
+  name: Capacity Plan
+  type: ELVT1020
+  default: {}
