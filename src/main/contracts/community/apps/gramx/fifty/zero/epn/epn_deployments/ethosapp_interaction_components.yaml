@@ -33,6 +33,8 @@
     name-code: EIC1005
     children-components:
       - EAIC9001
+      - EAIC9060
+      - EAIC9061
       - EAIC9002
       - EAIC9004
 
@@ -200,3 +202,28 @@
       - EAIC9025
       - EAIC9022
       - EAIC9023
+      - EAIC9062
+
+# ── Design framing (chip + intent copy + local footer) ────────────────────────
+- name-code: EAIC9060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: CARBON · instrument
+    status: neutral
+
+- name-code: EAIC9061
+  name: Intent Copy
+  component:
+    name-code: EIC1020
+    text: You name the outcome; the machine decides how. What runs underneath never surfaces here — only what each operator is doing for you, honestly.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC9062
+  name: Local Footer
+  component:
+    name-code: EIC1020
+    text: Every answer was computed on this device — your prompts and outputs never left it. Only the resources you choose to lend ever leave, by your consent.
+    variant: caption
+    color: on-surface-subtle
