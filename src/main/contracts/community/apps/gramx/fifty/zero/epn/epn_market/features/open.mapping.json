@@ -1,0 +1,21 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_market_open",
+  "app": "epn_market",
+  "org": "epn",
+  "community": 50,
+  "scenario": "open the app",
+  "expected": {
+    "pages": ["EAIP13001"],
+    "tiles": ["EAIT13001"],
+    "components": []
+  },
+  "conformance": {
+    "visual": "screenshot of the rendered Market page",
+    "structural": "page EAIP13001 present after load",
+    "behavioral": "n/a",
+    "state": "n/a",
+    "experience": "n/a"
+  },
+  "notes": "Universal open smoke scenario. Component-level structural mapping is intentionally empty until flow-bob render hooks land."
+}

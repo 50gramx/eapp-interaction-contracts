@@ -1,0 +1,21 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_open",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "open the app",
+  "expected": {
+    "pages": ["EAIP7001"],
+    "tiles": ["EAIT7001"],
+    "components": []
+  },
+  "conformance": {
+    "visual": "screenshot of the rendered Network page",
+    "structural": "page EAIP7001 present after load",
+    "behavioral": "n/a",
+    "state": "n/a",
+    "experience": "n/a"
+  },
+  "notes": "Universal open smoke scenario. Component-level structural mapping is intentionally empty until flow-bob render hooks land."
+}

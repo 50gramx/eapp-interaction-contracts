@@ -1,0 +1,21 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_wallet_open",
+  "app": "epn_wallet",
+  "org": "epn",
+  "community": 50,
+  "scenario": "open the app",
+  "expected": {
+    "pages": ["EAIP8001"],
+    "tiles": ["EAIT8001"],
+    "components": []
+  },
+  "conformance": {
+    "visual": "screenshot of the rendered Wallet page",
+    "structural": "page EAIP8001 present after load",
+    "behavioral": "n/a",
+    "state": "n/a",
+    "experience": "n/a"
+  },
+  "notes": "Universal open smoke scenario. Component-level structural mapping is intentionally empty until flow-bob render hooks land."
+}
