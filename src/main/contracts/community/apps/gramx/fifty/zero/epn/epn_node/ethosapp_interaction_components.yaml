@@ -1,83 +1,221 @@
-# ── Status section ────────────────────────────────────────────────────────────
+# ── Header + language chip (design: "Node · LEVEL · personal") ────────────────
 
 - name-code: EAIC14001
-  name: Status Header
+  name: Node Header
   component:
     name-code: EIC1004
-    label: Your node
+    label: Node
 
-- name-code: EAIC14002
-  name: State Label
+- name-code: EAIC14060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: LEVEL · personal
+    status: neutral
+
+# ── State-driven hero (match on EAIV14001.state) — design agency copy ─────────
+
+# OFF (notRunning)
+- name-code: EAIC14070
+  name: Off Title
   component:
     name-code: EIC1020
-    text: EAIV14001.state
+    text: Your node is off
     variant: headline6
-    color: primary
 
-- name-code: EAIC14003
-  name: DID Label
+- name-code: EAIC14071
+  name: Off Body
   component:
     name-code: EIC1020
-    text: EAIV14001.did
-    variant: caption
-    color: on-surface-subtle
+    text: Nothing runs, nothing listens, nothing leaves this machine — until you press start. That act is yours alone.
+    variant: body2
+    color: on-surface-muted
 
-- name-code: EAIC14004
-  name: PeerID Label
+- name-code: EAIC14072
+  name: Off Start Button
+  component:
+    name-code: EIC1006
+    label: Start
+    on-click: EALC14001
+
+- name-code: EAIC14073
+  name: Off Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14070
+      - EAIC14071
+      - EAIC14072
+
+- name-code: EAIC14074
+  name: Off Card
+  component:
+    name-code: EIC1023
+    child: EAIC14073
+
+# STARTING
+- name-code: EAIC14075
+  name: Starting Title
   component:
     name-code: EIC1020
-    text: EAIV14001.peer_id
-    variant: caption
-    color: on-surface-subtle
+    text: Starting — because you asked it to.
+    variant: headline6
 
-# Shown when the node is reachable but p2p is down — explains why.
-- name-code: EAIC14005
-  name: Offline Reason Label
+- name-code: EAIC14076
+  name: Starting Body
   component:
     name-code: EIC1020
-    text: EAIV14001.offline_reason
-    variant: caption
-    color: caution
+    text: Bringing the node up. Nothing else on this machine changed.
+    variant: body2
+    color: on-surface-muted
 
-# Shown when a start we attempted never became healthy.
-- name-code: EAIC14006
-  name: Failure Label
+- name-code: EAIC14077
+  name: Starting Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14075
+      - EAIC14076
+
+- name-code: EAIC14078
+  name: Starting Card
+  component:
+    name-code: EIC1023
+    child: EAIC14077
+
+# RUNNING
+- name-code: EAIC14079
+  name: Running Title
+  component:
+    name-code: EIC1020
+    text: Running
+    variant: headline6
+    color: positive
+
+- name-code: EAIC14080
+  name: Running Body
+  component:
+    name-code: EIC1020
+    text: Running because you started it. We never stop what we didn't start — and neither does anyone else.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC14081
+  name: Running Stop Button
+  component:
+    name-code: EIC1008
+    label: Stop my node
+    on-click: EALC14002
+
+- name-code: EAIC14082
+  name: Running Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14079
+      - EAIC14080
+      - EAIC14081
+
+- name-code: EAIC14083
+  name: Running Card
+  component:
+    name-code: EIC1023
+    child: EAIC14082
+
+# ADOPTED (externallyManaged)
+- name-code: EAIC14084
+  name: Adopted Title
+  component:
+    name-code: EIC1020
+    text: Running (adopted)
+    variant: headline6
+
+- name-code: EAIC14085
+  name: Adopted Body
+  component:
+    name-code: EIC1020
+    text: A node you didn't start is already running here. We left it untouched — stop it where it was started.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC14086
+  name: Adopted Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14084
+      - EAIC14085
+
+- name-code: EAIC14087
+  name: Adopted Card
+  component:
+    name-code: EIC1023
+    child: EAIC14086
+
+# FAILED — "Couldn't start", honest-state copy
+- name-code: EAIC14088
+  name: Failed Title
+  component:
+    name-code: EIC1020
+    text: Couldn't start
+    variant: headline6
+    color: negative
+
+- name-code: EAIC14089
+  name: Failed Body
   component:
     name-code: EIC1020
     text: EAIV14001.failure
-    variant: caption
-    color: negative
+    variant: body2
+    color: on-surface-muted
 
-# ── Actions section ───────────────────────────────────────────────────────────
-
-- name-code: EAIC14007
-  name: Actions Header
+- name-code: EAIC14090
+  name: Failed Honest Note
   component:
-    name-code: EIC1004
-    label: Controls
+    name-code: EIC1020
+    text: Nothing was left running, and nothing leaked. The honest state is the safe state.
+    variant: caption
+    color: on-surface-subtle
 
-- name-code: EAIC14008
-  name: Start Button
+- name-code: EAIC14091
+  name: Failed Retry Button
   component:
     name-code: EIC1006
-    label: Start Node
+    label: Retry
     on-click: EALC14001
 
-- name-code: EAIC14009
-  name: Stop Button
+- name-code: EAIC14092
+  name: Failed Column
   component:
-    name-code: EIC1008
-    label: Stop Node
-    on-click: EALC14002
-
-- name-code: EAIC14010
-  name: Action Row
-  component:
-    name-code: EIC1012
+    name-code: EIC1005
     children-components:
-      - EAIC14008
-      - EAIC14009
+      - EAIC14088
+      - EAIC14089
+      - EAIC14090
+      - EAIC14091
 
+- name-code: EAIC14093
+  name: Failed Card
+  component:
+    name-code: EIC1023
+    child: EAIC14092
+
+# MATCH — render the card for the current node state
+- name-code: EAIC14002
+  name: State Hero Match
+  component:
+    name-code: EIC1036
+    source: EAIV14001.state
+    cases:
+      notRunning: EAIC14074
+      starting: EAIC14078
+      running: EAIC14083
+      degraded: EAIC14083
+      externallyManaged: EAIC14087
+      failed: EAIC14093
+    default: EAIC14074
+
+# ── Compute (opt-in k3s) — design: "you name the outcome; the machine decides how"
 - name-code: EAIC14011
   name: Bootstrap Button
   component:
@@ -89,11 +227,9 @@
   name: Control Hint
   component:
     name-code: EIC1020
-    text: Your node stays off until you start it. Starting joins the EP&N network and may use compute, storage and bandwidth.
+    text: Compute is opt-in. Starting joins the EP&N network; setting up compute lets your node run operators and lend resources.
     variant: caption
     color: on-surface-subtle
-
-# ── Dividers ──────────────────────────────────────────────────────────────────
 
 - name-code: EAIC14013
   name: Divider 1
@@ -101,32 +237,22 @@
     name-code: EIC1025
     height: 1
 
-# ── Layout sections ───────────────────────────────────────────────────────────
-
+# ── Hero section ──────────────────────────────────────────────────────────────
 - name-code: EAIC14014
-  name: Status Section
+  name: Node Hero Section
   component:
     name-code: EIC1005
     children-components:
       - EAIC14001
+      - EAIC14060
       - EAIC14002
-      - EAIC14003
-      - EAIC14004
-      - EAIC14005
-      - EAIC14006
-      - EAIC14013
-
-- name-code: EAIC14015
-  name: Actions Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC14007
-      - EAIC14010
       - EAIC14011
       - EAIC14012
+      - EAIC14013
 
-# ── Sovereign Endpoint section (share a service / connect to a peer's) ────────
+# ══════════════════════════════════════════════════════════════════════════════
+# Sovereign Endpoint section (share a service / connect to a peer's)
+# ══════════════════════════════════════════════════════════════════════════════
 
 - name-code: EAIC14040
   name: Share Header
