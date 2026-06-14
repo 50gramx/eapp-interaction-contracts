@@ -3,6 +3,8 @@
   about: Full-screen chat with the Evo EP&N concierge
   composition:
     name-code: EIC1005
+    max-width: 960
+    align: center
     children-components:
       - EAIC6009
       - EAIC6010
