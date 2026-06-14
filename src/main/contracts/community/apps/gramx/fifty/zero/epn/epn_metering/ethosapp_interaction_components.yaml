@@ -83,9 +83,12 @@
     name-code: EIC1005
     children-components:
       - EAIC11001
+      - EAIC11060
       - EAIC11051
       - EAIC11052
+      - EAIC11061
       - EAIC11050
+      - EAIC11062
       - EAIC11010
       - EAIC11011
 
@@ -294,3 +297,26 @@
       - EAIC11024
       - EAIC11025
       - EAIC11027
+
+# ── Design framing (chip + FREE·LOCAL + free-tier footer) ─────────────────────
+- name-code: EAIC11060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: CARBON · instrument
+    status: neutral
+
+- name-code: EAIC11061
+  name: Free Local Badge
+  component:
+    name-code: EIC1030
+    label: FREE · LOCAL
+    status: positive
+
+- name-code: EAIC11062
+  name: Free Tier Footer
+  component:
+    name-code: EIC1020
+    text: Your own resource is always free. Only consuming a peer's resource is ever metered — and you see it here before, during, and after.
+    variant: caption
+    color: on-surface-subtle
