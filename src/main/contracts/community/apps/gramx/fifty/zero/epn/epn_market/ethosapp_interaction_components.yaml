@@ -248,6 +248,8 @@
     name-code: EIC1005
     children-components:
       - EAIC13001
+      - EAIC13060
+      - EAIC13061
       - EAIC13014
       - EAIC13015
       - EAIC13016
@@ -284,3 +286,28 @@
       - EAIC13031
       - EAIC13032
       - EAIC13033
+      - EAIC13062
+
+# ── Design framing (chip + provenance copy + cap footer) ──────────────────────
+- name-code: EAIC13060
+  name: Language Chip
+  component:
+    name-code: EIC1030
+    label: CARBON · instrument
+    status: neutral
+
+- name-code: EAIC13061
+  name: Provenance Copy
+  component:
+    name-code: EIC1020
+    text: Offers gossiped across the mesh. Every one carries provenance, a price floor, and a place — you always know who, where, and how much before anything is spent.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC13062
+  name: Cap Footer
+  component:
+    name-code: EIC1020
+    text: Spending from any bid stays inside your daily cap, set by you in Settings. Nothing is metered by surprise.
+    variant: caption
+    color: on-surface-subtle

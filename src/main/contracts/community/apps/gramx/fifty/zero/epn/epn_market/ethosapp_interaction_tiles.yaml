@@ -3,6 +3,8 @@
   about: Browse, post, and bid on resource offers across the EP&N network
   composition:
     name-code: EIC1005
+    max-width: 960
+    align: center
     children-components:
       - EAIC13036
       - EAIC13037
