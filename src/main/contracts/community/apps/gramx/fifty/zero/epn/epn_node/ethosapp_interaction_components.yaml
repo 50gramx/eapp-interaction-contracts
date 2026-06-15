@@ -364,3 +364,197 @@
       - EAIC14050
       - EAIC14051
       - EAIC14052
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Nodes on this device — list, add, stop/remove, and device clean (level surface)
+# ══════════════════════════════════════════════════════════════════════════════
+
+- name-code: EAIC14100
+  name: Manage Header
+  component:
+    name-code: EIC1004
+    label: Nodes on this device
+
+- name-code: EAIC14101
+  name: Manage Note
+  component:
+    name-code: EIC1020
+    text: Every node here is yours. Add more, stop what you started, or remove one entirely — nothing runs or leaves this machine without your say.
+    variant: body2
+    color: on-surface-muted
+
+# Live list of all nodes — tap a row to select it for stop/remove.
+- name-code: EAIC14102
+  name: Nodes List
+  component:
+    name-code: EIC1026
+    source: EAIV14020
+    item-type: list-item
+    title-field: label
+    subtitle-field: detail
+    trailing-text-field: state
+    on-item-tap: EALC14025
+    scrollable: true
+    max-height: 220
+
+- name-code: EAIC14103
+  name: Nodes Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+# ── Add a node ────────────────────────────────────────────────────────────────
+- name-code: EAIC14104
+  name: New Node Id Input
+  component:
+    name-code: EIC1009
+    hint-text: "Name for a new node (e.g. work, gpu-box)"
+    text-controller: EALC14022
+
+- name-code: EAIC14105
+  name: Add Lite Button
+  component:
+    name-code: EIC1006
+    label: Add node
+    on-click: EALC14023
+
+- name-code: EAIC14106
+  name: Add Compute Button
+  component:
+    name-code: EIC1008
+    label: Add compute node (k3s)
+    on-click: EALC14024
+
+- name-code: EAIC14107
+  name: Add Buttons Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14105
+      - EAIC14106
+
+- name-code: EAIC14108
+  name: Create Note
+  component:
+    name-code: EIC1020
+    text: A new node gets its own identity, wallet and ports, and joins the same mesh. Lite is light and device-safe; compute provisions k3s so the node can run operators and lend resources.
+    variant: caption
+    color: on-surface-subtle
+
+# ── Selected-node action card (shown after a row is tapped) ────────────────────
+- name-code: EAIC14110
+  name: Selected Label
+  component:
+    name-code: EIC1020
+    text: EAIV14024
+    variant: headline6
+
+- name-code: EAIC14111
+  name: Selected State
+  component:
+    name-code: EIC1020
+    text: EAIV14025
+    variant: caption
+    color: on-surface-muted
+
+- name-code: EAIC14112
+  name: Stop Selected Button
+  component:
+    name-code: EIC1008
+    label: Stop
+    on-click: EALC14026
+
+- name-code: EAIC14113
+  name: Remove Selected Button
+  component:
+    name-code: EIC1008
+    label: Remove this node
+    on-click: EALC14027
+
+- name-code: EAIC14114
+  name: Selected Buttons Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14112
+      - EAIC14113
+
+- name-code: EAIC14115
+  name: Selected Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14110
+      - EAIC14111
+      - EAIC14114
+
+- name-code: EAIC14116
+  name: Selected Card
+  component:
+    name-code: EIC1023
+    child: EAIC14115
+
+- name-code: EAIC14117
+  name: No Selection Note
+  component:
+    name-code: EIC1020
+    text: Tap a node above to stop or remove it.
+    variant: caption
+    color: on-surface-subtle
+
+# Show the action card only once a node has been tapped.
+- name-code: EAIC14118
+  name: Selection Match
+  component:
+    name-code: EIC1036
+    source: EAIV14026
+    cases:
+      selected: EAIC14116
+    default: EAIC14117
+
+# ── Device clean (destructive) ────────────────────────────────────────────────
+- name-code: EAIC14120
+  name: Manage Divider 2
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC14121
+  name: Danger Header
+  component:
+    name-code: EIC1004
+    label: Remove EP&N from this device
+
+- name-code: EAIC14122
+  name: Danger Note
+  component:
+    name-code: EIC1020
+    text: Stops every node and deletes all EP&N data on this machine — ~/.epn and every node distro. This cannot be undone.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14123
+  name: Clean Button
+  component:
+    name-code: EIC1008
+    label: Remove everything
+    on-click: EALC14028
+
+# ── Section wrapper ───────────────────────────────────────────────────────────
+- name-code: EAIC14130
+  name: Nodes Management Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14100
+      - EAIC14101
+      - EAIC14102
+      - EAIC14118
+      - EAIC14103
+      - EAIC14104
+      - EAIC14107
+      - EAIC14108
+      - EAIC14120
+      - EAIC14121
+      - EAIC14122
+      - EAIC14123

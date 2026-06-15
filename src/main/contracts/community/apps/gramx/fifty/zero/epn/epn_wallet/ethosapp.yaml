@@ -5,7 +5,7 @@ version: 1.0.0
 about: View your EthosCoin balance, manage payment channels with peers, and review recent settlements.
 icon: account_balance_wallet
 platform: core
-design-language: level
+design-language: carbon
 color-scheme: two-tone
 keywords:
   - wallet

@@ -5,7 +5,7 @@ version: 1.0.0
 about: Configure EP&N node policies — spend limits, KYC level, bootstrap peers, and agent escalation rules.
 icon: settings
 platform: core
-design-language: level
+design-language: carbon
 color-scheme: two-tone
 keywords:
   - settings

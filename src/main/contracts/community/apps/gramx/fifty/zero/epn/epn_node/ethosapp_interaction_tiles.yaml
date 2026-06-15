@@ -7,4 +7,5 @@
     align: center
     children-components:
       - EAIC14014
+      - EAIC14130
       - EAIC14053

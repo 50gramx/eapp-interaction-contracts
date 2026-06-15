@@ -85,3 +85,152 @@
           peer: EAIV14013
           local_port: EAIV14014
         assign-to: EAIV14015
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Multi-node management capabilities
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Page on-appear: load identity (for the sovereign-endpoint section) and the
+# live list of every node on this device. Replaces the bare Load Identity as the
+# page's on-appear so the node list is populated the moment the page opens.
+- name-code: EALC14020
+  name: On Node Page Appear
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.peers.identity
+        assign-to: EAIV14012
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Re-list the device's nodes (after any add/stop/remove/clean).
+- name-code: EALC14021
+  name: Refresh Nodes
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Return the "add a node" name TextEditingController.
+- name-code: EALC14022
+  name: Get New Node Id Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV14021
+
+# Add a lite node (device-safe default: p2p + identity + wallet, no k3s).
+- name-code: EALC14023
+  name: Add Lite Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.create
+        params:
+          node_id: EAIV14021
+          lite: "true"
+        assign-to: EAIV14022
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Add a compute node — provisions its own k3s/distro (heavier, opt-in).
+- name-code: EALC14024
+  name: Add Compute Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.create
+        params:
+          node_id: EAIV14021
+          lite: "false"
+          bootstrap: "true"
+        assign-to: EAIV14022
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Select a node from the list (engine passes the tapped node's full map). Stores
+# id/label/state and flips the selection flag so the action card appears.
+- name-code: EALC14025
+  name: Select Node
+  context:
+    expects:
+      - id: ELVT1007
+      - label: ELVT1007
+      - state: ELVT1007
+    steps:
+      - command: set
+        target: EAIV14023
+        value: id
+      - command: set
+        target: EAIV14024
+        value: label
+      - command: set
+        target: EAIV14025
+        value: state
+      - command: set
+        target: EAIV14026
+        value: "selected"
+
+# Stop the selected node. Primary node ('' id) uses the singleton stop; a named
+# instance uses stop_instance (keeps its data — removal is separate).
+- name-code: EALC14026
+  name: Stop Selected Node
+  context:
+    steps:
+      - command: if
+        condition:
+          - EAIV14023
+          - equals
+          - ""
+        then:
+          - command: platform-invoke
+            handler: epn.node.stop
+            assign-to: EAIV14027
+        else:
+          - command: platform-invoke
+            handler: epn.node.stop_instance
+            params:
+              node_id: EAIV14023
+            assign-to: EAIV14027
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Remove the selected node entirely (stop, unregister distro, delete its home).
+# Works for the primary ('' id) and named instances alike. Destructive.
+- name-code: EALC14027
+  name: Remove Selected Node
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.remove
+        params:
+          node_id: EAIV14023
+        assign-to: EAIV14027
+      - command: set
+        target: EAIV14026
+        value: "none"
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Remove EP&N's entire footprint from this device (~/.epn + all distros). Destructive.
+- name-code: EALC14028
+  name: Clean Device
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.device.clean
+        assign-to: EAIV14028
+      - command: set
+        target: EAIV14026
+        value: "none"
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020

@@ -44,3 +44,58 @@
   name: Connect Result
   type: ELVT1007
   default: ""
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Multi-node management — every node on this device, add/stop/remove + device clean
+# ══════════════════════════════════════════════════════════════════════════════
+
+# All nodes on this device — render-ready maps {id, distro, state, label, detail}
+# from epn.node.list (returns a bare list). Bound directly by the EIC1026 list.
+- name-code: EAIV14020
+  name: Nodes
+  type: ELVT1020
+  default: []
+
+# TextEditingController for the "add a node" name input.
+- name-code: EAIV14021
+  name: New Node Id Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last add/create attempt — {ok, node_id, error, ...}.
+- name-code: EAIV14022
+  name: Create Result
+  type: ELVT1019
+  default: {}
+
+# The node the user tapped in the list — drives the stop/remove action card.
+- name-code: EAIV14023
+  name: Selected Node Id
+  type: ELVT1007
+  default: ""
+- name-code: EAIV14024
+  name: Selected Node Label
+  type: ELVT1007
+  default: ""
+- name-code: EAIV14025
+  name: Selected Node State
+  type: ELVT1007
+  default: ""
+
+# Selection flag for the EIC1036 match: "none" (nothing tapped) | "selected".
+- name-code: EAIV14026
+  name: Selection Flag
+  type: ELVT1007
+  default: "none"
+
+# Result of the last stop/remove on the selected node — {ok, error, ...}.
+- name-code: EAIV14027
+  name: Action Result
+  type: ELVT1019
+  default: {}
+
+# Result of the last device-clean — {ok, error, ...}.
+- name-code: EAIV14028
+  name: Clean Result
+  type: ELVT1019
+  default: {}
