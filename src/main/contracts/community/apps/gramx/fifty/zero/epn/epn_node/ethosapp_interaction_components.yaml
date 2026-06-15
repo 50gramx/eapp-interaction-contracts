@@ -61,6 +61,13 @@
     text: Starting — because you asked it to.
     variant: headline6
 
+- name-code: EAIC14094
+  name: Starting Progress
+  component:
+    name-code: EIC1034
+    value: 0.4
+    label: Working…
+
 - name-code: EAIC14076
   name: Starting Body
   component:
@@ -69,19 +76,67 @@
     variant: body2
     color: on-surface-muted
 
+- name-code: EAIC14095
+  name: Starting ETA
+  component:
+    name-code: EIC1020
+    text: Usually ready in a few seconds. The first compute setup downloads Linux + k3s and can take several minutes — leave it running.
+    variant: caption
+    color: on-surface-subtle
+
 - name-code: EAIC14077
   name: Starting Column
   component:
     name-code: EIC1005
     children-components:
       - EAIC14075
+      - EAIC14094
       - EAIC14076
+      - EAIC14095
 
 - name-code: EAIC14078
   name: Starting Card
   component:
     name-code: EIC1023
     child: EAIC14077
+
+# STOPPING (transient while we tear the node down)
+- name-code: EAIC14140
+  name: Stopping Title
+  component:
+    name-code: EIC1020
+    text: Stopping
+    variant: headline6
+
+- name-code: EAIC14142
+  name: Stopping Progress
+  component:
+    name-code: EIC1034
+    value: 0.6
+    label: Shutting down…
+
+- name-code: EAIC14141
+  name: Stopping Body
+  component:
+    name-code: EIC1020
+    text: Asking the node to shut down cleanly. Nothing else on this machine is touched.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC14143
+  name: Stopping Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14140
+      - EAIC14142
+      - EAIC14141
+
+- name-code: EAIC14144
+  name: Stopping Card
+  component:
+    name-code: EIC1023
+    child: EAIC14143
 
 # RUNNING
 - name-code: EAIC14079
@@ -212,6 +267,7 @@
       running: EAIC14083
       degraded: EAIC14083
       externallyManaged: EAIC14087
+      stopping: EAIC14144
       failed: EAIC14093
     default: EAIC14074
 
