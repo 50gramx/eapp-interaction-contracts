@@ -99,3 +99,10 @@
   name: Clean Result
   type: ELVT1019
   default: {}
+
+# Human-readable confirmation of the last management action (remove / clean),
+# extracted to a plain string so it renders without a dotted reactive binding.
+- name-code: EAIV14030
+  name: Result Message
+  type: ELVT1007
+  default: ""

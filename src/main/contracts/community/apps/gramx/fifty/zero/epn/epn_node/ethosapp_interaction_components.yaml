@@ -7,15 +7,15 @@
     label: Node
 
 - name-code: EAIC14060
-  name: Language Chip
+  name: Surface Chip
   component:
     name-code: EIC1030
-    label: LEVEL · personal
+    label: personal
     status: neutral
 
 # ── State-driven hero (match on EAIV14001.state) — design agency copy ─────────
 
-# OFF (notRunning)
+# OFF (notRunning) — mode-first: choose Lite or Compute, then start.
 - name-code: EAIC14070
   name: Off Title
   component:
@@ -27,16 +27,79 @@
   name: Off Body
   component:
     name-code: EIC1020
-    text: Nothing runs, nothing listens, nothing leaves this machine — until you press start. That act is yours alone.
+    text: Nothing runs or leaves this machine until you start it — that act is yours alone. Choose how this node should join the mesh.
     variant: body2
     color: on-surface-muted
 
-- name-code: EAIC14072
-  name: Off Start Button
+# Mode A — Lite (recommended default)
+- name-code: EAIC14200
+  name: Lite Mode Title
+  component:
+    name-code: EIC1020
+    text: Lite — join instantly
+    variant: headline6
+
+- name-code: EAIC14201
+  name: Lite Mode Desc
+  component:
+    name-code: EIC1020
+    text: Identity, wallet and on-device AI on the mesh. No Linux VM, ready in seconds. You can lend resources later by upgrading to compute.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14202
+  name: Start Lite Button
   component:
     name-code: EIC1006
-    label: Start
+    label: Start lite
     on-click: EALC14001
+
+- name-code: EAIC14203
+  name: Lite Mode Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14200
+      - EAIC14201
+      - EAIC14202
+
+- name-code: EAIC14208
+  name: Off Modes Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+# Mode B — Compute (lend & earn)
+- name-code: EAIC14204
+  name: Compute Mode Title
+  component:
+    name-code: EIC1020
+    text: Compute — lend & earn
+    variant: headline6
+
+- name-code: EAIC14205
+  name: Compute Mode Desc
+  component:
+    name-code: EIC1020
+    text: Adds a k3s cluster (a Linux VM) so your node can lend CPU, GPU and storage to peers and earn EC. First setup downloads Linux + k3s — a few minutes.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14206
+  name: Start Compute Button
+  component:
+    name-code: EIC1008
+    label: Set up compute (installs k3s)
+    on-click: EALC14003
+
+- name-code: EAIC14207
+  name: Compute Mode Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14204
+      - EAIC14205
+      - EAIC14206
 
 - name-code: EAIC14073
   name: Off Column
@@ -45,7 +108,9 @@
     children-components:
       - EAIC14070
       - EAIC14071
-      - EAIC14072
+      - EAIC14203
+      - EAIC14208
+      - EAIC14207
 
 - name-code: EAIC14074
   name: Off Card
@@ -162,6 +227,49 @@
     label: Stop my node
     on-click: EALC14002
 
+# Mode-contextual footer: lite nodes can upgrade to compute; compute nodes
+# confirm they're lending. Driven by EAIV14001.mode (lite|compute).
+- name-code: EAIC14210
+  name: Upgrade To Compute Button
+  component:
+    name-code: EIC1008
+    label: Upgrade to compute (installs k3s)
+    on-click: EALC14003
+
+- name-code: EAIC14211
+  name: Upgrade Note
+  component:
+    name-code: EIC1020
+    text: This node is lite. Upgrade to compute to lend CPU, GPU and storage to peers and earn EC.
+    variant: caption
+    color: on-surface-subtle
+
+- name-code: EAIC14212
+  name: Upgrade Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14211
+      - EAIC14210
+
+- name-code: EAIC14213
+  name: Compute Active Note
+  component:
+    name-code: EIC1020
+    text: Compute mode — k3s is running. You can lend resources to peers and earn EC.
+    variant: caption
+    color: positive
+
+- name-code: EAIC14214
+  name: Running Mode Match
+  component:
+    name-code: EIC1036
+    source: EAIV14001.mode
+    cases:
+      lite: EAIC14212
+      compute: EAIC14213
+    default: EAIC14212
+
 - name-code: EAIC14082
   name: Running Column
   component:
@@ -170,6 +278,7 @@
       - EAIC14079
       - EAIC14080
       - EAIC14081
+      - EAIC14214
 
 - name-code: EAIC14083
   name: Running Card
@@ -271,29 +380,9 @@
       failed: EAIC14093
     default: EAIC14074
 
-# ── Compute (opt-in k3s) — design: "you name the outcome; the machine decides how"
-- name-code: EAIC14011
-  name: Bootstrap Button
-  component:
-    name-code: EIC1008
-    label: Set up compute node (installs k3s)
-    on-click: EALC14003
-
-- name-code: EAIC14012
-  name: Control Hint
-  component:
-    name-code: EIC1020
-    text: Compute is opt-in. Starting joins the EP&N network; setting up compute lets your node run operators and lend resources.
-    variant: caption
-    color: on-surface-subtle
-
-- name-code: EAIC14013
-  name: Divider 1
-  component:
-    name-code: EIC1025
-    height: 1
-
 # ── Hero section ──────────────────────────────────────────────────────────────
+# Mode choice (lite vs compute) now lives inside the per-state cards above, so
+# the hero is just header + live state pill + the state-driven card.
 - name-code: EAIC14014
   name: Node Hero Section
   component:
@@ -302,9 +391,6 @@
       - EAIC14001
       - EAIC14060
       - EAIC14002
-      - EAIC14011
-      - EAIC14012
-      - EAIC14013
 
 # ══════════════════════════════════════════════════════════════════════════════
 # Sovereign Endpoint section (share a service / connect to a peer's)
@@ -649,6 +735,29 @@
       named-stopped: EAIC14173
     default: EAIC14117
 
+# Result feedback for the last management action (remove / clean). Plain string
+# binding (set via get-map-value) — empty by default, so it shows nothing until
+# an action runs.
+- name-code: EAIC14220
+  name: Result Message
+  component:
+    name-code: EIC1020
+    text: EAIV14030
+    variant: caption
+    color: positive
+
+# ── Advanced: run additional nodes (progressive disclosure) ───────────────────
+- name-code: EAIC14240
+  name: Advanced Nodes Expander
+  component:
+    name-code: EIC1039
+    label: Advanced — run more nodes
+    expanded: false
+    children-components:
+      - EAIC14104
+      - EAIC14107
+      - EAIC14108
+
 # ── Device clean (destructive) ────────────────────────────────────────────────
 - name-code: EAIC14120
   name: Manage Divider 2
@@ -687,10 +796,9 @@
       - EAIC14101
       - EAIC14102
       - EAIC14118
+      - EAIC14220
       - EAIC14103
-      - EAIC14104
-      - EAIC14107
-      - EAIC14108
+      - EAIC14240
       - EAIC14120
       - EAIC14121
       - EAIC14122

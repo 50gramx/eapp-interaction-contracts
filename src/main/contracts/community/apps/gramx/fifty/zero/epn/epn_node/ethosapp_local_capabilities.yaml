@@ -1,11 +1,13 @@
-# Start the local node (plain `serve`). Detect-before-spawn: adopts a daemon
-# that is already running instead of launching a second one.
+# Start the local node in LITE mode (identity + wallet + AI, no k3s).
+# Detect-before-spawn: adopts a daemon that is already running.
 - name-code: EALC14001
   name: Start Node
   context:
     steps:
       - command: platform-invoke
         handler: epn.node.start
+        params:
+          lite: "true"
         assign-to: EAIV14002
 
 # Stop the local node — only if this app started it.
@@ -253,6 +255,8 @@
         then:
           - command: platform-invoke
             handler: epn.node.start
+            params:
+              lite: "true"
             assign-to: EAIV14027
         else:
           - command: platform-invoke
@@ -286,6 +290,9 @@
           node_id: EAIV14023
         assign-to: EAIV14027
       - command: set
+        target: EAIV14030
+        value: "Node removed."
+      - command: set
         target: EAIV14026
         value: "none"
       - command: platform-invoke
@@ -300,6 +307,10 @@
       - command: platform-invoke
         handler: epn.device.clean
         assign-to: EAIV14028
+      - command: get-map-value
+        target-map: EAIV14028
+        key: output
+        assign-to: EAIV14030
       - command: set
         target: EAIV14026
         value: "none"
