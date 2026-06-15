@@ -7,6 +7,17 @@
   default:
     platform-stream: epn.node.status
 
+# This device's live contribution to the EP&N network — {cores_offered,
+# host_cores, cores_display, storage_offered_gib, storage_display,
+# tunnel_live, tunnel_status}. Sums lent cores/storage across every running
+# compute (k3s) node on this device, vs total host cores. tunnel_status ∈
+# live | off. Fed by the epn.node.network_contribution platform stream.
+- name-code: EAIV14040
+  name: Network Contribution
+  type: ELVT1020
+  default:
+    platform-stream: epn.node.network_contribution
+
 # Result of the last start attempt — the status map after starting, or {failure:...}.
 - name-code: EAIV14002
   name: Start Result

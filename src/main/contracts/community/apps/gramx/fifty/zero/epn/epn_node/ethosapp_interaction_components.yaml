@@ -380,9 +380,70 @@
       failed: EAIC14093
     default: EAIC14074
 
+# ── Network contribution row — this device's live offering to the EP&N
+# network: cores + storage lent across all running compute nodes, and whether
+# a sovereign relay tunnel is currently live (controlled in Share a service,
+# below) ─────────────────────────────────────────────────────────────────────
+
+- name-code: EAIC14300
+  name: Cores Offered Metric
+  component:
+    name-code: EIC1031
+    value: EAIV14040.cores_display
+    label: Cores
+    caption: compute cores you've offered to the network
+    status: primary
+
+- name-code: EAIC14301
+  name: Storage Offered Metric
+  component:
+    name-code: EIC1031
+    value: EAIV14040.storage_display
+    label: Storage
+    caption: storage you've offered to the network
+    status: primary
+
+- name-code: EAIC14302
+  name: Tunnel Relay Live Metric
+  component:
+    name-code: EIC1031
+    value: live
+    label: Tunnel relay
+    caption: your call below
+    status: positive
+
+- name-code: EAIC14303
+  name: Tunnel Relay Off Metric
+  component:
+    name-code: EIC1031
+    value: off
+    label: Tunnel relay
+    caption: your call below
+    status: neutral
+
+- name-code: EAIC14304
+  name: Tunnel Relay Metric Match
+  component:
+    name-code: EIC1036
+    source: EAIV14040.tunnel_status
+    cases:
+      live: EAIC14302
+      off: EAIC14303
+    default: EAIC14303
+
+- name-code: EAIC14305
+  name: Network Contribution Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14300
+      - EAIC14301
+      - EAIC14304
+
 # ── Hero section ──────────────────────────────────────────────────────────────
 # Mode choice (lite vs compute) now lives inside the per-state cards above, so
-# the hero is just header + live state pill + the state-driven card.
+# the hero is just header + live state pill + the state-driven card + this
+# device's live network-contribution row.
 - name-code: EAIC14014
   name: Node Hero Section
   component:
@@ -391,6 +452,7 @@
       - EAIC14001
       - EAIC14060
       - EAIC14002
+      - EAIC14305
 
 # ══════════════════════════════════════════════════════════════════════════════
 # Sovereign Endpoint section (share a service / connect to a peer's)
