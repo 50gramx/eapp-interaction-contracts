@@ -64,9 +64,9 @@
 - name-code: EAIC14094
   name: Starting Progress
   component:
-    name-code: EIC1034
-    value: 0.4
-    label: Working…
+    name-code: EIC1038
+    status: active
+    label: Starting the node…
 
 - name-code: EAIC14076
   name: Starting Body
@@ -111,8 +111,8 @@
 - name-code: EAIC14142
   name: Stopping Progress
   component:
-    name-code: EIC1034
-    value: 0.6
+    name-code: EIC1038
+    status: active
     label: Shutting down…
 
 - name-code: EAIC14141
@@ -497,7 +497,7 @@
     variant: caption
     color: on-surface-subtle
 
-# ── Selected-node action card (shown after a row is tapped) ────────────────────
+# ── Selected-node action card (contextual, shown after a row is tapped) ────────
 - name-code: EAIC14110
   name: Selected Label
   component:
@@ -513,12 +513,20 @@
     variant: caption
     color: on-surface-muted
 
+# Action buttons (shared across the contextual cards)
 - name-code: EAIC14112
   name: Stop Selected Button
   component:
     name-code: EIC1008
     label: Stop
     on-click: EALC14026
+
+- name-code: EAIC14150
+  name: Start Selected Button
+  component:
+    name-code: EIC1006
+    label: Start
+    on-click: EALC14029
 
 - name-code: EAIC14113
   name: Remove Selected Button
@@ -527,45 +535,118 @@
     label: Remove this node
     on-click: EALC14027
 
-- name-code: EAIC14114
-  name: Selected Buttons Row
+# Per-state button rows
+- name-code: EAIC14154
+  name: Stop Only Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14112
+
+- name-code: EAIC14155
+  name: Start Only Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14150
+
+- name-code: EAIC14156
+  name: Stop And Remove Row
   component:
     name-code: EIC1012
     children-components:
       - EAIC14112
       - EAIC14113
 
-- name-code: EAIC14115
-  name: Selected Column
+- name-code: EAIC14157
+  name: Start And Remove Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC14150
+      - EAIC14113
+
+# Per-state columns (label + state + the right buttons)
+- name-code: EAIC14160
+  name: Primary Running Column
   component:
     name-code: EIC1005
     children-components:
       - EAIC14110
       - EAIC14111
-      - EAIC14114
+      - EAIC14154
 
-- name-code: EAIC14116
-  name: Selected Card
+- name-code: EAIC14161
+  name: Primary Stopped Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14110
+      - EAIC14111
+      - EAIC14155
+
+- name-code: EAIC14162
+  name: Named Running Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14110
+      - EAIC14111
+      - EAIC14156
+
+- name-code: EAIC14163
+  name: Named Stopped Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14110
+      - EAIC14111
+      - EAIC14157
+
+# Per-state cards
+- name-code: EAIC14170
+  name: Primary Running Card
   component:
     name-code: EIC1023
-    child: EAIC14115
+    child: EAIC14160
+
+- name-code: EAIC14171
+  name: Primary Stopped Card
+  component:
+    name-code: EIC1023
+    child: EAIC14161
+
+- name-code: EAIC14172
+  name: Named Running Card
+  component:
+    name-code: EIC1023
+    child: EAIC14162
+
+- name-code: EAIC14173
+  name: Named Stopped Card
+  component:
+    name-code: EIC1023
+    child: EAIC14163
 
 - name-code: EAIC14117
   name: No Selection Note
   component:
     name-code: EIC1020
-    text: Tap a node above to stop or remove it.
+    text: Tap a node above to start, stop, or remove it.
     variant: caption
     color: on-surface-subtle
 
-# Show the action card only once a node has been tapped.
+# Show the action card that matches the selected node's kind + state.
 - name-code: EAIC14118
   name: Selection Match
   component:
     name-code: EIC1036
     source: EAIV14026
     cases:
-      selected: EAIC14116
+      primary-running: EAIC14170
+      primary-stopped: EAIC14171
+      named-running: EAIC14172
+      named-stopped: EAIC14173
     default: EAIC14117
 
 # ── Device clean (destructive) ────────────────────────────────────────────────

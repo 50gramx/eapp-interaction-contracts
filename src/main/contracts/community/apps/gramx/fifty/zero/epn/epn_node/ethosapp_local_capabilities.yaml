@@ -155,7 +155,11 @@
         assign-to: EAIV14020
 
 # Select a node from the list (engine passes the tapped node's full map). Stores
-# id/label/state and flips the selection flag so the action card appears.
+# id/label/state and computes a contextual flag so the action card offers only
+# the actions that make sense: Stop for a running node, Start for a stopped one,
+# Remove only for named instances (the primary is torn down via "Remove
+# everything"). Flag ∈ primary-running | primary-stopped | named-running |
+# named-stopped | none.
 - name-code: EALC14025
   name: Select Node
   context:
@@ -173,12 +177,42 @@
       - command: set
         target: EAIV14025
         value: state
-      - command: set
-        target: EAIV14026
-        value: "selected"
+      - command: if
+        condition:
+          - EAIV14023
+          - equals
+          - ""
+        then:
+          - command: if
+            condition:
+              - EAIV14025
+              - equals
+              - running
+            then:
+              - command: set
+                target: EAIV14026
+                value: "primary-running"
+            else:
+              - command: set
+                target: EAIV14026
+                value: "primary-stopped"
+        else:
+          - command: if
+            condition:
+              - EAIV14025
+              - equals
+              - running
+            then:
+              - command: set
+                target: EAIV14026
+                value: "named-running"
+            else:
+              - command: set
+                target: EAIV14026
+                value: "named-stopped"
 
-# Stop the selected node. Primary node ('' id) uses the singleton stop; a named
-# instance uses stop_instance (keeps its data — removal is separate).
+# Stop the selected node. Primary ('' id) uses the singleton stop; a named
+# instance uses stop_instance. Collapses the card; the list reflects the change.
 - name-code: EALC14026
   name: Stop Selected Node
   context:
@@ -198,16 +232,54 @@
             params:
               node_id: EAIV14023
             assign-to: EAIV14027
+      - command: set
+        target: EAIV14026
+        value: "none"
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV14020
 
-# Remove the selected node entirely (stop, unregister distro, delete its home).
-# Works for the primary ('' id) and named instances alike. Destructive.
+# Start the selected node. Primary ('' id) uses the singleton start; a named
+# instance is (re)started lite via create. Collapses the card after.
+- name-code: EALC14029
+  name: Start Selected Node
+  context:
+    steps:
+      - command: if
+        condition:
+          - EAIV14023
+          - equals
+          - ""
+        then:
+          - command: platform-invoke
+            handler: epn.node.start
+            assign-to: EAIV14027
+        else:
+          - command: platform-invoke
+            handler: epn.node.create
+            params:
+              node_id: EAIV14023
+              lite: "true"
+            assign-to: EAIV14027
+      - command: set
+        target: EAIV14026
+        value: "none"
+      - command: platform-invoke
+        handler: epn.node.list
+        assign-to: EAIV14020
+
+# Remove a named node entirely: stop its process, then unregister its distro and
+# delete its home. Only offered for named instances — the primary's full
+# teardown is "Remove everything" (device clean), which is clearer. Destructive.
 - name-code: EALC14027
   name: Remove Selected Node
   context:
     steps:
+      - command: platform-invoke
+        handler: epn.node.stop_instance
+        params:
+          node_id: EAIV14023
+        assign-to: EAIV14027
       - command: platform-invoke
         handler: epn.node.remove
         params:
