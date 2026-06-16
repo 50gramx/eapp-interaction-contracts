@@ -1,5 +1,9 @@
 - name-code: EAIP9001
   name: Deployments Page
+  navigation:
+    heading: Workshop
+    label: Operators
+    order: 50
   on-appear: EALC9001
   composition:
     name-code: EIC1005

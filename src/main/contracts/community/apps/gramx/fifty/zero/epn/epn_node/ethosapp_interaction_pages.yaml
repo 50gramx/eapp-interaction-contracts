@@ -2,6 +2,10 @@
 # on-appear fetch is needed — the page updates live as the node state changes.
 - name-code: EAIP14001
   name: Node Page
+  navigation:
+    heading: Controls
+    label: Node
+    order: 30
   on-appear: EALC14020
   composition:
     name-code: EIC1005

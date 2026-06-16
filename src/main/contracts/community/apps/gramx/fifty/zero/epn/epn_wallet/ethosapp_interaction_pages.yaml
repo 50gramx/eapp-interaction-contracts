@@ -1,5 +1,9 @@
 - name-code: EAIP8001
   name: Wallet Page
+  navigation:
+    heading: Ledger
+    label: Wallet
+    order: 80
   on-appear: EALC8007
   composition:
     name-code: EIC1005

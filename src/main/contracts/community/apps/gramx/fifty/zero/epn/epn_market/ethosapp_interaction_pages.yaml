@@ -1,5 +1,9 @@
 - name-code: EAIP13001
   name: Resource Market Page
+  navigation:
+    heading: Bazaar
+    label: Resource Market
+    order: 60
   on-appear: EALC13001
   composition:
     name-code: EIC1005

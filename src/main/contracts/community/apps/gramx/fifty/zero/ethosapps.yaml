@@ -23,6 +23,48 @@
 # org-solution shell scopes the nine eApps as one product, distinct from the
 # browser (evo_*) apps.
 - organisation: epn
+  brand:
+    id: epn
+    community-code: 50
+    display-name: EP&N
+    product-name: EP&N Node
+    window-title: EP&N Node
+    logo: lib/assets/brands/epn/logo.png
+    home-app: epn_home
+    launch-environment: com.50gramx.50.epn.*
+    runtime:
+      session-file: epn_session.json
+      singleton-name: 50gramx_epn_singleton
+    windows:
+      binary-name: epn_node
+      window-title: EP&N Node
+      product-name: EP&N Node
+      company-name: 50GRAMx
+      file-description: EP&N Node
+      internal-name: epn_node
+      original-filename: epn_node.exe
+      legal-copyright: Copyright (C) 2026 50GRAMx. All rights reserved.
+      icon: resources\\epn_app_icon.ico
+    surface:
+      tiles:
+        app-library: false
+        private-space: false
+        history: false
+        pane-switcher: false
+        spotlight: false
+        open-tabs-summary: false
+        open-communities-summary: false
+        user-details: false
+      open-pages:
+        page-tabs: false
+        clear-session-on-start: true
+      solution-nav:
+        unbounded: true
+      wallpaper:
+        preferred: mesh
+        show-credit: false
+      app-selector:
+        auto-visible: false
   apps:
     - name: epn_home
       live: true

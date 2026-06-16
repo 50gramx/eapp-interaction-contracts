@@ -1,5 +1,9 @@
 - name-code: EAIP6001
   name: Evo Chat Page
+  navigation:
+    heading: Assistant
+    label: Evo
+    order: 20
   composition:
     name-code: EIC1005
     children-components:

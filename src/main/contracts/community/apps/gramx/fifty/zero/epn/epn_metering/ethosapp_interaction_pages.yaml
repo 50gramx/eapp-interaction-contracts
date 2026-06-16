@@ -1,5 +1,9 @@
 - name-code: EAIP11001
   name: Metering Page
+  navigation:
+    heading: Ledger
+    label: Metering
+    order: 70
   on-appear: EALC11001
   composition:
     name-code: EIC1005

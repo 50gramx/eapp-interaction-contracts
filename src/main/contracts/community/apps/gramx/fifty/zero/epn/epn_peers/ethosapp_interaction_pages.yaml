@@ -1,5 +1,9 @@
 - name-code: EAIP7001
   name: Network Page
+  navigation:
+    heading: Identity & Street
+    label: Network
+    order: 40
   on-appear: EALC7007
   composition:
     name-code: EIC1005

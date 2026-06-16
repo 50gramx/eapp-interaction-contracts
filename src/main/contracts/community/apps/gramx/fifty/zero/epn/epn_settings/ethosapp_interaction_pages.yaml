@@ -1,5 +1,9 @@
 - name-code: EAIP12001
   name: Settings Page
+  navigation:
+    heading: House Rules
+    label: Settings
+    order: 90
   on-appear: EALC12001
   composition:
     name-code: EIC1005
