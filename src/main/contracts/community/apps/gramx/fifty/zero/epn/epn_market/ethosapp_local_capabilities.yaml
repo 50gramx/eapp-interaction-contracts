@@ -1,4 +1,4 @@
-# Load all offers (unfiltered) and the overall price summary on page appear.
+# Load all offers, price summary, and initialize all text controllers for filters and trading forms.
 - name-code: EALC13001
   name: Init Page
   context:
@@ -9,6 +9,27 @@
       - command: platform-invoke
         handler: epn.market.price_summary
         assign-to: EAIV13003
+      - command: local-capability
+        capability: EALC13002
+        assign-to: EAIV13002
+      - command: local-capability
+        capability: EALC13004
+        assign-to: EAIV13004
+      - command: local-capability
+        capability: EALC13005
+        assign-to: EAIV13005
+      - command: local-capability
+        capability: EALC13006
+        assign-to: EAIV13006
+      - command: local-capability
+        capability: EALC13009
+        assign-to: EAIV13009
+      - command: local-capability
+        capability: EALC13010
+        assign-to: EAIV13010
+      - command: local-capability
+        capability: EALC13011
+        assign-to: EAIV13011
 
 # Return the resource-type filter TextEditingController.
 - name-code: EALC13002
