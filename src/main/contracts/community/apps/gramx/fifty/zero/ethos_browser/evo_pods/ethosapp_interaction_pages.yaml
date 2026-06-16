@@ -1,5 +1,9 @@
 - name-code: EAIP5001
   name: Pod Manager Page
+  navigation:
+    heading: Runtime
+    label: Pods
+    order: 50
   composition:
     name-code: EIC1005
     children-components:

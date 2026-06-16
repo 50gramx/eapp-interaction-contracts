@@ -1,5 +1,9 @@
 - name-code: EAIP6001
   name: LLM Chat Page
+  navigation:
+    heading: AI
+    label: Phi-3 Chat
+    order: 60
   composition:
     name-code: EIC1005
     children-components:

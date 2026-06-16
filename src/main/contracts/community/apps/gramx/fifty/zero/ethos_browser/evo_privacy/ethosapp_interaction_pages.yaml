@@ -1,5 +1,9 @@
 - name-code: EAIP3001
   name: Privacy Page
+  navigation:
+    heading: Browser
+    label: Privacy
+    order: 20
   composition:
     name-code: EIC1005
     children-components:

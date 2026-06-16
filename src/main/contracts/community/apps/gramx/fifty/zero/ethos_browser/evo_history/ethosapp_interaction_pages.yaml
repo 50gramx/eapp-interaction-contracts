@@ -1,5 +1,9 @@
 - name-code: EAIP4001
   name: History Page
+  navigation:
+    heading: Browser
+    label: History
+    order: 30
   composition:
     name-code: EIC1005
     children-components:

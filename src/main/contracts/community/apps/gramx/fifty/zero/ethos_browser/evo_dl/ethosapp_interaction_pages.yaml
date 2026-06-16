@@ -1,5 +1,9 @@
 - name-code: EAIP2001
   name: Downloads Page
+  navigation:
+    heading: Browser
+    label: Downloads
+    order: 10
   composition:
     name-code: EIC1005
     children-components:
