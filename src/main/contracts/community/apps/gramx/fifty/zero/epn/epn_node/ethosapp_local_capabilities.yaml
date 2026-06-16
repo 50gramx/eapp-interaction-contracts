@@ -92,8 +92,9 @@
 # Multi-node management capabilities
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Page on-appear: load identity (for the sovereign-endpoint section), node list,
-# and initialize all text controllers for expose/connect/remove forms.
+# Page on-appear: load identity (for the sovereign-endpoint section) and the
+# live list of every node on this device. Replaces the bare Load Identity as the
+# page's on-appear so the node list is populated the moment the page opens.
 - name-code: EALC14020
   name: On Node Page Appear
   context:
@@ -104,18 +105,6 @@
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV14020
-      - command: local-capability
-        capability: EALC14010
-        assign-to: EAIV14010
-      - command: local-capability
-        capability: EALC14013
-        assign-to: EAIV14013
-      - command: local-capability
-        capability: EALC14014
-        assign-to: EAIV14014
-      - command: local-capability
-        capability: EALC14022
-        assign-to: EAIV14022
 
 # Re-list the device's nodes (after any add/stop/remove/clean).
 - name-code: EALC14021

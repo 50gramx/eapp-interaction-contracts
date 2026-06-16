@@ -16,7 +16,7 @@
         handler: epn.peers.list
         assign-to: EAIV7002
 
-# Load identity + peers, and initialize all text controllers for connect/find forms.
+# Load identity + peers together on page appear.
 - name-code: EALC7007
   name: Init Page
   context:
@@ -27,12 +27,6 @@
       - command: platform-invoke
         handler: epn.peers.list
         assign-to: EAIV7002
-      - command: local-capability
-        capability: EALC7003
-        assign-to: EAIV7003
-      - command: local-capability
-        capability: EALC7005
-        assign-to: EAIV7005
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003

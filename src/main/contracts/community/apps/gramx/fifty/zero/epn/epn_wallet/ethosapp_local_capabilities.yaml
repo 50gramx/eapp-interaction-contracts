@@ -16,7 +16,7 @@
         handler: epn.wallet.channels
         assign-to: EAIV8002
 
-# Load wallet and channels, and initialize all text controllers for payment channel forms.
+# Load both wallet and channels on page appear.
 - name-code: EALC8007
   name: Init Page
   context:
@@ -27,12 +27,6 @@
       - command: platform-invoke
         handler: epn.wallet.channels
         assign-to: EAIV8002
-      - command: local-capability
-        capability: EALC8003
-        assign-to: EAIV8004
-      - command: local-capability
-        capability: EALC8004
-        assign-to: EAIV8005
 
 # Return the peer DID TextEditingController.
 - name-code: EALC8003

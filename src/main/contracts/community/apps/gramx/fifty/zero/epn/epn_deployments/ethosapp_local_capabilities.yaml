@@ -1,4 +1,4 @@
-# Load deployments + personas, and initialize all text controllers for install/spin-up forms.
+# Load deployments + personas on page appear.
 - name-code: EALC9001
   name: Init Page
   context:
@@ -6,15 +6,6 @@
       - command: platform-invoke
         handler: epn.agent.personas
         assign-to: EAIV9002
-      - command: local-capability
-        capability: EALC9002
-        assign-to: EAIV9003
-      - command: local-capability
-        capability: EALC9003
-        assign-to: EAIV9004
-      - command: local-capability
-        capability: EALC9008
-        assign-to: EAIV9007
 
 # Return the operator ID TextEditingController.
 - name-code: EALC9002
