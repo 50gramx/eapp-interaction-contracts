@@ -3,8 +3,6 @@
   about: Active EP&N operators, AI personas, and deployment management
   composition:
     name-code: EIC1005
-    max-width: 960
-    align: center
     children-components:
       - EAIC9005
       - EAIC9009

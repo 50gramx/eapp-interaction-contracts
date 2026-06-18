@@ -3,8 +3,6 @@
   about: Activity summary, resource usage, and payment channel ledger
   composition:
     name-code: EIC1005
-    max-width: 960
-    align: center
     children-components:
       - EAIC11012
       - EAIC11019
