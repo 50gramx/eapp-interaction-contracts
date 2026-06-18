@@ -93,11 +93,13 @@
       - Address
       - Geo
       - Trust
+      - Latency
     fields:
       - did
       - addrs.0
       - geo
       - trust_label
+      - latency_display
     empty-message: No peers connected yet. Share your multiaddr or add a bootstrap peer.
 
 - name-code: EAIC7011
