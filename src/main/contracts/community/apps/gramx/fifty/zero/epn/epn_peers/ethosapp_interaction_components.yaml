@@ -80,7 +80,7 @@
   name: Verified Family Badge
   component:
     name-code: EIC1030
-    label: verified family
+    label: EAIV7007.label
     status: positive
 
 - name-code: EAIC7006
@@ -91,10 +91,12 @@
     columns:
       - Peer
       - Address
+      - Geo
       - Trust
     fields:
       - did
       - addrs.0
+      - geo
       - trust_label
     empty-message: No peers connected yet. Share your multiaddr or add a bootstrap peer.
 

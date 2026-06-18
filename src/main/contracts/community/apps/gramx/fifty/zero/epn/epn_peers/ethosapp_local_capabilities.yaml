@@ -15,6 +15,9 @@
       - command: platform-invoke
         handler: epn.peers.list
         assign-to: EAIV7002
+      - command: platform-invoke
+        handler: epn.peers.familyStatus
+        assign-to: EAIV7007
 
 # Load identity + peers together on page appear.
 - name-code: EALC7007
@@ -27,6 +30,9 @@
       - command: platform-invoke
         handler: epn.peers.list
         assign-to: EAIV7002
+      - command: platform-invoke
+        handler: epn.peers.familyStatus
+        assign-to: EAIV7007
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003

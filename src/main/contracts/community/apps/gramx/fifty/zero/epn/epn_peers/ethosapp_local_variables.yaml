@@ -33,3 +33,10 @@
   name: Find Result
   type: ELVT1020
   default: {}
+
+# Verified-family badge state — {label: "verified family" | ""}. Empty label
+# means no connected peer currently carries a daemon-verified family claim.
+- name-code: EAIV7007
+  name: Family Status
+  type: ELVT1020
+  default: {}
