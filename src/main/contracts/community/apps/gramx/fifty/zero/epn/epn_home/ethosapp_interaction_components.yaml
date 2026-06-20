@@ -425,50 +425,255 @@
     name-code: EIC1004
     label: What now
 
-- name-code: EAIC5032
-  name: Nav Show My Node
+# OFF: start the node, inspect the pre-existing identity, or review safeguards.
+- name-code: EAIC5093
+  name: What Now Off Start Title
   component:
-    name-code: EIC1035
-    label: Show me my node
-    desc: Status, identity, and start/stop controls.
-    on-click: EALC5006
+    name-code: EIC1020
+    text: Start your node
+    variant: heading02
+    font-weight: 600
+    color: primary
 
-- name-code: EAIC5033
-  name: Nav See What You Earned
+- name-code: EAIC5094
+  name: What Now Off Start Body
   component:
-    name-code: EIC1035
-    label: See what you earned
-    desc: Every unit visible. Local work shows 0, always.
-    on-click: EALC5007
+    name-code: EIC1020
+    text: It does nothing, until you do. The switch is in Controls.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
 
-- name-code: EAIC5034
-  name: Nav Install Operator
+- name-code: EAIC5095
+  name: What Now Off Start Content
   component:
-    name-code: EIC1035
-    label: Install operator
-    desc: Add a new operator to your node.
-    on-click: EALC5008
+    name-code: EIC1005
+    children-components:
+      - EAIC5093
+      - EAIC5094
 
-- name-code: EAIC5035
-  name: Nav Connect By Address
+- name-code: EAIC5096
+  name: What Now Off Start Card
   component:
-    name-code: EIC1035
-    label: Connect by address
-    desc: Add a peer by its multiaddr.
-    on-click: EALC5009
+    name-code: EIC1023
+    child: EAIC5095
+    color: layer-02
+    on-tap: EALC5006
+
+- name-code: EAIC5097
+  name: What Now Off Identity Title
+  component:
+    name-code: EIC1020
+    text: Meet your identity
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5098
+  name: What Now Off Identity Body
+  component:
+    name-code: EIC1020
+    text: Your DID already exists — see what is yours.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5099
+  name: What Now Off Identity Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5097
+      - EAIC5098
+
+- name-code: EAIC5100
+  name: What Now Off Identity Card
+  component:
+    name-code: EIC1023
+    child: EAIC5099
+    color: layer-02
+    on-tap: EALC5009
+
+- name-code: EAIC5101
+  name: What Now Off Rules Title
+  component:
+    name-code: EIC1020
+    text: Read the house rules
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5102
+  name: What Now Off Rules Body
+  component:
+    name-code: EIC1020
+    text: Safe defaults, set before anything can spend.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5103
+  name: What Now Off Rules Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5101
+      - EAIC5102
+
+- name-code: EAIC5104
+  name: What Now Off Rules Card
+  component:
+    name-code: EIC1023
+    child: EAIC5103
+    color: layer-02
+    on-tap: EALC5012
+
+- name-code: EAIC5105
+  name: What Now Off Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 672
+    children-components:
+      - EAIC5096
+      - EAIC5100
+      - EAIC5104
+
+# ON: use local AI, browse the market, or inspect metering.
+- name-code: EAIC5106
+  name: What Now On AI Title
+  component:
+    name-code: EIC1020
+    text: Run local AI
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5107
+  name: What Now On AI Body
+  component:
+    name-code: EIC1020
+    text: scribe is serving on this device — ask it anything.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5108
+  name: What Now On AI Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5106
+      - EAIC5107
+
+- name-code: EAIC5109
+  name: What Now On AI Card
+  component:
+    name-code: EIC1023
+    child: EAIC5108
+    color: layer-02
+    on-tap: EALC5008
+
+- name-code: EAIC5110
+  name: What Now On Market Title
+  component:
+    name-code: EIC1020
+    text: Walk the street
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5111
+  name: What Now On Market Body
+  component:
+    name-code: EIC1020
+    text: Browse offers gossiped across the mesh.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5112
+  name: What Now On Market Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5110
+      - EAIC5111
+
+- name-code: EAIC5113
+  name: What Now On Market Card
+  component:
+    name-code: EIC1023
+    child: EAIC5112
+    color: layer-02
+    on-tap: EALC5010
+
+- name-code: EAIC5114
+  name: What Now On Earnings Title
+  component:
+    name-code: EIC1020
+    text: See what you earned
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5115
+  name: What Now On Earnings Body
+  component:
+    name-code: EIC1020
+    text: Every unit visible. Local work shows 0, always.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5116
+  name: What Now On Earnings Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5114
+      - EAIC5115
+
+- name-code: EAIC5117
+  name: What Now On Earnings Card
+  component:
+    name-code: EIC1023
+    child: EAIC5116
+    color: layer-02
+    on-tap: EALC5007
+
+- name-code: EAIC5118
+  name: What Now On Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 672
+    children-components:
+      - EAIC5109
+      - EAIC5113
+      - EAIC5117
+
+- name-code: EAIC5119
+  name: What Now State Match
+  component:
+    name-code: EIC1036
+    source: EAIV5007.state
+    cases:
+      notRunning: EAIC5105
+      starting: EAIC5105
+      running: EAIC5118
+      degraded: EAIC5118
+      externallyManaged: EAIC5118
+      failed: EAIC5105
+    default: EAIC5105
 
 - name-code: EAIC5036
   name: What Now Section
   component:
-    name-code: EIC1037
-    columns: 2
-    spacing: 16
+    name-code: EIC1005
     children-components:
       - EAIC5031
-      - EAIC5032
-      - EAIC5033
-      - EAIC5034
-      - EAIC5035
+      - EAIC5119
 
 # ── The rooms (full room launcher) ─────────────────────────────────────────────
 
