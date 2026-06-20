@@ -26,6 +26,23 @@
       - command: platform-invoke
         handler: epn.identity.kyc
         assign-to: EAIV5002
+      - command: get-map-value
+        target-map: EAIV5002
+        key: kyc_level
+        assign-to: EAIV5015
+      - command: if
+        condition:
+          - EAIV5015
+          - greater-than
+          - 0
+        then:
+          - command: set
+            target: EAIV5014
+            value: "verified"
+        else:
+          - command: set
+            target: EAIV5014
+            value: "none"
 
 # Initiate EMAIL-level self-attestation, then refresh KYC status.
 - name-code: EALC5004
@@ -50,6 +67,12 @@
       - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV5004
+      # Without this, EAIV5002/5014 stay at their defaults until the user
+      # manually triggers something that happens to refresh KYC status --
+      # confirmed live: a previously-verified user would see the unverified
+      # glance card on every fresh app launch until they clicked something.
+      - command: call
+        capability: EALC5003
 
 # Start the local node from Home — invokes the SAME host platform handler that
 # epn_node uses (epn.node.start → NodeController singleton). The shared surface
@@ -281,6 +304,23 @@
           - command: platform-invoke
             handler: epn.identity.kyc
             assign-to: EAIV5002
+          - command: get-map-value
+            target-map: EAIV5002
+            key: kyc_level
+            assign-to: EAIV5015
+          - command: if
+            condition:
+              - EAIV5015
+              - greater-than
+              - 0
+            then:
+              - command: set
+                target: EAIV5014
+                value: "verified"
+            else:
+              - command: set
+                target: EAIV5014
+                value: "none"
           - command: set
             target: EAIV5012
             value: ""

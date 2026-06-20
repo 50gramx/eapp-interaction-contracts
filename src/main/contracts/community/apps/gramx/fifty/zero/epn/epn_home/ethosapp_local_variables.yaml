@@ -98,3 +98,23 @@
   name: KYC Poll Result
   type: ELVT1020
   default: {}
+
+# "none" | "verified" — drives which glance card (EAIT5002 vs EAIT5006)
+# shows. Tile conditions can only compare a whole variable's value, not a
+# nested map field, so this is a separate flag derived from EAIV5002.kyc_level
+# (see EALC5003/EALC5021) rather than checking EAIV5002 directly in a tile
+# condition. ELVT1007 (String): read by tile conditions before any action
+# may have run, same reasoning as EAIV5009/5012.
+- name-code: EAIV5014
+  name: KYC Verified Flag
+  type: ELVT1007
+  default:
+    value: "none"
+
+# Scratch holder for the int kyc_level pulled out of EAIV5002/5013 via
+# get-map-value, just so EALC5003/5021's `if` step has something to compare
+# against 0. Always overwritten before being read, like EAIV5002/5013.
+- name-code: EAIV5015
+  name: KYC Level Scratch
+  type: ELVT1020
+  default: {}

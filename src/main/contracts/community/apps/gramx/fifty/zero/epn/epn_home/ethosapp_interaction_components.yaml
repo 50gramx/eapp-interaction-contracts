@@ -1106,7 +1106,7 @@
   name: KYC Expires Label
   component:
     name-code: EIC1020
-    text: EAIV5002.kyc_expires_at
+    text: EAIV5002.expires_at_display
     variant: caption01
     color: on-surface-subtle
 
@@ -1263,7 +1263,7 @@
   name: KYC Verified Helper
   component:
     name-code: EIC1020
-    text: EAIV5002.kyc_expires_at
+    text: EAIV5002.expires_at_display
     variant: caption01
     color: on-surface-subtle
 
@@ -1282,3 +1282,57 @@
       - EAIC5159
       - EAIC5160
       - EAIC5161
+
+# ── Identity & Trust: already-verified glance (SA-KYC-MAIL-UI follow-up) ──────
+# EAIC5016 (the unverified glance card, EALC5018 "Verify your email" button)
+# is unconditional today and shows even when already verified -- confirmed
+# live: a verified user's only option is to restart the same flow, with no
+# on-screen confirmation of their actual status. This is the missing
+# "already verified" counterpart, gated on EAIV5014 separately from EAIC5016.
+
+- name-code: EAIC5163
+  name: KYC Glance Verified Header
+  component:
+    name-code: EIC1004
+    label: Identity & Trust
+
+- name-code: EAIC5164
+  name: KYC Glance Verified Status Label
+  component:
+    name-code: EIC1020
+    text: Email verified
+    variant: body02
+    color: positive
+
+- name-code: EAIC5165
+  name: KYC Glance Verified Expiry Label
+  component:
+    name-code: EIC1020
+    text: EAIV5002.expires_at_display
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC5166
+  name: KYC Glance Re-verify Link
+  component:
+    name-code: EIC1035
+    label: Re-verify
+    variant: inline
+    on-click: EALC5018
+
+- name-code: EAIC5167
+  name: KYC Glance Verified Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC5168
+  name: KYC Glance Verified Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5167
+      - EAIC5163
+      - EAIC5164
+      - EAIC5165
+      - EAIC5166

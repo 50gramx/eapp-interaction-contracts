@@ -15,14 +15,29 @@
 
 - name-code: EAIT5002
   name: KYC Glance Tile
-  about: Idle Identity & Trust card — current level + the entry point into the flow
+  about: Idle Identity & Trust card, unverified state — the entry point into the flow
   conditions:
     - name-code: EAIV5009
       value: "glance"
+    - name-code: EAIV5014
+      value: "none"
   composition:
     name-code: EIC1005
     children-components:
       - EAIC5016
+
+- name-code: EAIT5006
+  name: KYC Glance Verified Tile
+  about: Idle Identity & Trust card, already-verified state — confirmation + re-verify
+  conditions:
+    - name-code: EAIV5009
+      value: "glance"
+    - name-code: EAIV5014
+      value: "verified"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5168
 
 - name-code: EAIT5003
   name: KYC Add Email Tile
