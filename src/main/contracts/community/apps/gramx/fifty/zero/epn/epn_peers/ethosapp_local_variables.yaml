@@ -8,7 +8,8 @@
 - name-code: EAIV7002
   name: Peer List
   type: ELVT1020
-  default: []
+  default:
+    platform-stream: epn.peers.watch
 
 # TextEditingController for the multiaddr connect input.
 - name-code: EAIV7003
@@ -40,3 +41,11 @@
   name: Family Status
   type: ELVT1020
   default: {}
+
+# Live node lifecycle and exact connected-peer count. Reuses the existing
+# epn.node.status stream rather than adding another status poller.
+- name-code: EAIV7008
+  name: Node Status
+  type: ELVT1020
+  default:
+    platform-stream: epn.node.status

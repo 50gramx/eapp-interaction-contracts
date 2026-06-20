@@ -27,12 +27,6 @@
       - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV7001
-      - command: platform-invoke
-        handler: epn.peers.list
-        assign-to: EAIV7002
-      - command: platform-invoke
-        handler: epn.peers.familyStatus
-        assign-to: EAIV7007
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003
@@ -54,9 +48,6 @@
         params:
           multiaddr: EAIV7003
         assign-to: EAIV7004
-      - command: platform-invoke
-        handler: epn.peers.list
-        assign-to: EAIV7002
 
 # Return the DID search TextEditingController.
 - name-code: EALC7005
@@ -78,3 +69,13 @@
         params:
           did: EAIV7005
         assign-to: EAIV7006
+
+# Open the focused Node controls from the honest Network off-state.
+- name-code: EALC7008
+  name: Open Node Controls
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.nav.open
+        params:
+          app: epn_node

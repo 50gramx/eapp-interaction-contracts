@@ -4,7 +4,7 @@
     heading: Identity & Street
     label: Network
     order: 40
-  on-appear: EALC7007
+  on-appear: EALC7001
   composition:
     name-code: EIC1005
     children-components:
