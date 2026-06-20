@@ -43,7 +43,7 @@
   component:
     name-code: EIC1014
     icon: status-dot
-    size: 8
+    size: 12
     color: primary
     semantic-label: Node is not running
 
@@ -107,17 +107,61 @@
   name: Hero Running Title
   component:
     name-code: EIC1020
-    text: Running
-    variant: headline6
-    color: positive
+    text: Your node is running
+    variant: heading03
+    font-weight: 600
+    color: primary
 
 - name-code: EAIC5069
   name: Hero Running Body
   component:
     name-code: EIC1020
-    text: Running because you started it. We never stop what we didn't start — and neither does anyone else.
-    variant: body2
+    text: EAIV5007.running_summary
+    variant: body01
     color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5083
+  name: Hero Running Status Dot
+  component:
+    name-code: EIC1014
+    icon: status-dot
+    size: 12
+    color: positive
+    semantic-label: Node is running
+
+- name-code: EAIC5084
+  name: Hero Running Status Row
+  component:
+    name-code: EIC1012
+    spacing: 8
+    cross-align: center
+    children-components:
+      - EAIC5083
+      - EAIC5068
+
+- name-code: EAIC5085
+  name: Hero Running Uptime Metric
+  component:
+    name-code: EIC1031
+    value: EAIV5007.uptime_display
+    label: Uptime
+
+- name-code: EAIC5086
+  name: Hero Running Peers Metric
+  component:
+    name-code: EIC1031
+    value: EAIV5007.peer_count
+    label: Peers
+
+- name-code: EAIC5087
+  name: Hero Running Metrics Row
+  component:
+    name-code: EIC1012
+    spacing: 32
+    children-components:
+      - EAIC5085
+      - EAIC5086
 
 - name-code: EAIC5070
   name: Hero Stop Button
@@ -131,8 +175,9 @@
   component:
     name-code: EIC1005
     children-components:
-      - EAIC5068
+      - EAIC5084
       - EAIC5069
+      - EAIC5087
       - EAIC5070
 
 - name-code: EAIC5062
@@ -140,6 +185,39 @@
   component:
     name-code: EIC1023
     child: EAIC5071
+
+# DEGRADED — retained separately so running-card enhancements do not change
+# the existing degraded presentation or controls.
+- name-code: EAIC5088
+  name: Hero Degraded Title
+  component:
+    name-code: EIC1020
+    text: Running
+    variant: headline6
+    color: positive
+
+- name-code: EAIC5089
+  name: Hero Degraded Body
+  component:
+    name-code: EIC1020
+    text: Running because you started it. We never stop what we didn't start — and neither does anyone else.
+    variant: body2
+    color: on-surface-muted
+
+- name-code: EAIC5090
+  name: Hero Degraded Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5088
+      - EAIC5089
+      - EAIC5070
+
+- name-code: EAIC5091
+  name: Hero Degraded Card
+  component:
+    name-code: EIC1023
+    child: EAIC5090
 
 # ── ADOPTED (externallyManaged) ──
 - name-code: EAIC5072
@@ -235,7 +313,7 @@
       notRunning: EAIC5060
       starting: EAIC5061
       running: EAIC5062
-      degraded: EAIC5062
+      degraded: EAIC5091
       externallyManaged: EAIC5064
       failed: EAIC5063
     default: EAIC5060

@@ -35,8 +35,9 @@
   type: ELVT1020
   default: {}
 
-# Live node lifecycle state — streamed from the host every ~3s. Shape:
-# {state, did, peer_id, online, offline_reason, externally_managed, failure}.
+# Live node lifecycle state — streamed from the host every second. Running
+# responses also include {uptime_seconds, uptime_display, peer_count,
+# running_summary}.
 # state ∈ notRunning | starting | running | degraded | externallyManaged | failed.
 - name-code: EAIV5007
   name: Node State
