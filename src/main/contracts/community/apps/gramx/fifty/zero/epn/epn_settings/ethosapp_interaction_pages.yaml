@@ -9,3 +9,9 @@
     name-code: EIC1005
     children-components:
       - EAIT12001
+      - EAIT12002
+      - EAIT12003
+      - EAIT12004
+      - EAIT12005
+      - EAIT12006
+      - EAIT12007

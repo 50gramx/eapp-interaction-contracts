@@ -1,6 +1,7 @@
 - name-code: EAIT12001
   name: Settings Tile
-  about: Spend limits, escalation policy, energy preference, KYC identity, and node configuration
+  about: Spend limits, escalation policy, energy preference, and node configuration
+  conditions: []
   composition:
     name-code: EIC1005
     children-components:
@@ -9,6 +10,88 @@
       - EAIC12047
       - EAIC12056
       - EAIC12038
-      - EAIC12017
       - EAIC12064
       - EAIC12020
+
+# ── Identity & Trust tiles (SA-KYC-MAIL-UI, relocated from epn_home) ──────────
+# Mutually exclusive on EAIV12022 ("ladder" is the default/idle state, replacing
+# epn_home's "glance" — Settings shows the full trust ladder instead of a
+# single glance card, since this is now the only place this flow lives).
+
+- name-code: EAIT12002
+  name: KYC Ladder Unverified Tile
+  about: Trust ladder when no claim has been issued yet — Email is the actionable rung
+  conditions:
+    - name-code: EAIV12022
+      value: "ladder"
+    - name-code: EAIV12026
+      value: "none"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12072
+
+- name-code: EAIT12003
+  name: KYC Ladder Verified Tile
+  about: Trust ladder once an EMAIL claim is issued — shows status + expiry
+  conditions:
+    - name-code: EAIV12022
+      value: "ladder"
+    - name-code: EAIV12026
+      value: "verified"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12075
+
+# Independent sibling tile, not a child of EAIT12003 — only visible when the
+# claim is genuinely within 14 days of expiry (EAIV12006.expiring_soon via
+# EAIV12029). Confirmed live: showing "Re-verify" unconditionally regardless
+# of actual expiry was the prior, wrong behavior (point 1).
+- name-code: EAIT12004
+  name: KYC Reverify Prompt Tile
+  about: Only shown when the current claim is within 14 days of expiry
+  conditions:
+    - name-code: EAIV12022
+      value: "ladder"
+    - name-code: EAIV12026
+      value: "verified"
+    - name-code: EAIV12029
+      value: "true"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12078
+
+- name-code: EAIT12005
+  name: KYC Add Email Tile
+  about: Email input + submit, step 1 of the verification flow
+  conditions:
+    - name-code: EAIV12022
+      value: "addEmail"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12084
+
+- name-code: EAIT12006
+  name: KYC Inbox Tile
+  about: Waiting for the emailed link to be tapped, step 2 of the flow
+  conditions:
+    - name-code: EAIV12022
+      value: "inbox"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12092
+
+- name-code: EAIT12007
+  name: KYC Verified Confirmation Tile
+  about: Confirmation shown once the poll reports the EMAIL claim issued
+  conditions:
+    - name-code: EAIV12022
+      value: "verified"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12096

@@ -153,61 +153,13 @@
       - EAIC12027
       - EAIC12028
 
-# ── Identity & KYC section ────────────────────────────────────────────────────
-
-- name-code: EAIC12011
-  name: KYC Header
-  component:
-    name-code: EIC1004
-    label: Identity & Trust
-
-- name-code: EAIC12012
-  name: KYC Level Label
-  component:
-    name-code: EIC1020
-    text: EAIV12006.kyc_level_name
-    variant: body02
-
-- name-code: EAIC12013
-  name: KYC Expires Label
-  component:
-    name-code: EIC1020
-    text: EAIV12006.kyc_expires_at
-    variant: caption01
-    color: on-surface-subtle
-
-- name-code: EAIC12014
-  name: KYC Expiring Warning
-  component:
-    name-code: EIC1020
-    text: EAIV12006.expiring_soon
-    variant: caption01
-    color: caution
-
-- name-code: EAIC12015
-  name: Attest Email Button
-  component:
-    name-code: EIC1006
-    label: Re-attest Email
-    on-click: EALC12006
-
-- name-code: EAIC12016
-  name: KYC Divider
-  component:
-    name-code: EIC1025
-    height: 1
-
-- name-code: EAIC12017
-  name: KYC Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC12011
-      - EAIC12012
-      - EAIC12013
-      - EAIC12014
-      - EAIC12015
-      - EAIC12016
+# Identity & KYC section moved to its own tiles below (EAIT12002-12008) —
+# the old EAIC12011-12017 self-attest flow (EALC12006, never updated when
+# the real first-party flow was built) was removed entirely, not just
+# replaced, since it always called the zero-trust self-attest path
+# regardless of what epn_home's equivalent section did. See "Identity &
+# Trust (SA-KYC-MAIL-UI)" tiles further down this file for the real flow,
+# relocated here from epn_home (which never should have hosted it).
 
 # ── About section ─────────────────────────────────────────────────────────────
 
@@ -494,3 +446,273 @@
       - EAIC12061
       - EAIC12062
       - EAIC12063
+
+# ── Identity & Trust: trust ladder (SA-KYC-MAIL-UI, relocated from epn_home) ──
+# Shared header/intro/locked-row components are reused across both the
+# unverified and verified ladder tiles below — components are independent
+# definitions, referencing the same EAIC from two different tiles' children
+# is fine and avoids duplicating the static rows.
+
+- name-code: EAIC12065
+  name: KYC Ladder Header
+  component:
+    name-code: EIC1004
+    label: Identity & Trust
+
+- name-code: EAIC12066
+  name: KYC Ladder Intro
+  component:
+    name-code: EIC1020
+    text: The more the street knows you're real, the bigger the jobs you can take. Staying private is always allowed.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12067
+  name: KYC Ladder Row Just You
+  component:
+    name-code: EIC1020
+    text: "Just you — on now"
+    variant: body02
+
+- name-code: EAIC12070
+  name: KYC Ladder Row Phone
+  component:
+    name-code: EIC1020
+    text: "Phone number — coming soon"
+    variant: body02
+    color: on-surface-subtle
+
+- name-code: EAIC12071
+  name: KYC Ladder Row Doc
+  component:
+    name-code: EIC1020
+    text: "Government ID — needs a licensed verifier, later"
+    variant: body02
+    color: on-surface-subtle
+
+# ── Unverified ladder ──
+- name-code: EAIC12068
+  name: KYC Ladder Verify Email Button
+  component:
+    name-code: EIC1006
+    label: Verify your email
+    on-click: EALC12023
+
+- name-code: EAIC12069
+  name: KYC Ladder Verify Email Caption
+  component:
+    name-code: EIC1020
+    text: Free, takes a minute, unlocks bigger jobs.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12072
+  name: KYC Ladder Unverified Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12065
+      - EAIC12066
+      - EAIC12067
+      - EAIC12068
+      - EAIC12069
+      - EAIC12070
+      - EAIC12071
+
+# ── Verified ladder ──
+- name-code: EAIC12073
+  name: KYC Ladder Email Verified Status
+  component:
+    name-code: EIC1020
+    text: Email — verified
+    variant: body02
+    color: positive
+
+- name-code: EAIC12074
+  name: KYC Ladder Email Verified Expiry
+  component:
+    name-code: EIC1020
+    text: EAIV12006.expires_at_display
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12075
+  name: KYC Ladder Verified Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12065
+      - EAIC12066
+      - EAIC12067
+      - EAIC12073
+      - EAIC12074
+      - EAIC12070
+      - EAIC12071
+
+# ── Re-verify prompt (own tile, only shown when expiring soon — point 1) ──
+- name-code: EAIC12076
+  name: KYC Reverify Prompt Label
+  component:
+    name-code: EIC1020
+    text: Your email verification expires soon.
+    variant: caption01
+    color: caution
+
+- name-code: EAIC12077
+  name: KYC Reverify Button
+  component:
+    name-code: EIC1035
+    label: Re-verify
+    variant: inline
+    on-click: EALC12023
+
+- name-code: EAIC12078
+  name: KYC Reverify Prompt Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12076
+      - EAIC12077
+
+# ── Add Email ──
+- name-code: EAIC12079
+  name: KYC Add Email Header
+  component:
+    name-code: EIC1004
+    label: Verify your email
+
+- name-code: EAIC12080
+  name: KYC Add Email Helper
+  component:
+    name-code: EIC1020
+    text: "We'll send a link there. Tap it to prove the email is yours."
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12081
+  name: KYC Add Email Input
+  component:
+    name-code: EIC1009
+    hint-text: name@email.com
+    text-controller: EALC12022
+
+- name-code: EAIC12082
+  name: KYC Add Email Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV12024
+    variant: caption01
+    color: negative
+
+- name-code: EAIC12083
+  name: KYC Submit Email Button
+  component:
+    name-code: EIC1006
+    label: Send verification link
+    on-click: EALC12024
+
+- name-code: EAIC12084
+  name: KYC Add Email Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12079
+      - EAIC12080
+      - EAIC12081
+      - EAIC12082
+      - EAIC12083
+
+# ── Inbox / waiting ──
+- name-code: EAIC12085
+  name: KYC Inbox Header
+  component:
+    name-code: EIC1004
+    label: Check your inbox
+
+- name-code: EAIC12086
+  name: KYC Inbox Helper
+  component:
+    name-code: EIC1020
+    text: "We sent a link to your email. Tap it on any device, then come back here and tap Check now."
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12087
+  name: KYC Open Mail App Button
+  component:
+    name-code: EIC1006
+    label: Open my email app
+    on-click: EALC12025
+
+- name-code: EAIC12088
+  name: KYC Check Now Button
+  component:
+    name-code: EIC1006
+    label: Check now
+    on-click: EALC12026
+
+- name-code: EAIC12089
+  name: KYC Inbox Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV12024
+    variant: caption01
+    color: negative
+
+- name-code: EAIC12090
+  name: KYC Resend Button
+  component:
+    name-code: EIC1006
+    label: Resend
+    on-click: EALC12027
+
+- name-code: EAIC12091
+  name: KYC Change Email Button
+  component:
+    name-code: EIC1006
+    label: Change email
+    on-click: EALC12028
+
+- name-code: EAIC12092
+  name: KYC Inbox Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12085
+      - EAIC12086
+      - EAIC12087
+      - EAIC12088
+      - EAIC12089
+      - EAIC12090
+      - EAIC12091
+
+# ── Verified confirmation ──
+- name-code: EAIC12093
+  name: KYC Verified Confirm Header
+  component:
+    name-code: EIC1004
+    label: Email verified
+
+- name-code: EAIC12094
+  name: KYC Verified Confirm Expiry
+  component:
+    name-code: EIC1020
+    text: EAIV12006.expires_at_display
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12095
+  name: KYC Verified Confirm Done Button
+  component:
+    name-code: EIC1006
+    label: Done
+    on-click: EALC12029
+
+- name-code: EAIC12096
+  name: KYC Verified Confirm Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12093
+      - EAIC12094
+      - EAIC12095

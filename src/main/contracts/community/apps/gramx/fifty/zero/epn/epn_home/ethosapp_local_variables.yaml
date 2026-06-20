@@ -5,18 +5,6 @@
   default:
     platform-stream: epn.deployments.list
 
-# KYC status map — {kyc_level, kyc_level_name, kyc_expires_at, issuer_did, valid}.
-- name-code: EAIV5002
-  name: KYC Status
-  type: ELVT1020
-  default: {}
-
-# Result of the last attest-email action — {session_id} or {error}.
-- name-code: EAIV5003
-  name: Attest Result
-  type: ELVT1020
-  default: {}
-
 # Node identity — {did, peer_id, addrs, online}.
 - name-code: EAIV5004
   name: Node Identity
@@ -52,69 +40,5 @@
   type: ELVT1020
   default: {}
 
-# ── Identity & Trust flow state (SA-KYC-MAIL-UI) ──────────────────────────────
-# Drives which of the EAIT5002-5005 tiles is visible. The glance tile
-# (EAIT5002) is the default/idle state; tapping "Verify your email" advances
-# through addEmail -> inbox -> verified, then returns to glance.
-
-# type: ELVT1007 (String) is required here, NOT ELVT1020 — ELVT1020 is
-# hardcoded in local_variable_composer.dart to always seed as an empty list
-# regardless of `default:` (it's for platform-stream-backed variables only).
-# This variable is read by EAIT5002-5005's tile conditions BEFORE anything
-# ever overwrites it via assign-to, so its seeded value matters — unlike
-# EAIV5002/5003/5013 below, which are always overwritten before being read.
-# ELVT1007's default must also be a map ({value: ...}), not a bare scalar —
-# _extractAppVariableData discards any non-YamlMap `default:` entirely.
-- name-code: EAIV5009
-  name: KYC Flow Screen
-  type: ELVT1007
-  default:
-    value: "glance"
-
-# TextEditingController for the email input (EAIC bound via text-controller,
-# mirrors epn_wallet's EAIV8004 Peer DID Input pattern).
-- name-code: EAIV5010
-  name: KYC Email Controller
-  type: ELVT1001
-  default: {}
-
-# Surfaces the raw error string from epn.identity.initiate_kyc/poll_kyc
-# (daemon offline, the backend's 409 dedup message, etc). Shown verbatim
-# rather than classified into per-type copy — classifying would need either
-# structured error codes from the daemon or a confirmed substring-match
-# condition operator in the contract engine, neither of which exist yet.
-# ELVT1007 (String), not ELVT1020 — same reasoning as EAIV5009: this is
-# read directly as label text before any action has run.
-- name-code: EAIV5012
-  name: KYC Flow Error
-  type: ELVT1007
-  default:
-    value: ""
-
-# Result of the last epn.identity.poll_kyc call — {complete, kyc_level_name,
-# expires_at, issuer_did} or {error}. Polling is manual (a "Check now"
-# button), not an auto-refresh loop — see EALC5021's comment for why.
-- name-code: EAIV5013
-  name: KYC Poll Result
-  type: ELVT1020
-  default: {}
-
-# "none" | "verified" — drives which glance card (EAIT5002 vs EAIT5006)
-# shows. Tile conditions can only compare a whole variable's value, not a
-# nested map field, so this is a separate flag derived from EAIV5002.kyc_level
-# (see EALC5003/EALC5021) rather than checking EAIV5002 directly in a tile
-# condition. ELVT1007 (String): read by tile conditions before any action
-# may have run, same reasoning as EAIV5009/5012.
-- name-code: EAIV5014
-  name: KYC Verified Flag
-  type: ELVT1007
-  default:
-    value: "none"
-
-# Scratch holder for the int kyc_level pulled out of EAIV5002/5013 via
-# get-map-value, just so EALC5003/5021's `if` step has something to compare
-# against 0. Always overwritten before being read, like EAIV5002/5013.
-- name-code: EAIV5015
-  name: KYC Level Scratch
-  type: ELVT1020
-  default: {}
+# Identity & Trust flow state (EAIV5009-5015) relocated to epn_settings
+# entirely (EAIV12022-12029) — Home shouldn't have hosted this section.

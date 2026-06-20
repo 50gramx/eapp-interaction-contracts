@@ -113,3 +113,71 @@
   name: Node Mgmt Result
   type: ELVT1007
   default: ""
+
+# ── Identity & Trust flow state (SA-KYC-MAIL-UI, relocated from epn_home) ────
+# Drives which of EAIT12002-12008 is visible. "ladder" is the default/idle
+# state (Settings shows the full trust ladder, not a single glance card —
+# this is the only place this flow lives now). ELVT1007 (String), not
+# ELVT1020 — confirmed live in epn_home: ELVT1020 always seeds as an empty
+# list regardless of `default:`, and this is read by tile conditions before
+# any action overwrites it.
+
+- name-code: EAIV12022
+  name: KYC Verify Flow Screen
+  type: ELVT1007
+  default:
+    value: "ladder"
+
+# TextEditingController for the email input.
+- name-code: EAIV12023
+  name: KYC Email Controller
+  type: ELVT1001
+  default: {}
+
+# Raw error string from initiate_kyc/poll_kyc, shown verbatim (no per-type
+# classification — same reasoning as epn_home: no substring-match condition
+# operator confirmed in the engine).
+- name-code: EAIV12024
+  name: KYC Flow Error
+  type: ELVT1007
+  default:
+    value: ""
+
+# Result of the last epn.identity.poll_kyc call.
+- name-code: EAIV12025
+  name: KYC Poll Result
+  type: ELVT1020
+  default: {}
+
+# "none" | "verified" — drives which ladder/glance variant shows. Tile
+# conditions can only compare a whole variable, not a nested map field, so
+# this is derived from EAIV12006.kyc_level rather than checked directly.
+- name-code: EAIV12026
+  name: KYC Verified Flag
+  type: ELVT1007
+  default:
+    value: "none"
+
+# Scratch holder for the int kyc_level pulled via get-map-value, just so the
+# `if` step has something to compare against 0.
+- name-code: EAIV12027
+  name: KYC Level Scratch
+  type: ELVT1020
+  default: {}
+
+# Result of the last epn.identity.initiate_kyc call — {session_id,
+# browser_url, error} or {error}. Kept separate from EAIV12005 (Save
+# Result, used by the spend-policy save action — different purpose).
+- name-code: EAIV12028
+  name: KYC Initiate Result
+  type: ELVT1020
+  default: {}
+
+# "true" | "false" — only show the Re-verify affordance when the claim is
+# genuinely within 14 days of expiry (EAIV12006.expiring_soon), not always.
+# Confirmed live: showing it unconditionally was the prior (wrong) behavior.
+- name-code: EAIV12029
+  name: KYC Expiring Soon Flag
+  type: ELVT1007
+  default:
+    value: "false"

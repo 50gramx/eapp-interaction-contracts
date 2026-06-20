@@ -9,6 +9,33 @@
       - command: platform-invoke
         handler: epn.identity.kyc
         assign-to: EAIV12006
+      # Derived KYC flags inserted here, not appended at the end of this
+      # capability: `command: local-capability` below isn't a registered
+      # command (confirmed against eapp-flow-bob's command registry) -- it
+      # returns "Unknown command" and aborts the whole chain, so every step
+      # after it never runs today. Placing this before that point means it
+      # isn't starved by a pre-existing, unrelated bug left as-is here.
+      - command: get-map-value
+        target-map: EAIV12006
+        key: kyc_level
+        assign-to: EAIV12027
+      - command: if
+        condition:
+          - EAIV12027
+          - greater-than
+          - 0
+        then:
+          - command: set
+            target: EAIV12026
+            value: "verified"
+        else:
+          - command: set
+            target: EAIV12026
+            value: "none"
+      - command: get-map-value
+        target-map: EAIV12006
+        key: expiring_soon
+        assign-to: EAIV12029
       - command: platform-invoke
         handler: epn.settings.energy.get
         assign-to: EAIV12007
@@ -103,17 +130,8 @@
           geo: EAIV12009
         assign-to: EAIV12007
 
-# Initiate KYC email self-attestation.
-- name-code: EALC12006
-  name: Attest Email
-  context:
-    steps:
-      - command: platform-invoke
-        handler: epn.identity.initiate_kyc
-        assign-to: EAIV12005
-      - command: platform-invoke
-        handler: epn.identity.kyc
-        assign-to: EAIV12006
+# EALC12006 (old self-attest "Attest Email") removed — replaced entirely by
+# the real flow below (EALC12022+), never just patched in place.
 
 # ── AI keys (device-level, local-only) ────────────────────────────────────────
 # Return the Anthropic key TextEditingController.
@@ -247,3 +265,147 @@
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV12019
+
+# ── Identity & Trust flow (SA-KYC-MAIL-UI, relocated from epn_home) ───────────
+
+- name-code: EALC12022
+  name: Get KYC Email Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12023
+
+- name-code: EALC12023
+  name: Start Email Verify
+  context:
+    steps:
+      - command: set
+        target: EAIV12022
+        value: "addEmail"
+      - command: set
+        target: EAIV12024
+        value: ""
+
+# No client-side email format validation -- confirmed no validate/regex
+# command exists in the engine's registry. Malformed addresses are
+# rejected server-side and surface through this same generic error path.
+- name-code: EALC12024
+  name: Submit KYC Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        params:
+          email: EAIV12023
+        assign-to: EAIV12028
+      - command: get-map-value
+        target-map: EAIV12028
+        key: error
+        assign-to: EAIV12024
+      - command: if
+        condition:
+          - EAIV12024
+          - equals
+          - ""
+        then:
+          - command: set
+            target: EAIV12022
+            value: "inbox"
+
+- name-code: EALC12025
+  name: Open Mail App
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.open_mail_app
+
+# Manual poll -- "I've verified, check now". See epn_home's equivalent
+# (EALC5021) for why this isn't an auto-refresh loop.
+- name-code: EALC12026
+  name: Check KYC Now
+  context:
+    steps:
+      - command: get-map-value
+        target-map: EAIV12028
+        key: session_id
+        assign-to: EAIV12025
+      - command: platform-invoke
+        handler: epn.identity.poll_kyc
+        params:
+          session_id: EAIV12025
+        assign-to: EAIV12025
+      - command: get-map-value
+        target-map: EAIV12025
+        key: complete
+        assign-to: EAIV12024
+      - command: if
+        condition:
+          - EAIV12024
+          - equals
+          - true
+        then:
+          - command: set
+            target: EAIV12022
+            value: "verified"
+          - command: platform-invoke
+            handler: epn.identity.kyc
+            assign-to: EAIV12006
+          - command: get-map-value
+            target-map: EAIV12006
+            key: kyc_level
+            assign-to: EAIV12027
+          - command: if
+            condition:
+              - EAIV12027
+              - greater-than
+              - 0
+            then:
+              - command: set
+                target: EAIV12026
+                value: "verified"
+            else:
+              - command: set
+                target: EAIV12026
+                value: "none"
+          - command: get-map-value
+            target-map: EAIV12006
+            key: expiring_soon
+            assign-to: EAIV12029
+          - command: set
+            target: EAIV12024
+            value: ""
+
+- name-code: EALC12027
+  name: Resend KYC Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        params:
+          email: EAIV12023
+        assign-to: EAIV12028
+      - command: get-map-value
+        target-map: EAIV12028
+        key: error
+        assign-to: EAIV12024
+
+- name-code: EALC12028
+  name: Use Different KYC Email
+  context:
+    steps:
+      - command: set
+        target: EAIV12022
+        value: "addEmail"
+      - command: set
+        target: EAIV12024
+        value: ""
+
+- name-code: EALC12029
+  name: Finish KYC Verify
+  context:
+    steps:
+      - command: set
+        target: EAIV12022
+        value: "ladder"
