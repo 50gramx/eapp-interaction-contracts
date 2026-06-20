@@ -409,7 +409,7 @@
     name-code: EIC1031
     value: live
     label: Tunnel relay
-    caption: your call below
+    caption: stable endpoint sharing
     status: positive
 
 - name-code: EAIC14303
@@ -418,7 +418,7 @@
     name-code: EIC1031
     value: off
     label: Tunnel relay
-    caption: your call below
+    caption: stable endpoint sharing
     status: neutral
 
 - name-code: EAIC14304

@@ -694,7 +694,7 @@
   component:
     name-code: EIC1020
     text: Node
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -703,7 +703,7 @@
   component:
     name-code: EIC1020
     text: Status, identity, start and stop.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -728,7 +728,7 @@
   component:
     name-code: EIC1020
     text: Network
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -737,7 +737,7 @@
   component:
     name-code: EIC1020
     text: Peers and connections across the mesh.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -762,7 +762,7 @@
   component:
     name-code: EIC1020
     text: Operators
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -771,7 +771,7 @@
   component:
     name-code: EIC1020
     text: Installed operators and deployments.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -796,7 +796,7 @@
   component:
     name-code: EIC1020
     text: Resource Market
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -805,7 +805,7 @@
   component:
     name-code: EIC1020
     text: Offers for compute, storage, and more.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -830,7 +830,7 @@
   component:
     name-code: EIC1020
     text: Wallet
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -839,7 +839,7 @@
   component:
     name-code: EIC1020
     text: Balance, channels, and settlements.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -864,7 +864,7 @@
   component:
     name-code: EIC1020
     text: Metering
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -873,7 +873,7 @@
   component:
     name-code: EIC1020
     text: Earned and spent through local work.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -898,7 +898,7 @@
   component:
     name-code: EIC1020
     text: Settings
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -907,7 +907,7 @@
   component:
     name-code: EIC1020
     text: Spend limits, KYC, and bootstrap peers.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -932,7 +932,7 @@
   component:
     name-code: EIC1020
     text: Evo
-    variant: heading02
+    variant: heading01
     font-weight: 600
     color: primary
 
@@ -941,7 +941,7 @@
   component:
     name-code: EIC1020
     text: Chat with your EP&N concierge.
-    variant: body01
+    variant: caption01
     color: on-surface-muted
     overflow: visible
 
@@ -966,9 +966,9 @@
   component:
     name-code: EIC1037
     max-columns: 4
-    min-item-width: 220
+    min-item-width: 172
     spacing: 16
-    child-aspect-ratio: 2.2
+    child-aspect-ratio: 2.0
     children-components:
       - EAIC5038
       - EAIC5039

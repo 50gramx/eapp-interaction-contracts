@@ -6,7 +6,6 @@
     heading: Controls
     label: Node
     order: 30
-  on-appear: EALC14020
   composition:
     name-code: EIC1005
     children-components:

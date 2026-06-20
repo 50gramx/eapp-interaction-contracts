@@ -5,5 +5,8 @@
     name-code: EIC1005
     children-components:
       - EAIC14014
-      - EAIC14130
-      - EAIC14053
+
+# V1 deliberately exposes one personal-node control surface only.
+# Deferred definitions remain available for later restoration:
+# - EAIC14053: stable endpoint, after public URL and revoke UX exist
+# - EAIC14130: multi-node administration and destructive device cleanup
