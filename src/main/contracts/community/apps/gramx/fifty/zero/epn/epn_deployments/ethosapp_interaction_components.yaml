@@ -126,7 +126,7 @@
   component:
     name-code: EIC1020
     text: EAIV9005
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC9017
@@ -134,7 +134,7 @@
   component:
     name-code: EIC1020
     text: EAIV9006
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC9018
@@ -182,7 +182,7 @@
   component:
     name-code: EIC1020
     text: EAIV9005
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC9025
@@ -217,7 +217,7 @@
   component:
     name-code: EIC1020
     text: You name the outcome; the machine decides how. What runs underneath never surfaces here — only what each operator is doing for you, honestly.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC9062
@@ -225,5 +225,5 @@
   component:
     name-code: EIC1020
     text: Every answer was computed on this device — your prompts and outputs never left it. Only the resources you choose to lend ever leave, by your consent.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle

@@ -20,7 +20,7 @@
   component:
     name-code: EIC1020
     text: EAIV8001.balance_uetc
-    variant: caption
+    variant: caption01
     align: center
     color: on-surface-subtle
 
@@ -88,7 +88,7 @@
   component:
     name-code: EIC1020
     text: EAIV8003
-    variant: caption
+    variant: caption01
     color: positive
 
 # ── Settle section ────────────────────────────────────────────────────────────
@@ -201,7 +201,7 @@
   component:
     name-code: EIC1020
     text: Every unit traceable to a signed settlement. Nothing here moved without your policy allowing it.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC8062
@@ -209,5 +209,5 @@
   component:
     name-code: EIC1020
     text: Your local work this week cost 0.00 EC. It always will.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle

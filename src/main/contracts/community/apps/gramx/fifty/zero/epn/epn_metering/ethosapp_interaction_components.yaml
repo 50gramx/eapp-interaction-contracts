@@ -105,21 +105,21 @@
   component:
     name-code: EIC1020
     text: EAIV11004.gpu_class
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11015
   name: VRAM Label
   component:
     name-code: EIC1020
     text: EAIV11004.vram_gib
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11016
   name: vCPU Label
   component:
     name-code: EIC1020
     text: EAIV11004.vcpu
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11017
@@ -127,7 +127,7 @@
   component:
     name-code: EIC1020
     text: EAIV11004.ram_gib
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 # ── Multi-network resource snapshot (WU-G.7.2) ────────────────────────────────
@@ -137,14 +137,14 @@
   component:
     name-code: EIC1020
     text: EAIV11004.ram_pool_gib
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11030
   name: RAM Pool Caption
   component:
     name-code: EIC1020
     text: GiB shareable RAM pool
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11031
@@ -152,14 +152,14 @@
   component:
     name-code: EIC1020
     text: EAIV11004.vcpu_seconds
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11032
   name: vCPU Seconds Caption
   component:
     name-code: EIC1020
     text: vCPU-seconds/hour available
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11033
@@ -167,14 +167,14 @@
   component:
     name-code: EIC1020
     text: EAIV11004.storage_block_gib
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11034
   name: Storage Tiers Caption
   component:
     name-code: EIC1020
     text: GiB block storage to lend
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11035
@@ -182,14 +182,14 @@
   component:
     name-code: EIC1020
     text: EAIV11004.egress_gbps
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11036
   name: Egress Caption
   component:
     name-code: EIC1020
     text: Gb/s egress bandwidth
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11037
@@ -197,14 +197,14 @@
   component:
     name-code: EIC1020
     text: EAIV11004.energy_kwh_rate
-    variant: body2
+    variant: body01
 
 - name-code: EAIC11038
   name: Energy Rate Caption
   component:
     name-code: EIC1020
     text: kWh/hour estimated draw (EAIV11004.energy_source)
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC11018
@@ -318,5 +318,5 @@
   component:
     name-code: EIC1020
     text: Your own resource is always free. Only consuming a peer's resource is ever metered — and you see it here before, during, and after.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle

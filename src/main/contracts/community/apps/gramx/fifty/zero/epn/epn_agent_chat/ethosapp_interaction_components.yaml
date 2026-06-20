@@ -33,7 +33,7 @@
   component:
     name-code: EIC1020
     text: Ask Evo anything about your node — deployments, status, costs.
-    variant: body2
+    variant: body01
     align: center
     color: on-surface-subtle
 
@@ -150,5 +150,5 @@
   component:
     name-code: EIC1020
     text: Evo answers locally first. It tells you when it would escalate to a cloud model.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle

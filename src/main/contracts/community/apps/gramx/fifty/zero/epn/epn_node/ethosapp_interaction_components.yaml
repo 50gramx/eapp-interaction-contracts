@@ -21,14 +21,14 @@
   component:
     name-code: EIC1020
     text: Your node is off
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14071
   name: Off Body
   component:
     name-code: EIC1020
     text: Nothing runs or leaves this machine until you start it — that act is yours alone. Choose how this node should join the mesh.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 # Mode A — Lite (recommended default)
@@ -37,14 +37,14 @@
   component:
     name-code: EIC1020
     text: Lite — join instantly
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14201
   name: Lite Mode Desc
   component:
     name-code: EIC1020
     text: Identity, wallet and on-device AI on the mesh. No Linux VM, ready in seconds. You can lend resources later by upgrading to compute.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14202
@@ -75,14 +75,14 @@
   component:
     name-code: EIC1020
     text: Compute — lend & earn
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14205
   name: Compute Mode Desc
   component:
     name-code: EIC1020
     text: Adds a k3s cluster (a Linux VM) so your node can lend CPU, GPU and storage to peers and earn EC. First setup downloads Linux + k3s — a few minutes.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14206
@@ -124,7 +124,7 @@
   component:
     name-code: EIC1020
     text: Starting — because you asked it to.
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14094
   name: Starting Progress
@@ -138,7 +138,7 @@
   component:
     name-code: EIC1020
     text: Bringing the node up. Nothing else on this machine changed.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 - name-code: EAIC14095
@@ -146,7 +146,7 @@
   component:
     name-code: EIC1020
     text: Usually ready in a few seconds. The first compute setup downloads Linux + k3s and can take several minutes — leave it running.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14077
@@ -171,7 +171,7 @@
   component:
     name-code: EIC1020
     text: Stopping
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14142
   name: Stopping Progress
@@ -185,7 +185,7 @@
   component:
     name-code: EIC1020
     text: Asking the node to shut down cleanly. Nothing else on this machine is touched.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 - name-code: EAIC14143
@@ -209,7 +209,7 @@
   component:
     name-code: EIC1020
     text: Running
-    variant: headline6
+    variant: heading02
     color: positive
 
 - name-code: EAIC14080
@@ -217,7 +217,7 @@
   component:
     name-code: EIC1020
     text: Running because you started it. We never stop what we didn't start — and neither does anyone else.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 - name-code: EAIC14081
@@ -241,7 +241,7 @@
   component:
     name-code: EIC1020
     text: This node is lite. Upgrade to compute to lend CPU, GPU and storage to peers and earn EC.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14212
@@ -257,7 +257,7 @@
   component:
     name-code: EIC1020
     text: Compute mode — k3s is running. You can lend resources to peers and earn EC.
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC14214
@@ -292,14 +292,14 @@
   component:
     name-code: EIC1020
     text: Running (adopted)
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14085
   name: Adopted Body
   component:
     name-code: EIC1020
     text: A node you didn't start is already running here. We left it untouched — stop it where it was started.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 - name-code: EAIC14086
@@ -322,7 +322,7 @@
   component:
     name-code: EIC1020
     text: Couldn't start
-    variant: headline6
+    variant: heading02
     color: negative
 
 - name-code: EAIC14089
@@ -330,7 +330,7 @@
   component:
     name-code: EIC1020
     text: EAIV14001.failure
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 - name-code: EAIC14090
@@ -338,7 +338,7 @@
   component:
     name-code: EIC1020
     text: Nothing was left running, and nothing leaked. The honest state is the safe state.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14091
@@ -469,7 +469,7 @@
   component:
     name-code: EIC1020
     text: Expose a local service over your node — a stable, DID-backed endpoint. No account, no splash page. Give the address below to a peer.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14042
@@ -491,7 +491,7 @@
   component:
     name-code: EIC1020
     text: EAIV14011
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC14045
@@ -499,7 +499,7 @@
   component:
     name-code: EIC1020
     text: Your address to share
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14046
@@ -507,7 +507,7 @@
   component:
     name-code: EIC1020
     text: EAIV14012.addrs.0
-    variant: mono
+    variant: code01
 
 - name-code: EAIC14047
   name: Endpoint Divider
@@ -547,7 +547,7 @@
   component:
     name-code: EIC1020
     text: EAIV14015
-    variant: caption
+    variant: caption01
     color: on-surface-muted
 
 - name-code: EAIC14053
@@ -584,7 +584,7 @@
   component:
     name-code: EIC1020
     text: Every node here is yours. Add more, stop what you started, or remove one entirely — nothing runs or leaves this machine without your say.
-    variant: body2
+    variant: body01
     color: on-surface-muted
 
 # Live list of all nodes — tap a row to select it for stop/remove.
@@ -642,7 +642,7 @@
   component:
     name-code: EIC1020
     text: A new node gets its own identity, wallet and ports, and joins the same mesh. Lite is light and device-safe; compute provisions k3s so the node can run operators and lend resources.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 # ── Selected-node action card (contextual, shown after a row is tapped) ────────
@@ -651,14 +651,14 @@
   component:
     name-code: EIC1020
     text: EAIV14024
-    variant: headline6
+    variant: heading02
 
 - name-code: EAIC14111
   name: Selected State
   component:
     name-code: EIC1020
     text: EAIV14025
-    variant: caption
+    variant: caption01
     color: on-surface-muted
 
 # Action buttons (shared across the contextual cards)
@@ -781,7 +781,7 @@
   component:
     name-code: EIC1020
     text: Tap a node above to start, stop, or remove it.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 # Show the action card that matches the selected node's kind + state.
@@ -805,7 +805,7 @@
   component:
     name-code: EIC1020
     text: EAIV14030
-    variant: caption
+    variant: caption01
     color: positive
 
 # ── Advanced: run additional nodes (progressive disclosure) ───────────────────
@@ -838,7 +838,7 @@
   component:
     name-code: EIC1020
     text: Stops every node and deletes all EP&N data on this machine — ~/.epn and every node distro. This cannot be undone.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC14123

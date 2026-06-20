@@ -11,7 +11,7 @@
   component:
     name-code: EIC1020
     text: EAIV12001.max_per_hour_uetc
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12003
@@ -19,7 +19,7 @@
   component:
     name-code: EIC1020
     text: EAIV12001.max_per_peer_uetc
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12004
@@ -55,7 +55,7 @@
   component:
     name-code: EIC1020
     text: EAIV12005
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC12009
@@ -93,7 +93,7 @@
   component:
     name-code: EIC1020
     text: EAIV12007.policy
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12023
@@ -101,7 +101,7 @@
   component:
     name-code: EIC1020
     text: EAIV12007.geo
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12024
@@ -130,7 +130,7 @@
   component:
     name-code: EIC1020
     text: EAIV12010
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC12028
@@ -166,14 +166,14 @@
   component:
     name-code: EIC1020
     text: EAIV12006.kyc_level_name
-    variant: body1
+    variant: body02
 
 - name-code: EAIC12013
   name: KYC Expires Label
   component:
     name-code: EIC1020
     text: EAIV12006.kyc_expires_at
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12014
@@ -181,7 +181,7 @@
   component:
     name-code: EIC1020
     text: EAIV12006.expiring_soon
-    variant: caption
+    variant: caption01
     color: caution
 
 - name-code: EAIC12015
@@ -222,7 +222,7 @@
   component:
     name-code: EIC1020
     text: EP&N Daemon v0.1.0 — Phase F
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12020
@@ -246,7 +246,7 @@
   component:
     name-code: EIC1020
     text: Local models run free with no key. Add a key only for cloud models. Keys are saved on this device and never leave it.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12032
@@ -282,7 +282,7 @@
   component:
     name-code: EIC1020
     text: EAIV12014
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC12037
@@ -318,7 +318,7 @@
   component:
     name-code: EIC1020
     text: Auto-sized to your machine's safe minimum. Override below — higher lets you lend more, but adds device load. Blank = auto.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12041
@@ -354,7 +354,7 @@
   component:
     name-code: EIC1020
     text: EAIV12018
-    variant: caption
+    variant: caption01
     color: positive
 
 - name-code: EAIC12046
@@ -390,7 +390,7 @@
   component:
     name-code: EIC1020
     text: Each node is isolated (own identity, wallet, and WSL distro). Remove a node by id, or clean every EP&N node and distro from this device.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12050
@@ -434,7 +434,7 @@
   component:
     name-code: EIC1020
     text: EAIV12021
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12055
@@ -483,7 +483,7 @@
   component:
     name-code: EIC1020
     text: Draw a circle around your own machines — home, office, team. Inside the ring, everything stays among you — free, private, yours. The warm version of an allow-list.
-    variant: caption
+    variant: caption01
     color: on-surface-subtle
 
 - name-code: EAIC12064
