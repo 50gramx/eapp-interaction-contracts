@@ -82,32 +82,43 @@
   component:
     name-code: EIC1030
     label: EAIV7007.label
-    status: positive
+    # neutral, not positive: family (same-device attestation) doesn't
+    # contribute to TrustScore (p2p/trust.go) -- a green/positive badge here
+    # reads as a trust signal it isn't.
+    status: neutral
 
 - name-code: EAIC7006
   name: Peer Table
   component:
     name-code: EIC1032
     source: EAIV7002
+    # Family is a separate column from Trust, not merged into it: "family"
+    # (same-device attestation) doesn't contribute to TrustScore at all
+    # (p2p/trust.go) -- showing it inside Trust implied it was a trust
+    # signal, which is false. family_status is always "neutral" (never
+    # "positive") so it can never read as a trust checkmark either.
     columns:
       - Peer
       - Address
       - Trust
+      - Family
       - Latency
     fields:
       - peer_display
       - address_display
       - trust_display
+      - family_display
       - latency_display
     status-fields:
       - ""
       - ""
       - trust_status
+      - family_status
       - latency_status
-    column-weights: [1.2, 1.6, 0.9, 0.9]
-    column-variants: [code01, code01, label01, code01]
+    column-weights: [1.2, 1.5, 0.8, 0.8, 0.9]
+    column-variants: [code01, code01, label01, label01, code01]
     wrap-columns: [1]
-    min-width: 720
+    min-width: 800
     empty-message: No peers connected yet. Connect by address, or wait for mesh discovery.
 
 - name-code: EAIC7011
