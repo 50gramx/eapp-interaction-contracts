@@ -422,8 +422,11 @@
 - name-code: EAIC5031
   name: What Now Header
   component:
-    name-code: EIC1004
-    label: What now
+    name-code: EIC1020
+    text: WHAT NOW
+    variant: heading03
+    font-weight: 600
+    color: primary
 
 # OFF: start the node, inspect the pre-existing identity, or review safeguards.
 - name-code: EAIC5093
@@ -680,81 +683,293 @@
 - name-code: EAIC5037
   name: The Rooms Header
   component:
-    name-code: EIC1004
-    label: The rooms
+    name-code: EIC1020
+    text: THE ROOMS
+    variant: heading03
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5120
+  name: Room Node Title
+  component:
+    name-code: EIC1020
+    text: Node
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5121
+  name: Room Node Body
+  component:
+    name-code: EIC1020
+    text: Status, identity, start and stop.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5122
+  name: Room Node Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5120
+      - EAIC5121
 
 - name-code: EAIC5038
   name: Nav Room Node
   component:
-    name-code: EIC1035
-    label: Node
-    desc: Status, identity, start/stop.
-    on-click: EALC5006
+    name-code: EIC1023
+    child: EAIC5122
+    color: layer-02
+    on-tap: EALC5006
+
+- name-code: EAIC5123
+  name: Room Network Title
+  component:
+    name-code: EIC1020
+    text: Network
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5124
+  name: Room Network Body
+  component:
+    name-code: EIC1020
+    text: Peers and connections across the mesh.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5125
+  name: Room Network Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5123
+      - EAIC5124
 
 - name-code: EAIC5039
   name: Nav Room Network
   component:
-    name-code: EIC1035
-    label: Network
-    desc: Peers and connections.
-    on-click: EALC5009
+    name-code: EIC1023
+    child: EAIC5125
+    color: layer-02
+    on-tap: EALC5009
+
+- name-code: EAIC5126
+  name: Room Operators Title
+  component:
+    name-code: EIC1020
+    text: Operators
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5127
+  name: Room Operators Body
+  component:
+    name-code: EIC1020
+    text: Installed operators and deployments.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5128
+  name: Room Operators Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5126
+      - EAIC5127
 
 - name-code: EAIC5040
   name: Nav Room Operators
   component:
-    name-code: EIC1035
-    label: Operators
-    desc: Installed operators and deployments.
-    on-click: EALC5008
+    name-code: EIC1023
+    child: EAIC5128
+    color: layer-02
+    on-tap: EALC5008
+
+- name-code: EAIC5129
+  name: Room Market Title
+  component:
+    name-code: EIC1020
+    text: Resource Market
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5130
+  name: Room Market Body
+  component:
+    name-code: EIC1020
+    text: Offers for compute, storage, and more.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5131
+  name: Room Market Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5129
+      - EAIC5130
 
 - name-code: EAIC5041
   name: Nav Room Resource Market
   component:
-    name-code: EIC1035
-    label: Resource Market
-    desc: Offers for compute, storage, and more.
-    on-click: EALC5010
+    name-code: EIC1023
+    child: EAIC5131
+    color: layer-02
+    on-tap: EALC5010
+
+- name-code: EAIC5132
+  name: Room Wallet Title
+  component:
+    name-code: EIC1020
+    text: Wallet
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5133
+  name: Room Wallet Body
+  component:
+    name-code: EIC1020
+    text: Balance, channels, and settlements.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5134
+  name: Room Wallet Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5132
+      - EAIC5133
 
 - name-code: EAIC5042
   name: Nav Room Wallet
   component:
-    name-code: EIC1035
-    label: Wallet
-    desc: Balance, channels, settlements.
-    on-click: EALC5011
+    name-code: EIC1023
+    child: EAIC5134
+    color: layer-02
+    on-tap: EALC5011
+
+- name-code: EAIC5135
+  name: Room Metering Title
+  component:
+    name-code: EIC1020
+    text: Metering
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5136
+  name: Room Metering Body
+  component:
+    name-code: EIC1020
+    text: Earned and spent through local work.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5137
+  name: Room Metering Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5135
+      - EAIC5136
 
 - name-code: EAIC5043
   name: Nav Room Metering
   component:
-    name-code: EIC1035
-    label: Metering
-    desc: Earned and spent, local work.
-    on-click: EALC5007
+    name-code: EIC1023
+    child: EAIC5137
+    color: layer-02
+    on-tap: EALC5007
+
+- name-code: EAIC5138
+  name: Room Settings Title
+  component:
+    name-code: EIC1020
+    text: Settings
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5139
+  name: Room Settings Body
+  component:
+    name-code: EIC1020
+    text: Spend limits, KYC, and bootstrap peers.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5140
+  name: Room Settings Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5138
+      - EAIC5139
 
 - name-code: EAIC5044
   name: Nav Room Settings
   component:
-    name-code: EIC1035
-    label: Settings
-    desc: Spend limits, KYC, bootstrap peers.
-    on-click: EALC5012
+    name-code: EIC1023
+    child: EAIC5140
+    color: layer-02
+    on-tap: EALC5012
+
+- name-code: EAIC5141
+  name: Room Evo Title
+  component:
+    name-code: EIC1020
+    text: Evo
+    variant: heading02
+    font-weight: 600
+    color: primary
+
+- name-code: EAIC5142
+  name: Room Evo Body
+  component:
+    name-code: EIC1020
+    text: Chat with your EP&N concierge.
+    variant: body01
+    color: on-surface-muted
+    overflow: visible
+
+- name-code: EAIC5143
+  name: Room Evo Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5141
+      - EAIC5142
 
 - name-code: EAIC5048
   name: Nav Room Evo
   component:
-    name-code: EIC1035
-    label: Evo
-    desc: Chat with your EP&N concierge.
-    on-click: EALC5013
+    name-code: EIC1023
+    child: EAIC5143
+    color: layer-02
+    on-tap: EALC5013
 
-- name-code: EAIC5045
-  name: The Rooms Section
+- name-code: EAIC5144
+  name: The Rooms Grid
   component:
     name-code: EIC1037
-    columns: 3
+    max-columns: 4
+    min-item-width: 220
     spacing: 16
+    child-aspect-ratio: 2.2
     children-components:
-      - EAIC5037
       - EAIC5038
       - EAIC5039
       - EAIC5040
@@ -763,6 +978,14 @@
       - EAIC5043
       - EAIC5044
       - EAIC5048
+
+- name-code: EAIC5045
+  name: The Rooms Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5037
+      - EAIC5144
 
 # ── Ambient local cue ──────────────────────────────────────────────────────────
 

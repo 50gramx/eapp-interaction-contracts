@@ -39,7 +39,7 @@
         handler: epn.identity.kyc
         assign-to: EAIV5002
 
-# Init page — loads node identity, KYC, and wallet balance on appear.
+# Init page — loads only data rendered by Home.
 - name-code: EALC5005
   name: Init Page
   context:
@@ -50,12 +50,6 @@
       - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV5004
-      - command: platform-invoke
-        handler: epn.identity.kyc
-        assign-to: EAIV5002
-      - command: platform-invoke
-        handler: epn.wallet.balance
-        assign-to: EAIV5005
 
 # Start the local node from Home — invokes the SAME host platform handler that
 # epn_node uses (epn.node.start → NodeController singleton). The shared surface
