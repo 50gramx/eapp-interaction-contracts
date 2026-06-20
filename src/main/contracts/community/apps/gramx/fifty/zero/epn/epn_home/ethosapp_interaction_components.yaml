@@ -3,8 +3,11 @@
 - name-code: EAIC5017
   name: Glance Title
   component:
-    name-code: EIC1004
-    label: Your node, at a glance
+    name-code: EIC1020
+    text: Your node, at a glance
+    variant: heading03
+    font-weight: 600
+    color: primary
 
 # Hero card — reactive on node lifecycle state (EAIV5007.state) via EIC1036.
 # Each state renders its own card with honest copy + the right action.
@@ -15,15 +18,18 @@
   component:
     name-code: EIC1020
     text: Your node is off
-    variant: headline6
+    variant: heading03
+    font-weight: 600
+    color: primary
 
 - name-code: EAIC5019
   name: Hero Off Body
   component:
     name-code: EIC1020
-    text: Nothing runs, nothing listens, nothing leaves this machine until you press start. That act is yours alone.
-    variant: body2
+    text: Nothing runs, nothing listens, nothing leaves this machine—and nothing has since install.
+    variant: body01
     color: on-surface-muted
+    overflow: visible
 
 - name-code: EAIC5020
   name: Hero Start Button
@@ -33,30 +39,31 @@
     on-click: EALC5014
 
 - name-code: EAIC5081
-  name: Device Health Header
+  name: Hero Off Status Dot
   component:
-    name-code: EIC1020
-    text: Device check
-    variant: caption
-    color: on-surface-subtle
+    name-code: EIC1014
+    icon: status-dot
+    size: 8
+    color: primary
+    semantic-label: Node is not running
 
 - name-code: EAIC5082
-  name: Device Health Reason
+  name: Hero Off Status Row
   component:
-    name-code: EIC1020
-    text: EAIV5008.reasons.0
-    variant: caption
-    color: caution
+    name-code: EIC1012
+    spacing: 8
+    cross-align: center
+    children-components:
+      - EAIC5081
+      - EAIC5018
 
 - name-code: EAIC5021
   name: Hero Off Column
   component:
     name-code: EIC1005
     children-components:
-      - EAIC5018
-      - EAIC5019
-      - EAIC5081
       - EAIC5082
+      - EAIC5019
       - EAIC5020
 
 - name-code: EAIC5060
