@@ -57,10 +57,19 @@
 # (EAIT5002) is the default/idle state; tapping "Verify your email" advances
 # through addEmail -> inbox -> verified, then returns to glance.
 
+# type: ELVT1007 (String) is required here, NOT ELVT1020 — ELVT1020 is
+# hardcoded in local_variable_composer.dart to always seed as an empty list
+# regardless of `default:` (it's for platform-stream-backed variables only).
+# This variable is read by EAIT5002-5005's tile conditions BEFORE anything
+# ever overwrites it via assign-to, so its seeded value matters — unlike
+# EAIV5002/5003/5013 below, which are always overwritten before being read.
+# ELVT1007's default must also be a map ({value: ...}), not a bare scalar —
+# _extractAppVariableData discards any non-YamlMap `default:` entirely.
 - name-code: EAIV5009
   name: KYC Flow Screen
-  type: ELVT1020
-  default: "glance"
+  type: ELVT1007
+  default:
+    value: "glance"
 
 # TextEditingController for the email input (EAIC bound via text-controller,
 # mirrors epn_wallet's EAIV8004 Peer DID Input pattern).
@@ -74,10 +83,13 @@
 # rather than classified into per-type copy — classifying would need either
 # structured error codes from the daemon or a confirmed substring-match
 # condition operator in the contract engine, neither of which exist yet.
+# ELVT1007 (String), not ELVT1020 — same reasoning as EAIV5009: this is
+# read directly as label text before any action has run.
 - name-code: EAIV5012
   name: KYC Flow Error
-  type: ELVT1020
-  default: ""
+  type: ELVT1007
+  default:
+    value: ""
 
 # Result of the last epn.identity.poll_kyc call — {complete, kyc_level_name,
 # expires_at, issuer_did} or {error}. Polling is manual (a "Check now"
