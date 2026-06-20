@@ -1114,14 +1114,14 @@
   name: Attest Email Button
   component:
     name-code: EIC1006
-    label: Self-Attest Email
-    on-click: EALC5004
+    label: Verify your email
+    on-click: EALC5018
 
 - name-code: EAIC5015
   name: Attest Error Label
   component:
     name-code: EIC1020
-    text: EAIV5003.error
+    text: EAIV5012
     variant: caption01
     color: negative
 
@@ -1136,3 +1136,149 @@
       - EAIC5013
       - EAIC5014
       - EAIC5015
+
+# ── Identity & Trust: Add Email (SA-KYC-MAIL-UI) ──────────────────────────────
+
+- name-code: EAIC5145
+  name: KYC Add Email Header
+  component:
+    name-code: EIC1004
+    label: Verify your email
+
+- name-code: EAIC5146
+  name: KYC Add Email Helper
+  component:
+    name-code: EIC1020
+    text: "We'll send a link there. Tap it to prove the email is yours."
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC5147
+  name: KYC Email Input
+  component:
+    name-code: EIC1009
+    hint-text: name@email.com
+    text-controller: EALC5017
+
+- name-code: EAIC5148
+  name: KYC Add Email Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV5012
+    variant: caption01
+    color: negative
+
+- name-code: EAIC5149
+  name: Submit KYC Email Button
+  component:
+    name-code: EIC1006
+    label: Send verification link
+    on-click: EALC5019
+
+- name-code: EAIC5150
+  name: KYC Add Email Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5145
+      - EAIC5146
+      - EAIC5147
+      - EAIC5148
+      - EAIC5149
+
+# ── Identity & Trust: Inbox / waiting (SA-KYC-MAIL-UI) ────────────────────────
+
+- name-code: EAIC5151
+  name: KYC Inbox Header
+  component:
+    name-code: EIC1004
+    label: Check your inbox
+
+- name-code: EAIC5152
+  name: KYC Inbox Helper
+  component:
+    name-code: EIC1020
+    text: "We sent a link to your email. Tap it on any device, then come back here and tap Check now."
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC5153
+  name: Open Mail App Button
+  component:
+    name-code: EIC1006
+    label: Open my email app
+    on-click: EALC5020
+
+- name-code: EAIC5154
+  name: Check KYC Now Button
+  component:
+    name-code: EIC1006
+    label: Check now
+    on-click: EALC5021
+
+- name-code: EAIC5155
+  name: KYC Inbox Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV5012
+    variant: caption01
+    color: negative
+
+- name-code: EAIC5156
+  name: Resend KYC Email Button
+  component:
+    name-code: EIC1006
+    label: Resend
+    on-click: EALC5022
+
+- name-code: EAIC5157
+  name: Use Different KYC Email Button
+  component:
+    name-code: EIC1006
+    label: Change email
+    on-click: EALC5023
+
+- name-code: EAIC5158
+  name: KYC Inbox Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5151
+      - EAIC5152
+      - EAIC5153
+      - EAIC5154
+      - EAIC5155
+      - EAIC5156
+      - EAIC5157
+
+# ── Identity & Trust: Verified confirmation (SA-KYC-MAIL-UI) ──────────────────
+
+- name-code: EAIC5159
+  name: KYC Verified Header
+  component:
+    name-code: EIC1004
+    label: Email verified
+
+- name-code: EAIC5160
+  name: KYC Verified Helper
+  component:
+    name-code: EIC1020
+    text: EAIV5002.kyc_expires_at
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC5161
+  name: Finish KYC Verify Button
+  component:
+    name-code: EIC1006
+    label: Done
+    on-click: EALC5024
+
+- name-code: EAIC5162
+  name: KYC Verified Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5159
+      - EAIC5160
+      - EAIC5161

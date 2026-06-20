@@ -181,3 +181,142 @@
         handler: epn.nav.open
         params:
           app: epn_agent_chat
+
+# ── Identity & Trust flow (SA-KYC-MAIL-UI) ────────────────────────────────────
+
+# Returns the email input's TextEditingController (mirrors epn_wallet's
+# "Get Peer Controller" / EALC8003 pattern).
+- name-code: EALC5017
+  name: Get KYC Email Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV5010
+
+# Tapping "Verify your email" from the glance card — advance to the Add
+# Email tile, clearing any stale error from a previous attempt.
+- name-code: EALC5018
+  name: Start Email Verify
+  context:
+    steps:
+      - command: set
+        target: EAIV5009
+        value: "addEmail"
+      - command: set
+        target: EAIV5012
+        value: ""
+
+# Submit the email: initiates via the real first-party issuer. No
+# client-side format check — the contract engine has no validate/regex
+# command (confirmed against eapp-flow-bob's command registry: require,
+# set, if, get-map-value, set-map-value, call, string-*, list-*, return,
+# platform-invoke, platform-subscribe — nothing email/regex-shaped).
+# Malformed addresses are rejected server-side (Firebase Auth) and surface
+# through the same generic error path as offline/dedup. On success, advance
+# to Inbox; on error, surface it inline and stay on Add Email.
+- name-code: EALC5019
+  name: Submit KYC Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        params:
+          email: EAIV5010
+        assign-to: EAIV5003
+      - command: get-map-value
+        target-map: EAIV5003
+        key: error
+        assign-to: EAIV5012
+      - command: if
+        condition:
+          - EAIV5012
+          - equals
+          - ""
+        then:
+          - command: set
+            target: EAIV5009
+            value: "inbox"
+
+# Open the device's default mail app from the Inbox tile.
+- name-code: EALC5020
+  name: Open Mail App
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.open_mail_app
+
+# Manual poll — "I've verified, check now". No auto-refresh loop: this
+# engine's platform-stream binding (used by epn.node.status) takes no
+# per-call params, and PollKYC needs a dynamic session_id from the just-
+# completed Initiate call, which isn't confirmed wireable into a stream's
+# default binding. A manual check is the verified-safe primitive instead.
+- name-code: EALC5021
+  name: Check KYC Now
+  context:
+    steps:
+      - command: get-map-value
+        target-map: EAIV5003
+        key: session_id
+        assign-to: EAIV5013
+      - command: platform-invoke
+        handler: epn.identity.poll_kyc
+        params:
+          session_id: EAIV5013
+        assign-to: EAIV5013
+      - command: get-map-value
+        target-map: EAIV5013
+        key: complete
+        assign-to: EAIV5012
+      - command: if
+        condition:
+          - EAIV5012
+          - equals
+          - true
+        then:
+          - command: set
+            target: EAIV5009
+            value: "verified"
+          - command: platform-invoke
+            handler: epn.identity.kyc
+            assign-to: EAIV5002
+          - command: set
+            target: EAIV5012
+            value: ""
+
+# Resend — re-runs Submit with the same (unedited) controller value.
+- name-code: EALC5022
+  name: Resend KYC Email
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.identity.initiate_kyc
+        params:
+          email: EAIV5010
+        assign-to: EAIV5003
+      - command: get-map-value
+        target-map: EAIV5003
+        key: error
+        assign-to: EAIV5012
+
+# "Change" from Inbox — back to Add Email to edit the address.
+- name-code: EALC5023
+  name: Use Different KYC Email
+  context:
+    steps:
+      - command: set
+        target: EAIV5009
+        value: "addEmail"
+      - command: set
+        target: EAIV5012
+        value: ""
+
+# "Done" from the Verified confirmation tile — back to the glance card.
+- name-code: EALC5024
+  name: Finish KYC Verify
+  context:
+    steps:
+      - command: set
+        target: EAIV5009
+        value: "glance"

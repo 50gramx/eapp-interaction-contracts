@@ -7,3 +7,52 @@
       - EAIC5025
       - EAIC5036
       - EAIC5045
+
+# ── Identity & Trust flow tiles (SA-KYC-MAIL-UI) ──────────────────────────────
+# Mutually exclusive on EAIV5009 ("glance" is the idle/default state — was
+# previously orphaned from the page composition entirely; this also fixes
+# that). Only one of these four is ever visible at a time.
+
+- name-code: EAIT5002
+  name: KYC Glance Tile
+  about: Idle Identity & Trust card — current level + the entry point into the flow
+  conditions:
+    - name-code: EAIV5009
+      value: "glance"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5016
+
+- name-code: EAIT5003
+  name: KYC Add Email Tile
+  about: Email input + submit, step 1 of the verification flow
+  conditions:
+    - name-code: EAIV5009
+      value: "addEmail"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5150
+
+- name-code: EAIT5004
+  name: KYC Inbox Tile
+  about: Waiting for the emailed link to be tapped, step 2 of the flow
+  conditions:
+    - name-code: EAIV5009
+      value: "inbox"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5158
+
+- name-code: EAIT5005
+  name: KYC Verified Tile
+  about: Confirmation shown once the poll reports the EMAIL claim issued
+  conditions:
+    - name-code: EAIV5009
+      value: "verified"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC5162

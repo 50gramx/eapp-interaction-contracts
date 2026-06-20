@@ -51,3 +51,38 @@
   name: Capacity Plan
   type: ELVT1020
   default: {}
+
+# ── Identity & Trust flow state (SA-KYC-MAIL-UI) ──────────────────────────────
+# Drives which of the EAIT5002-5005 tiles is visible. The glance tile
+# (EAIT5002) is the default/idle state; tapping "Verify your email" advances
+# through addEmail -> inbox -> verified, then returns to glance.
+
+- name-code: EAIV5009
+  name: KYC Flow Screen
+  type: ELVT1020
+  default: "glance"
+
+# TextEditingController for the email input (EAIC bound via text-controller,
+# mirrors epn_wallet's EAIV8004 Peer DID Input pattern).
+- name-code: EAIV5010
+  name: KYC Email Controller
+  type: ELVT1001
+  default: {}
+
+# Surfaces the raw error string from epn.identity.initiate_kyc/poll_kyc
+# (daemon offline, the backend's 409 dedup message, etc). Shown verbatim
+# rather than classified into per-type copy — classifying would need either
+# structured error codes from the daemon or a confirmed substring-match
+# condition operator in the contract engine, neither of which exist yet.
+- name-code: EAIV5012
+  name: KYC Flow Error
+  type: ELVT1020
+  default: ""
+
+# Result of the last epn.identity.poll_kyc call — {complete, kyc_level_name,
+# expires_at, issuer_did} or {error}. Polling is manual (a "Check now"
+# button), not an auto-refresh loop — see EALC5021's comment for why.
+- name-code: EAIV5013
+  name: KYC Poll Result
+  type: ELVT1020
+  default: {}

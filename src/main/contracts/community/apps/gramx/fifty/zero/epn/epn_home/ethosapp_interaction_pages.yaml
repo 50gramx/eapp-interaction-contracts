@@ -9,3 +9,7 @@
     name-code: EIC1005
     children-components:
       - EAIT5001
+      - EAIT5002
+      - EAIT5003
+      - EAIT5004
+      - EAIT5005
