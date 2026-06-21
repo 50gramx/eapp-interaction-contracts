@@ -101,3 +101,56 @@
   name: Selection State
   type: ELVT1007
   default: "none"
+
+# Plain string copy of EAIV15001.own_did, extracted via get-map-value so it
+# can be passed to clipboard.copy — platform-invoke params resolve a whole
+# variable, not a dotted sub-path, so "EAIV15001.own_did" can't be passed
+# directly as a param value the way it can as EIC1020 text.
+- name-code: EAIV15016
+  name: Own DID Plain
+  type: ELVT1007
+  default: ""
+
+# Result of clipboard.copy — {ok: bool}. Not surfaced in the UI; present so
+# the capability has somewhere to put the result rather than discard it.
+- name-code: EAIV15017
+  name: Copy Result
+  type: ELVT1020
+  default: {}
+
+# SA-RING-RECIPROCITY-GAP: most recent "you were added to a circle" notice
+# from epn.circle.notifications.latest — {has_notification, from_did,
+# from_did_short, at_unix}. A single object, not a list (see
+# epn-daemon's CircleLatestNotificationResp doc comment for why).
+- name-code: EAIV15018
+  name: Latest Notice
+  type: ELVT1020
+  default: {}
+
+# Banner visibility: "show" | "hide", derived from EAIV15018.has_notification
+# on page load. Same explicit-enum-for-EIC1036 reasoning as EAIV15015.
+- name-code: EAIV15019
+  name: Notice Banner State
+  type: ELVT1007
+  default: "hide"
+
+# Scratch: EAIV15018.has_notification extracted for the if-check that
+# derives EAIV15019.
+- name-code: EAIV15020
+  name: Has Notice Flag
+  type: ELVT1002
+  default: false
+
+# Scratch: EAIV15018.from_did extracted so it can be passed as a param to
+# epn.circle.notifications.dismiss (same dotted-path constraint as EAIV15016).
+- name-code: EAIV15021
+  name: Notice From DID Plain
+  type: ELVT1007
+  default: ""
+
+# Result of epn.circle.notifications.dismiss — not surfaced, same pattern as
+# EAIV15014/EAIV15017.
+- name-code: EAIV15023
+  name: Dismiss Notice Result
+  type: ELVT1020
+  default: {}

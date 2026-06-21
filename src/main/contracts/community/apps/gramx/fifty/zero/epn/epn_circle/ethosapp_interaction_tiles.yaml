@@ -1,5 +1,15 @@
 # State machine on EAIV15002: off -> setup -> adding -> active, mirroring
 # epn_settings' KYC wizard (EAIV12022: ladder -> addEmail -> inbox -> verified).
+# EAIT15005 (the reciprocity-gap banner) is unconditional — it renders above
+# whichever state tile is active, keyed on its own separate state (EAIV15019).
+
+- name-code: EAIT15005
+  name: Circle Notice Banner Tile
+  about: SA-RING-RECIPROCITY-GAP — "you were added to a circle" notice, independent of wizard state
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15058
 
 - name-code: EAIT15001
   name: Circle Off Tile
@@ -10,7 +20,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC15004
+      - EAIC15005
 
 - name-code: EAIT15002
   name: Circle Setup Tile
@@ -21,18 +31,18 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC15017
+      - EAIC15019
 
 - name-code: EAIT15003
   name: Circle Adding Tile
-  about: Paste-a-DID form, reached from either Setup or Active
+  about: Paste-a-DID form with a role choice, reached from either Setup or Active
   conditions:
     - name-code: EAIV15002
       value: "adding"
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC15027
+      - EAIC15029
 
 - name-code: EAIT15004
   name: Circle Active Tile
@@ -43,4 +53,4 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC15044
+      - EAIC15045

@@ -8,6 +8,7 @@
   composition:
     name-code: EIC1005
     children-components:
+      - EAIT15005
       - EAIT15001
       - EAIT15002
       - EAIT15003

@@ -1,3 +1,80 @@
+# ── Reciprocity-gap banner (SA-RING-RECIPROCITY-GAP) — always evaluated,
+# independent of wizard state, shown above whichever state tile is active ──
+
+- name-code: EAIC15059
+  name: Notice Chip
+  component:
+    name-code: EIC1030
+    label: New
+    status: primary
+
+- name-code: EAIC15050
+  name: Notice Header
+  component:
+    name-code: EIC1004
+    label: New in your circle
+
+- name-code: EAIC15051
+  name: Notice From
+  component:
+    name-code: EIC1020
+    text: EAIV15018.from_did_short
+    variant: code01
+
+- name-code: EAIC15052
+  name: Notice Body
+  component:
+    name-code: EIC1020
+    text: added you to their circle. Add their code back so you can use each other's devices too.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15053
+  name: Dismiss Notice Button
+  component:
+    name-code: EIC1008
+    label: Dismiss
+    on-click: EALC15015
+
+- name-code: EAIC15054
+  name: Notice Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15059
+      - EAIC15050
+      - EAIC15051
+      - EAIC15052
+      - EAIC15053
+
+- name-code: EAIC15055
+  name: Notice Card
+  component:
+    name-code: EIC1023
+    child: EAIC15054
+
+# A zero-height divider as the "nothing to show" placeholder — EIC1001
+# (Spacer) has no proven usage anywhere in this app family to confirm its
+# prop name, whereas EIC1025 (Divider)'s height prop is used throughout
+# (epn_peers, epn_node, etc.), so this is the lower-risk choice.
+- name-code: EAIC15057
+  name: Notice Empty Placeholder
+  component:
+    name-code: EIC1025
+    height: 0
+
+# Matches on an explicit "show"/"hide" enum (EAIV15019), not on the notice
+# map itself — same EIC1036-needs-fixed-cases reasoning as Selection Match.
+- name-code: EAIC15058
+  name: Notice Match
+  component:
+    name-code: EIC1036
+    source: EAIV15019
+    cases:
+      show: EAIC15055
+      hide: EAIC15057
+    default: EAIC15057
+
 # ── Off state ─────────────────────────────────────────────────────────────────
 
 - name-code: EAIC15001
@@ -5,6 +82,13 @@
   component:
     name-code: EIC1004
     label: Circle
+
+- name-code: EAIC15060
+  name: Off Status Chip
+  component:
+    name-code: EIC1030
+    label: Off
+    status: neutral
 
 - name-code: EAIC15002
   name: Off Explainer
@@ -27,8 +111,15 @@
     name-code: EIC1005
     children-components:
       - EAIC15001
+      - EAIC15060
       - EAIC15002
       - EAIC15003
+
+- name-code: EAIC15005
+  name: Off Card
+  component:
+    name-code: EIC1023
+    child: EAIC15004
 
 # ── Setup state — first member not added yet ───────────────────────────────────
 
@@ -36,7 +127,14 @@
   name: Setup Header
   component:
     name-code: EIC1004
-    label: Circle — set up
+    label: Circle
+
+- name-code: EAIC15061
+  name: Setup Status Chip
+  component:
+    name-code: EIC1030
+    label: Setting up
+    status: primary
 
 - name-code: EAIC15011
   name: Own DID Caption
@@ -53,6 +151,13 @@
     text: EAIV15001.own_did
     variant: code01
     overflow: visible
+
+- name-code: EAIC15018
+  name: Copy Code Button
+  component:
+    name-code: EIC1008
+    label: Copy code
+    on-click: EALC15013
 
 - name-code: EAIC15013
   name: Own DID QR Label
@@ -92,12 +197,20 @@
     name-code: EIC1005
     children-components:
       - EAIC15010
+      - EAIC15061
       - EAIC15011
       - EAIC15012
+      - EAIC15018
       - EAIC15013
       - EAIC15014
       - EAIC15015
       - EAIC15016
+
+- name-code: EAIC15019
+  name: Setup Card
+  component:
+    name-code: EIC1023
+    child: EAIC15017
 
 # ── Adding state — paste a teammate's DID ───────────────────────────────────────
 
@@ -130,12 +243,29 @@
     variant: caption01
     color: negative
 
+# SA-RBAC-3: two buttons, not a role picker + one submit — each calls its
+# own capability with a fixed role baked in (see EALC15005/EALC15016).
 - name-code: EAIC15024
-  name: Submit Add Button
+  name: Add As Member Button
   component:
     name-code: EIC1006
-    label: Add
+    label: Add as member
     on-click: EALC15005
+
+- name-code: EAIC15028
+  name: Add As Admin Button
+  component:
+    name-code: EIC1008
+    label: Add as admin
+    on-click: EALC15016
+
+- name-code: EAIC15046
+  name: Role Explainer
+  component:
+    name-code: EIC1020
+    text: Admins can also use this device's GPU. Members can use everything else this Circle shares.
+    variant: caption01
+    color: on-surface-subtle
 
 - name-code: EAIC15025
   name: Cancel Add Button
@@ -150,6 +280,7 @@
     name-code: EIC1012
     children-components:
       - EAIC15024
+      - EAIC15028
       - EAIC15025
 
 - name-code: EAIC15027
@@ -161,7 +292,14 @@
       - EAIC15021
       - EAIC15022
       - EAIC15023
+      - EAIC15046
       - EAIC15026
+
+- name-code: EAIC15029
+  name: Adding Card
+  component:
+    name-code: EIC1023
+    child: EAIC15027
 
 # ── Active state — roster + manage ──────────────────────────────────────────────
 
@@ -170,6 +308,13 @@
   component:
     name-code: EIC1004
     label: Circle
+
+- name-code: EAIC15062
+  name: Active Status Chip
+  component:
+    name-code: EIC1030
+    label: Active
+    status: positive
 
 - name-code: EAIC15031
   name: Member Count Metric
@@ -183,8 +328,9 @@
 # Reusing the EIC1026 list (not EIC1032 table) deliberately: EIC1032 has no
 # on-row-tap (documented in EPN_DESIGN_BACKLOG.md — epn_market's offers list
 # has the same constraint and made the same choice for the same reason).
-# Backend should supply did, label, did_short, added_at_display and
-# online_display per member — see report for what's assumed-but-unbuilt.
+# subtitle-field uses subtitle_display (did_short + role folded into one
+# string, precomputed server-side) since EIC1026 has no separate
+# badge/status column the way EIC1032 does.
 - name-code: EAIC15032
   name: Roster List
   component:
@@ -192,7 +338,7 @@
     source: EAIV15011
     item-type: list-item
     title-field: label
-    subtitle-field: did_short
+    subtitle-field: subtitle_display
     trailing-text-field: online_display
     on-item-tap: EALC15007
 
@@ -275,8 +421,15 @@
     name-code: EIC1005
     children-components:
       - EAIC15030
+      - EAIC15062
       - EAIC15031
       - EAIC15032
       - EAIC15037
       - EAIC15043
       - EAIC15042
+
+- name-code: EAIC15045
+  name: Active Card
+  component:
+    name-code: EIC1023
+    child: EAIC15044

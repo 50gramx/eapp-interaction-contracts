@@ -42,6 +42,28 @@
           - command: set
             target: EAIV15002
             value: "off"
+      # SA-RING-RECIPROCITY-GAP: load the most recent "you were added" notice
+      # and derive whether the banner tile shows, regardless of wizard state.
+      - command: platform-invoke
+        handler: epn.circle.notifications.latest
+        assign-to: EAIV15018
+      - command: get-map-value
+        target-map: EAIV15018
+        key: has_notification
+        assign-to: EAIV15020
+      - command: if
+        condition:
+          - EAIV15020
+          - equals
+          - true
+        then:
+          - command: set
+            target: EAIV15019
+            value: "show"
+        else:
+          - command: set
+            target: EAIV15019
+            value: "hide"
 
 # "Start a Circle" — enables the trusted ring on the daemon (still empty —
 # this device only) and moves to Setup so the operator can add the first
@@ -101,23 +123,67 @@
         target: EAIV15005
         value: ""
 
-# Submit the pasted DID. No local format check — confirmed live (2026-06-21)
-# that string-substring on EAIV15004 (a TextEditingController/ELVT1001, not a
-# plain string) does not do what it looks like it does: the one real
-# string-substring precedent in this repo (the calculator eApp) only ever
-# operates on a plain ELVT1007 string, never a controller. Rather than chase
-# a second unproven workaround, this now follows the KYC email flow's own
-# precedent exactly (EALC12024 in epn_settings): no client-side validation at
-# all, pass the controller straight through, and surface whatever
-# epn.circle.add's real server-side check returns via {error: "..."}.
+# Submit the pasted DID as a member. No local format check — confirmed live
+# (2026-06-21) that string-substring on EAIV15004 (a TextEditingController/
+# ELVT1001, not a plain string) does not do what it looks like it does: the
+# one real string-substring precedent in this repo (the calculator eApp)
+# only ever operates on a plain ELVT1007 string, never a controller. Rather
+# than chase a second unproven workaround, this follows the KYC email flow's
+# own precedent exactly (EALC12024 in epn_settings): no client-side
+# validation at all, pass the controller straight through, and surface
+# whatever epn.circle.add's real server-side check returns via {error: "..."}.
+#
+# role is a literal here, not a variable — SA-RBAC-3's two add buttons each
+# call their own capability with a fixed role rather than sharing one
+# capability plus a role-selector variable, since that would need an extra
+# state variable for no real benefit (two buttons that always mean the same
+# thing are simpler than one button whose meaning depends on a side state).
 - name-code: EALC15005
-  name: Submit Add Member
+  name: Submit Add Member As Member
   context:
     steps:
       - command: platform-invoke
         handler: epn.circle.add
         params:
           did: EAIV15004
+          role: "member"
+        assign-to: EAIV15007
+      - command: get-map-value
+        target-map: EAIV15007
+        key: error
+        assign-to: EAIV15005
+      - command: if
+        condition:
+          - EAIV15005
+          - equals
+          - ""
+        then:
+          - command: platform-invoke
+            handler: epn.circle.status
+            assign-to: EAIV15001
+          - command: get-map-value
+            target-map: EAIV15001
+            key: members
+            assign-to: EAIV15011
+          - command: get-map-value
+            target-map: EAIV15001
+            key: member_count
+            assign-to: EAIV15012
+          - command: set
+            target: EAIV15002
+            value: "active"
+
+# Same as EALC15005, but adds as admin (SA-RBAC-3: admin-role members may use
+# this device's GPU; plain members may not).
+- name-code: EALC15016
+  name: Submit Add Member As Admin
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.circle.add
+        params:
+          did: EAIV15004
+          role: "admin"
         assign-to: EAIV15007
       - command: get-map-value
         target-map: EAIV15007
@@ -236,3 +302,39 @@
       - command: set
         target: EAIV15015
         value: "none"
+
+# Copy this device's own DID to the clipboard. clipboard.copy can't take a
+# dotted path ("EAIV15001.own_did") as a param value the way EIC1020 text
+# can, so the value is extracted into a plain string first.
+- name-code: EALC15013
+  name: Copy Own DID
+  context:
+    steps:
+      - command: get-map-value
+        target-map: EAIV15001
+        key: own_did
+        assign-to: EAIV15016
+      - command: platform-invoke
+        handler: clipboard.copy
+        params:
+          text: EAIV15016
+        assign-to: EAIV15017
+
+# Dismiss the reciprocity-gap banner (SA-RING-RECIPROCITY-GAP). Same
+# dotted-path extraction reasoning as Copy Own DID above.
+- name-code: EALC15015
+  name: Dismiss Notice
+  context:
+    steps:
+      - command: get-map-value
+        target-map: EAIV15018
+        key: from_did
+        assign-to: EAIV15021
+      - command: platform-invoke
+        handler: epn.circle.notifications.dismiss
+        params:
+          from_did: EAIV15021
+        assign-to: EAIV15023
+      - command: set
+        target: EAIV15019
+        value: "hide"
