@@ -101,60 +101,48 @@
         target: EAIV15005
         value: ""
 
-# Submit the pasted DID. No regex/validate command exists in this engine
-# (confirmed in epn_settings' KYC email flow, and no list-length/validate
-# command appears in any shipped contract in this repo either) —
-# string-substring + equals against the literal "did:epn:" prefix (8 chars)
-# is the only available check. Anything that passes is still subject to
-# real validation server-side via epn.circle.add's {error: "..."} response.
+# Submit the pasted DID. No local format check — confirmed live (2026-06-21)
+# that string-substring on EAIV15004 (a TextEditingController/ELVT1001, not a
+# plain string) does not do what it looks like it does: the one real
+# string-substring precedent in this repo (the calculator eApp) only ever
+# operates on a plain ELVT1007 string, never a controller. Rather than chase
+# a second unproven workaround, this now follows the KYC email flow's own
+# precedent exactly (EALC12024 in epn_settings): no client-side validation at
+# all, pass the controller straight through, and surface whatever
+# epn.circle.add's real server-side check returns via {error: "..."}.
 - name-code: EALC15005
   name: Submit Add Member
   context:
     steps:
-      - command: string-substring
-        source: EAIV15004
-        target: EAIV15006
-        start: 0
-        end: 8
+      - command: platform-invoke
+        handler: epn.circle.add
+        params:
+          did: EAIV15004
+        assign-to: EAIV15007
+      - command: get-map-value
+        target-map: EAIV15007
+        key: error
+        assign-to: EAIV15005
       - command: if
         condition:
-          - EAIV15006
+          - EAIV15005
           - equals
-          - "did:epn:"
+          - ""
         then:
           - command: platform-invoke
-            handler: epn.circle.add
-            params:
-              did: EAIV15004
-            assign-to: EAIV15007
+            handler: epn.circle.status
+            assign-to: EAIV15001
           - command: get-map-value
-            target-map: EAIV15007
-            key: error
-            assign-to: EAIV15005
-          - command: if
-            condition:
-              - EAIV15005
-              - equals
-              - ""
-            then:
-              - command: platform-invoke
-                handler: epn.circle.status
-                assign-to: EAIV15001
-              - command: get-map-value
-                target-map: EAIV15001
-                key: members
-                assign-to: EAIV15011
-              - command: get-map-value
-                target-map: EAIV15001
-                key: member_count
-                assign-to: EAIV15012
-              - command: set
-                target: EAIV15002
-                value: "active"
-        else:
+            target-map: EAIV15001
+            key: members
+            assign-to: EAIV15011
+          - command: get-map-value
+            target-map: EAIV15001
+            key: member_count
+            assign-to: EAIV15012
           - command: set
-            target: EAIV15005
-            value: "That doesn't look like a device code — it should start with did:epn:"
+            target: EAIV15002
+            value: "active"
 
 # Cancel out of Adding back to wherever we came from.
 - name-code: EALC15006

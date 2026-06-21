@@ -33,15 +33,6 @@
   type: ELVT1007
   default: ""
 
-# Scratch: first 8 characters of the pasted value, checked against the
-# literal "did:epn:" prefix. No regex/validate command exists in the engine
-# (confirmed against epn_settings' KYC email flow, which has the same
-# constraint) — string-substring + equals is the only available check.
-- name-code: EAIV15006
-  name: Add DID Prefix Check
-  type: ELVT1007
-  default: ""
-
 # Raw response from epn.circle.add — {error: "", members: [...]} on success,
 # {error: "..."} on failure. Same shape convention as epn.identity.initiate_kyc.
 - name-code: EAIV15007
