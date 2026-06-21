@@ -1,0 +1,46 @@
+# State machine on EAIV15002: off -> setup -> adding -> active, mirroring
+# epn_settings' KYC wizard (EAIV12022: ladder -> addEmail -> inbox -> verified).
+
+- name-code: EAIT15001
+  name: Circle Off Tile
+  about: Default state — open mesh, no Circle configured
+  conditions:
+    - name-code: EAIV15002
+      value: "off"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15004
+
+- name-code: EAIT15002
+  name: Circle Setup Tile
+  about: Circle enabled, no members added yet — show own DID to share
+  conditions:
+    - name-code: EAIV15002
+      value: "setup"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15017
+
+- name-code: EAIT15003
+  name: Circle Adding Tile
+  about: Paste-a-DID form, reached from either Setup or Active
+  conditions:
+    - name-code: EAIV15002
+      value: "adding"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15027
+
+- name-code: EAIT15004
+  name: Circle Active Tile
+  about: Roster + manage — at least one member added
+  conditions:
+    - name-code: EAIV15002
+      value: "active"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15044

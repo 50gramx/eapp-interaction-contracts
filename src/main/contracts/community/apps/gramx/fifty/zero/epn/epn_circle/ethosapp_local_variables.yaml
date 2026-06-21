@@ -1,0 +1,112 @@
+# Combined Circle status from the daemon — {enabled, own_did, members: [...]}.
+# Mirrors epn_peers' EAIV7001 (Node Identity) bundling pattern: one map, one
+# capability call, refetched after every mutating action rather than a live
+# stream — membership changes are user-driven, not realtime-critical.
+- name-code: EAIV15001
+  name: Circle Status
+  type: ELVT1020
+  default: {}
+
+# Wizard state: off | setup | adding | active. Drives which tile renders
+# (mirrors epn_settings' EAIV12022 KYC wizard: ladder | addEmail | inbox | verified).
+- name-code: EAIV15002
+  name: Circle Wizard State
+  type: ELVT1007
+  default: "off"
+
+# Where "Cancel" in the Adding tile returns to — "setup" (first member) or
+# "active" (adding an additional member). Set just before entering "adding".
+- name-code: EAIV15003
+  name: Circle Return State
+  type: ELVT1007
+  default: "setup"
+
+# TextEditingController for the paste-a-DID input.
+- name-code: EAIV15004
+  name: Add DID Controller
+  type: ELVT1001
+  default: {}
+
+# Inline error shown under the add-DID field — empty means no error.
+- name-code: EAIV15005
+  name: Add DID Error
+  type: ELVT1007
+  default: ""
+
+# Scratch: first 8 characters of the pasted value, checked against the
+# literal "did:epn:" prefix. No regex/validate command exists in the engine
+# (confirmed against epn_settings' KYC email flow, which has the same
+# constraint) — string-substring + equals is the only available check.
+- name-code: EAIV15006
+  name: Add DID Prefix Check
+  type: ELVT1007
+  default: ""
+
+# Raw response from epn.circle.add — {error: "", members: [...]} on success,
+# {error: "..."} on failure. Same shape convention as epn.identity.initiate_kyc.
+- name-code: EAIV15007
+  name: Add DID Result
+  type: ELVT1020
+  default: {}
+
+# Currently selected member's DID/label (tap a roster row to select; "Remove
+# this device" acts on this selection). Mirrors epn_node's select-then-act
+# pattern (EAIV14023-14026) rather than tap-to-immediately-delete.
+- name-code: EAIV15008
+  name: Selected Member DID
+  type: ELVT1007
+  default: ""
+
+- name-code: EAIV15009
+  name: Selected Member Label
+  type: ELVT1007
+  default: ""
+
+# Members list, extracted from EAIV15001.members via get-map-value, as its
+# own ELVT1018 so the roster EIC1026 list has a plain list source.
+- name-code: EAIV15011
+  name: Members List
+  type: ELVT1018
+  default: []
+
+# Member count. Read directly from EAIV15001.member_count (precomputed
+# server-side by epn.circle.status), not derived client-side — no
+# list-length command appears in any shipped contract in this repo (it's
+# listed in the generic skill reference but unverified against a real
+# example; epn_settings' "local-capability" comment documents exactly this
+# kind of doc/engine mismatch elsewhere), so this follows the same
+# precomputed-display-field convention epn_peers already uses for
+# peer_display/trust_display rather than risk an unregistered command.
+- name-code: EAIV15012
+  name: Members Count
+  type: ELVT1006
+  default: 0
+
+# Whether the daemon currently has a non-empty trusted ring configured —
+# extracted from EAIV15001.enabled on page load to pick the initial wizard state.
+- name-code: EAIV15013
+  name: Circle Enabled Flag
+  type: ELVT1002
+  default: false
+
+# Throwaway result slots for fire-and-refresh actions (enable/disable/remove)
+# that don't need their own display — present for the same reason
+# epn_node's EAIV12021 ("Clean Device" result) exists.
+- name-code: EAIV15014
+  name: Circle Action Result
+  type: ELVT1020
+  default: {}
+
+- name-code: EAIV15010
+  name: Remove Member Result
+  type: ELVT1020
+  default: {}
+
+# Selection visibility state: "none" | "selected". A separate explicit enum
+# rather than matching on EAIV15008 directly — EIC1036 match needs fixed
+# case values, not arbitrary DID strings (same reasoning as epn_node's
+# EAIV14026 "Selection Match" key).
+- name-code: EAIV15015
+  name: Selection State
+  type: ELVT1007
+  default: "none"

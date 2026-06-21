@@ -1,0 +1,250 @@
+# Load Circle status on page appear and derive the initial wizard state from
+# it, so reopening the app lands on the right tile instead of always "off".
+- name-code: EALC15001
+  name: Init Page
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.circle.status
+        assign-to: EAIV15001
+      - command: get-map-value
+        target-map: EAIV15001
+        key: enabled
+        assign-to: EAIV15013
+      - command: get-map-value
+        target-map: EAIV15001
+        key: members
+        assign-to: EAIV15011
+      - command: get-map-value
+        target-map: EAIV15001
+        key: member_count
+        assign-to: EAIV15012
+      - command: if
+        condition:
+          - EAIV15013
+          - equals
+          - true
+        then:
+          - command: if
+            condition:
+              - EAIV15012
+              - greater-than
+              - 0
+            then:
+              - command: set
+                target: EAIV15002
+                value: "active"
+            else:
+              - command: set
+                target: EAIV15002
+                value: "setup"
+        else:
+          - command: set
+            target: EAIV15002
+            value: "off"
+
+# "Start a Circle" — enables the trusted ring on the daemon (still empty —
+# this device only) and moves to Setup so the operator can add the first
+# member. Assumes daemon endpoint epn.circle.enable exists — see report.
+- name-code: EALC15002
+  name: Start Circle
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.circle.enable
+        assign-to: EAIV15014
+      - command: platform-invoke
+        handler: epn.circle.status
+        assign-to: EAIV15001
+      - command: set
+        target: EAIV15002
+        value: "setup"
+
+# Return the paste-a-DID TextEditingController.
+- name-code: EALC15003
+  name: Get Add DID Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV15004
+
+# Enter the Adding tile from Setup (first member) — return state is "setup".
+- name-code: EALC15004
+  name: Begin Add Member From Setup
+  context:
+    steps:
+      - command: set
+        target: EAIV15003
+        value: "setup"
+      - command: set
+        target: EAIV15002
+        value: "adding"
+      - command: set
+        target: EAIV15005
+        value: ""
+
+# Enter the Adding tile from the Active roster (additional member) — return
+# state is "active".
+- name-code: EALC15012
+  name: Begin Add Member From Active
+  context:
+    steps:
+      - command: set
+        target: EAIV15003
+        value: "active"
+      - command: set
+        target: EAIV15002
+        value: "adding"
+      - command: set
+        target: EAIV15005
+        value: ""
+
+# Submit the pasted DID. No regex/validate command exists in this engine
+# (confirmed in epn_settings' KYC email flow, and no list-length/validate
+# command appears in any shipped contract in this repo either) —
+# string-substring + equals against the literal "did:epn:" prefix (8 chars)
+# is the only available check. Anything that passes is still subject to
+# real validation server-side via epn.circle.add's {error: "..."} response.
+- name-code: EALC15005
+  name: Submit Add Member
+  context:
+    steps:
+      - command: string-substring
+        source: EAIV15004
+        target: EAIV15006
+        start: 0
+        end: 8
+      - command: if
+        condition:
+          - EAIV15006
+          - equals
+          - "did:epn:"
+        then:
+          - command: platform-invoke
+            handler: epn.circle.add
+            params:
+              did: EAIV15004
+            assign-to: EAIV15007
+          - command: get-map-value
+            target-map: EAIV15007
+            key: error
+            assign-to: EAIV15005
+          - command: if
+            condition:
+              - EAIV15005
+              - equals
+              - ""
+            then:
+              - command: platform-invoke
+                handler: epn.circle.status
+                assign-to: EAIV15001
+              - command: get-map-value
+                target-map: EAIV15001
+                key: members
+                assign-to: EAIV15011
+              - command: get-map-value
+                target-map: EAIV15001
+                key: member_count
+                assign-to: EAIV15012
+              - command: set
+                target: EAIV15002
+                value: "active"
+        else:
+          - command: set
+            target: EAIV15005
+            value: "That doesn't look like a device code — it should start with did:epn:"
+
+# Cancel out of Adding back to wherever we came from.
+- name-code: EALC15006
+  name: Cancel Add Member
+  context:
+    steps:
+      - command: set
+        target: EAIV15002
+        value: EAIV15003
+      - command: set
+        target: EAIV15005
+        value: ""
+
+# Tap a roster row — select it for removal (mirrors epn_node's select-then-act
+# pattern, not tap-to-immediately-delete).
+- name-code: EALC15007
+  name: Select Member
+  context:
+    expects:
+      - did: ELVT1007
+      - label: ELVT1007
+    steps:
+      - command: set
+        target: EAIV15008
+        value: did
+      - command: set
+        target: EAIV15009
+        value: label
+      - command: set
+        target: EAIV15015
+        value: "selected"
+
+# Remove the selected member, then refresh the roster and clear selection.
+# Drops back to "setup" if that was the last member.
+- name-code: EALC15008
+  name: Remove Selected Member
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.circle.remove
+        params:
+          did: EAIV15008
+        assign-to: EAIV15010
+      - command: platform-invoke
+        handler: epn.circle.status
+        assign-to: EAIV15001
+      - command: get-map-value
+        target-map: EAIV15001
+        key: members
+        assign-to: EAIV15011
+      - command: get-map-value
+        target-map: EAIV15001
+        key: member_count
+        assign-to: EAIV15012
+      - command: set
+        target: EAIV15008
+        value: ""
+      - command: set
+        target: EAIV15009
+        value: ""
+      - command: set
+        target: EAIV15015
+        value: "none"
+      - command: if
+        condition:
+          - EAIV15012
+          - equals
+          - 0
+        then:
+          - command: set
+            target: EAIV15002
+            value: "setup"
+
+# Turn off the Circle entirely — reopens this device to the full open mesh.
+- name-code: EALC15009
+  name: Turn Off Circle
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.circle.disable
+        assign-to: EAIV15014
+      - command: set
+        target: EAIV15002
+        value: "off"
+      - command: set
+        target: EAIV15008
+        value: ""
+      - command: set
+        target: EAIV15009
+        value: ""
+      - command: set
+        target: EAIV15015
+        value: "none"

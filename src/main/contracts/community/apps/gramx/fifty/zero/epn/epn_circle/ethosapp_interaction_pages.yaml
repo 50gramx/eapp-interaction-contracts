@@ -1,0 +1,14 @@
+- name-code: EAIP15001
+  name: Circle Page
+  navigation:
+    heading: Identity & Street
+    label: Circle
+    order: 85
+  on-appear: EALC15001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT15001
+      - EAIT15002
+      - EAIT15003
+      - EAIT15004

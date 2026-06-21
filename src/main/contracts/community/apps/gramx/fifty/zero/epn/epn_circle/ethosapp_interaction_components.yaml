@@ -1,0 +1,282 @@
+# ── Off state ─────────────────────────────────────────────────────────────────
+
+- name-code: EAIC15001
+  name: Circle Header
+  component:
+    name-code: EIC1004
+    label: Circle
+
+- name-code: EAIC15002
+  name: Off Explainer
+  component:
+    name-code: EIC1020
+    text: By default, this device works with anyone on the open network. Start a Circle to restrict it to only the people you trust.
+    variant: body01
+    color: on-surface-muted
+
+- name-code: EAIC15003
+  name: Start Circle Button
+  component:
+    name-code: EIC1006
+    label: Start a Circle
+    on-click: EALC15002
+
+- name-code: EAIC15004
+  name: Off Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15001
+      - EAIC15002
+      - EAIC15003
+
+# ── Setup state — first member not added yet ───────────────────────────────────
+
+- name-code: EAIC15010
+  name: Setup Header
+  component:
+    name-code: EIC1004
+    label: Circle — set up
+
+- name-code: EAIC15011
+  name: Own DID Caption
+  component:
+    name-code: EIC1020
+    text: Your device's code — share it with someone to add them
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15012
+  name: Own DID Text
+  component:
+    name-code: EIC1020
+    text: EAIV15001.own_did
+    variant: code01
+    overflow: visible
+
+- name-code: EAIC15013
+  name: Own DID QR Label
+  component:
+    name-code: EIC1020
+    text: Or let them scan it
+    variant: caption01
+    align: center
+    color: on-surface-subtle
+
+- name-code: EAIC15014
+  name: Own DID QR
+  component:
+    name-code: EIC1027
+    data: EAIV15001.own_did
+    size: 200
+    background-color: surface
+
+- name-code: EAIC15015
+  name: Roster Empty Note
+  component:
+    name-code: EIC1020
+    text: Just you so far.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15016
+  name: Add Someone Button (Setup)
+  component:
+    name-code: EIC1006
+    label: Add someone's code
+    on-click: EALC15004
+
+- name-code: EAIC15017
+  name: Setup Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15010
+      - EAIC15011
+      - EAIC15012
+      - EAIC15013
+      - EAIC15014
+      - EAIC15015
+      - EAIC15016
+
+# ── Adding state — paste a teammate's DID ───────────────────────────────────────
+
+- name-code: EAIC15020
+  name: Adding Header
+  component:
+    name-code: EIC1004
+    label: Add to your Circle
+
+- name-code: EAIC15021
+  name: Adding Note
+  component:
+    name-code: EIC1020
+    text: Paste the device code they shared with you. This only allows them to use this device — they'll need to add your code too before this device can use theirs.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15022
+  name: Add DID Input
+  component:
+    name-code: EIC1009
+    hint-text: "did:epn:…"
+    text-controller: EALC15003
+
+- name-code: EAIC15023
+  name: Add DID Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV15005
+    variant: caption01
+    color: negative
+
+- name-code: EAIC15024
+  name: Submit Add Button
+  component:
+    name-code: EIC1006
+    label: Add
+    on-click: EALC15005
+
+- name-code: EAIC15025
+  name: Cancel Add Button
+  component:
+    name-code: EIC1008
+    label: Cancel
+    on-click: EALC15006
+
+- name-code: EAIC15026
+  name: Add Buttons Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15024
+      - EAIC15025
+
+- name-code: EAIC15027
+  name: Adding Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15020
+      - EAIC15021
+      - EAIC15022
+      - EAIC15023
+      - EAIC15026
+
+# ── Active state — roster + manage ──────────────────────────────────────────────
+
+- name-code: EAIC15030
+  name: Active Header
+  component:
+    name-code: EIC1004
+    label: Circle
+
+- name-code: EAIC15031
+  name: Member Count Metric
+  component:
+    name-code: EIC1031
+    value: EAIV15012
+    label: In your circle
+    caption: only these devices can mesh and schedule work with this one
+    status: primary
+
+# Reusing the EIC1026 list (not EIC1032 table) deliberately: EIC1032 has no
+# on-row-tap (documented in EPN_DESIGN_BACKLOG.md — epn_market's offers list
+# has the same constraint and made the same choice for the same reason).
+# Backend should supply did, label, did_short, added_at_display and
+# online_display per member — see report for what's assumed-but-unbuilt.
+- name-code: EAIC15032
+  name: Roster List
+  component:
+    name-code: EIC1026
+    source: EAIV15011
+    item-type: list-item
+    title-field: label
+    subtitle-field: did_short
+    trailing-text-field: online_display
+    on-item-tap: EALC15007
+
+- name-code: EAIC15034
+  name: Selected Label
+  component:
+    name-code: EIC1020
+    text: EAIV15009
+    variant: code01
+
+- name-code: EAIC15035
+  name: Remove Selected Button
+  component:
+    name-code: EIC1008
+    label: Remove this device
+    on-click: EALC15008
+
+- name-code: EAIC15036
+  name: Selected Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15034
+      - EAIC15035
+
+- name-code: EAIC15038
+  name: No Selection Note
+  component:
+    name-code: EIC1020
+    text: Tap a device above to remove it.
+    variant: caption01
+    color: on-surface-subtle
+
+# Matches on an explicit "selected"/"none" enum (EAIV15015), not the raw
+# selected DID (EAIV15008) — EIC1036 needs fixed case values, the same
+# reasoning epn_node's "Selection Match" (EAIC14118) already uses.
+- name-code: EAIC15037
+  name: Selection Match
+  component:
+    name-code: EIC1036
+    source: EAIV15015
+    cases:
+      selected: EAIC15036
+      none: EAIC15038
+    default: EAIC15038
+
+- name-code: EAIC15040
+  name: Add Someone Button (Active)
+  component:
+    name-code: EIC1008
+    label: Add someone
+    on-click: EALC15012
+
+- name-code: EAIC15041
+  name: Turn Off Circle Button
+  component:
+    name-code: EIC1008
+    label: Turn off Circle
+    on-click: EALC15009
+
+- name-code: EAIC15043
+  name: Active Footer Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15040
+      - EAIC15041
+
+- name-code: EAIC15042
+  name: Off Note Caption
+  component:
+    name-code: EIC1020
+    text: Turning this off opens this device back up to the whole network.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15044
+  name: Active Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15030
+      - EAIC15031
+      - EAIC15032
+      - EAIC15037
+      - EAIC15043
+      - EAIC15042

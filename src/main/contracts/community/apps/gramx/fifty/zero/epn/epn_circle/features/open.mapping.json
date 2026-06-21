@@ -1,0 +1,21 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_open",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "open the app",
+  "expected": {
+    "pages": ["EAIP15001"],
+    "tiles": ["EAIT15001", "EAIT15002", "EAIT15003", "EAIT15004"],
+    "components": []
+  },
+  "conformance": {
+    "visual": "screenshot of the rendered Circle page",
+    "structural": "page EAIP15001 present after load",
+    "behavioral": "n/a",
+    "state": "n/a",
+    "experience": "n/a"
+  },
+  "notes": "Universal open smoke scenario. Component-level structural mapping is intentionally empty until flow-bob render hooks land. State-machine tiles (off/setup/adding/active) are listed but only the off-state tile renders on first open against a fresh/never-configured daemon."
+}
