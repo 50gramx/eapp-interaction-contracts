@@ -44,7 +44,7 @@
       live: true
 
 # EP&N DePIN node platform — its own organisation so the dashboard's
-# org-solution shell scopes the nine eApps as one product, distinct from the
+# org-solution shell scopes the ten eApps as one product, distinct from the
 # browser (evo_*) apps.
 - organisation: epn
   brand:
@@ -111,6 +111,8 @@
     - name: epn_settings
       live: true
     - name: epn_market
+      live: true
+    - name: epn_circle
       live: true
 
 - organisation: ethos
