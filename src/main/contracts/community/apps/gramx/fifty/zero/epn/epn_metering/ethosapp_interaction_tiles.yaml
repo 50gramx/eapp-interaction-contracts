@@ -1,11 +1,9 @@
 - name-code: EAIT11001
   name: Metering Tile
-  about: Activity summary, resource usage, and payment channel ledger
+  about: Activity summary, the metering ledger, and node resource capacity
   composition:
     name-code: EIC1005
     children-components:
       - EAIC11080
-      - EAIC11081
+      - EAIC11095
       - EAIC11082
-      - EAIC11083
-      - EAIC11084

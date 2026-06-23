@@ -24,37 +24,23 @@
     caption: on peers
     status: negative
 
-- name-code: EAIC11006
-  name: Open Channels Metric
+- name-code: EAIC11003
+  name: Local Inferences Metric
   component:
     name-code: EIC1031
-    value: EAIV11005.open_channels
-    label: Open channels
-    caption: payment channels
-
-- name-code: EAIC11008
-  name: Running Operators Metric
-  component:
-    name-code: EIC1031
-    value: EAIV11005.running_operators
-    label: Running operators
-    caption: operators currently running
+    value: EAIV11005.inferences_served
+    label: Local inferences
+    caption: owed 0.00 EC, always
+    status: positive
 
 - name-code: EAIC11051
-  name: Earned/Spent Row
+  name: Summary Row
   component:
     name-code: EIC1012
     children-components:
+      - EAIC11003
       - EAIC11002
       - EAIC11004
-
-- name-code: EAIC11052
-  name: Channels/Operators Row
-  component:
-    name-code: EIC1012
-    children-components:
-      - EAIC11006
-      - EAIC11008
 
 - name-code: EAIC11010
   name: Refresh Button
@@ -69,14 +55,6 @@
     name-code: EIC1025
     height: 1
 
-- name-code: EAIC11050
-  name: Local Work Callout
-  component:
-    name-code: EIC1033
-    kind: info
-    title: Local work this week — 0
-    body: Every unit visible. Local work shows 0, always.
-
 - name-code: EAIC11012
   name: Summary Section
   component:
@@ -85,50 +63,44 @@
       - EAIC11001
       - EAIC11060
       - EAIC11051
-      - EAIC11052
       - EAIC11061
-      - EAIC11050
       - EAIC11063
       - EAIC11062
       - EAIC11010
       - EAIC11011
 
-# ── Local inference section (SA-WEB-3 Phase A — real, daemon-counted) ─────────
-# Every figure here comes from GET /v1/metrics via epn.metering.summary; never
-# faked, falls back to 0 if the daemon is unreachable.
+# ── Ledger section ─────────────────────────────────────────────────────────────
+# The actual design: ONE table, every kind of metered activity as a row
+# (what ran / quantity / direction / value), not separate cards per
+# category. Source: epn.metering.summary's meter_rows, derived from real
+# GET /v1/metrics + wallet/channel data — never faked, falls back to zero
+# rows if the daemon is unreachable. A true per-resource-type breakdown
+# (storage lent, vcpu, gpu_second individually) isn't possible yet — no
+# daemon endpoint aggregates the resource operators' receipts by type;
+# today's rows are local inference + aggregate peer earn/spend.
 
-- name-code: EAIC11070
-  name: Local Inference Header
+- name-code: EAIC11090
+  name: Ledger Header
   component:
     name-code: EIC1004
-    label: Local Inference
+    label: What Ran
 
-- name-code: EAIC11071
-  name: Inferences Served Metric
+- name-code: EAIC11091
+  name: Ledger Table
   component:
-    name-code: EIC1031
-    value: EAIV11005.inferences_served
-    label: Inferences served
-    caption: answered on this node — bytes never left it
-    status: positive
-
-- name-code: EAIC11072
-  name: Tokens Served Metric
-  component:
-    name-code: EIC1031
-    value: EAIV11005.tokens_served
-    label: Tokens served
-    caption: output tokens produced locally
-    status: positive
-
-- name-code: EAIC11073
-  name: Displaced Cloud Cost Metric
-  component:
-    name-code: EIC1031
-    value: EAIV11005.displaced_cloud_usd
-    label: Cloud cost displaced ($)
-    caption: vs. a cloud vendor at ~$10/1M tokens
-    status: positive
+    name-code: EIC1032
+    source: EAIV11005.meter_rows
+    columns:
+      - What ran
+      - Quantity
+      - Direction
+      - Value
+    fields:
+      - what
+      - qty
+      - who
+      - amt
+    empty-message: Nothing metered yet — your activity will show up here.
 
 - name-code: EAIC11077
   name: Local Receipts Metric
@@ -151,31 +123,22 @@
     suffix-chars: 6
     code-surface: true
 
-- name-code: EAIC11074
-  name: Local Inference Row
-  component:
-    name-code: EIC1012
-    children-components:
-      - EAIC11071
-      - EAIC11072
-      - EAIC11077
-
-- name-code: EAIC11075
-  name: Local Inference Divider
+- name-code: EAIC11093
+  name: Ledger Divider
   component:
     name-code: EIC1025
     height: 1
 
-- name-code: EAIC11076
-  name: Local Inference Section
+- name-code: EAIC11094
+  name: Ledger Section
   component:
     name-code: EIC1005
     children-components:
-      - EAIC11070
-      - EAIC11074
-      - EAIC11073
+      - EAIC11090
+      - EAIC11091
+      - EAIC11077
       - EAIC11078
-      - EAIC11075
+      - EAIC11093
 
 # ── Resource section ──────────────────────────────────────────────────────────
 
@@ -320,68 +283,11 @@
       - EAIC11038
       - EAIC11018
 
-# ── Channels section ──────────────────────────────────────────────────────────
-
-- name-code: EAIC11020
-  name: Channels Header
-  component:
-    name-code: EIC1004
-    label: Payment Channels
-
-- name-code: EAIC11021
-  name: Channels Table
-  component:
-    name-code: EIC1032
-    source: EAIV11002
-    columns:
-      - Channel
-      - Peer
-      - Status
-    fields:
-      - id
-      - peer_b_did
-      - status
-    empty-message: No payment channels open yet.
-
-- name-code: EAIC11023
-  name: Channels Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC11020
-      - EAIC11021
-
-# ── Wallet balance ────────────────────────────────────────────────────────────
-
-- name-code: EAIC11024
-  name: Balance Header
-  component:
-    name-code: EIC1004
-    label: Wallet Balance
-
-- name-code: EAIC11025
-  name: Balance Metric
-  component:
-    name-code: EIC1031
-    value: EAIV11001.balance_etc
-    label: Wallet balance
-    caption: ETC
-    status: primary
-
-- name-code: EAIC11027
-  name: Balance Divider
-  component:
-    name-code: EIC1025
-    height: 1
-
-- name-code: EAIC11028
-  name: Balance Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC11024
-      - EAIC11025
-      - EAIC11027
+# Payment-channel detail and wallet balance are deliberately NOT duplicated
+# here — they're epn_wallet's job (Balance/Channels/Open Channel/Settle
+# sections already live there). The design's Metering screen has no
+# channels table or balance card either; this page is the ledger + summary
+# only.
 
 # ── Spend cap reached notice ──────────────────────────────────────────────────
 # WARNING: Currently shows static text. To become reactive, the daemon's
@@ -435,11 +341,11 @@
     child: EAIC11012
     color: layer-02
 
-- name-code: EAIC11081
-  name: Local Inference Tile
+- name-code: EAIC11095
+  name: Ledger Tile
   component:
     name-code: EIC1023
-    child: EAIC11076
+    child: EAIC11094
     color: layer-02
 
 - name-code: EAIC11082
@@ -447,18 +353,4 @@
   component:
     name-code: EIC1023
     child: EAIC11019
-    color: layer-02
-
-- name-code: EAIC11083
-  name: Channels Tile
-  component:
-    name-code: EIC1023
-    child: EAIC11023
-    color: layer-02
-
-- name-code: EAIC11084
-  name: Balance Tile
-  component:
-    name-code: EIC1023
-    child: EAIC11028
     color: layer-02
