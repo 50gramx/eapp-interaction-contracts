@@ -4,5 +4,5 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC6009
-      - EAIC6010
+      - EAIC6030
+      - EAIC6031

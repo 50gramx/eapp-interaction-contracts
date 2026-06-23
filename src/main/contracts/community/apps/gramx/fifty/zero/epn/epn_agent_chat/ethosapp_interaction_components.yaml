@@ -152,3 +152,24 @@
     text: Evo answers locally first. It tells you when it would escalate to a cloud model.
     variant: caption01
     color: on-surface-subtle
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Matches Home/Node/Peers/Circle: history and composer each sit in an EIC1023
+# tile (layer-02). Note: this wraps the page chrome only — the chat bubble
+# itself (EIC1026 item-type: chat-message) has no Carbon implementation yet
+# per docs/CARBON_JITTERY_CONFORMANCE_MAP.md ("Level-only"); that's a
+# composer-code gap in eapp-jittery-modelled, not fixable from the contract.
+
+- name-code: EAIC6030
+  name: Chat History Tile
+  component:
+    name-code: EIC1023
+    child: EAIC6009
+    color: layer-02
+
+- name-code: EAIC6031
+  name: Composer Tile
+  component:
+    name-code: EIC1023
+    child: EAIC6010
+    color: layer-02

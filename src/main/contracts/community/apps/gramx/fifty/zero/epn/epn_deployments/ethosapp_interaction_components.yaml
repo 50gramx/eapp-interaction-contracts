@@ -227,3 +227,35 @@
     text: Every answer was computed on this device — your prompts and outputs never left it. Only the resources you choose to lend ever leave, by your consent.
     variant: caption01
     color: on-surface-subtle
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Matches Home/Node/Peers/Circle: each top-level section sits in an EIC1023
+# tile (layer-02). Deployments previously had none — bare EIC1005 groups only.
+
+- name-code: EAIC9070
+  name: Deployments Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC9005
+    color: layer-02
+
+- name-code: EAIC9071
+  name: Personas Tile
+  component:
+    name-code: EIC1023
+    child: EAIC9009
+    color: layer-02
+
+- name-code: EAIC9072
+  name: Manage Tile
+  component:
+    name-code: EIC1023
+    child: EAIC9019
+    color: layer-02
+
+- name-code: EAIC9073
+  name: Install Tile
+  component:
+    name-code: EIC1023
+    child: EAIC9024
+    color: layer-02

@@ -716,3 +716,98 @@
       - EAIC12093
       - EAIC12094
       - EAIC12095
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Matches Home/Node/Peers/Circle: each top-level section sits in an EIC1023
+# tile (layer-02). Settings previously had none — bare EIC1005 groups only.
+
+- name-code: EAIC12100
+  name: Spend Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12010
+    color: layer-02
+
+- name-code: EAIC12101
+  name: Energy Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12029
+    color: layer-02
+
+- name-code: EAIC12102
+  name: Node Resources Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12047
+    color: layer-02
+
+- name-code: EAIC12103
+  name: Nodes Device Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12056
+    color: layer-02
+
+- name-code: EAIC12104
+  name: AI Keys Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12038
+    color: layer-02
+
+- name-code: EAIC12105
+  name: Private Ring Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12064
+    color: layer-02
+
+- name-code: EAIC12106
+  name: About Tile
+  component:
+    name-code: EIC1023
+    child: EAIC12020
+    color: layer-02
+
+- name-code: EAIC12107
+  name: KYC Ladder Unverified Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12072
+    color: layer-02
+
+- name-code: EAIC12108
+  name: KYC Ladder Verified Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12075
+    color: layer-02
+
+- name-code: EAIC12109
+  name: KYC Reverify Prompt Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12078
+    color: layer-02
+
+- name-code: EAIC12110
+  name: KYC Add Email Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12084
+    color: layer-02
+
+- name-code: EAIC12111
+  name: KYC Inbox Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12092
+    color: layer-02
+
+- name-code: EAIC12112
+  name: KYC Verified Confirmation Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12096
+    color: layer-02

@@ -5,13 +5,13 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12010
-      - EAIC12029
-      - EAIC12047
-      - EAIC12056
-      - EAIC12038
-      - EAIC12064
-      - EAIC12020
+      - EAIC12100
+      - EAIC12101
+      - EAIC12102
+      - EAIC12103
+      - EAIC12104
+      - EAIC12105
+      - EAIC12106
 
 # ── Identity & Trust tiles (SA-KYC-MAIL-UI, relocated from epn_home) ──────────
 # Mutually exclusive on EAIV12022 ("ladder" is the default/idle state, replacing
@@ -29,7 +29,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12072
+      - EAIC12107
 
 - name-code: EAIT12003
   name: KYC Ladder Verified Tile
@@ -42,7 +42,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12075
+      - EAIC12108
 
 # Independent sibling tile, not a child of EAIT12003 — only visible when the
 # claim is genuinely within 14 days of expiry (EAIV12006.expiring_soon via
@@ -61,7 +61,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12078
+      - EAIC12109
 
 - name-code: EAIT12005
   name: KYC Add Email Tile
@@ -72,7 +72,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12084
+      - EAIC12110
 
 - name-code: EAIT12006
   name: KYC Inbox Tile
@@ -83,7 +83,7 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12092
+      - EAIC12111
 
 - name-code: EAIT12007
   name: KYC Verified Confirmation Tile
@@ -94,4 +94,4 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC12096
+      - EAIC12112
