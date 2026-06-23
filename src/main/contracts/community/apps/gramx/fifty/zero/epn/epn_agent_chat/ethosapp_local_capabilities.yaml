@@ -1,3 +1,14 @@
+# Called via on-appear when the chat page opens. Discovers specialist
+# personas live from the daemon (epn.agent.personas) instead of the
+# hardcoded Evo/Sigma/Lume picker -- see EAIV6015.
+- name-code: EALC6015
+  name: Init Personas
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.personas
+        assign-to: EAIV6015
+
 # Return the TextEditingController so the composer field can bind to it.
 - name-code: EALC6001
   name: Get Input Controller
@@ -39,35 +50,20 @@
         params:
           text: text
 
-# ── Persona switchers ─────────────────────────────────────────────────────────
-# Each clears the conversation and routes subsequent messages to the chosen agent.
-
-- name-code: EALC6005
-  name: Use Evo
+# ── Persona switcher ──────────────────────────────────────────────────────────
+# Called via on-item-tap from the discovered persona list (EAIC6014, sourced
+# from EAIV6015 / epn.agent.personas -- see EALC6015). `id` arrives from the
+# tapped row (same proven pattern as epn_market's EALC13008 Select Offer).
+# The concierge persona's id is 'epn.concierge.v1', not '' -- epn_platform_
+# handlers.dart's epn.chat.persona.set treats that id the same as "use Evo".
+- name-code: EALC6016
+  name: Use Discovered Persona
   context:
+    expects:
+      - id: ELVT1011
     steps:
       - command: platform-invoke
         handler: epn.chat.persona.set
         params:
-          persona_id: ""
-        assign-to: EAIV6002
-
-- name-code: EALC6006
-  name: Use Sigma
-  context:
-    steps:
-      - command: platform-invoke
-        handler: epn.chat.persona.set
-        params:
-          persona_id: epn.sigma.v1
-        assign-to: EAIV6002
-
-- name-code: EALC6007
-  name: Use Lume
-  context:
-    steps:
-      - command: platform-invoke
-        handler: epn.chat.persona.set
-        params:
-          persona_id: epn.lume.v1
+          persona_id: id
         assign-to: EAIV6002

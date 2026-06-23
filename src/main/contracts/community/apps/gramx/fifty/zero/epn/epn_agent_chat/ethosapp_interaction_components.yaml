@@ -8,8 +8,13 @@
 
 # ── Message list ──────────────────────────────────────────────────────────────
 
-# Reactive list — updated on every send. Each item: {role, text}.
-# role field (You / Evo / error) shows as subtitle badge.
+# Reactive list — updated on every send. role field (You / Evo / error)
+# shows as the sender label. Human items stay {role, text}; AI turns carry
+# the evolved {role, text, ai, persona_id, locality, grounding, activity,
+# evidence, errors} shape -- see EAIV6002 for the full shape and the
+# Carbon-for-AI chrome (_CarbonChatBubble in eapp-jittery-modelled) it
+# drives: AI label, locality/grounding tags, work-summary, and the "Why
+# this answer?" explainability disclosure.
 - name-code: EAIC6002
   name: Messages List
   component:
@@ -82,36 +87,25 @@
     on-click: EALC6003
 
 # ── Persona picker ────────────────────────────────────────────────────────────
-
-- name-code: EAIC6011
-  name: Evo Button
-  component:
-    name-code: EIC1008
-    label: "Evo ✦"
-    on-click: EALC6005
-
-- name-code: EAIC6012
-  name: Sigma Button
-  component:
-    name-code: EIC1008
-    label: "Sigma ⚙"
-    on-click: EALC6006
-
-- name-code: EAIC6013
-  name: Lume Button
-  component:
-    name-code: EIC1008
-    label: "Lume ◎"
-    on-click: EALC6007
+# Aha 3 (ideal acceptance): personas are discovered live from the daemon
+# (EAIV6015, populated by EALC6015 on-appear) instead of hardcoded
+# Evo/Sigma/Lume buttons -- new specialist personas (Pi, Mu, Rho, Nova,
+# Eta, Stigma, Tau, ...) appear automatically as their operators register,
+# with no contract change. EIC1026's own empty-state ("Nothing here yet")
+# covers the daemon-offline / not-yet-probed case -- no separate fallback
+# row, so there is exactly one picker, never a duplicate/stale one.
 
 - name-code: EAIC6014
   name: Persona Picker Row
   component:
-    name-code: EIC1012
-    children-components:
-      - EAIC6011
-      - EAIC6012
-      - EAIC6013
+    name-code: EIC1026
+    source: EAIV6015
+    item-type: list-item
+    title-field: name
+    subtitle-field: role
+    on-item-tap: EALC6016
+    scrollable: true
+    max-height: 96
 
 # ── Layout columns ────────────────────────────────────────────────────────────
 
@@ -155,10 +149,9 @@
 
 # ── Carbon Tile wrappers ────────────────────────────────────────────────────
 # Matches Home/Node/Peers/Circle: history and composer each sit in an EIC1023
-# tile (layer-02). Note: this wraps the page chrome only — the chat bubble
-# itself (EIC1026 item-type: chat-message) has no Carbon implementation yet
-# per docs/CARBON_JITTERY_CONFORMANCE_MAP.md ("Level-only"); that's a
-# composer-code gap in eapp-jittery-modelled, not fixable from the contract.
+# tile (layer-02). The chat bubble itself (EIC1026 item-type: chat-message)
+# is now Carbon-owned (_CarbonChatBubble, including the Aha 3 AI chrome) --
+# see docs/CARBON_JITTERY_CONFORMANCE_MAP.md.
 
 - name-code: EAIC6030
   name: Chat History Tile

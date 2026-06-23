@@ -4,9 +4,34 @@
   type: ELVT1001
   default: {}
 
-# Growing list of chat messages — [{role, text}].
-# Updated by EALC6002 (send) via assign-to.
+# Growing list of chat messages. Updated by EALC6002 (send) via assign-to.
+#
+# Human turns stay the plain {role, text} shape ("You" messages, daemon-
+# offline / send-error rows).
+#
+# AI turns (Evo or a directly-chatted specialist) carry the evolved Aha 3
+# shape built by eapp-live's ChatTurnAccumulator from the agentStream
+# events of that turn:
+#   {role, text, ai: true, persona_id, locality, grounding, activity,
+#    evidence, errors}
+# where activity is [{type, label, tool, status}], evidence is
+# [{agent, capability, grounded}], grounding is 'grounded' |
+# 'general_guidance', locality is always 'local' (Aha 1: no cloud
+# escalation). EIC1026's chat-message renderer reads these fields directly
+# off each item with no extra contract properties -- see
+# eapp-jittery-modelled's _CarbonChatBubble (AI label, locality/grounding
+# tags, activity summary, "Why this answer?" explainability disclosure).
 - name-code: EAIV6002
   name: Messages
+  type: ELVT1020
+  default: {}
+
+# Specialist personas discovered from the daemon (epn.agent.personas),
+# refreshed each time the chat page opens. Drives the persona-picker row
+# (EAIC6014) so it is no longer hardcoded to Evo/Sigma/Lume -- new
+# specialist personas (Pi, Mu, Rho, Nova, Eta, Stigma, Tau, ...) appear
+# automatically as the daemon registers their operators.
+- name-code: EAIV6015
+  name: Personas
   type: ELVT1020
   default: {}

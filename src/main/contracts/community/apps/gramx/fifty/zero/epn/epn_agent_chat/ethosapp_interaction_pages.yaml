@@ -4,6 +4,11 @@
     heading: Assistant
     label: Evo
     order: 20
+  # Aha 3 (ideal acceptance): discover specialist personas from the daemon
+  # on every page open, instead of hardcoding Evo/Sigma/Lume -- new
+  # personas (Pi, Mu, Rho, Nova, Eta, Stigma, Tau, ...) appear as soon as
+  # their operator registers, with no contract change.
+  on-appear: EALC6015
   composition:
     name-code: EIC1005
     children-components:
