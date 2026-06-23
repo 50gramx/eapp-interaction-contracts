@@ -1045,23 +1045,18 @@
     label: Operators
 
 - name-code: EAIC5002
-  name: Deployments List
+  name: Operators Count Metric
   component:
-    name-code: EIC1026
-    source: EAIV5001
-    item-type: list-item
-    title-field: name
-    subtitle-field: status
-    trailing-field: operator_id
-    scrollable: true
-    max-height: 200
+    name-code: EIC1031
+    value: EAIV5001
+    label: operators running
 
 - name-code: EAIC5003
-  name: No Deployments Label
+  name: Operators Summary Text
   component:
     name-code: EIC1020
-    text: Daemon not running. Start it with epnd serve --bootstrap
-    variant: body01
+    text: See the full list in Operators
+    variant: caption01
     align: center
     color: on-surface-subtle
 

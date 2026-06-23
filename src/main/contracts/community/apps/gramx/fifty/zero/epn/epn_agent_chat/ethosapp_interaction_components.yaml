@@ -149,7 +149,7 @@
   name: Local First Cue
   component:
     name-code: EIC1020
-    text: Evo answers locally first. It tells you when it would escalate to a cloud model.
+    text: Evo and its specialist agents run locally. Cloud model escalation is disabled.
     variant: caption01
     color: on-surface-subtle
 

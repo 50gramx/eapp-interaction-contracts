@@ -7,18 +7,13 @@
     label: Active Operators
 
 - name-code: EAIC9002
-  name: Deployments Table
+  name: Deployments List
   component:
-    name-code: EIC1032
+    name-code: EIC1026
     source: EAIV9001
-    columns:
-      - Operator
-      - Status
-      - ID
-    fields:
-      - name
-      - status
-      - operator_id
+    title-field: name
+    subtitle-field: status
+    on-item-tap: EALC9009
     empty-message: No operators installed. Use the form below to install one.
 
 - name-code: EAIC9004

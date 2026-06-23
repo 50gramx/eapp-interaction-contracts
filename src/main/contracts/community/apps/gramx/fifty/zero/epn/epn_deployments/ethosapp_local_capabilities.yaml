@@ -84,3 +84,18 @@
           deployment_id: EAIV9004
           tail_lines: 50
         assign-to: EAIV9006
+
+# Pre-fill the Target Deployment ID field when a row is tapped in the deployments list.
+# The engine extracts the tapped deployment's fields and passes them separately.
+- name-code: EALC9009
+  name: Select Deployment
+  context:
+    expects:
+      - id: ELVT1007
+      - name: ELVT1007
+      - status: ELVT1007
+      - operator_id: ELVT1007
+    steps:
+      - command: set-text-controller
+        controller: EAIV9004
+        value: id

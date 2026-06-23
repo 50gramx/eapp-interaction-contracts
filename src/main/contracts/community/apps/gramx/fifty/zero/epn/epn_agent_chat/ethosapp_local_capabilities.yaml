@@ -69,5 +69,5 @@
       - command: platform-invoke
         handler: epn.chat.persona.set
         params:
-          persona_id: epn.ollama.v1
+          persona_id: epn.lume.v1
         assign-to: EAIV6002
