@@ -211,3 +211,35 @@
     text: Your local work this week cost 0.00 EC. It always will.
     variant: caption01
     color: on-surface-subtle
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Matches Home/Node/Peers/Circle: each top-level section sits in an EIC1023
+# tile (layer-02). Wallet previously had none — bare EIC1005 groups only.
+
+- name-code: EAIC8070
+  name: Balance Tile
+  component:
+    name-code: EIC1023
+    child: EAIC8020
+    color: layer-02
+
+- name-code: EAIC8071
+  name: Channels Tile
+  component:
+    name-code: EIC1023
+    child: EAIC8021
+    color: layer-02
+
+- name-code: EAIC8072
+  name: Open Channel Tile
+  component:
+    name-code: EIC1023
+    child: EAIC8022
+    color: layer-02
+
+- name-code: EAIC8073
+  name: Settle Tile
+  component:
+    name-code: EIC1023
+    child: EAIC8023
+    color: layer-02

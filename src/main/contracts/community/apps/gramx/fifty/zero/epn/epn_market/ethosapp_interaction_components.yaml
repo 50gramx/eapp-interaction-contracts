@@ -311,3 +311,28 @@
     text: Spending from any bid stays inside your daily cap, set by you in Settings. Nothing is metered by surprise.
     variant: caption01
     color: on-surface-subtle
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Matches Home/Node/Peers/Circle: each top-level section sits in an EIC1023
+# tile (layer-02). Market previously had none — bare EIC1005 groups only.
+
+- name-code: EAIC13070
+  name: Browse Tile
+  component:
+    name-code: EIC1023
+    child: EAIC13036
+    color: layer-02
+
+- name-code: EAIC13071
+  name: Post Tile
+  component:
+    name-code: EIC1023
+    child: EAIC13037
+    color: layer-02
+
+- name-code: EAIC13072
+  name: Rent Tile
+  component:
+    name-code: EIC1023
+    child: EAIC13038
+    color: layer-02
