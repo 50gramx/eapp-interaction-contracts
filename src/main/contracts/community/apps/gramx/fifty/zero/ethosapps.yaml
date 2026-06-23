@@ -91,6 +91,10 @@
         show-credit: false
       app-selector:
         auto-visible: false
+      browser:
+        # EP&N is a node app, not a browser — never prompt to become the OS
+        # default browser.
+        show-default-prompt: false
     sidecars:
       epnd: true
   apps:
