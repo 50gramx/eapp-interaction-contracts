@@ -88,9 +88,71 @@
       - EAIC11052
       - EAIC11061
       - EAIC11050
+      - EAIC11063
       - EAIC11062
       - EAIC11010
       - EAIC11011
+
+# ── Local inference section (SA-WEB-3 Phase A — real, daemon-counted) ─────────
+# Every figure here comes from GET /v1/metrics via epn.metering.summary; never
+# faked, falls back to 0 if the daemon is unreachable.
+
+- name-code: EAIC11070
+  name: Local Inference Header
+  component:
+    name-code: EIC1004
+    label: Local Inference
+
+- name-code: EAIC11071
+  name: Inferences Served Metric
+  component:
+    name-code: EIC1031
+    value: EAIV11005.inferences_served
+    label: Inferences served
+    caption: answered on this node — bytes never left it
+    status: positive
+
+- name-code: EAIC11072
+  name: Tokens Served Metric
+  component:
+    name-code: EIC1031
+    value: EAIV11005.tokens_served
+    label: Tokens served
+    caption: output tokens produced locally
+    status: positive
+
+- name-code: EAIC11073
+  name: Displaced Cloud Cost Metric
+  component:
+    name-code: EIC1031
+    value: EAIV11005.displaced_cloud_usd
+    label: Cloud cost displaced ($)
+    caption: vs. a cloud vendor at ~$10/1M tokens
+    status: positive
+
+- name-code: EAIC11074
+  name: Local Inference Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC11071
+      - EAIC11072
+
+- name-code: EAIC11075
+  name: Local Inference Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11076
+  name: Local Inference Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11070
+      - EAIC11074
+      - EAIC11073
+      - EAIC11075
 
 # ── Resource section ──────────────────────────────────────────────────────────
 
@@ -297,6 +359,21 @@
       - EAIC11024
       - EAIC11025
       - EAIC11027
+
+# ── Spend cap reached notice ──────────────────────────────────────────────────
+# WARNING: Currently shows static text. To become reactive, the daemon's
+# epn.metering.summary handler must add:
+#   - cap_reached: bool (computed from spent_uetc >= max_per_hour_uetc)
+#   - max_per_hour_uetc: the configured spend cap (or derive from epn_settings)
+# Then bind visibility to EAIV11005.cap_reached and show actual cap value.
+
+- name-code: EAIC11063
+  name: Spend Cap Reached Notice
+  component:
+    name-code: EIC1033
+    kind: caution
+    title: Spend cap reached
+    body: Your hourly spend limit has been reached. New resource consumption will be blocked until the cap resets. See Settings > Spend Limits to adjust.
 
 # ── Design framing (chip + FREE·LOCAL + free-tier footer) ─────────────────────
 - name-code: EAIC11060
