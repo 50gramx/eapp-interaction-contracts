@@ -397,3 +397,45 @@
     text: Your own resource is always free. Only consuming a peer's resource is ever metered — and you see it here before, during, and after.
     variant: caption01
     color: on-surface-subtle
+
+# ── Carbon Tile wrappers ────────────────────────────────────────────────────
+# Every other EP&N carbon eApp (Home, Node, Peers, Circle) wraps each
+# top-level section in an EIC1023 tile (layer-02) — that's what gives Carbon
+# pages their flat, bordered, layered surfaces. Metering's sections had no
+# tile at all (rendered as bare ungrouped EIC1005 groups). These wrap the
+# existing sections without changing any of their content.
+
+- name-code: EAIC11080
+  name: Summary Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11012
+    color: layer-02
+
+- name-code: EAIC11081
+  name: Local Inference Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11076
+    color: layer-02
+
+- name-code: EAIC11082
+  name: Resources Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11019
+    color: layer-02
+
+- name-code: EAIC11083
+  name: Channels Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11023
+    color: layer-02
+
+- name-code: EAIC11084
+  name: Balance Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11028
+    color: layer-02
