@@ -14,6 +14,52 @@
     variant: caption01
     color: on-surface-subtle
 
+- name-code: EAIC6025
+  name: Latest Plan
+  component:
+    name-code: EIC1020
+    text: EAIV6016.graph_summary
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6028
+  name: Latest Plan Nodes
+  component:
+    name-code: EIC1020
+    text: EAIV6016.graph_node_summary
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6026
+  name: Latest Plan Match
+  component:
+    name-code: EIC1036
+    source: EAIV6016.graph_summary
+    cases:
+      "": EAIC6027
+    default: EAIC6025
+
+- name-code: EAIC6029
+  name: Latest Plan Nodes Match
+  component:
+    name-code: EIC1036
+    source: EAIV6016.graph_node_summary
+    cases:
+      "": EAIC6032
+    default: EAIC6028
+
+- name-code: EAIC6027
+  name: Latest Plan Hidden
+  component:
+    name-code: EIC1025
+    height: 0
+
+- name-code: EAIC6032
+  name: Latest Plan Nodes Hidden
+  component:
+    name-code: EIC1025
+    height: 0
+
 - name-code: EAIC6017
   name: Latest Approval
   component:
@@ -169,6 +215,8 @@
     children-components:
       - EAIC6001
       - EAIC6016
+      - EAIC6026
+      - EAIC6029
       - EAIC6017
       - EAIC6023
       - EAIC6020
