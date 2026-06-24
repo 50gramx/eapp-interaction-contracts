@@ -35,6 +35,32 @@
         handler: epn.agent.approval.deny
         assign-to: EAIV6017
 
+# UI-first durable readiness plan: creates the Aha 6 work graph from Evo Chat
+# without sending the phrase through the ordinary concierge/specialist route.
+- name-code: EALC6020
+  name: Check Remote Inference Readiness
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.run.planRemoteInferenceReadiness.chat
+        assign-to: EAIV6002
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+
+# Advances the currently supported ready graph checks from Evo Chat and then
+# refreshes the latest durable run header.
+- name-code: EALC6021
+  name: Run Ready Checks
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.run.executeReadyChecks.chat
+        assign-to: EAIV6002
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+
 # Return the TextEditingController so the composer field can bind to it.
 - name-code: EALC6001
   name: Get Input Controller
@@ -53,6 +79,9 @@
       - command: platform-invoke
         handler: epn.agent.chat.send
         assign-to: EAIV6002
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
 
 # Clear conversation history and reset the session.
 - name-code: EALC6003

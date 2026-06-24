@@ -158,6 +158,20 @@
     label: Send
     on-click: EALC6002
 
+- name-code: EAIC6033
+  name: Check Readiness Button
+  component:
+    name-code: EIC1006
+    label: Check readiness
+    on-click: EALC6020
+
+- name-code: EAIC6034
+  name: Run Ready Checks Button
+  component:
+    name-code: EIC1006
+    label: Run ready checks
+    on-click: EALC6021
+
 # ── Divider ───────────────────────────────────────────────────────────────────
 
 - name-code: EAIC6006
@@ -174,6 +188,8 @@
     name-code: EIC1012
     children-components:
       - EAIC6005
+      - EAIC6033
+      - EAIC6034
       - EAIC6008
 
 # ── Clear button ──────────────────────────────────────────────────────────────
