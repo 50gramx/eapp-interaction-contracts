@@ -15,6 +15,26 @@
         handler: epn.agent.approval.latest
         assign-to: EAIV6017
 
+# Approve the latest pending approval, or a specific approval if the
+# contract passes one through.
+- name-code: EALC6018
+  name: Approve Latest Approval
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.approval.approve
+        assign-to: EAIV6017
+
+# Deny the latest pending approval, or a specific approval if the
+# contract passes one through.
+- name-code: EALC6019
+  name: Deny Latest Approval
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.approval.deny
+        assign-to: EAIV6017
+
 # Return the TextEditingController so the composer field can bind to it.
 - name-code: EALC6001
   name: Get Input Controller

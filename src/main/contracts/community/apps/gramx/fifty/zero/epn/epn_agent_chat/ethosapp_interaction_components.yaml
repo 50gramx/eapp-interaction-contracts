@@ -22,6 +22,43 @@
     variant: caption01
     color: on-surface-subtle
 
+- name-code: EAIC6018
+  name: Approve Approval Button
+  component:
+    name-code: EIC1006
+    label: Approve
+    on-click: EALC6018
+
+- name-code: EAIC6019
+  name: Deny Approval Button
+  component:
+    name-code: EIC1008
+    label: Deny
+    on-click: EALC6019
+
+- name-code: EAIC6022
+  name: Approval Buttons Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC6018
+      - EAIC6019
+
+- name-code: EAIC6023
+  name: Approval Buttons Match
+  component:
+    name-code: EIC1036
+    source: EAIV6017.status
+    cases:
+      pending: EAIC6022
+    default: EAIC6024
+
+- name-code: EAIC6024
+  name: Approval Buttons Hidden
+  component:
+    name-code: EIC1025
+    height: 0
+
 # ── Message list ──────────────────────────────────────────────────────────────
 
 # Reactive list — updated on every send. role field (You / Evo / error)
@@ -133,6 +170,7 @@
       - EAIC6001
       - EAIC6016
       - EAIC6017
+      - EAIC6023
       - EAIC6020
       - EAIC6021
       - EAIC6014
