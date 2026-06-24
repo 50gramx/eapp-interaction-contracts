@@ -187,6 +187,31 @@
     name-code: EIC1025
     height: 0
 
+- name-code: EAIC6037
+  name: Readiness Progress Label
+  component:
+    name-code: EIC1020
+    text: Live readiness progress
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6038
+  name: Readiness Progress Feed
+  component:
+    name-code: EIC1026
+    source: EAIV6018
+    item-type: chat-message
+    text-field: text
+    sender-field: role
+    self-sender-values:
+      - You
+    error-sender-values:
+      - error
+    show-sender-label: true
+    show-avatar: false
+    scrollable: true
+    max-height: 220
+
 # ── Divider ───────────────────────────────────────────────────────────────────
 
 - name-code: EAIC6006
@@ -248,6 +273,8 @@
       - EAIC6016
       - EAIC6026
       - EAIC6029
+      - EAIC6037
+      - EAIC6038
       - EAIC6017
       - EAIC6023
       - EAIC6020

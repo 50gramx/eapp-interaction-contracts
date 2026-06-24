@@ -54,9 +54,9 @@
   name: Run Ready Checks
   context:
     steps:
-      - command: platform-invoke
-        handler: epn.agent.run.executeReadyChecks.chat
-        assign-to: EAIV6002
+      - command: platform-subscribe
+        stream: epn.agent.run.executeReadyChecks.progress
+        target: EAIV6018
       - command: platform-invoke
         handler: epn.agent.run.latest
         assign-to: EAIV6016

@@ -49,3 +49,10 @@
   name: Latest Approval
   type: ELVT1020
   default: {}
+
+# Live readiness progress feed, subscribed only while "Run ready checks" is
+# active. Emits the truthful timeline of real execution events.
+- name-code: EAIV6018
+  name: Readiness Progress
+  type: ELVT1020
+  default: {}
