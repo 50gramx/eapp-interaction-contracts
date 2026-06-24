@@ -6,6 +6,22 @@
     name-code: EIC1004
     label: Evo — EP&N Concierge
 
+- name-code: EAIC6016
+  name: Latest Durable Run
+  component:
+    name-code: EIC1020
+    text: EAIV6016.summary
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6017
+  name: Latest Approval
+  component:
+    name-code: EIC1020
+    text: EAIV6017.summary
+    variant: caption01
+    color: on-surface-subtle
+
 # ── Message list ──────────────────────────────────────────────────────────────
 
 # Reactive list — updated on every send. role field (You / Evo / error)
@@ -115,6 +131,8 @@
     name-code: EIC1005
     children-components:
       - EAIC6001
+      - EAIC6016
+      - EAIC6017
       - EAIC6020
       - EAIC6021
       - EAIC6014

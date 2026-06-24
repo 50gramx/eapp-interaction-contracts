@@ -8,6 +8,12 @@
       - command: platform-invoke
         handler: epn.agent.personas
         assign-to: EAIV6015
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+      - command: platform-invoke
+        handler: epn.agent.approval.latest
+        assign-to: EAIV6017
 
 # Return the TextEditingController so the composer field can bind to it.
 - name-code: EALC6001

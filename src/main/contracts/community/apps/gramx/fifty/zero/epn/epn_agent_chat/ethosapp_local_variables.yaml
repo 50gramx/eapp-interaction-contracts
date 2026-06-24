@@ -35,3 +35,17 @@
   name: Personas
   type: ELVT1020
   default: {}
+
+# Latest durable run status snapshot, refreshed on page open from the
+# read-only run-store bridge. Used only for a compact visibility line.
+- name-code: EAIV6016
+  name: Latest Run
+  type: ELVT1020
+  default: {}
+
+# Latest approval status snapshot, refreshed on page open from the
+# read-only approval-store bridge. Used only for a compact visibility line.
+- name-code: EAIV6017
+  name: Latest Approval
+  type: ELVT1020
+  default: {}
