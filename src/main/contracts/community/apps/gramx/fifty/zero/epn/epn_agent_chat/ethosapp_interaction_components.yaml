@@ -172,6 +172,21 @@
     label: Run ready checks
     on-click: EALC6021
 
+- name-code: EAIC6035
+  name: Run Ready Checks Match
+  component:
+    name-code: EIC1036
+    source: EAIV6016.has_supported_ready_checks
+    cases:
+      true: EAIC6034
+    default: EAIC6036
+
+- name-code: EAIC6036
+  name: Run Ready Checks Hidden
+  component:
+    name-code: EIC1025
+    height: 0
+
 # ── Divider ───────────────────────────────────────────────────────────────────
 
 - name-code: EAIC6006
@@ -189,7 +204,7 @@
     children-components:
       - EAIC6005
       - EAIC6033
-      - EAIC6034
+      - EAIC6035
       - EAIC6008
 
 # ── Clear button ──────────────────────────────────────────────────────────────
