@@ -16,6 +16,20 @@
       name: email
       type: ELVT1007
       default: "mock@mesh.net"
+    - name-code: EAMVT8007
+      name: age
+      type: ELVT1006
+      default: 30
+    - name-code: EAMVT8008
+      name: active
+      type: ELVT1002
+      default: true
+    - name-code: EAMVT8009
+      name: avatar_bytes
+      type: ELVT1008
+    - name-code: EAMVT8010
+      name: details
+      type: EAMV8003
 
 # Input filter structure for capability invocation
 - name-code: EAMV8002
@@ -26,3 +40,17 @@
       name: user_id
       type: ELVT1007
       default: "usr-456"
+
+# Nested Details variable structure used as a property type
+- name-code: EAMV8003
+  name: Nested Details
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT8005
+      name: account_status
+      type: ELVT1007
+      default: "active"
+    - name-code: EAMVT8006
+      name: balance
+      type: ELVT1004
+      default: 100.50

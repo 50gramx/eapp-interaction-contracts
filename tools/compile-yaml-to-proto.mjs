@@ -157,6 +157,22 @@ function getTargetEntity(mesh) {
   return 'EAMVDefault';
 }
 
+// Transitively collect variables used as property types
+function collectTransitiveVariables(varCode, collectedSet) {
+  if (!varCode || collectedSet.has(varCode)) return;
+  collectedSet.add(varCode);
+
+  const variable = variablesByCode[varCode];
+  if (variable && Array.isArray(variable.properties)) {
+    variable.properties.forEach(prop => {
+      const type = (prop.type || '').toUpperCase();
+      if (/^(EAMV|EAIV)\d+$/.test(type)) {
+        collectTransitiveVariables(type, collectedSet);
+      }
+    });
+  }
+}
+
 // 2. Parse capabilities and group by package and entity
 const packagesMap = {};
 
@@ -213,11 +229,11 @@ for (const capFile of meshCapFiles) {
 
           if (expects) {
             entityInfo.variablesUsed.add(expects);
-            pkgInfo.variablesUsed.add(expects);
+            collectTransitiveVariables(expects, pkgInfo.variablesUsed);
           }
           if (returns) {
             entityInfo.variablesUsed.add(returns);
-            pkgInfo.variablesUsed.add(returns);
+            collectTransitiveVariables(returns, pkgInfo.variablesUsed);
           }
         }
       }

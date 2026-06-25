@@ -1,5 +1,6 @@
-# Mesh Capability: maps to gRPC service.
-# Triggers mesh-invoke command under-the-hood.
+# Mesh Capabilities demo:
+# Includes Unary, Client Streaming, Server Streaming, and Bidirectional Streaming.
+
 - name-code: EAMC8001
   name: Fetch Mesh Profile
   mesh:
@@ -7,3 +8,27 @@
     method: EAMC8001
     expects: EAMV8002
     returns: EAMV8001
+
+- name-code: EAMC8002
+  name: Stream Input Profile
+  mesh:
+    context: discover
+    method: EAMC8002
+    expecting: EAMV8002
+    returns: EAMV8001
+
+- name-code: EAMC8003
+  name: Stream Output Profile
+  mesh:
+    context: discover
+    method: EAMC8003
+    expects: EAMV8002
+    returning: EAMV8001
+
+- name-code: EAMC8004
+  name: Bidi Stream Profile
+  mesh:
+    context: discover
+    method: EAMC8004
+    expecting: EAMV8002
+    returning: EAMV8001
