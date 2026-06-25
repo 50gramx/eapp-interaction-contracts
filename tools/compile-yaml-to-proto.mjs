@@ -146,8 +146,8 @@ function generateMessageProto(varCode) {
 
 // Helper to find target entity variable
 function getTargetEntity(mesh) {
-  const returns = mesh.returns;
-  const expects = mesh.expects;
+  const returns = mesh.returns || mesh.returning;
+  const expects = mesh.expects || mesh.expecting;
   if (returns && (returns.startsWith('EAMV') || returns.startsWith('EAIV'))) {
     return returns;
   }
@@ -200,21 +200,24 @@ for (const capFile of meshCapFiles) {
             entityInfo.services[serviceName] = [];
           }
 
+          const expects = mesh.expects || mesh.expecting;
+          const returns = mesh.returns || mesh.returning;
+
           entityInfo.services[serviceName].push({
             name: methodName,
-            expects: mesh.expects,
-            returns: mesh.returns,
-            requestStream: mesh['request-stream'] === true || mesh.requestStream === true,
-            responseStream: mesh['response-stream'] === true || mesh.responseStream === true || mesh.stream === true || mesh.subscribe === true || mesh.type === 'subscribe'
+            expects: expects,
+            returns: returns,
+            requestStream: !!mesh.expecting,
+            responseStream: !!mesh.returning || mesh.stream === true || mesh.subscribe === true || mesh.type === 'subscribe'
           });
 
-          if (mesh.expects) {
-            entityInfo.variablesUsed.add(mesh.expects);
-            pkgInfo.variablesUsed.add(mesh.expects);
+          if (expects) {
+            entityInfo.variablesUsed.add(expects);
+            pkgInfo.variablesUsed.add(expects);
           }
-          if (mesh.returns) {
-            entityInfo.variablesUsed.add(mesh.returns);
-            pkgInfo.variablesUsed.add(mesh.returns);
+          if (returns) {
+            entityInfo.variablesUsed.add(returns);
+            pkgInfo.variablesUsed.add(returns);
           }
         }
       }
