@@ -136,7 +136,8 @@ function generateMessageProto(varCode) {
   } else {
     properties.forEach((prop, idx) => {
       const fieldType = mapPropertyType(prop);
-      fieldsStr += `  ${fieldType} ${prop.name} = ${idx + 1};\n`;
+      const fieldName = (prop['name-code'] || prop.name).toLowerCase();
+      fieldsStr += `  ${fieldType} ${fieldName} = ${idx + 1};\n`;
     });
   }
 

@@ -13,21 +13,21 @@
   name: User ID Text
   component:
     name-code: EIC1020
-    text: EAMV8001.user_id
+    text: EAMV8001.eamvt8001
     variant: body01
 
 - name-code: EAIC8003
   name: Display Name Text
   component:
     name-code: EIC1020
-    text: EAMV8001.display_name
+    text: EAMV8001.eamvt8002
     variant: body01
 
 - name-code: EAIC8004
   name: Email Text
   component:
     name-code: EIC1020
-    text: EAMV8001.email
+    text: EAMV8001.eamvt8003
     variant: body02
 
 # Button to trigger gRPC Capability
