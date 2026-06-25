@@ -118,6 +118,7 @@ function findFiles(dir, filename) {
 const args = process.argv.slice(2);
 const contractsRoot = args[args.indexOf('--contracts-root') + 1] || '.';
 const systemContractsRoot = args[args.indexOf('--system-contracts-root') + 1] || '../eapp-system-contracts';
+const goModulePrefix = process.env.GO_DOMAIN_MODULE_PREFIX || 'github.com/50gramx/eapp-golang-domain';
 
 console.log(`Starting YAML to Proto compilation.`);
 console.log(`Contracts Root: ${contractsRoot}`);
@@ -337,7 +338,7 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
       entitiesContent += '\n';
     }
 
-    entitiesContent += `option go_package = "${packageName.replace(/\./g, '/')}/entities;entities";\n\n`;
+    entitiesContent += `option go_package = "${goModulePrefix}/${packageName.replace(/\./g, '/')}/entities;entities";\n\n`;
 
     variablesUsed.forEach(varCode => {
       entitiesContent += generateMessageProto(varCode) + '\n\n';
@@ -358,7 +359,7 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
         servicesContent += `import "${packageName.replace(/\./g, '/')}/entities.proto";\n\n`;
       }
 
-      servicesContent += `option go_package = "${packageName.replace(/\./g, '/')}/services;services";\n\n`;
+      servicesContent += `option go_package = "${goModulePrefix}/${packageName.replace(/\./g, '/')}/services;services";\n\n`;
 
       // Generate services for this entity
       for (const [serviceName, methods] of Object.entries(entityInfo.services)) {
