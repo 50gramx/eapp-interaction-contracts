@@ -1,9 +1,9 @@
 # Mesh Capability: maps to gRPC service ProfileService.GetProfile.
 # Triggers mesh-invoke command under-the-hood.
-- name-code: EALC8001
+- name-code: EAMC8001
   name: Fetch Mesh Profile
   mesh:
-    service: ethos.elint.services.product.identity.ProfileService
+    service: community.apps.gramx.fifty.zero.ethos.mesh_demo.ProfileService
     method: GetProfile
-    expects: EAIV8002
-    returns: EAIV8001
+    expects: EAMV8002
+    returns: EAMV8001

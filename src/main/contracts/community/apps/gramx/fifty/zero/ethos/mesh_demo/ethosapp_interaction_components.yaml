@@ -13,21 +13,21 @@
   name: User ID Text
   component:
     name-code: EIC1020
-    text: EAIV8001.user_id
+    text: EAMV8001.user_id
     variant: body01
 
 - name-code: EAIC8003
   name: Display Name Text
   component:
     name-code: EIC1020
-    text: EAIV8001.display_name
+    text: EAMV8001.display_name
     variant: body01
 
 - name-code: EAIC8004
   name: Email Text
   component:
     name-code: EIC1020
-    text: EAIV8001.email
+    text: EAMV8001.email
     variant: body02
 
 # Button to trigger gRPC Capability
@@ -36,4 +36,4 @@
   component:
     name-code: EIC1006
     label: Fetch Profile (gRPC Mesh Call)
-    on-click: EALC8001
+    on-click: EAMC8001

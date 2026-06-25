@@ -14,7 +14,8 @@ function toPascalCase(str) {
 
 // Map YAML properties to Proto3 types
 function mapPropertyType(prop) {
-  const type = (prop.type || 'string').toLowerCase();
+  const rawType = prop.type || 'string';
+  const type = rawType.toLowerCase();
   switch (type) {
     case 'string':
       return 'string';
@@ -32,9 +33,12 @@ function mapPropertyType(prop) {
     case 'bytes':
       return 'bytes';
     case 'list-entity':
-      return `repeated ${toPascalCase(prop['nested-entity'] || 'string')}`;
+      const nested = prop['nested-entity'] || 'string';
+      const isNestedCode = /^[A-Z]{4}\d+$/i.test(nested);
+      return `repeated ${isNestedCode ? nested.toUpperCase() : toPascalCase(nested)}`;
     default:
-      return toPascalCase(type);
+      const isTypeCode = /^[A-Z]{4}\d+$/i.test(rawType);
+      return isTypeCode ? rawType.toUpperCase() : toPascalCase(rawType);
   }
 }
 
@@ -89,10 +93,10 @@ for (const varFile of meshVarFiles) {
 function generateMessageProto(varCode) {
   const variable = variablesByCode[varCode];
   if (!variable) {
-    return `// Warning: Variable ${varCode} definition missing\nmessage ${toPascalCase(varCode)} {}`;
+    return `// Warning: Variable ${varCode} definition missing\nmessage ${varCode} {}`;
   }
 
-  const msgName = toPascalCase(variable.name);
+  const msgName = varCode;
   
   // Extract explicit properties
   const properties = [];
@@ -138,18 +142,23 @@ for (const capFile of meshCapFiles) {
     const content = fs.readFileSync(capFile, 'utf8');
     const parsed = yaml.parse(content);
     if (Array.isArray(parsed)) {
+      // Derive package path relative to contracts directory
+      const relativeDir = path.relative(path.join(contractsRoot, 'src/main/contracts'), path.dirname(capFile));
+      const derivedPackage = relativeDir.replace(/[\\/]/g, '.');
+
       for (const cap of parsed) {
         if (cap && cap.mesh) {
           const mesh = cap.mesh;
-          const serviceFull = mesh.service; // e.g. ethos.elint.services.product.identity.ProfileService
+          const serviceFull = mesh.service; 
           if (!serviceFull) continue;
 
-          const parts = serviceFull.split('.');
-          const serviceName = parts.pop(); // ProfileService
-          const packageName = parts.join('.'); // ethos.elint.services.product.identity
+          const serviceName = serviceFull.split('.').pop(); // e.g. ProfileService
+          const packageName = derivedPackage; // e.g. community.apps.gramx.fifty.zero.ethos.mesh_demo
 
-          if (!servicesMap[serviceFull]) {
-            servicesMap[serviceFull] = {
+          const serviceKey = packageName + '.' + serviceName;
+
+          if (!servicesMap[serviceKey]) {
+            servicesMap[serviceKey] = {
               serviceName,
               packageName,
               methods: [],
@@ -157,14 +166,14 @@ for (const capFile of meshCapFiles) {
             };
           }
 
-          servicesMap[serviceFull].methods.push({
+          servicesMap[serviceKey].methods.push({
             name: mesh.method,
             expects: mesh.expects,
             returns: mesh.returns
           });
 
-          if (mesh.expects) servicesMap[serviceFull].variablesUsed.add(mesh.expects);
-          if (mesh.returns) servicesMap[serviceFull].variablesUsed.add(mesh.returns);
+          if (mesh.expects) servicesMap[serviceKey].variablesUsed.add(mesh.expects);
+          if (mesh.returns) servicesMap[serviceKey].variablesUsed.add(mesh.returns);
         }
       }
     }
@@ -174,7 +183,7 @@ for (const capFile of meshCapFiles) {
 }
 
 // 3. Generate and write the .proto files
-for (const [serviceFull, serviceInfo] of Object.entries(servicesMap)) {
+for (const [serviceKey, serviceInfo] of Object.entries(servicesMap)) {
   const { serviceName, packageName, methods, variablesUsed } = serviceInfo;
 
   let protoContent = `syntax = "proto3";\n\npackage ${packageName};\n\n`;
@@ -192,8 +201,8 @@ for (const [serviceFull, serviceInfo] of Object.entries(servicesMap)) {
   methods.forEach(method => {
     const reqVar = variablesByCode[method.expects];
     const resVar = variablesByCode[method.returns];
-    const reqName = reqVar ? toPascalCase(reqVar.name) : 'EmptyRequest';
-    const resName = resVar ? toPascalCase(resVar.name) : 'EmptyResponse';
+    const reqName = reqVar ? reqVar['name-code'] : (method.expects || 'EmptyRequest');
+    const resName = resVar ? resVar['name-code'] : (method.returns || 'EmptyResponse');
 
     protoContent += `  rpc ${method.name} (${reqName}) returns (${resName});\n`;
   });

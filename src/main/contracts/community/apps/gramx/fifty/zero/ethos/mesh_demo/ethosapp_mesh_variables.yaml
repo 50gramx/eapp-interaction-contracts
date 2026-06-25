@@ -1,5 +1,5 @@
 # Mesh Profile entity - auto-provisions local SQLite DB and log table.
-- name-code: EAIV8001
+- name-code: EAMV8001
   name: Mesh Profile
   type: ELVT1021
   db: true
@@ -11,7 +11,7 @@
       email: "mock@mesh.net"
 
 # Input filter structure for capability invocation
-- name-code: EAIV8002
+- name-code: EAMV8002
   name: Filter Input
   type: ELVT1019
   default:
