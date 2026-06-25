@@ -144,7 +144,20 @@ function generateMessageProto(varCode) {
   return `message ${msgName} {\n${fieldsStr}}`;
 }
 
-// 2. Parse capabilities and group by package
+// Helper to find target entity variable
+function getTargetEntity(mesh) {
+  const returns = mesh.returns;
+  const expects = mesh.expects;
+  if (returns && (returns.startsWith('EAMV') || returns.startsWith('EAIV'))) {
+    return returns;
+  }
+  if (expects && (expects.startsWith('EAMV') || expects.startsWith('EAIV'))) {
+    return expects;
+  }
+  return 'EAMVDefault';
+}
+
+// 2. Parse capabilities and group by package and entity
 const packagesMap = {};
 
 for (const capFile of meshCapFiles) {
@@ -159,50 +172,48 @@ for (const capFile of meshCapFiles) {
       if (!packagesMap[packageName]) {
         packagesMap[packageName] = {
           packageName,
-          services: {},
+          entities: {},
           variablesUsed: new Set()
         };
       }
 
       const pkgInfo = packagesMap[packageName];
 
-      // Load ethosapp.yaml in the same directory to resolve the stable Service name from app's name-code
-      let appServiceDefaultName = null;
-      try {
-        const ethosappPath = path.join(path.dirname(capFile), 'ethosapp.yaml');
-        if (fs.existsSync(ethosappPath)) {
-          const ethosappYaml = yaml.parse(fs.readFileSync(ethosappPath, 'utf8'));
-          if (ethosappYaml && ethosappYaml['name-code']) {
-            appServiceDefaultName = toPascalCase(ethosappYaml['name-code']) + 'Service';
-          }
-        }
-      } catch (err) {
-        console.warn(`Could not read ethosapp.yaml in ${path.dirname(capFile)}`, err);
-      }
-
       for (const cap of parsed) {
         if (cap && cap.mesh) {
           const mesh = cap.mesh;
-          const serviceFull = mesh.service; 
-          if (!serviceFull) continue;
-
-          // Use resolved stable service name from ethosapp.yaml, or fallback to the parsed service name
-          const serviceName = appServiceDefaultName || serviceFull.split('.').pop();
-          // RPC method name: use capability name-code, or fallback to capability method name
+          const targetEntity = getTargetEntity(mesh);
+          const context = mesh.context || 'general';
+          const capContext = context.charAt(0).toUpperCase() + context.slice(1).toLowerCase();
+          const serviceName = `${targetEntity}${capContext}Service`;
           const methodName = cap['name-code'] || mesh.method;
 
-          if (!pkgInfo.services[serviceName]) {
-            pkgInfo.services[serviceName] = [];
+          if (!pkgInfo.entities[targetEntity]) {
+            pkgInfo.entities[targetEntity] = {
+              services: {},
+              variablesUsed: new Set()
+            };
           }
 
-          pkgInfo.services[serviceName].push({
+          const entityInfo = pkgInfo.entities[targetEntity];
+          if (!entityInfo.services[serviceName]) {
+            entityInfo.services[serviceName] = [];
+          }
+
+          entityInfo.services[serviceName].push({
             name: methodName,
             expects: mesh.expects,
             returns: mesh.returns
           });
 
-          if (mesh.expects) pkgInfo.variablesUsed.add(mesh.expects);
-          if (mesh.returns) pkgInfo.variablesUsed.add(mesh.returns);
+          if (mesh.expects) {
+            entityInfo.variablesUsed.add(mesh.expects);
+            pkgInfo.variablesUsed.add(mesh.expects);
+          }
+          if (mesh.returns) {
+            entityInfo.variablesUsed.add(mesh.returns);
+            pkgInfo.variablesUsed.add(mesh.returns);
+          }
         }
       }
     }
@@ -211,13 +222,24 @@ for (const capFile of meshCapFiles) {
   }
 }
 
-// 3. Generate and write the .proto files (entities.proto and services.proto)
+// 3. Generate and write the .proto files (entities.proto and <entity>_service.proto)
 for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
-  const { services, variablesUsed } = pkgInfo;
+  const { entities, variablesUsed } = pkgInfo;
 
   const relativePath = packageName.replace(/\./g, '/');
   const targetDir = path.join(systemContractsRoot, 'src/main/proto', relativePath);
   fs.mkdirSync(targetDir, { recursive: true });
+
+  // Clean up old services.proto if it exists
+  const oldServicesFile = path.join(targetDir, 'services.proto');
+  if (fs.existsSync(oldServicesFile)) {
+    try {
+      fs.unlinkSync(oldServicesFile);
+      console.log(`Cleaned up old Services file: ${oldServicesFile}`);
+    } catch (e) {
+      console.warn(`Could not delete old services file: ${oldServicesFile}`, e);
+    }
+  }
 
   // Write entities.proto
   if (variablesUsed.size > 0) {
@@ -233,34 +255,36 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
     console.log(`Generated Proto Entities: ${entitiesFile}`);
   }
 
-  // Write services.proto
-  if (Object.keys(services).length > 0) {
-    let servicesContent = `syntax = "proto3";\n\npackage ${packageName};\n\n`;
+  // Write <entity>_service.proto files
+  for (const [entityCode, entityInfo] of Object.entries(entities)) {
+    if (Object.keys(entityInfo.services).length > 0) {
+      let servicesContent = `syntax = "proto3";\n\npackage ${packageName};\n\n`;
 
-    // Import entities.proto
-    if (variablesUsed.size > 0) {
-      servicesContent += `import "${packageName.replace(/\./g, '/')}/entities.proto";\n\n`;
+      // Import entities.proto
+      if (variablesUsed.size > 0) {
+        servicesContent += `import "${packageName.replace(/\./g, '/')}/entities.proto";\n\n`;
+      }
+
+      servicesContent += `option go_package = "${packageName.replace(/\./g, '/')};services";\n\n`;
+
+      // Generate services for this entity
+      for (const [serviceName, methods] of Object.entries(entityInfo.services)) {
+        servicesContent += `service ${serviceName} {\n`;
+        methods.forEach(method => {
+          const reqVar = variablesByCode[method.expects];
+          const resVar = variablesByCode[method.returns];
+          const reqName = reqVar ? reqVar['name-code'] : (method.expects || 'EmptyRequest');
+          const resName = resVar ? resVar['name-code'] : (method.returns || 'EmptyResponse');
+
+          servicesContent += `  rpc ${method.name} (${reqName}) returns (${resName});\n`;
+        });
+        servicesContent += `}\n\n`;
+      }
+
+      const serviceFile = path.join(targetDir, `${entityCode}_service.proto`);
+      fs.writeFileSync(serviceFile, servicesContent, 'utf8');
+      console.log(`Generated Proto Service: ${serviceFile}`);
     }
-
-    servicesContent += `option go_package = "${packageName.replace(/\./g, '/')};services";\n\n`;
-
-    // Generate services
-    for (const [serviceName, methods] of Object.entries(services)) {
-      servicesContent += `service ${serviceName} {\n`;
-      methods.forEach(method => {
-        const reqVar = variablesByCode[method.expects];
-        const resVar = variablesByCode[method.returns];
-        const reqName = reqVar ? reqVar['name-code'] : (method.expects || 'EmptyRequest');
-        const resName = resVar ? resVar['name-code'] : (method.returns || 'EmptyResponse');
-
-        servicesContent += `  rpc ${method.name} (${reqName}) returns (${resName});\n`;
-      });
-      servicesContent += `}\n\n`;
-    }
-
-    const servicesFile = path.join(targetDir, 'services.proto');
-    fs.writeFileSync(servicesFile, servicesContent, 'utf8');
-    console.log(`Generated Proto Services: ${servicesFile}`);
   }
 }
 

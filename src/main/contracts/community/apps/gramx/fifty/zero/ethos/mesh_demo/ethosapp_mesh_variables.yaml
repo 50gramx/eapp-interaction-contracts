@@ -2,23 +2,20 @@
 - name-code: EAMV8001
   name: Mesh Profile
   type: ELVT1021
-  db: true
-  log: true
+  modelled: true
   properties:
     - name-code: EAMVT8001
       name: user_id
       type: ELVT1007
+      default: "usr-456"
     - name-code: EAMVT8002
       name: display_name
       type: ELVT1007
+      default: "Mock Mesh User"
     - name-code: EAMVT8003
       name: email
       type: ELVT1007
-  default:
-    value:
-      user_id: "usr-456"
-      display_name: "Mock Mesh User"
-      email: "mock@mesh.net"
+      default: "mock@mesh.net"
 
 # Input filter structure for capability invocation
 - name-code: EAMV8002
@@ -28,6 +25,4 @@
     - name-code: EAMVT8004
       name: user_id
       type: ELVT1007
-  default:
-    value:
-      user_id: "usr-456"
+      default: "usr-456"

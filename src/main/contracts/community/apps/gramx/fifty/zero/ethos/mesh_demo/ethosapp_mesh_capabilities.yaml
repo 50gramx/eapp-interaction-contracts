@@ -1,9 +1,9 @@
-# Mesh Capability: maps to gRPC service ProfileService.GetProfile.
+# Mesh Capability: maps to gRPC service.
 # Triggers mesh-invoke command under-the-hood.
 - name-code: EAMC8001
   name: Fetch Mesh Profile
   mesh:
-    service: EthosBrowserEvoMeshDemoService
+    context: discover
     method: EAMC8001
     expects: EAMV8002
     returns: EAMV8001
