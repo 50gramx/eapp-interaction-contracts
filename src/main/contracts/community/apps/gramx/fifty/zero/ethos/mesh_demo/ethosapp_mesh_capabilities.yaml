@@ -3,7 +3,7 @@
 - name-code: EAMC8001
   name: Fetch Mesh Profile
   mesh:
-    service: community.apps.gramx.fifty.zero.ethos.mesh_demo.ProfileService
-    method: GetProfile
+    service: community.apps.gramx.fifty.zero.ethos.mesh_demo.EthosBrowserEvoMeshDemoService
+    method: EAMC8001
     expects: EAMV8002
     returns: EAMV8001
