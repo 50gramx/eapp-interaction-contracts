@@ -12,33 +12,42 @@ function toPascalCase(str) {
     .replace(/\s+/g, '');
 }
 
-// Map YAML properties to Proto3 types
+// Map ELVT core types and EAMV custom entity types to Proto3 types
 function mapPropertyType(prop) {
-  const rawType = prop.type || 'string';
-  const type = rawType.toLowerCase();
+  const rawType = prop.type || 'ELVT1007';
+  const type = rawType.toUpperCase();
+  
+  if (/^EAMV\d+$/i.test(type)) {
+    return prop.repeated ? `repeated ${type}` : type;
+  }
+  
   switch (type) {
-    case 'string':
-      return 'string';
-    case 'int':
-    case 'integer':
-    case 'int64':
-      return 'int64';
-    case 'double':
-      return 'double';
-    case 'float':
-      return 'float';
-    case 'bool':
-    case 'boolean':
-      return 'bool';
-    case 'bytes':
-      return 'bytes';
-    case 'list-entity':
-      const nested = prop['nested-entity'] || 'string';
-      const isNestedCode = /^[A-Z]{4}\d+$/i.test(nested);
-      return `repeated ${isNestedCode ? nested.toUpperCase() : toPascalCase(nested)}`;
+    case 'ELVT1007': // String
+    case 'STRING':
+      return prop.repeated ? 'repeated string' : 'string';
+    case 'ELVT1006': // Integer
+    case 'INT':
+    case 'INTEGER':
+    case 'INT64':
+      return prop.repeated ? 'repeated int64' : 'int64';
+    case 'ELVT1002': // Boolean
+    case 'BOOL':
+    case 'BOOLEAN':
+      return prop.repeated ? 'repeated bool' : 'bool';
+    case 'ELVT1004': // Double
+    case 'DOUBLE':
+      return prop.repeated ? 'repeated double' : 'double';
+    case 'ELVT1005': // Float
+    case 'FLOAT':
+      return prop.repeated ? 'repeated float' : 'float';
+    case 'ELVT1008': // Bytes
+    case 'BYTES':
+      return prop.repeated ? 'repeated bytes' : 'bytes';
     default:
+      // Check if it looks like a variable/entity type code
       const isTypeCode = /^[A-Z]{4}\d+$/i.test(rawType);
-      return isTypeCode ? rawType.toUpperCase() : toPascalCase(rawType);
+      const mappedType = isTypeCode ? rawType.toUpperCase() : toPascalCase(rawType);
+      return prop.repeated ? `repeated ${mappedType}` : mappedType;
   }
 }
 

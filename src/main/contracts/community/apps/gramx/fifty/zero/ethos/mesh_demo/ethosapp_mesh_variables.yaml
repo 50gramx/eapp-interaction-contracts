@@ -4,6 +4,16 @@
   type: ELVT1021
   db: true
   log: true
+  properties:
+    - name-code: EAMVT8001
+      name: user_id
+      type: ELVT1007
+    - name-code: EAMVT8002
+      name: display_name
+      type: ELVT1007
+    - name-code: EAMVT8003
+      name: email
+      type: ELVT1007
   default:
     value:
       user_id: "usr-456"
@@ -14,6 +24,10 @@
 - name-code: EAMV8002
   name: Filter Input
   type: ELVT1019
+  properties:
+    - name-code: EAMVT8004
+      name: user_id
+      type: ELVT1007
   default:
     value:
       user_id: "usr-456"
