@@ -1,39 +1,278 @@
-# Card showing reactive profile details using dot-path resolution
+﻿# Protobuf scalar coverage card.
 - name-code: EAIC8001
-  name: Profile Card
+  name: Scalar Coverage Card
   component:
     name-code: EIC1023
-    title: User Profile
+    title: Protobuf Scalar Coverage
     children-components:
       - EAIC8002
       - EAIC8003
       - EAIC8004
+      - EAIC8005
+      - EAIC8006
+      - EAIC8007
+      - EAIC8008
 
 - name-code: EAIC8002
-  name: User ID Text
+  name: Scalar Coverage Text
   component:
     name-code: EIC1020
-    text: EAMV8001.eamvt8001
+    text: Supported basic scalars in ELVT are string, int64, double, float, bool, bytes, enum, and map support via ELVT1019.
     variant: body01
 
 - name-code: EAIC8003
-  name: Display Name Text
+  name: Missing Scalar Text
   component:
     name-code: EIC1020
-    text: EAMV8001.eamvt8002
+    text: Missing scalar variants are int32, uint32, uint64, sint32, sint64, fixed32, fixed64, sfixed32, and sfixed64.
     variant: body01
 
 - name-code: EAIC8004
-  name: Email Text
+  name: Oneof Text
   component:
     name-code: EIC1020
-    text: EAMV8001.eamvt8003
+    text: oneof is not a first-class ELVT type, so it must be modeled as nullable sibling fields or a tagged union pattern.
+    variant: body01
+
+- name-code: EAIC8005
+  name: WKT Coverage Text
+  component:
+    name-code: EIC1020
+    text: Supported WKT-style demo fields cover Timestamp, Duration, Any, Struct, Value/ListValue via map/list shapes, Empty, and FieldMask.
+    variant: body01
+
+- name-code: EAIC8006
+  name: App-Primitives Text
+  component:
+    name-code: EIC1020
+    text: The demo also shows the app-level primitives usually needed to ship a real app: text controllers, URL/URI, UUID, color, email, phone, currency, and geo.
+    variant: body01
+
+- name-code: EAIC8007
+  name: Demo Data Text
+  component:
+    name-code: EIC1020
+    text: Open the profile entity below to inspect the concrete field defaults used by the demo.
     variant: body02
 
-# Button to trigger gRPC Capability
-- name-code: EAIC8005
-  name: Invoke Mesh Button
+- name-code: EAIC8008
+  name: Demo Entity Card
   component:
-    name-code: EIC1006
-    label: Fetch Profile (gRPC Mesh Call)
-    on-click: EAMC8001
+    name-code: EIC1023
+    title: Mesh Profile Entity
+    children-components:
+      - EAIC8009
+      - EAIC8010
+      - EAIC8011
+      - EAIC8012
+      - EAIC8013
+      - EAIC8014
+      - EAIC8015
+      - EAIC8016
+      - EAIC8017
+      - EAIC8018
+      - EAIC8019
+      - EAIC8020
+      - EAIC8021
+      - EAIC8022
+      - EAIC8023
+      - EAIC8024
+      - EAIC8025
+      - EAIC8026
+      - EAIC8027
+      - EAIC8028
+      - EAIC8029
+      - EAIC8030
+
+- name-code: EAIC8009
+  name: User Id Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.user_id = usr-456
+    variant: body02
+
+- name-code: EAIC8010
+  name: Display Name Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.display_name = Mock Mesh User
+    variant: body02
+
+- name-code: EAIC8011
+  name: Email Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.email = mock@mesh.net
+    variant: body02
+
+- name-code: EAIC8012
+  name: Double Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.double_val = 100.5
+    variant: body02
+
+- name-code: EAIC8013
+  name: Float Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.float_val = 12.25
+    variant: body02
+
+- name-code: EAIC8014
+  name: int64 Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.int64_val = 30
+    variant: body02
+
+- name-code: EAIC8015
+  name: int32/uint32/uint64 Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.int32_val = 123, EAMV8001.uint32_val = 456, EAMV8001.uint64_val = 789
+    variant: body02
+
+- name-code: EAIC8016
+  name: sint32/sint64 Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.sint32_val = -12, EAMV8001.sint64_val = -34
+    variant: body02
+
+- name-code: EAIC8017
+  name: fixed32/fixed64 Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.fixed32_val = 56, EAMV8001.fixed64_val = 78
+    variant: body02
+
+- name-code: EAIC8018
+  name: sfixed32/sfixed64 Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.sfixed32_val = -90, EAMV8001.sfixed64_val = -120
+    variant: body02
+
+- name-code: EAIC8019
+  name: Timestamp Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.timestamp_val = ELVT1031 / Timestamp
+    variant: body02
+
+- name-code: EAIC8020
+  name: Duration Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.duration_val = ELVT1032 / Duration
+    variant: body02
+
+- name-code: EAIC8021
+  name: Empty Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.empty_val = ELVT1033 / Empty message
+    variant: body02
+
+- name-code: EAIC8022
+  name: Struct Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.struct_val = ELVT1034 / Struct-like map
+    variant: body02
+
+- name-code: EAIC8023
+  name: Any Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.any_val = ELVT1035 / Any-like dynamic payload
+    variant: body02
+
+- name-code: EAIC8024
+  name: FieldMask Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.field_mask = ELVT1036 / FieldMask
+    variant: body02
+
+- name-code: EAIC8025
+  name: Nested Details Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.nested_details.account_status = active
+    variant: body02
+
+- name-code: EAIC8026
+  name: Nested Balance Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.nested_details.balance = 100.50
+    variant: body02
+
+- name-code: EAIC8027
+  name: Bytes Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.bytes_val = [] / bytes payload
+    variant: body02
+
+- name-code: EAIC8028
+  name: Bool Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.bool_val = true
+    variant: body02
+
+- name-code: EAIC8029
+  name: Map Field
+  component:
+    name-code: EIC1020
+    text: EAMV8002 = { user_id: usr-456 } / ELVT1019 map
+    variant: body02
+
+- name-code: EAIC8030
+  name: List Value Field
+  component:
+    name-code: EIC1020
+    text: EAMV8001.list_value = [] / ELVT1018 list-style payload
+    variant: body02
+
+- name-code: EAIC8031
+  name: Mesh Capability Summary
+  component:
+    name-code: EIC1023
+    title: Mesh Capability Surface
+    children-components:
+      - EAIC8032
+      - EAIC8033
+      - EAIC8034
+      - EAIC8035
+
+- name-code: EAIC8032
+  name: Unary Capability Note
+  component:
+    name-code: EIC1020
+    text: EAMC8001 uses expects + returns to model a unary request/response mesh call.
+    variant: body02
+
+- name-code: EAIC8033
+  name: Client Stream Capability Note
+  component:
+    name-code: EIC1020
+    text: EAMC8002 uses expecting + returns to model streaming input into a service.
+    variant: body02
+
+- name-code: EAIC8034
+  name: Server Stream Capability Note
+  component:
+    name-code: EIC1020
+    text: EAMC8003 uses expects + returning to model streaming output from a service.
+    variant: body02
+
+- name-code: EAIC8035
+  name: Bidi Capability Note
+  component:
+    name-code: EIC1020
+    text: EAMC8004 uses expecting + returning to model bidirectional mesh exchange.
+    variant: body02

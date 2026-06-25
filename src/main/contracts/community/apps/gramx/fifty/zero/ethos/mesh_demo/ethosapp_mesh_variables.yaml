@@ -1,4 +1,4 @@
-# Mesh Profile entity - auto-provisions local SQLite DB and log table.
+﻿# Protobuf mesh demo entity - covers scalar types, missing scalar variants, and WKT-style structures.
 - name-code: EAMV8001
   name: Mesh Profile
   type: ELVT1021
@@ -16,22 +16,91 @@
       name: email
       type: ELVT1007
       default: "mock@mesh.net"
+    - name-code: EAMVT8028
+      name: double_val
+      type: ELVT1004
+      default: 100.5
+    - name-code: EAMVT8029
+      name: float_val
+      type: ELVT1005
+      default: 12.25
     - name-code: EAMVT8007
-      name: age
+      name: int64_val
       type: ELVT1006
       default: 30
     - name-code: EAMVT8008
-      name: active
+      name: bool_val
       type: ELVT1002
       default: true
     - name-code: EAMVT8009
-      name: avatar_bytes
+      name: bytes_val
       type: ELVT1008
     - name-code: EAMVT8010
-      name: details
+      name: nested_details
       type: EAMV8003
+    - name-code: EAMVT8011
+      name: int32_val
+      type: ELVT1022
+      default: 123
+    - name-code: EAMVT8012
+      name: uint32_val
+      type: ELVT1023
+      default: 456
+    - name-code: EAMVT8013
+      name: uint64_val
+      type: ELVT1024
+      default: 789
+    - name-code: EAMVT8014
+      name: sint32_val
+      type: ELVT1025
+      default: -12
+    - name-code: EAMVT8015
+      name: sint64_val
+      type: ELVT1026
+      default: -34
+    - name-code: EAMVT8016
+      name: fixed32_val
+      type: ELVT1027
+      default: 56
+    - name-code: EAMVT8017
+      name: fixed64_val
+      type: ELVT1028
+      default: 78
+    - name-code: EAMVT8018
+      name: sfixed32_val
+      type: ELVT1029
+      default: -90
+    - name-code: EAMVT8019
+      name: sfixed64_val
+      type: ELVT1030
+      default: -120
+    - name-code: EAMVT8020
+      name: timestamp_val
+      type: ELVT1031
+    - name-code: EAMVT8021
+      name: duration_val
+      type: ELVT1032
+      default: 5000
+    - name-code: EAMVT8022
+      name: empty_val
+      type: ELVT1033
+    - name-code: EAMVT8023
+      name: struct_val
+      type: ELVT1034
+    - name-code: EAMVT8024
+      name: any_val
+      type: ELVT1035
+    - name-code: EAMVT8025
+      name: field_mask
+      type: ELVT1036
+    - name-code: EAMVT8030
+      name: list_value
+      type: ELVT1018
+    - name-code: EAMVT8031
+      name: map_val
+      type: EAMV8002
 
-# Input filter structure for capability invocation
+# Input filter structure for capability invocation.
 - name-code: EAMV8002
   name: Filter Input
   type: ELVT1019
@@ -41,7 +110,7 @@
       type: ELVT1007
       default: "usr-456"
 
-# Nested Details variable structure used as a property type
+# Nested Details variable structure used as a property type.
 - name-code: EAMV8003
   name: Nested Details
   type: ELVT1021
@@ -50,7 +119,7 @@
       name: account_status
       type: ELVT1007
       default: "active"
-    - name-code: EAMVT8006
+    - name-code: EAMVT8032
       name: balance
       type: ELVT1004
       default: 100.50

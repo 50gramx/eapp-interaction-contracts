@@ -1,5 +1,8 @@
-# Mesh Capabilities demo:
-# Includes Unary, Client Streaming, Server Streaming, and Bidirectional Streaming.
+﻿# Mesh capability demo: shows the full contract surface used by future mesh eApps.
+# - EAMC8001: unary request / response
+# - EAMC8002: client-streaming request
+# - EAMC8003: server-streaming response
+# - EAMC8004: bidirectional streaming request/response
 
 - name-code: EAMC8001
   name: Fetch Mesh Profile

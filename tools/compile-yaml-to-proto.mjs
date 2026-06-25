@@ -30,6 +30,51 @@ function mapPropertyType(prop) {
     case 'INTEGER':
     case 'INT64':
       return prop.repeated ? 'repeated int64' : 'int64';
+    case 'ELVT1022':
+    case 'INT32':
+      return prop.repeated ? 'repeated int32' : 'int32';
+    case 'ELVT1023':
+    case 'UINT32':
+      return prop.repeated ? 'repeated uint32' : 'uint32';
+    case 'ELVT1024':
+    case 'UINT64':
+      return prop.repeated ? 'repeated uint64' : 'uint64';
+    case 'ELVT1025':
+    case 'SINT32':
+      return prop.repeated ? 'repeated sint32' : 'sint32';
+    case 'ELVT1026':
+    case 'SINT64':
+      return prop.repeated ? 'repeated sint64' : 'sint64';
+    case 'ELVT1027':
+    case 'FIXED32':
+      return prop.repeated ? 'repeated fixed32' : 'fixed32';
+    case 'ELVT1028':
+    case 'FIXED64':
+      return prop.repeated ? 'repeated fixed64' : 'fixed64';
+    case 'ELVT1029':
+    case 'SFIXED32':
+      return prop.repeated ? 'repeated sfixed32' : 'sfixed32';
+    case 'ELVT1030':
+    case 'SFIXED64':
+      return prop.repeated ? 'repeated sfixed64' : 'sfixed64';
+    case 'ELVT1031':
+    case 'TIMESTAMP':
+      return prop.repeated ? 'repeated google.protobuf.Timestamp' : 'google.protobuf.Timestamp';
+    case 'ELVT1032':
+    case 'DURATION':
+      return prop.repeated ? 'repeated google.protobuf.Duration' : 'google.protobuf.Duration';
+    case 'ELVT1033':
+    case 'EMPTY':
+      return prop.repeated ? 'repeated google.protobuf.Empty' : 'google.protobuf.Empty';
+    case 'ELVT1034':
+    case 'STRUCT':
+      return prop.repeated ? 'repeated google.protobuf.Struct' : 'google.protobuf.Struct';
+    case 'ELVT1035':
+    case 'ANY':
+      return prop.repeated ? 'repeated google.protobuf.Any' : 'google.protobuf.Any';
+    case 'ELVT1036':
+    case 'FIELDMASK':
+      return prop.repeated ? 'repeated google.protobuf.FieldMask' : 'google.protobuf.FieldMask';
     case 'ELVT1002': // Boolean
     case 'BOOL':
     case 'BOOLEAN':
@@ -265,6 +310,31 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
   // Write entities.proto
   if (variablesUsed.size > 0) {
     let entitiesContent = `syntax = "proto3";\n\npackage ${packageName};\n\n`;
+
+    // Scan variables to see if we need WKT imports
+    const wktImports = new Set();
+    variablesUsed.forEach(varCode => {
+      const variable = variablesByCode[varCode];
+      if (variable && Array.isArray(variable.properties)) {
+        variable.properties.forEach(prop => {
+          const propType = (prop.type || '').toUpperCase();
+          if (propType === 'ELVT1031' || propType === 'TIMESTAMP') wktImports.add('google/protobuf/timestamp.proto');
+          if (propType === 'ELVT1032' || propType === 'DURATION') wktImports.add('google/protobuf/duration.proto');
+          if (propType === 'ELVT1033' || propType === 'EMPTY') wktImports.add('google/protobuf/empty.proto');
+          if (propType === 'ELVT1034' || propType === 'STRUCT') wktImports.add('google/protobuf/struct.proto');
+          if (propType === 'ELVT1035' || propType === 'ANY') wktImports.add('google/protobuf/any.proto');
+          if (propType === 'ELVT1036' || propType === 'FIELDMASK') wktImports.add('google/protobuf/field_mask.proto');
+        });
+      }
+    });
+
+    wktImports.forEach(imp => {
+      entitiesContent += `import "${imp}";\n`;
+    });
+    if (wktImports.size > 0) {
+      entitiesContent += '\n';
+    }
+
     entitiesContent += `option go_package = "${packageName.replace(/\./g, '/')};entities";\n\n`;
 
     variablesUsed.forEach(varCode => {

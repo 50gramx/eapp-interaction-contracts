@@ -1,7 +1,7 @@
-# Main Page for Mesh Demo
+﻿# Single-page demo.
 - name-code: EAIP8001
   name: Mesh Demo Page
   composition:
-    name-code: EIC1005 # Column
+    name-code: EIC1005
     children-components:
-      - EAIT8001 # Main Tile
+      - EAIT8001

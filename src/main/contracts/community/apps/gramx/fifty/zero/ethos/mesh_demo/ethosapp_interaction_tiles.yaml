@@ -1,8 +1,8 @@
-# Main Tile holding the profile card and execute button
+﻿# Two-column demo tile that keeps the summary and concrete field samples together.
 - name-code: EAIT8001
-  name: Mesh Profile Tile
+  name: Mesh Protobuf Demo Tile
   composition:
-    name-code: EIC1005 # Column
+    name-code: EIC1005
     children-components:
-      - EAIC8001 # Profile Card
-      - EAIC8005 # Invoke Mesh Button
+      - EAIC8001
+      - EAIC8008
