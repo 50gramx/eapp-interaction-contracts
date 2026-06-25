@@ -75,6 +75,8 @@ function mapPropertyType(prop) {
     case 'ELVT1036':
     case 'FIELDMASK':
       return prop.repeated ? 'repeated google.protobuf.FieldMask' : 'google.protobuf.FieldMask';
+    case 'ELVT1018':
+      return prop.repeated ? 'repeated google.protobuf.ListValue' : 'google.protobuf.ListValue';
     case 'ELVT1002': // Boolean
     case 'BOOL':
     case 'BOOLEAN':
