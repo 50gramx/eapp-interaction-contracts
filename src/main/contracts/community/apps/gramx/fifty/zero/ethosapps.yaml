@@ -123,6 +123,9 @@
   apps:
     - name: identity
       live: true
+    - name: mesh_demo
+      live: true
+
 
 - organisation: dr_nanda_kishore
   apps:

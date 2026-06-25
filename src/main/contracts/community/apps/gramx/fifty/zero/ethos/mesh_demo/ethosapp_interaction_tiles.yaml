@@ -1,0 +1,8 @@
+# Main Tile holding the profile card and execute button
+- name-code: EAIT8001
+  name: Mesh Profile Tile
+  composition:
+    name-code: EIC1005 # Column
+    children-components:
+      - EAIC8001 # Profile Card
+      - EAIC8005 # Invoke Mesh Button

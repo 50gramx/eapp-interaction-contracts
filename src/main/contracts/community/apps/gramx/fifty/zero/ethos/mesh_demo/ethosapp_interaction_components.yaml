@@ -1,0 +1,39 @@
+# Card showing reactive profile details using dot-path resolution
+- name-code: EAIC8001
+  name: Profile Card
+  component:
+    name-code: EIC1023
+    title: User Profile
+    children-components:
+      - EAIC8002
+      - EAIC8003
+      - EAIC8004
+
+- name-code: EAIC8002
+  name: User ID Text
+  component:
+    name-code: EIC1020
+    text: EAIV8001.user_id
+    variant: body01
+
+- name-code: EAIC8003
+  name: Display Name Text
+  component:
+    name-code: EIC1020
+    text: EAIV8001.display_name
+    variant: body01
+
+- name-code: EAIC8004
+  name: Email Text
+  component:
+    name-code: EIC1020
+    text: EAIV8001.email
+    variant: body02
+
+# Button to trigger gRPC Capability
+- name-code: EAIC8005
+  name: Invoke Mesh Button
+  component:
+    name-code: EIC1006
+    label: Fetch Profile (gRPC Mesh Call)
+    on-click: EALC8001
