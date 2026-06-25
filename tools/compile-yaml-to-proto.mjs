@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
 
@@ -337,7 +337,7 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
       entitiesContent += '\n';
     }
 
-    entitiesContent += `option go_package = "${packageName.replace(/\./g, '/')};entities";\n\n`;
+    entitiesContent += `option go_package = "${packageName.replace(/\./g, '/')}/entities;entities";\n\n`;
 
     variablesUsed.forEach(varCode => {
       entitiesContent += generateMessageProto(varCode) + '\n\n';
@@ -358,7 +358,7 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
         servicesContent += `import "${packageName.replace(/\./g, '/')}/entities.proto";\n\n`;
       }
 
-      servicesContent += `option go_package = "${packageName.replace(/\./g, '/')};services";\n\n`;
+      servicesContent += `option go_package = "${packageName.replace(/\./g, '/')}/services;services";\n\n`;
 
       // Generate services for this entity
       for (const [serviceName, methods] of Object.entries(entityInfo.services)) {
@@ -384,3 +384,4 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
 }
 
 console.log('YAML to Proto compilation completed successfully.');
+

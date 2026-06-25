@@ -1,0 +1,111 @@
+﻿- name-code: EAMV7100
+  name: Mesh Query Request
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7100
+      name: scope
+      type: ELVT1007
+      default: all
+- name-code: EAMV7101
+  name: Mesh Node Identity
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7101
+      name: did
+      type: ELVT1007
+    - name-code: EAMVT7102
+      name: peer_id
+      type: ELVT1007
+    - name-code: EAMVT7103
+      name: addrs
+      type: ELVT1007
+      repeated: true
+    - name-code: EAMVT7104
+      name: epnd_version
+      type: ELVT1007
+    - name-code: EAMVT7105
+      name: online
+      type: ELVT1002
+
+- name-code: EAMV7102
+  name: Mesh Peer Row
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7106
+      name: did
+      type: ELVT1007
+    - name-code: EAMVT7107
+      name: peer_id
+      type: ELVT1007
+    - name-code: EAMVT7108
+      name: addrs
+      type: ELVT1007
+      repeated: true
+    - name-code: EAMVT7109
+      name: operator_ids
+      type: ELVT1007
+      repeated: true
+    - name-code: EAMVT7110
+      name: connected_at
+      type: ELVT1031
+
+- name-code: EAMV7103
+  name: Mesh Peer List
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7111
+      name: peers
+      type: EAMV7102
+      repeated: true
+
+- name-code: EAMV7104
+  name: Mesh Connect Request
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7112
+      name: multiaddr
+      type: ELVT1007
+
+- name-code: EAMV7105
+  name: Mesh Connect Result
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7113
+      name: status
+      type: ELVT1007
+    - name-code: EAMVT7114
+      name: peer_id
+      type: ELVT1007
+    - name-code: EAMVT7115
+      name: connected
+      type: ELVT1002
+
+- name-code: EAMV7106
+  name: Mesh Find Request
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7116
+      name: did
+      type: ELVT1007
+
+- name-code: EAMV7107
+  name: Mesh Find Result
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT7117
+      name: did
+      type: ELVT1007
+    - name-code: EAMVT7118
+      name: peer_id
+      type: ELVT1007
+    - name-code: EAMVT7119
+      name: trust_label
+      type: ELVT1007
+    - name-code: EAMVT7120
+      name: gpu_class
+      type: ELVT1007
+    - name-code: EAMVT7121
+      name: error
+      type: ELVT1007
+
+

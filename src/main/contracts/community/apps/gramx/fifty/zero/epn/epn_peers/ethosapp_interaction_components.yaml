@@ -1,23 +1,23 @@
-# ── Identity section ──────────────────────────────────────────────────────────
+﻿# â”€â”€ Identity section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7001
   name: Identity Header
   component:
     name-code: EIC1004
-    label: Your identity — sovereign, portable
+    label: Your identity â€” sovereign, portable
 
 - name-code: EAIC7050
   name: Language Chip
   component:
     name-code: EIC1030
-    label: CARBON · instrument
+    label: CARBON Â· instrument
     status: neutral
 
 - name-code: EAIC7051
   name: Sovereign Copy
   component:
     name-code: EIC1020
-    text: One device, one root identity. Roles — operator, lender, buyer — are hats on the same head, not new identities.
+    text: One device, one root identity. Roles â€” operator, lender, buyer â€” are hats on the same head, not new identities.
     variant: caption01
     color: on-surface-subtle
 
@@ -25,7 +25,7 @@
   name: Reachable Caption
   component:
     name-code: EIC1020
-    text: Reachable at — your addresses, where peers can knock
+    text: Reachable at â€” your addresses, where peers can knock
     variant: caption01
     color: on-surface-subtle
 
@@ -69,7 +69,7 @@
     size: 200
     background-color: surface
 
-# ── Peers section ─────────────────────────────────────────────────────────────
+# â”€â”€ Peers section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7005
   name: Peers Header
@@ -128,7 +128,7 @@
     label: Refresh Peers
     on-click: EALC7002
 
-# ── Connect section ───────────────────────────────────────────────────────────
+# â”€â”€ Connect section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7012
   name: Connect Header
@@ -140,7 +140,7 @@
   name: Multiaddr Input
   component:
     name-code: EIC1009
-    hint-text: /ip4/1.2.3.4/tcp/50590/p2p/12D3…
+    hint-text: /ip4/1.2.3.4/tcp/50590/p2p/12D3â€¦
     text-controller: EALC7003
 
 - name-code: EAIC7014
@@ -165,7 +165,7 @@
     children-components:
       - EAIC7014
 
-# ── Find by DID section ───────────────────────────────────────────────────────
+# â”€â”€ Find by DID section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7019
   name: Find Header
@@ -177,7 +177,7 @@
   name: DID Search Input
   component:
     name-code: EIC1009
-    hint-text: did:epn:…
+    hint-text: did:epn:â€¦
     text-controller: EALC7005
 
 - name-code: EAIC7021
@@ -240,7 +240,7 @@
       - EAIC7028
       - EAIC7024
 
-# ── Dividers ──────────────────────────────────────────────────────────────────
+# â”€â”€ Dividers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7017
   name: Divider 1
@@ -260,7 +260,7 @@
     name-code: EIC1025
     height: 1
 
-# ── Layout columns ────────────────────────────────────────────────────────────
+# â”€â”€ Layout columns â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7008
   name: Identity Section
@@ -299,7 +299,7 @@
       - EAIC7015
       - EAIC7026
 
-# ── Design-faithful Network composition ──────────────────────────────────────
+# â”€â”€ Design-faithful Network composition â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 - name-code: EAIC7053
   name: Network Page Title
@@ -407,7 +407,7 @@
   name: Connected Peers Heading
   component:
     name-code: EIC1020
-    text: Connected peers —
+    text: Connected peers â€”
     variant: heading02
     font-weight: 600
     color: primary
@@ -462,7 +462,7 @@
   name: Network Off Message
   component:
     name-code: EIC1020
-    text: Your node is off — the street is outside the door.
+    text: Your node is off â€” the street is outside the door.
     variant: body01
     color: on-surface-muted
     overflow: visible
@@ -537,7 +537,7 @@
   name: Network Transition Message
   component:
     name-code: EIC1020
-    text: Your node is changing state — the street will update when it is ready.
+    text: Your node is changing state â€” the street will update when it is ready.
     variant: body01
     color: on-surface-muted
     overflow: visible
@@ -548,3 +548,26 @@
     name-code: EIC1023
     child: EAIC7078
     color: layer-02
+
+- name-code: EAIC7080
+  name: Mesh Capability Header
+  component:
+    name-code: EIC1004
+    label: Mesh peer contracts
+
+- name-code: EAIC7081
+  name: Mesh Capability Summary
+  component:
+    name-code: EIC1020
+    text: EAMC7101 identity, EAMC7102 peers, EAMC7103 connect, EAMC7104 find
+    variant: caption01
+    color: on-surface-subtle
+    overflow: visible
+
+- name-code: EAIC7082
+  name: Mesh Capability Card Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7080
+      - EAIC7081

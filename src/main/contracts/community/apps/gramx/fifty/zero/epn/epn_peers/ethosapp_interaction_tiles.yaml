@@ -1,7 +1,9 @@
-- name-code: EAIT7001
+﻿- name-code: EAIT7001
   name: Network Tile
   about: Node identity and connected EP&N peers
   composition:
     name-code: EIC1005
     children-components:
       - EAIC7077
+      - EAIC7082
+

@@ -1,0 +1,35 @@
+﻿# Mesh capability proof surface for the peer network app.
+# These are generated into protobuf services and consumed by polyglot clients.
+- name-code: EAMC7101
+  name: Mesh Load Identity
+  mesh:
+    context: discover
+    method: EAMC7101
+    expecting: EAMV7100
+    returns: EAMV7101
+
+- name-code: EAMC7102
+  name: Mesh Load Peers
+  mesh:
+    context: discover
+    method: EAMC7102
+    expecting: EAMV7100
+    returns: EAMV7103
+
+- name-code: EAMC7103
+  name: Mesh Connect Peer
+  mesh:
+    context: discover
+    method: EAMC7103
+    expecting: EAMV7104
+    returns: EAMV7105
+
+- name-code: EAMC7104
+  name: Mesh Find Peer by DID
+  mesh:
+    context: discover
+    method: EAMC7104
+    expecting: EAMV7106
+    returns: EAMV7107
+
+
