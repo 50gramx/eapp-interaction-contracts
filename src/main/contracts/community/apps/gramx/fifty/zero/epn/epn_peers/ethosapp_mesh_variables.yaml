@@ -1,4 +1,4 @@
-﻿- name-code: EAMV7100
+- name-code: EAMV7100
   name: Mesh Query Request
   type: ELVT1021
   properties:

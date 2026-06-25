@@ -1,4 +1,4 @@
-﻿# Mesh capability proof surface for the peer network app.
+# Mesh capability proof surface for the peer network app.
 # These are generated into protobuf services and consumed by polyglot clients.
 - name-code: EAMC7101
   name: Mesh Load Identity
