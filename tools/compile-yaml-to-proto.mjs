@@ -203,7 +203,9 @@ for (const capFile of meshCapFiles) {
           entityInfo.services[serviceName].push({
             name: methodName,
             expects: mesh.expects,
-            returns: mesh.returns
+            returns: mesh.returns,
+            requestStream: mesh['request-stream'] === true || mesh.requestStream === true,
+            responseStream: mesh['response-stream'] === true || mesh.responseStream === true || mesh.stream === true || mesh.subscribe === true || mesh.type === 'subscribe'
           });
 
           if (mesh.expects) {
@@ -275,8 +277,10 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
           const resVar = variablesByCode[method.returns];
           const reqName = reqVar ? reqVar['name-code'] : (method.expects || 'EmptyRequest');
           const resName = resVar ? resVar['name-code'] : (method.returns || 'EmptyResponse');
+          const reqStream = method.requestStream ? 'stream ' : '';
+          const resStream = method.responseStream ? 'stream ' : '';
 
-          servicesContent += `  rpc ${method.name} (${reqName}) returns (${resName});\n`;
+          servicesContent += `  rpc ${method.name} (${reqStream}${reqName}) returns (${resStream}${resName});\n`;
         });
         servicesContent += `}\n\n`;
       }
