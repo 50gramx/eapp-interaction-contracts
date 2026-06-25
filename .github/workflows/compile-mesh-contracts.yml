@@ -34,12 +34,12 @@ jobs:
       - name: Install dependencies
         run: npm install yaml
 
-    - name: Compile YAML Mesh Contracts to Proto
-      run: |
-        export GO_DOMAIN_MODULE_PREFIX=github.com/50gramx/eapp-golang-domain
-        node tools/compile-yaml-to-proto.mjs \
-          --contracts-root . \
-          --system-contracts-root .ci/eapp-system-contracts
+      - name: Compile YAML Mesh Contracts to Proto
+        run: |
+          export GO_DOMAIN_MODULE_PREFIX=github.com/50gramx/eapp-golang-domain
+          node tools/compile-yaml-to-proto.mjs \
+            --contracts-root . \
+            --system-contracts-root .ci/eapp-system-contracts
 
       - name: Commit and Push generated .proto files
         run: |
