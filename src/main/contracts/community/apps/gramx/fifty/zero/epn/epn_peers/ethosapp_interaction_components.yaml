@@ -548,26 +548,3 @@
     name-code: EIC1023
     child: EAIC7078
     color: layer-02
-
-- name-code: EAIC7080
-  name: Mesh Capability Header
-  component:
-    name-code: EIC1004
-    label: Mesh peer contracts
-
-- name-code: EAIC7081
-  name: Mesh Capability Summary
-  component:
-    name-code: EIC1020
-    text: EAMC7101 identity, EAMC7102 peers, EAMC7103 connect, EAMC7104 find
-    variant: caption01
-    color: on-surface-subtle
-    overflow: visible
-
-- name-code: EAIC7082
-  name: Mesh Capability Card Content
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC7080
-      - EAIC7081
