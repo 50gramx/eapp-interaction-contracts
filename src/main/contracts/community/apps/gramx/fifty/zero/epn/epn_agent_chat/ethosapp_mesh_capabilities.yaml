@@ -1,0 +1,7 @@
+- name-code: EAMC6002
+  name: Mesh Stream Chat
+  mesh:
+    context: discover
+    method: Stream
+    expects: EAMV6001
+    returning: EAMV6002

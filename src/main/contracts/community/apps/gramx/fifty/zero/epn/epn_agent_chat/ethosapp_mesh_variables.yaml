@@ -1,0 +1,101 @@
+# EAMV6001 - StreamRequest (Request payload for AgentService/Stream)
+- name-code: EAMV6001
+  name: Stream Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6001
+      name: persona_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6002
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6003
+      name: text
+      type: ELVT1007
+      default: ""
+
+# EAMV6002 - StreamResponse (Oneof response envelope)
+- name-code: EAMV6002
+  name: Stream Response
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6004
+      name: token
+      type: EAMV6003
+    - name-code: EAMVT6005
+      name: tool_call
+      type: EAMV6004
+    - name-code: EAMVT6006
+      name: tool_result
+      type: EAMV6005
+    - name-code: EAMVT6007
+      name: complete
+      type: EAMV6006
+
+# EAMV6003 - TokenChunk (Event type 1)
+- name-code: EAMV6003
+  name: Token Chunk
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6008
+      name: text
+      type: ELVT1007
+      default: ""
+
+# EAMV6004 - ToolCall (Event type 2)
+- name-code: EAMV6004
+  name: Tool Call
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6009
+      name: id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6010
+      name: name
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6011
+      name: input_json
+      type: ELVT1007
+      default: ""
+
+# EAMV6005 - ToolResult (Event type 3)
+- name-code: EAMV6005
+  name: Tool Result
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6012
+      name: tool_call_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6013
+      name: output_json
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6014
+      name: is_error
+      type: ELVT1002
+      default: false
+
+# EAMV6006 - StreamComplete (Event type 4)
+- name-code: EAMV6006
+  name: Stream Complete
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6015
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6016
+      name: stop_reason
+      type: ELVT1007
+      default: ""
