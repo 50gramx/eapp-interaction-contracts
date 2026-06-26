@@ -3,6 +3,7 @@
 # - EAMC8002: client-streaming request
 # - EAMC8003: server-streaming response
 # - EAMC8004: bidirectional streaming request/response
+# - EAMC8005: unary diagnostics echo
 
 - name-code: EAMC8001
   name: Fetch Mesh Profile
@@ -35,3 +36,11 @@
     method: EAMC8004
     expecting: EAMV8002
     returning: EAMV8001
+
+- name-code: EAMC8005
+  name: Fetch Mesh Diagnostics
+  mesh:
+    context: discover
+    method: EAMC8005
+    expects: EAMV8004
+    returns: EAMV8004

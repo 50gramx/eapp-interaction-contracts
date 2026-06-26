@@ -276,3 +276,10 @@
     name-code: EIC1020
     text: EAMC8004 uses expecting + returning to model bidirectional mesh exchange.
     variant: body02
+
+- name-code: EAIC8036
+  name: Diagnostics Capability Note
+  component:
+    name-code: EIC1020
+    text: EAMC8005 is a unary diagnostic echo that returns the new EAMV8004 payload so CI can prove the fresh contract flow.
+    variant: body02

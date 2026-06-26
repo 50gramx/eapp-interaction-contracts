@@ -123,3 +123,21 @@
       name: balance
       type: ELVT1004
       default: 100.50
+
+# Diagnostics payload used by the new demo capability.
+- name-code: EAMV8004
+  name: Mesh Diagnostics
+  type: ELVT1021
+  properties:
+    - name-code: EAMVT8033
+      name: request_id
+      type: ELVT1007
+      default: "req-mesh-8005"
+    - name-code: EAMVT8034
+      name: is_ready
+      type: ELVT1002
+      default: true
+    - name-code: EAMVT8035
+      name: retry_count
+      type: ELVT1022
+      default: 0

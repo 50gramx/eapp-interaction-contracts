@@ -6,3 +6,5 @@
     children-components:
       - EAIC8001
       - EAIC8008
+      - EAIC8031
+      - EAIC8036
