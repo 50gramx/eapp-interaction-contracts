@@ -156,7 +156,7 @@
   component:
     name-code: EIC1006
     label: Send
-    on-click: EAMC6002
+    on-click: EALC6002
 
 - name-code: EAIC6033
   name: Check Readiness Button

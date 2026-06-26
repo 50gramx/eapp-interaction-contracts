@@ -71,13 +71,27 @@
       - command: return
         value: EAIV6001
 
-# Called by the Send button — reads _currentInput stored by EALC6004.
+# Called by the Send button. The local UI composes EAIV6003 first, then the
+# mesh invoke happens through the engine rather than the app shell.
 - name-code: EALC6002
   name: Send Message
   context:
     steps:
-      - command: platform-invoke
-        handler: epn.agent.chat.send
+      - command: set-map-value
+        target-map: EAIV6003
+        key: persona_id
+        value: EAIV6014
+      - command: set-map-value
+        target-map: EAIV6003
+        key: conversation_id
+        value: EAIV6016.conversation_id
+      - command: set-map-value
+        target-map: EAIV6003
+        key: text
+        value: EAIV6001.text
+      - command: mesh-invoke
+        capability: EAMC6002
+        request: EAIV6003
         assign-to: EAIV6002
       - command: platform-invoke
         handler: epn.agent.run.latest
@@ -92,33 +106,32 @@
         handler: epn.agent.chat.clear
         assign-to: EAIV6002
 
-# Called on-change of the input field (engine passes current text as 'text' param).
-# Stores it in _currentInput so EALC6002 can read it on Send.
+# Called on-change of the input field (engine passes current text as 'text'
+# param). Keeps the outbound request's text field in local memory so the
+# send flow can compose the mesh request from local state.
 - name-code: EALC6004
   name: Update Input Text
   context:
     expects:
       - text: ELVT1007
     steps:
-      - command: platform-invoke
-        handler: epn.chat.input.set
-        params:
-          text: text
+      - command: set-map-value
+        target-map: EAIV6003
+        key: text
+        value: text
 
 # ── Persona switcher ──────────────────────────────────────────────────────────
 # Called via on-item-tap from the discovered persona list (EAIC6014, sourced
 # from EAIV6015 / epn.agent.personas -- see EALC6015). `id` arrives from the
 # tapped row (same proven pattern as epn_market's EALC13008 Select Offer).
-# The concierge persona's id is 'epn.concierge.v1', not '' -- epn_platform_
-# handlers.dart's epn.chat.persona.set treats that id the same as "use Evo".
+# The concierge persona's id is 'epn.concierge.v1', not ''.
 - name-code: EALC6016
   name: Use Discovered Persona
   context:
     expects:
       - id: ELVT1011
     steps:
-      - command: platform-invoke
-        handler: epn.chat.persona.set
-        params:
-          persona_id: id
-        assign-to: EAIV6002
+      - command: set
+        target: EAIV6014
+        value: id
+

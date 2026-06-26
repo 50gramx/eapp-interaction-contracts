@@ -4,6 +4,36 @@
   type: ELVT1001
   default: {}
 
+# Current active persona id. Kept local so the outgoing request can be
+# composed entirely from UI/session state before the mesh invoke happens.
+- name-code: EAIV6014
+  name: Active Persona Id
+  type: ELVT1007
+  default: ""
+
+# Local working copy of the outgoing request. The UI and local capability
+# keep this entity-shaped payload in memory while the user types, so the
+# mesh request is composed from local state instead of being built directly
+# by the UI button.
+- name-code: EAIV6003
+  name: Send Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT6001
+      name: persona_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6002
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6003
+      name: text
+      type: ELVT1007
+      default: ""
+
 # Growing list of chat messages. Updated by EALC6002 (send) via assign-to.
 #
 # Human turns stay the plain {role, text} shape ("You" messages, daemon-
