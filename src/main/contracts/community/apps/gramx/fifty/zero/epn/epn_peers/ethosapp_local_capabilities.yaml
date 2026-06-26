@@ -27,6 +27,12 @@
       - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV7001
+      - command: platform-invoke
+        handler: epn.peers.list
+        assign-to: EAIV7002
+      - command: platform-invoke
+        handler: epn.peers.familyStatus
+        assign-to: EAIV7007
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003
@@ -48,6 +54,9 @@
         params:
           multiaddr: EAIV7003
         assign-to: EAIV7004
+      - command: platform-invoke
+        handler: epn.peers.list
+        assign-to: EAIV7002
 
 # Return the DID search TextEditingController.
 - name-code: EALC7005
