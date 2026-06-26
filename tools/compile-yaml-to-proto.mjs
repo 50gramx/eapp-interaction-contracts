@@ -223,6 +223,11 @@ function collectTransitiveVariables(varCode, collectedSet) {
 
 // 2. Parse capabilities and group by package and entity
 const packagesMap = {};
+const consumerRegistryManifest = {
+  generatedAt: new Date().toISOString(),
+  contractsRoot,
+  packages: {},
+};
 
 for (const capFile of meshCapFiles) {
   try {
@@ -241,7 +246,15 @@ for (const capFile of meshCapFiles) {
         };
       }
 
+      if (!consumerRegistryManifest.packages[packageName]) {
+        consumerRegistryManifest.packages[packageName] = {
+          packageName,
+          entities: {},
+        };
+      }
+
       const pkgInfo = packagesMap[packageName];
+      const manifestPackage = consumerRegistryManifest.packages[packageName];
 
       for (const cap of parsed) {
         if (cap && cap.mesh) {
@@ -259,20 +272,41 @@ for (const capFile of meshCapFiles) {
             };
           }
 
+          if (!manifestPackage.entities[targetEntity]) {
+            manifestPackage.entities[targetEntity] = {
+              services: {},
+            };
+          }
+
           const entityInfo = pkgInfo.entities[targetEntity];
+          const manifestEntity = manifestPackage.entities[targetEntity];
           if (!entityInfo.services[serviceName]) {
             entityInfo.services[serviceName] = [];
+          }
+          if (!manifestEntity.services[serviceName]) {
+            manifestEntity.services[serviceName] = [];
           }
 
           const expects = mesh.expects || mesh.expecting;
           const returns = mesh.returns || mesh.returning;
+          const requestStream = !!mesh.expecting;
+          const responseStream = !!mesh.returning || mesh.stream === true || mesh.subscribe === true || mesh.type === 'subscribe';
 
           entityInfo.services[serviceName].push({
             name: methodName,
             expects: expects,
             returns: returns,
-            requestStream: !!mesh.expecting,
-            responseStream: !!mesh.returning || mesh.stream === true || mesh.subscribe === true || mesh.type === 'subscribe'
+            requestStream,
+            responseStream
+          });
+
+          manifestEntity.services[serviceName].push({
+            capabilityCode: methodName,
+            methodName,
+            requestType: expects || 'google.protobuf.Empty',
+            responseType: returns || 'google.protobuf.Empty',
+            requestStream,
+            responseStream,
           });
 
           if (expects) {
@@ -382,6 +416,16 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
       console.log(`Generated Proto Service: ${serviceFile}`);
     }
   }
+}
+
+// 4. Emit a manifest for downstream consumer-registry generation
+try {
+  const manifestPath = path.join(systemContractsRoot, 'consumer-registry-manifest.json');
+  fs.writeFileSync(manifestPath, JSON.stringify(consumerRegistryManifest, null, 2), 'utf8');
+  console.log(`Generated Consumer Registry Manifest: ${manifestPath}`);
+} catch (e) {
+  console.error('Error writing consumer registry manifest', e);
+  throw e;
 }
 
 console.log('YAML to Proto compilation completed successfully.');
