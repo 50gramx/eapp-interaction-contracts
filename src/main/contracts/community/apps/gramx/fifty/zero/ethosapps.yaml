@@ -132,6 +132,45 @@
     - name: dr_appointment
       live: true
 
+- organisation: studio
+  brand:
+    id: studio
+    community-code: 50
+    display-name: "Ethos Studio"
+    product-name: "Ethos Studio"
+    window-title: "Ethos Studio"
+    logo: lib/assets/brands/studio/logo.png
+    home-app: editor_new_app
+    launch-environment: com.50gramx.50.studio.*
+    runtime:
+      session-file: studio_session.json
+      singleton-name: 50gramx_studio_singleton
+    surface:
+      tiles:
+        app-library: false
+        private-space: false
+        history: false
+        pane-switcher: false
+        spotlight: false
+        open-tabs-summary: false
+        open-communities-summary: false
+        user-details: false
+      open-pages:
+        page-tabs: false
+        clear-session-on-start: true
+      solution-nav:
+        unbounded: true
+      wallpaper:
+        preferred: mesh
+        show-credit: false
+      app-selector:
+        auto-visible: false
+      browser:
+        show-default-prompt: false
+  apps:
+    - name: editor_new_app
+      live: true
+
 # Legacy entries - no live flag, skipped by live browser
 - organisation: ethos
   apps:

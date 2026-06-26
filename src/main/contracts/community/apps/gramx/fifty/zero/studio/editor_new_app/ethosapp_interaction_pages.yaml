@@ -1,0 +1,8 @@
+- name: editor_home_page
+  name-code: editor_home_page
+  navigation:
+    visible: true
+    section: "Studio"
+    label: "Editor"
+    order: 1
+  components: []

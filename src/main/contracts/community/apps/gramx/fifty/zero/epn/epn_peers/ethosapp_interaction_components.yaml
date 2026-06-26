@@ -571,3 +571,26 @@
     children-components:
       - EAIC7080
       - EAIC7081
+
+- name-code: EAIC7083
+  name: Contract Status Header
+  component:
+    name-code: EIC1004
+    label: Contract status
+
+- name-code: EAIC7084
+  name: Contract Status Summary
+  component:
+    name-code: EIC1020
+    text: Engine-emitted notifications will land here when an app declares a contract-scoped notification path.
+    variant: caption01
+    color: on-surface-subtle
+    overflow: visible
+
+- name-code: EAIC7085
+  name: Contract Status Card Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7083
+      - EAIC7084
