@@ -124,6 +124,13 @@
   type: ELVT1007
   default: ""
 
+# Mesh response from EAMC6002 (used by EALC6002).
+# Pre-composed response message(s) from daemon.
+- name-code: EAIV6027
+  name: Mesh Response
+  type: ELVT1021
+  default: {}
+
 # Temporary holding space for extracted persona from list (used by EALC6015).
 - name-code: EAIV6024
   name: Selected Persona
