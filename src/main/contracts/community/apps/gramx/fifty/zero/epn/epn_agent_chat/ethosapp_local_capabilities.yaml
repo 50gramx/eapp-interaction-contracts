@@ -81,15 +81,15 @@
     steps:
       - command: set-map-value
         target-map: EAIV6003
-        key: persona_id
+        key: EAMVT6001
         value: EAIV6014
       - command: set-map-value
         target-map: EAIV6003
-        key: conversation_id
+        key: EAMVT6002
         value: EAIV6019
       - command: set-map-value
         target-map: EAIV6003
-        key: text
+        key: EAMVT6003
         value: EAIV6001.text
       - command: mesh-invoke
         capability: EAMC6002
@@ -122,7 +122,7 @@
     steps:
       - command: set-map-value
         target-map: EAIV6003
-        key: text
+        key: EAMVT6003
         value: text
 
 # ── Persona switcher ──────────────────────────────────────────────────────────
