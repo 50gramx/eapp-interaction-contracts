@@ -1,4 +1,4 @@
-# EAMV6001 - StreamRequest (Request payload for AgentService/Stream)
+﻿# EAMV6001 - StreamRequest (Request payload for AgentService/Stream)
 - name-code: EAMV6001
   name: Stream Request
   type: ELVT1021
@@ -17,26 +17,60 @@
       type: ELVT1007
       default: ""
 
-# EAMV6002 - StreamResponse (Oneof response envelope)
+# EAMV6002 - ChatMessage (UI-fed response shape for the chat list)
+#
+# This is the mesh response shape the UI can consume directly, without a
+# separate normalization/folding step in the local capability layer. The
+# generated consumer and daemon wrapper should emit message snapshots in
+# this evolved shape so EAIC6002 can bind them as-is.
 - name-code: EAMV6002
-  name: Stream Response
+  name: Chat Message
   type: ELVT1021
   modelled: true
   properties:
     - name-code: EAMVT6004
-      name: token
-      type: EAMV6003
-    - name-code: EAMVT6005
-      name: tool_call
-      type: EAMV6004
-    - name-code: EAMVT6006
-      name: tool_result
-      type: EAMV6005
-    - name-code: EAMVT6007
-      name: complete
-      type: EAMV6006
+      name: role
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6008
+      name: text
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6009
+      name: ai
+      type: ELVT1002
+      default: false
+    - name-code: EAMVT6010
+      name: persona_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6011
+      name: locality
+      type: ELVT1007
+      default: "local"
+    - name-code: EAMVT6012
+      name: grounding
+      type: ELVT1007
+      default: "general_guidance"
+    - name-code: EAMVT6013
+      name: activity
+      type: ELVT1020
+      default: []
+    - name-code: EAMVT6014
+      name: evidence
+      type: ELVT1020
+      default: []
+    - name-code: EAMVT6015
+      name: errors
+      type: ELVT1020
+      default: []
+    - name-code: EAMVT6016
+      name: conversation_id
+      type: ELVT1007
+      default: ""
 
-# EAMV6003 - TokenChunk (Event type 1)
+# EAMV6003 - Legacy StreamEvent token chunk (kept for compatibility while
+# consumers/daemon wrappers are migrated to the UI-fed snapshot shape).
 - name-code: EAMV6003
   name: Token Chunk
   type: ELVT1021
@@ -47,7 +81,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV6004 - ToolCall (Event type 2)
+# EAMV6004 - Legacy StreamEvent tool call (compatibility).
 - name-code: EAMV6004
   name: Tool Call
   type: ELVT1021
@@ -66,7 +100,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV6005 - ToolResult (Event type 3)
+# EAMV6005 - Legacy StreamEvent tool result (compatibility).
 - name-code: EAMV6005
   name: Tool Result
   type: ELVT1021
@@ -85,7 +119,7 @@
       type: ELVT1002
       default: false
 
-# EAMV6006 - StreamComplete (Event type 4)
+# EAMV6006 - Legacy StreamEvent completion marker (compatibility).
 - name-code: EAMV6006
   name: Stream Complete
   type: ELVT1021
@@ -99,3 +133,4 @@
       name: stop_reason
       type: ELVT1007
       default: ""
+
