@@ -60,4 +60,5 @@ jobs:
         run: |
           gh api repos/50gramx/eapp-system-contracts/dispatches \
             -f event_type=protobuf-sync \
-            -f client_payload='{"source":"eapp-interaction-contracts","ref":"main"}'
+            -f client_payload[source]=eapp-interaction-contracts \
+            -f client_payload[ref]=main
