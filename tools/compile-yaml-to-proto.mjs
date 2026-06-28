@@ -355,6 +355,7 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
       if (variable && Array.isArray(variable.properties)) {
         variable.properties.forEach(prop => {
           const propType = (prop.type || '').toUpperCase();
+          if (propType === 'ELVT1018' || propType === 'LISTVALUE') wktImports.add('google/protobuf/struct.proto');
           if (propType === 'ELVT1031' || propType === 'TIMESTAMP') wktImports.add('google/protobuf/timestamp.proto');
           if (propType === 'ELVT1032' || propType === 'DURATION') wktImports.add('google/protobuf/duration.proto');
           if (propType === 'ELVT1033' || propType === 'EMPTY') wktImports.add('google/protobuf/empty.proto');
