@@ -80,21 +80,15 @@
       - command: return
         value: EAIV6001
 
-# Called by the Send button. Composes EAIV6003 request, adds user message to history,
-# calls mesh service (which pre-composes response into ONE clean message), and updates state.
-#
-# Pre-composition at daemon level means:
-# - Response is ONE complete message (no blank markers)
-# - All fields populated: text, role, activity, evidence, conversation_id
-# - No contract-level filtering needed
+# Called by the Send button. Composes request, calls mesh service (now unary),
+# and updates chat history.
 #
 # Flow:
 # 1. Compose request (persona_id, conversation_id, text)
-# 2. Add user message to chat history
-# 3. Call mesh service → receive ONE pre-composed response message
-# 4. Append response to chat history
-# 5. Extract conversation_id for next message
-# 6. Update run status
+# 2. Call mesh service → receive ONE complete response message
+# 3. Append response to chat history
+# 4. Extract conversation_id for next message
+# 5. Update run status
 - name-code: EALC6002
   name: Send Message
   context:
@@ -112,19 +106,14 @@
         key: EAMVT6003
         value: EAIV6001.text
 
-      # Invoke mesh service (daemon pre-composes response into clean message)
-      # Response is array of pre-composed messages (currently just one)
+      # Invoke mesh service (unary RPC)
+      # Response is single pre-composed message (not array)
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
         assign-to: EAIV6027
 
-      # BLOCKER: flow-bob's list-get command has type casting error (Null is not String)
-      # WORKAROUND: Skip extraction, keep array as-is, update component to iterate properly
-      # TODO: Either fix list-get in flow-bob or change daemon to return single message
-
-      # For now: append response array directly to chat history
-      # Component will receive nested structure and handle accordingly
+      # Append response message directly to chat history
       - command: list-append
         target: EAIV6002
         value: EAIV6027
@@ -132,7 +121,7 @@
       # Extract conversation_id from response message
       - command: set
         target: EAIV6019
-        value: EAIV6027[0].eamvt6016
+        value: EAIV6027.eamvt6016
 
       # Refresh run status
       - command: platform-invoke

@@ -125,18 +125,53 @@
   default: ""
 
 # Mesh response from EAMC6002 (used by EALC6002).
-# Pre-composed response message(s) from daemon (array).
+# Single pre-composed message from daemon (now unary, not array).
 - name-code: EAIV6027
-  name: Mesh Response Array
-  type: ELVT1018
-  default: []
-
-# Extracted message from EAIV6027[0] (used by EALC6002).
-# Single pre-composed message from daemon, ready to append to EAIV6002.
-- name-code: EAIV6028
-  name: Extracted Message
+  name: Mesh Response Message
   type: ELVT1021
+  modelled: true
   default: {}
+  properties:
+    - name-code: EAMVT6004
+      name: role
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6008
+      name: text
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6009
+      name: ai
+      type: ELVT1015
+      default: false
+    - name-code: EAMVT6010
+      name: persona_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6011
+      name: locality
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6012
+      name: grounding
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6013
+      name: activity
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6014
+      name: evidence
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6015
+      name: errors
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6016
+      name: conversation_id
+      type: ELVT1007
+      default: ""
 
 # Temporary holding space for extracted persona from list (used by EALC6015).
 - name-code: EAIV6024
