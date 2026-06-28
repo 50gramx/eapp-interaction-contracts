@@ -2,7 +2,13 @@
 - name-code: EAIV6001
   name: Input Controller
   type: ELVT1001
+  modelled: true
   default: {}
+  properties:
+    - name-code: EAIVT6001
+      name: text
+      type: ELVT1007
+      default: ""
 
 # Current active persona id. Kept local so the outgoing request can be
 # composed entirely from UI/session state before the mesh invoke happens.
@@ -63,26 +69,50 @@
 # automatically as the daemon registers their operators.
 - name-code: EAIV6015
   name: Personas
-  type: ELVT1020
-  default: {}
+  type: ELVT1018
+  default: []
 
 # Latest durable run status snapshot, refreshed on page open from the
 # read-only run-store bridge. Used only for a compact visibility line.
 - name-code: EAIV6016
   name: Latest Run
-  type: ELVT1020
+  type: ELVT1019
+  modelled: true
   default: {}
+  properties:
+    - name-code: EAIVT6016
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAIVT6017
+      name: id
+      type: ELVT1007
+      default: ""
+    - name-code: EAIVT6018
+      name: status
+      type: ELVT1007
+      default: ""
 
 # Latest approval status snapshot, refreshed on page open from the
 # read-only approval-store bridge. Used only for a compact visibility line.
 - name-code: EAIV6017
   name: Latest Approval
-  type: ELVT1020
+  type: ELVT1019
+  modelled: true
   default: {}
+  properties:
+    - name-code: EAIVT6019
+      name: id
+      type: ELVT1007
+      default: ""
+    - name-code: EAIVT6020
+      name: status
+      type: ELVT1007
+      default: ""
 
 # Live readiness progress feed, subscribed only while "Run ready checks" is
 # active. Emits the truthful timeline of real execution events.
 - name-code: EAIV6018
   name: Readiness Progress
-  type: ELVT1020
-  default: {}
+  type: ELVT1018
+  default: []
