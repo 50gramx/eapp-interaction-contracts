@@ -73,6 +73,8 @@
 
 # Called by the Send button. The local UI composes EAIV6003 first, then the
 # mesh invoke happens through the engine rather than the app shell.
+# On first message, conversation_id is empty; daemon generates it and returns it
+# in the response. We extract and store it in EAIV6019 for reuse.
 - name-code: EALC6002
   name: Send Message
   context:
@@ -84,7 +86,7 @@
       - command: set-map-value
         target-map: EAIV6003
         key: conversation_id
-        value: EAIV6016.conversation_id
+        value: EAIV6019
       - command: set-map-value
         target-map: EAIV6003
         key: text
@@ -93,6 +95,9 @@
         capability: EAMC6002
         request: EAIV6003
         assign-to: EAIV6002
+      - command: set
+        target: EAIV6019
+        value: EAIV6002[0].eamvt6016
       - command: platform-invoke
         handler: epn.agent.run.latest
         assign-to: EAIV6016
