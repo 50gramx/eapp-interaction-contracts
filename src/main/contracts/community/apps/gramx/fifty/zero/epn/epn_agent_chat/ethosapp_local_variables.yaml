@@ -53,8 +53,8 @@
 # tags, activity summary, "Why this answer?" explainability disclosure).
 - name-code: EAIV6002
   name: Messages
-  type: ELVT1020
-  default: {}
+  type: ELVT1018
+  default: []
 
 # Specialist personas discovered from the daemon (epn.agent.personas),
 # refreshed each time the chat page opens. Drives the persona-picker row

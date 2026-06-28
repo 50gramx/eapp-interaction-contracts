@@ -54,15 +54,15 @@
       default: "general_guidance"
     - name-code: EAMVT6013
       name: activity
-      type: ELVT1020
+      type: ELVT1018
       default: []
     - name-code: EAMVT6014
       name: evidence
-      type: ELVT1020
+      type: ELVT1018
       default: []
     - name-code: EAMVT6015
       name: errors
-      type: ELVT1020
+      type: ELVT1018
       default: []
     - name-code: EAMVT6016
       name: conversation_id
