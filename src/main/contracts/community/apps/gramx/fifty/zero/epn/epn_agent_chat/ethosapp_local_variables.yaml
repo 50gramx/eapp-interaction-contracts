@@ -123,3 +123,15 @@
   name: Active Conversation ID
   type: ELVT1007
   default: ""
+
+# Temporary holding space for extracted persona from list (used by EALC6015).
+- name-code: EAIV6024
+  name: Selected Persona
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAIVT6024
+      name: id
+      type: ELVT1007
+      default: ""

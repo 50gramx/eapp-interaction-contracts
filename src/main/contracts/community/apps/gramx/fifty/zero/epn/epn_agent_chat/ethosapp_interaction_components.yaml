@@ -120,8 +120,8 @@
     name-code: EIC1026
     source: EAIV6002
     item-type: chat-message
-    text-field: text
-    sender-field: role
+    text-field: eamvt6008
+    sender-field: eamvt6004
     self-sender-values:
       - You
     error-sender-values:

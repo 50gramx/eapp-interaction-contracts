@@ -1,6 +1,7 @@
 # Called via on-appear when the chat page opens. Discovers specialist
 # personas live from the daemon (epn.agent.personas) instead of the
 # hardcoded Evo/Sigma/Lume picker -- see EAIV6015.
+# Also auto-selects the first persona as default.
 - name-code: EALC6015
   name: Init Personas
   context:
@@ -8,6 +9,14 @@
       - command: platform-invoke
         handler: epn.agent.personas
         assign-to: EAIV6015
+      # Auto-select first persona if any are available
+      - command: list-get
+        target: EAIV6015
+        index: 0
+        assign-to: EAIV6024
+      - command: set
+        target: EAIV6014
+        value: EAIV6024.id
       - command: platform-invoke
         handler: epn.agent.run.latest
         assign-to: EAIV6016
