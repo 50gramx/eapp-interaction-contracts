@@ -124,6 +124,23 @@
   type: ELVT1007
   default: ""
 
+# Temporary map for user message composition (used by EALC6002).
+# Stores {role, text} before appending to EAIV6002.
+- name-code: EAIV6023
+  name: User Message Builder
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAIVT6023
+      name: role
+      type: ELVT1007
+      default: ""
+    - name-code: EAIVT6023B
+      name: text
+      type: ELVT1007
+      default: ""
+
 # Temporary holding space for extracted persona from list (used by EALC6015).
 - name-code: EAIV6024
   name: Selected Persona
@@ -135,12 +152,3 @@
       name: id
       type: ELVT1007
       default: ""
-
-# Composed/filtered messages ready for UI rendering.
-# Raw daemon stream (EAIV6002) includes empty-text marker messages (metadata only).
-# This variable contains only messages with content (non-empty text or activity/evidence).
-# UI components bind to this for clean rendering without blank markers.
-- name-code: EAIV6026
-  name: Renderable Messages
-  type: ELVT1018
-  default: []

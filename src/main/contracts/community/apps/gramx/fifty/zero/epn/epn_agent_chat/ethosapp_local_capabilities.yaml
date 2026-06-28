@@ -80,17 +80,20 @@
       - command: return
         value: EAIV6001
 
-# Called by the Send button. The local UI composes EAIV6003 first, then the
-# mesh invoke happens through the engine rather than the app shell.
-# On first message, conversation_id is empty; daemon generates it and returns it
-# in the response. We extract and store it in EAIV6019 for reuse.
+# Called by the Send button. Composes EAIV6003 request, adds user message to history,
+# calls mesh service (which pre-composes response into ONE clean message), and updates state.
+#
+# Pre-composition at daemon level means:
+# - Response is ONE complete message (no blank markers)
+# - All fields populated: text, role, activity, evidence, conversation_id
+# - No contract-level filtering needed
 #
 # Flow:
 # 1. Compose request (persona_id, conversation_id, text)
 # 2. Add user message to chat history
-# 3. Call mesh service to get streamed response messages
-# 4. Extract conversation_id from response (find non-empty value)
-# 5. Filter rendered messages (remove empty-text markers)
+# 3. Call mesh service → receive ONE pre-composed response message
+# 4. Append response to chat history
+# 5. Extract conversation_id for next message
 # 6. Update run status
 - name-code: EALC6002
   name: Send Message
@@ -109,33 +112,39 @@
         key: EAMVT6003
         value: EAIV6001.text
 
-      # Add user message to chat history before requesting response
+      # Add user message to chat history
+      # Build user message in temp variable EAIV6023
+      - command: set
+        target: EAIV6023
+        value: {}
+      - command: set-map-value
+        target-map: EAIV6023
+        key: role
+        value: "You"
+      - command: set-map-value
+        target-map: EAIV6023
+        key: text
+        value: EAIV6001.text
+      # Append user message
       - command: list-append
         target: EAIV6002
-        item: {role: "You", text: EAIV6001.text}
+        value: EAIV6023
 
-      # Stream response from daemon
+      # Invoke mesh service (daemon pre-composes response into clean message)
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
         assign-to: EAIV6027
 
-      # Append response messages to chat history
+      # Append daemon response to chat history
       - command: list-append
         target: EAIV6002
-        items: EAIV6027
+        value: EAIV6027
 
-      # Extract conversation_id from first response message that has it
+      # Extract conversation_id for reuse on next message
       - command: set
         target: EAIV6019
-        value: EAIV6027[0].eamvt6016
-
-      # Filter messages for rendering: keep only those with text content
-      # (removes daemon metadata-only messages that have no text)
-      - command: list-filter
-        target: EAIV6002
-        condition: eamvt6008
-        assign-to: EAIV6026
+        value: EAIV6027.eamvt6016
 
       # Refresh run status
       - command: platform-invoke
