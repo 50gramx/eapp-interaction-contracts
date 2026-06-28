@@ -101,10 +101,8 @@
         target-map: EAIV6003
         key: EAMVT6002
         value: EAIV6019
-      - command: set-map-value
-        target-map: EAIV6003
-        key: EAMVT6003
-        value: EAIV6001.text
+      # Note: EAMVT6003 (text) is already kept in sync by EALC6004 (on-change)
+      # so no need to set it again here
 
       # Invoke mesh service (unary RPC)
       # Response is single pre-composed message (not array)
