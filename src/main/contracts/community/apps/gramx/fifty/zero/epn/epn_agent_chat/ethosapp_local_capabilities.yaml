@@ -113,20 +113,28 @@
         value: EAIV6001.text
 
       # Invoke mesh service (daemon pre-composes response into clean message)
+      # Response is array of pre-composed messages (currently just one)
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
         assign-to: EAIV6027
 
-      # Append daemon response to chat history
+      # Extract first message from response array and append to chat history
+      # EAIV6027 is [{message}], we want just {message} in EAIV6002
+      - command: list-get
+        target: EAIV6027
+        index: 0
+        assign-to: EAIV6028
+
+      # Append single message (not array) to chat history
       - command: list-append
         target: EAIV6002
-        value: EAIV6027
+        value: EAIV6028
 
       # Extract conversation_id for reuse on next message
       - command: set
         target: EAIV6019
-        value: EAIV6027.eamvt6016
+        value: EAIV6028.eamvt6016
 
       # Refresh run status
       - command: platform-invoke

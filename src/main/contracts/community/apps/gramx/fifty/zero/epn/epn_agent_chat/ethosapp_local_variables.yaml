@@ -125,9 +125,16 @@
   default: ""
 
 # Mesh response from EAMC6002 (used by EALC6002).
-# Pre-composed response message(s) from daemon.
+# Pre-composed response message(s) from daemon (array).
 - name-code: EAIV6027
-  name: Mesh Response
+  name: Mesh Response Array
+  type: ELVT1018
+  default: []
+
+# Extracted message from EAIV6027[0] (used by EALC6002).
+# Single pre-composed message from daemon, ready to append to EAIV6002.
+- name-code: EAIV6028
+  name: Extracted Message
   type: ELVT1021
   default: {}
 
