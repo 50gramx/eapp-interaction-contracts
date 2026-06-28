@@ -84,6 +84,14 @@
 # mesh invoke happens through the engine rather than the app shell.
 # On first message, conversation_id is empty; daemon generates it and returns it
 # in the response. We extract and store it in EAIV6019 for reuse.
+#
+# Flow:
+# 1. Compose request (persona_id, conversation_id, text)
+# 2. Add user message to chat history
+# 3. Call mesh service to get streamed response messages
+# 4. Extract conversation_id from response (find non-empty value)
+# 5. Filter rendered messages (remove empty-text markers)
+# 6. Update run status
 - name-code: EALC6002
   name: Send Message
   context:
@@ -100,13 +108,36 @@
         target-map: EAIV6003
         key: EAMVT6003
         value: EAIV6001.text
+
+      # Add user message to chat history before requesting response
+      - command: list-append
+        target: EAIV6002
+        item: {role: "You", text: EAIV6001.text}
+
+      # Stream response from daemon
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
-        assign-to: EAIV6002
+        assign-to: EAIV6027
+
+      # Append response messages to chat history
+      - command: list-append
+        target: EAIV6002
+        items: EAIV6027
+
+      # Extract conversation_id from first response message that has it
       - command: set
         target: EAIV6019
-        value: EAIV6002[0].eamvt6016
+        value: EAIV6027[0].eamvt6016
+
+      # Filter messages for rendering: keep only those with text content
+      # (removes daemon metadata-only messages that have no text)
+      - command: list-filter
+        target: EAIV6002
+        condition: eamvt6008
+        assign-to: EAIV6026
+
+      # Refresh run status
       - command: platform-invoke
         handler: epn.agent.run.latest
         assign-to: EAIV6016

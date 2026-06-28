@@ -118,7 +118,7 @@
   name: Messages List
   component:
     name-code: EIC1026
-    source: EAIV6002
+    source: EAIV6026
     item-type: chat-message
     text-field: eamvt6008
     sender-field: eamvt6004

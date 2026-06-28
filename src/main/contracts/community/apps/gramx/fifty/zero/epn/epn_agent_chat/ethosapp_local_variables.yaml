@@ -135,3 +135,12 @@
       name: id
       type: ELVT1007
       default: ""
+
+# Composed/filtered messages ready for UI rendering.
+# Raw daemon stream (EAIV6002) includes empty-text marker messages (metadata only).
+# This variable contains only messages with content (non-empty text or activity/evidence).
+# UI components bind to this for clean rendering without blank markers.
+- name-code: EAIV6026
+  name: Renderable Messages
+  type: ELVT1018
+  default: []
