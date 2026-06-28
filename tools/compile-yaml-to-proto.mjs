@@ -419,15 +419,10 @@ for (const [packageName, pkgInfo] of Object.entries(packagesMap)) {
   }
 }
 
-// 4. Emit a manifest for downstream consumer-registry generation
-try {
-  const manifestPath = path.join(systemContractsRoot, 'consumer-registry-manifest.json');
-  fs.writeFileSync(manifestPath, JSON.stringify(consumerRegistryManifest, null, 2), 'utf8');
-  console.log(`Generated Consumer Registry Manifest: ${manifestPath}`);
-} catch (e) {
-  console.error('Error writing consumer registry manifest', e);
-  throw e;
-}
+// NOTE: Manifest generation moved to eapp-system-contracts/tool/generate-consumer-registry-manifest.mjs
+// The proto files are the authoritative source; manifest is regenerated from actual proto syntax
+// This ensures consistency: responseStream flags always match actual proto "stream" keywords
 
 console.log('YAML to Proto compilation completed successfully.');
+console.log('Next: protobuf-distribution workflow will regenerate consumer-registry-manifest.json from proto files.');
 
