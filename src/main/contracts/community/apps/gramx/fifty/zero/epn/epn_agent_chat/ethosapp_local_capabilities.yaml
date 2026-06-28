@@ -112,24 +112,6 @@
         key: EAMVT6003
         value: EAIV6001.text
 
-      # Add user message to chat history
-      # Build user message in temp variable EAIV6023
-      - command: set
-        target: EAIV6023
-        value: {}
-      - command: set-map-value
-        target-map: EAIV6023
-        key: role
-        value: "You"
-      - command: set-map-value
-        target-map: EAIV6023
-        key: text
-        value: EAIV6001.text
-      # Append user message
-      - command: list-append
-        target: EAIV6002
-        value: EAIV6023
-
       # Invoke mesh service (daemon pre-composes response into clean message)
       - command: mesh-invoke
         capability: EAMC6002
