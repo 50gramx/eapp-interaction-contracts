@@ -119,22 +119,20 @@
         request: EAIV6003
         assign-to: EAIV6027
 
-      # Extract first message from response array and append to chat history
-      # EAIV6027 is [{message}], we want just {message} in EAIV6002
-      - command: list-get
-        target: EAIV6027
-        index: 0
-        assign-to: EAIV6028
+      # BLOCKER: flow-bob's list-get command has type casting error (Null is not String)
+      # WORKAROUND: Skip extraction, keep array as-is, update component to iterate properly
+      # TODO: Either fix list-get in flow-bob or change daemon to return single message
 
-      # Append single message (not array) to chat history
+      # For now: append response array directly to chat history
+      # Component will receive nested structure and handle accordingly
       - command: list-append
         target: EAIV6002
-        value: EAIV6028
+        value: EAIV6027
 
-      # Extract conversation_id for reuse on next message
+      # Extract conversation_id from response message
       - command: set
         target: EAIV6019
-        value: EAIV6028.eamvt6016
+        value: EAIV6027[0].eamvt6016
 
       # Refresh run status
       - command: platform-invoke
