@@ -96,16 +96,10 @@
         key: EAMVT6003
         value: EAIV6005
 
-      # Invoke mesh service (currently server-streaming, returns single-element list)
+      # Invoke mesh service (unary RPC — returns single Map)
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
-        assign-to: EAIV6027
-
-      # Unwrap single-element list produced by the streaming consumer binding
-      - command: list-get
-        target: EAIV6027
-        index: 0
         assign-to: EAIV6027
 
       # Append response message directly to chat history
