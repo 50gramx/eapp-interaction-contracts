@@ -115,11 +115,27 @@
         target: EAIV6005
         value: ""
 
+      # Show the animated "thinking" indicator (EAIC6040) while the unary
+      # response is in flight: build the thinking item and append it to the
+      # transient pending-turn list.
+      - command: set-map-value
+        target-map: EAIV6030
+        key: thinking
+        value: true
+      - command: list-append
+        target: EAIV6029
+        value: EAIV6030
+
       # Invoke mesh service (unary RPC — returns single Map)
       - command: mesh-invoke
         capability: EAMC6002
         request: EAIV6003
         assign-to: EAIV6027
+
+      # Response has arrived — hide the thinking indicator.
+      - command: set
+        target: EAIV6029
+        value: []
 
       # Append response message directly to chat history
       - command: list-append

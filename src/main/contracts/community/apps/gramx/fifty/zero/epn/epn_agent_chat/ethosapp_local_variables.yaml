@@ -175,6 +175,23 @@
       type: ELVT1007
       default: ""
 
+# Transient "pending turn" list driving the animated thinking indicator
+# (EAIC6040). EALC6002 appends a thinking item here right before the unary
+# mesh invoke and clears it the moment the response arrives, so the typing
+# animation shows only while Evo is actually working. Kept separate from
+# EAIV6002 so the committed chat history is never polluted by a placeholder.
+- name-code: EAIV6029
+  name: Pending Turn
+  type: ELVT1018
+  default: []
+
+# The single thinking item appended to EAIV6029. `thinking: true` is the only
+# signal the chat-message renderer needs to draw the animated dots bubble.
+- name-code: EAIV6030
+  name: Thinking Item
+  type: ELVT1021
+  default: {}
+
 # Temporary holding space for extracted persona from list (used by EALC6015).
 - name-code: EAIV6024
   name: Selected Persona

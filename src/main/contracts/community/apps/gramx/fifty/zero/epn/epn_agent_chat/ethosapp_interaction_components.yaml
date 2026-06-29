@@ -138,6 +138,23 @@
     scrollable: true
     max-height: 440
 
+# Animated "thinking" indicator — a transient typing-dots bubble shown only
+# while a turn is in flight. Sourced from EAIV6029 (the pending-turn list,
+# populated by EALC6002 around the unary mesh invoke). `thinking-field` makes
+# the chat-message renderer draw the animated dots instead of a text bubble;
+# `hide-empty` keeps it invisible when no turn is pending.
+- name-code: EAIC6040
+  name: Thinking Indicator
+  component:
+    name-code: EIC1026
+    source: EAIV6029
+    item-type: chat-message
+    thinking-field: thinking
+    sender-field: eamvt6004
+    hide-empty: true
+    show-sender-label: false
+    show-avatar: true
+
 # Empty state — shown when EAIV6002 is empty.
 - name-code: EAIC6003
   name: Empty State Label
@@ -290,6 +307,7 @@
       - EAIC6014
       - EAIC6003
       - EAIC6002
+      - EAIC6040
 
 # Input field (full width in column) + action buttons below it.
 - name-code: EAIC6010
