@@ -109,18 +109,10 @@
         target: EAIV6002
         value: EAIV6028
 
-      # Platform-invoke: epn.agent.send uses agentStream + ChatTurnAccumulator
-      # internally and returns an EAMVT-keyed map. mesh-invoke: EAMC6002 was
-      # abandoned because the Dart EAMV6002 proto in eapp-dart-domain has a
-      # stale nested schema that mismatches the daemon's flat wire format,
-      # causing toProto3Json() to produce empty/garbage data for activity and
-      # evidence.
-      - command: platform-invoke
-        handler: epn.agent.send
-        params:
-          text: EAIV6005
-          persona_id: EAIV6014
-          conversation_id: EAIV6019
+      # Invoke mesh service (unary RPC — returns single Map)
+      - command: mesh-invoke
+        capability: EAMC6002
+        request: EAIV6003
         assign-to: EAIV6027
 
       # Append response message directly to chat history
