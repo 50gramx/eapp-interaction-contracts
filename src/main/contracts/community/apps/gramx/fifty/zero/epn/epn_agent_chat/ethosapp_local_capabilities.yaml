@@ -1,4 +1,4 @@
-# Called via on-appear when the chat page opens. Discovers specialist
+﻿# Called via on-appear when the chat page opens. Discovers specialist
 # personas live from the daemon (epn.agent.personas) instead of the
 # hardcoded Evo/Sigma/Lume picker -- see EAIV6015.
 # Also auto-selects the first persona as default.
@@ -85,7 +85,7 @@
 #
 # Flow:
 # 1. Compose request (persona_id, conversation_id, text)
-# 2. Call mesh service → receive ONE complete response message
+# 2. Call mesh service â†’ receive ONE complete response message
 # 3. Append response to chat history
 # 4. Extract conversation_id for next message
 # 5. Update run status
@@ -101,8 +101,10 @@
         target-map: EAIV6003
         key: EAMVT6002
         value: EAIV6019
-      # Note: EAMVT6003 (text) is already kept in sync by EALC6004 (on-change)
-      # so no need to set it again here
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6003
+        value: EAIV6001.text
 
       # Invoke mesh service (unary RPC)
       # Response is single pre-composed message (not array)
@@ -149,7 +151,7 @@
         key: EAMVT6003
         value: text
 
-# ── Persona switcher ──────────────────────────────────────────────────────────
+# â”€â”€ Persona switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Called via on-item-tap from the discovered persona list (EAIC6014, sourced
 # from EAIV6015 / epn.agent.personas -- see EALC6015). `id` arrives from the
 # tapped row (same proven pattern as epn_market's EALC13008 Select Offer).
