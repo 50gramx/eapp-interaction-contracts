@@ -1,14 +1,9 @@
-# TextEditingController for the composer input field.
-- name-code: EAIV6001
-  name: Input Controller
-  type: ELVT1001
-  modelled: true
-  default: {}
-  properties:
-    - name-code: EAIVT6001
-      name: text
-      type: ELVT1007
-      default: ""
+# Two-way bound composer input text — synced automatically with the EIC1009
+# text field via text-bind. EALC6002 reads this directly (no controller needed).
+- name-code: EAIV6005
+  name: Composer Text
+  type: ELVT1007
+  default: ""
 
 # Current active persona id. Kept local so the outgoing request can be
 # composed entirely from UI/session state before the mesh invoke happens.

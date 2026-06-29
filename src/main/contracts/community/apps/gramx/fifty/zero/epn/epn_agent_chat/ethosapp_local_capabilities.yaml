@@ -1,4 +1,4 @@
-﻿# Called via on-appear when the chat page opens. Discovers specialist
+# Called via on-appear when the chat page opens. Discovers specialist
 # personas live from the daemon (epn.agent.personas) instead of the
 # hardcoded Evo/Sigma/Lume picker -- see EAIV6015.
 # Also auto-selects the first persona as default.
@@ -70,16 +70,6 @@
         handler: epn.agent.run.latest
         assign-to: EAIV6016
 
-# Return the TextEditingController so the composer field can bind to it.
-- name-code: EALC6001
-  name: Get Input Controller
-  context:
-    returns:
-      type: ELVT1001
-    steps:
-      - command: return
-        value: EAIV6001
-
 # Called by the Send button. Composes request, calls mesh service (now unary),
 # and updates chat history.
 #
@@ -104,7 +94,7 @@
       - command: set-map-value
         target-map: EAIV6003
         key: EAMVT6003
-        value: EAIV6001.text
+        value: EAIV6005
 
       # Invoke mesh service (unary RPC)
       # Response is single pre-composed message (not array)
@@ -136,20 +126,6 @@
       - command: platform-invoke
         handler: epn.agent.chat.clear
         assign-to: EAIV6002
-
-# Called on-change of the input field (engine passes current text as 'text'
-# param). Keeps the outbound request's text field in local memory so the
-# send flow can compose the mesh request from local state.
-- name-code: EALC6004
-  name: Update Input Text
-  context:
-    expects:
-      - text: ELVT1007
-    steps:
-      - command: set-map-value
-        target-map: EAIV6003
-        key: EAMVT6003
-        value: text
 
 # â”€â”€ Persona switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Called via on-item-tap from the discovered persona list (EAIC6014, sourced

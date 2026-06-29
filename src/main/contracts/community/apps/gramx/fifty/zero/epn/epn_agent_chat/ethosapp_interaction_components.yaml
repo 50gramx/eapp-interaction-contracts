@@ -148,8 +148,7 @@
   component:
     name-code: EIC1009
     hint-text: Ask Evo anything…
-    text-controller: EALC6001
-    on-change: EALC6004
+    text-bind: EAIV6005
 
 - name-code: EAIC6005
   name: Send Button
