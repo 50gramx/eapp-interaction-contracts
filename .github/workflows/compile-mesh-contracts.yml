@@ -102,3 +102,14 @@ jobs:
             git push origin main
             echo "✓ Derived feature files committed."
           fi
+
+      - name: Trigger scenario runner in eapp-editor
+        env:
+          GH_TOKEN: ${{ secrets.PROTOBUF_TOKEN || github.token }}
+        run: |
+          echo "→ Dispatching run-scenarios to eapp-editor..."
+          gh api repos/50gramx/eapp-editor/dispatches \
+            -f event_type=run-scenarios \
+            -f client_payload[contracts_ref]=main \
+            -f client_payload[source]=eapp-interaction-contracts
+          echo "✓ Scenario runner triggered."
