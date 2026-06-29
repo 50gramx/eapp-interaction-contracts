@@ -122,6 +122,13 @@
     item-type: chat-message
     text-field: eamvt6008
     sender-field: eamvt6004
+    ai-field: eamvt6009
+    persona-id-field: eamvt6010
+    locality-field: eamvt6011
+    grounding-field: eamvt6012
+    activity-field: eamvt6013
+    evidence-field: eamvt6014
+    errors-field: eamvt6015
     self-sender-values:
       - You
     error-sender-values:
