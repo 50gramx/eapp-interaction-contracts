@@ -119,6 +119,13 @@
   type: ELVT1007
   default: ""
 
+# User turn map built by EALC6002 before mesh-invoke and appended to EAIV6002.
+# Keys match the EIC1026 field codes so the same renderer handles both turns.
+- name-code: EAIV6028
+  name: User Message
+  type: ELVT1021
+  default: {}
+
 # Mesh response from EAMC6002 (used by EALC6002).
 # Single pre-composed message from daemon (now unary, not array).
 - name-code: EAIV6027

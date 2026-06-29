@@ -96,6 +96,19 @@
         key: EAMVT6003
         value: EAIV6005
 
+      # Append user turn before sending so it appears immediately in the chat
+      - command: set-map-value
+        target-map: EAIV6028
+        key: eamvt6004
+        value: You
+      - command: set-map-value
+        target-map: EAIV6028
+        key: eamvt6008
+        value: EAIV6005
+      - command: list-append
+        target: EAIV6002
+        value: EAIV6028
+
       # Invoke mesh service (unary RPC — returns single Map)
       - command: mesh-invoke
         capability: EAMC6002
