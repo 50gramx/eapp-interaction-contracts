@@ -109,6 +109,12 @@
         target: EAIV6002
         value: EAIV6028
 
+      # Clear the composer input immediately on send so the field empties and
+      # the just-sent text is not left sitting in the box.
+      - command: set
+        target: EAIV6005
+        value: ""
+
       # Invoke mesh service (unary RPC — returns single Map)
       - command: mesh-invoke
         capability: EAMC6002

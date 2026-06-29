@@ -156,6 +156,8 @@
     name-code: EIC1009
     hint-text: Ask Evo anything…
     text-bind: EAIV6005
+    # Pressing Enter submits the message (same as the Send button → EALC6002).
+    on-submit: EALC6002
 
 - name-code: EAIC6005
   name: Send Button
