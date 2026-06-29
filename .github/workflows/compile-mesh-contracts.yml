@@ -104,6 +104,7 @@ jobs:
           fi
 
       - name: Trigger scenario runner in eapp-editor
+        continue-on-error: true  # requires a token with write access to eapp-editor; trigger manually if this fails
         env:
           GH_TOKEN: ${{ secrets.PROTOBUF_TOKEN || github.token }}
         run: |
