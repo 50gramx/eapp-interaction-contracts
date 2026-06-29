@@ -14,13 +14,14 @@
   "expected": {
     "outputs": [
       "EAIV6002",
+      "EAIV6029",
       "EAIV6005",
       "EAIV6027",
       "EAIV6016"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV6002 list grows by at least 1 item",
+    "behavioral": "EAIV6002 list grows by at least 1 item; EAIV6029 list grows by at least 1 item",
     "state": "EAIV6005 populated, EAIV6027 populated, EAIV6016 populated",
     "visual": "n/a",
     "structural": "n/a",
@@ -32,6 +33,7 @@
     "And EAIV6005 (Composer Text) is set to \"hello from scenario test\"": "EAIV6005",
     "When capability EALC6002 (Send Message) is invoked": "EALC6002",
     "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6029 (Pending Turn) has at least 1 item": "EAIV6029",
     "Then EAIV6005 (Composer Text) is not empty": "EAIV6005",
     "Then EAIV6027 (Mesh Response Message) is not empty": "EAIV6027",
     "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
@@ -60,6 +62,12 @@
       "type": "then",
       "assert": "list-length-gte",
       "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6029",
       "expected": 1
     },
     {
