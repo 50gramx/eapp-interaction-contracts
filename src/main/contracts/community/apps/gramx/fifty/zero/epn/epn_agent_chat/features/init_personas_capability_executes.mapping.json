@@ -1,0 +1,53 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_init_personas_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Personas capability executes",
+  "capability": "EALC6015",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6015",
+      "EAIV6016",
+      "EAIV6017"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6015 list grows by at least 1 item",
+    "state": "EAIV6016 populated, EAIV6017 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6015",
+    "When capability EALC6015 (Init Personas) is invoked": "EALC6015",
+    "Then EAIV6015 (Personas) has at least 1 item": "EAIV6015",
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6015"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6015",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6016"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6017"
+    }
+  ]
+}

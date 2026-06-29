@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_init_page_capability_executes",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC7007",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV7001",
+      "EAIV7002",
+      "EAIV7007"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV7001 is populated; EAIV7002 is populated; EAIV7007 is populated",
+    "state": "EAIV7001 populated, EAIV7002 populated, EAIV7007 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Network eApp is open": "EALC7007",
+    "When capability EALC7007 (Init Page) is invoked": "EALC7007",
+    "Then EAIV7001 (Node Identity) is not empty": "EAIV7001",
+    "Then EAIV7002 (Peer List) is not empty": "EAIV7002",
+    "Then EAIV7007 (Family Status) is not empty": "EAIV7007"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC7007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7007"
+    }
+  ]
+}

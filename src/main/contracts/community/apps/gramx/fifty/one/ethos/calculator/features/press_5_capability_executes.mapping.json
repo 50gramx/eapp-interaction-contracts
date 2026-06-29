@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "calculator_press_5_capability_executes",
+  "app": "calculator",
+  "org": "epn",
+  "community": 51,
+  "scenario": "Press 5 capability executes",
+  "capability": "EALC1006",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1003 is populated",
+    "state": "EAIV1003 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the calculator eApp is open": "EALC1006",
+    "When capability EALC1006 (Press 5) is invoked": "EALC1006",
+    "Then EAIV1003 (Clear Button Label) is not empty": "EAIV1003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1003"
+    }
+  ]
+}

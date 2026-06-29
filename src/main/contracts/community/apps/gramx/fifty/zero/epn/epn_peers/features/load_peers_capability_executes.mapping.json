@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_load_peers_capability_executes",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Peers capability executes",
+  "capability": "EALC7002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV7002",
+      "EAIV7007"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV7002 is populated; EAIV7007 is populated",
+    "state": "EAIV7002 populated, EAIV7007 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Network eApp is open": "EALC7002",
+    "When capability EALC7002 (Load Peers) is invoked": "EALC7002",
+    "Then EAIV7002 (Peer List) is not empty": "EAIV7002",
+    "Then EAIV7007 (Family Status) is not empty": "EAIV7007"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC7002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7007"
+    }
+  ]
+}

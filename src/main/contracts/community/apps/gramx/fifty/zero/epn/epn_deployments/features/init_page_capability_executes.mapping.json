@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_init_page_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC9001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9002 is populated",
+    "state": "EAIV9002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9001",
+    "When capability EALC9001 (Init Page) is invoked": "EALC9001",
+    "Then EAIV9002 (Personas) is not empty": "EAIV9002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9002"
+    }
+  ]
+}

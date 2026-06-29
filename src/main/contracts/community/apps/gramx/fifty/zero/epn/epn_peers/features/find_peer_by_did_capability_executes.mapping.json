@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_find_peer_by_did_capability_executes",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Find Peer by DID capability executes",
+  "capability": "EALC7006",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV7006"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV7006 is populated",
+    "state": "EAIV7006 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Network eApp is open": "EALC7006",
+    "When capability EALC7006 (Find Peer by DID) is invoked": "EALC7006",
+    "Then EAIV7006 (Find Result) is not empty": "EAIV7006"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC7006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7006"
+    }
+  ]
+}

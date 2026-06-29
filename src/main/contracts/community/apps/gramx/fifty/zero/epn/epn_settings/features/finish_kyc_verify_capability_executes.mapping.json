@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_finish_kyc_verify_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Finish KYC Verify capability executes",
+  "capability": "EALC12029",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12022"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12022 is populated",
+    "state": "EAIV12022 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12029",
+    "When capability EALC12029 (Finish KYC Verify) is invoked": "EALC12029",
+    "Then EAIV12022 (KYC Verify Flow Screen) is not empty": "EAIV12022"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12029"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12022"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "netflixforkids_save_screen_time_capability_executes",
+  "app": "netflixforkids",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Save Screen Time capability executes",
+  "capability": "EALC1005",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1009"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1009 is populated",
+    "state": "EAIV1009 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the netflixforkids eApp is open": "EALC1005",
+    "When capability EALC1005 (Save Screen Time) is invoked": "EALC1005",
+    "Then EAIV1009 (Confirmation Message) is not empty": "EAIV1009"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1005"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1009"
+    }
+  ]
+}

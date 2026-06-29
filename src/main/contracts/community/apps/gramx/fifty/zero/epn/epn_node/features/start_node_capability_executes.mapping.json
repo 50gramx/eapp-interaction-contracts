@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_start_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Start Node capability executes",
+  "capability": "EALC14001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14002 is populated",
+    "state": "EAIV14002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14001",
+    "When capability EALC14001 (Start Node) is invoked": "EALC14001",
+    "Then EAIV14002 (Start Result) is not empty": "EAIV14002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14002"
+    }
+  ]
+}

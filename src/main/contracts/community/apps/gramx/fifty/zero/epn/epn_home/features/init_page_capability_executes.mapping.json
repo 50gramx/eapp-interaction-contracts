@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_home_init_page_capability_executes",
+  "app": "epn_home",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC5005",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV5008",
+      "EAIV5004"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV5008 is populated; EAIV5004 is populated",
+    "state": "EAIV5008 populated, EAIV5004 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the EP&N Node eApp is open": "EALC5005",
+    "When capability EALC5005 (Init Page) is invoked": "EALC5005",
+    "Then EAIV5008 (Capacity Plan) is not empty": "EAIV5008",
+    "Then EAIV5004 (Node Identity) is not empty": "EAIV5004"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC5005"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV5008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV5004"
+    }
+  ]
+}

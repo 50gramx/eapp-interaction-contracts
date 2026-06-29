@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_market_apply_filter_capability_executes",
+  "app": "epn_market",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Apply Filter capability executes",
+  "capability": "EALC13003",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV13001",
+      "EAIV13003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV13001 is populated; EAIV13003 is populated",
+    "state": "EAIV13001 populated, EAIV13003 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Resource Market eApp is open": "EALC13003",
+    "When capability EALC13003 (Apply Filter) is invoked": "EALC13003",
+    "Then EAIV13001 (Offers) is not empty": "EAIV13001",
+    "Then EAIV13003 (Price Summary) is not empty": "EAIV13003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC13003"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV13001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV13003"
+    }
+  ]
+}

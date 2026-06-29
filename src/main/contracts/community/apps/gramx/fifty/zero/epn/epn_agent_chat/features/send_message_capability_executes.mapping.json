@@ -1,0 +1,74 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_send_message_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Send Message capability executes",
+  "capability": "EALC6002",
+  "inputs": {
+    "EAIV6014": "epn.concierge.v1",
+    "EAIV6019": "test-value",
+    "EAIV6005": "hello from scenario test"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV6002",
+      "EAIV6027",
+      "EAIV6016"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6002 list grows by at least 1 item",
+    "state": "EAIV6027 populated, EAIV6016 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV6014 (Active Persona Id) is set to \"epn.concierge.v1\"": "EAIV6014",
+    "And EAIV6019 (Active Conversation ID) is set to \"test-value\"": "EAIV6019",
+    "And EAIV6005 (Composer Text) is set to \"hello from scenario test\"": "EAIV6005",
+    "When capability EALC6002 (Send Message) is invoked": "EALC6002",
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6027 (Mesh Response Message) is not empty": "EAIV6027",
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV6014",
+      "value": "epn.concierge.v1"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV6019",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV6005",
+      "value": "hello from scenario test"
+    },
+    {
+      "type": "when",
+      "capability": "EALC6002"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6027"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6016"
+    }
+  ]
+}

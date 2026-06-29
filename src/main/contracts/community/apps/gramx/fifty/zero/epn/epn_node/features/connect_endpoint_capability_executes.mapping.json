@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_connect_endpoint_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Connect Endpoint capability executes",
+  "capability": "EALC14015",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14015 is populated",
+    "state": "EAIV14015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14015",
+    "When capability EALC14015 (Connect Endpoint) is invoked": "EALC14015",
+    "Then EAIV14015 (Connect Result) is not empty": "EAIV14015"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14015"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14015"
+    }
+  ]
+}

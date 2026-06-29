@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_approve_latest_approval_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Approve Latest Approval capability executes",
+  "capability": "EALC6018",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6017"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6017 is populated",
+    "state": "EAIV6017 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6018",
+    "When capability EALC6018 (Approve Latest Approval) is invoked": "EALC6018",
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6018"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6017"
+    }
+  ]
+}

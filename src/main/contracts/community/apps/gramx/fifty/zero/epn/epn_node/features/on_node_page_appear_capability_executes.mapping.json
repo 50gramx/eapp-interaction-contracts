@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_on_node_page_appear_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "On Node Page Appear capability executes",
+  "capability": "EALC14020",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14012",
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14012 is populated; EAIV14020 is populated",
+    "state": "EAIV14012 populated, EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14020",
+    "When capability EALC14020 (On Node Page Appear) is invoked": "EALC14020",
+    "Then EAIV14012 (My Identity) is not empty": "EAIV14012",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

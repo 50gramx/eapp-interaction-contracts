@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_metering_init_page_capability_executes",
+  "app": "epn_metering",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC11001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV11001",
+      "EAIV11002",
+      "EAIV11004",
+      "EAIV11005"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV11001 is populated; EAIV11002 is populated; EAIV11004 is populated; EAIV11005 is populated",
+    "state": "EAIV11001 populated, EAIV11002 populated, EAIV11004 populated, EAIV11005 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Metering eApp is open": "EALC11001",
+    "When capability EALC11001 (Init Page) is invoked": "EALC11001",
+    "Then EAIV11001 (Wallet Info) is not empty": "EAIV11001",
+    "Then EAIV11002 (Channels) is not empty": "EAIV11002",
+    "Then EAIV11004 (Resources) is not empty": "EAIV11004",
+    "Then EAIV11005 (Metering Summary) is not empty": "EAIV11005"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC11001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11005"
+    }
+  ]
+}

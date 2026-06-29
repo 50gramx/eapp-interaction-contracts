@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "calculator_clear_capability_executes",
+  "app": "calculator",
+  "org": "epn",
+  "community": 51,
+  "scenario": "Clear capability executes",
+  "capability": "EALC1011",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1002",
+      "EAIV1003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1002 is populated; EAIV1003 is populated",
+    "state": "EAIV1002 populated, EAIV1003 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the calculator eApp is open": "EALC1011",
+    "When capability EALC1011 (Clear) is invoked": "EALC1011",
+    "Then EAIV1002 (Display Text) is not empty": "EAIV1002",
+    "Then EAIV1003 (Clear Button Label) is not empty": "EAIV1003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1003"
+    }
+  ]
+}

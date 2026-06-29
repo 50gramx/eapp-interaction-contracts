@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_wallet_load_channels_capability_executes",
+  "app": "epn_wallet",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Channels capability executes",
+  "capability": "EALC8002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV8002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV8002 is populated",
+    "state": "EAIV8002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Wallet eApp is open": "EALC8002",
+    "When capability EALC8002 (Load Channels) is invoked": "EALC8002",
+    "Then EAIV8002 (Channel List) is not empty": "EAIV8002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC8002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8002"
+    }
+  ]
+}

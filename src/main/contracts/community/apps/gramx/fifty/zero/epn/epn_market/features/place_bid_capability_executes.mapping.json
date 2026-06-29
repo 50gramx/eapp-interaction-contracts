@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_market_place_bid_capability_executes",
+  "app": "epn_market",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Place Bid capability executes",
+  "capability": "EALC13012",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV13012"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV13012 is populated",
+    "state": "EAIV13012 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Resource Market eApp is open": "EALC13012",
+    "When capability EALC13012 (Place Bid) is invoked": "EALC13012",
+    "Then EAIV13012 (Bid Result) is not empty": "EAIV13012"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC13012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV13012"
+    }
+  ]
+}

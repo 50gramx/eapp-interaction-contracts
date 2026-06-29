@@ -1,0 +1,9 @@
+# auto-derived — do not edit by hand. Re-generated on every contract change.
+Feature: calculator
+  # As a user, I want Press 1 to work so I can use calculator.
+
+  @EALC1002 @EAIV1003
+  Scenario: Press 1 capability executes
+    Given the calculator eApp is open
+    When capability EALC1002 (Press 1) is invoked
+    Then EAIV1003 (Clear Button Label) is not empty

@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_add_compute_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Add Compute Node capability executes",
+  "capability": "EALC14024",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14022",
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14022 is populated; EAIV14020 is populated",
+    "state": "EAIV14022 populated, EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14024",
+    "When capability EALC14024 (Add Compute Node) is invoked": "EALC14024",
+    "Then EAIV14022 (Create Result) is not empty": "EAIV14022",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14024"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14022"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

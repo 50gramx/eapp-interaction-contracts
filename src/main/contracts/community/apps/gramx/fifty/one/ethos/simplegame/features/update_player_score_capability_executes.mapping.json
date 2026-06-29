@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "simplegame_update_player_score_capability_executes",
+  "app": "simplegame",
+  "org": "epn",
+  "community": 51,
+  "scenario": "Update Player Score capability executes",
+  "capability": "EALC1001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1001"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1001 is populated",
+    "state": "EAIV1001 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the simplegame eApp is open": "EALC1001",
+    "When capability EALC1001 (Update Player Score) is invoked": "EALC1001",
+    "Then EAIV1001 (Player Score) is not empty": "EAIV1001"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1001"
+    }
+  ]
+}

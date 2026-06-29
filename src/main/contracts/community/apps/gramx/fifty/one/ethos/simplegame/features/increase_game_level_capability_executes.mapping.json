@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "simplegame_increase_game_level_capability_executes",
+  "app": "simplegame",
+  "org": "epn",
+  "community": 51,
+  "scenario": "Increase Game Level capability executes",
+  "capability": "EALC1002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1002 is populated",
+    "state": "EAIV1002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the simplegame eApp is open": "EALC1002",
+    "When capability EALC1002 (Increase Game Level) is invoked": "EALC1002",
+    "Then EAIV1002 (Game Level) is not empty": "EAIV1002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1002"
+    }
+  ]
+}

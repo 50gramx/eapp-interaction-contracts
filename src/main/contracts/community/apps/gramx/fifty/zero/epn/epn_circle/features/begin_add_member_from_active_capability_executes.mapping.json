@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_begin_add_member_from_active_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Begin Add Member From Active capability executes",
+  "capability": "EALC15012",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15003",
+      "EAIV15002",
+      "EAIV15005"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15003 is populated; EAIV15002 is populated; EAIV15005 is populated",
+    "state": "EAIV15003 populated, EAIV15002 populated, EAIV15005 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15012",
+    "When capability EALC15012 (Begin Add Member From Active) is invoked": "EALC15012",
+    "Then EAIV15003 (Circle Return State) is not empty": "EAIV15003",
+    "Then EAIV15002 (Circle Wizard State) is not empty": "EAIV15002",
+    "Then EAIV15005 (Add DID Error) is not empty": "EAIV15005"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15003"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15005"
+    }
+  ]
+}

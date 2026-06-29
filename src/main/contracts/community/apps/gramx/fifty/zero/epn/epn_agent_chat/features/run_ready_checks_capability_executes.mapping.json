@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_run_ready_checks_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Run Ready Checks capability executes",
+  "capability": "EALC6021",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6016"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6016 is populated",
+    "state": "EAIV6016 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6021",
+    "When capability EALC6021 (Run Ready Checks) is invoked": "EALC6021",
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6021"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6016"
+    }
+  ]
+}

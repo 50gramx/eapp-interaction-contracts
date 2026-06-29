@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_wallet_settle_channel_capability_executes",
+  "app": "epn_wallet",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Settle Channel capability executes",
+  "capability": "EALC8006",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV8003",
+      "EAIV8002",
+      "EAIV8001"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV8003 is populated; EAIV8002 is populated; EAIV8001 is populated",
+    "state": "EAIV8003 populated, EAIV8002 populated, EAIV8001 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Wallet eApp is open": "EALC8006",
+    "When capability EALC8006 (Settle Channel) is invoked": "EALC8006",
+    "Then EAIV8003 (Action Result) is not empty": "EAIV8003",
+    "Then EAIV8002 (Channel List) is not empty": "EAIV8002",
+    "Then EAIV8001 (Wallet Info) is not empty": "EAIV8001"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC8006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8003"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8001"
+    }
+  ]
+}

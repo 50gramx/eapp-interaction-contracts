@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_clean_device_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Clean Device capability executes",
+  "capability": "EALC14028",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14028",
+      "EAIV14026",
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14028 is populated; EAIV14026 is populated; EAIV14020 is populated",
+    "state": "EAIV14028 populated, EAIV14026 populated, EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14028",
+    "When capability EALC14028 (Clean Device) is invoked": "EALC14028",
+    "Then EAIV14028 (Clean Result) is not empty": "EAIV14028",
+    "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14028"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14028"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14026"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

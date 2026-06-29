@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_stop_selected_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Stop Selected Node capability executes",
+  "capability": "EALC14026",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14026",
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14026 is populated; EAIV14020 is populated",
+    "state": "EAIV14026 populated, EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14026",
+    "When capability EALC14026 (Stop Selected Node) is invoked": "EALC14026",
+    "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14026"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14026"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

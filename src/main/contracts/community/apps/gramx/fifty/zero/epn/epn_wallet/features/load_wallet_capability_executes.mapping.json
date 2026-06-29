@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_wallet_load_wallet_capability_executes",
+  "app": "epn_wallet",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Wallet capability executes",
+  "capability": "EALC8001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV8001"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV8001 is populated",
+    "state": "EAIV8001 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Wallet eApp is open": "EALC8001",
+    "When capability EALC8001 (Load Wallet) is invoked": "EALC8001",
+    "Then EAIV8001 (Wallet Info) is not empty": "EAIV8001"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC8001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8001"
+    }
+  ]
+}

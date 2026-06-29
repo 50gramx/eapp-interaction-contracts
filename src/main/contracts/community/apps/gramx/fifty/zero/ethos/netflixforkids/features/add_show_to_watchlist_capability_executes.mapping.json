@@ -1,0 +1,39 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "netflixforkids_add_show_to_watchlist_capability_executes",
+  "app": "netflixforkids",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Add Show to Watchlist capability executes",
+  "capability": "EALC1003",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1006"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1006 list grows by at least 1 item",
+    "state": "n/a",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the netflixforkids eApp is open": "EALC1003",
+    "When capability EALC1003 (Add Show to Watchlist) is invoked": "EALC1003",
+    "Then EAIV1006 (Watchlist) has at least 1 item": "EAIV1006"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1003"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV1006",
+      "expected": 1
+    }
+  ]
+}

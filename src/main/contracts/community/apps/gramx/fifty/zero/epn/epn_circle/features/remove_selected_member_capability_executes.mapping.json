@@ -1,0 +1,66 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_remove_selected_member_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Remove Selected Member capability executes",
+  "capability": "EALC15008",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15010",
+      "EAIV15001",
+      "EAIV15008",
+      "EAIV15009",
+      "EAIV15015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15010 is populated; EAIV15001 is populated; EAIV15008 is populated; EAIV15009 is populated; EAIV15015 is populated",
+    "state": "EAIV15010 populated, EAIV15001 populated, EAIV15008 populated, EAIV15009 populated, EAIV15015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15008",
+    "When capability EALC15008 (Remove Selected Member) is invoked": "EALC15008",
+    "Then EAIV15010 (Remove Member Result) is not empty": "EAIV15010",
+    "Then EAIV15001 (Circle Status) is not empty": "EAIV15001",
+    "Then EAIV15008 (Selected Member DID) is not empty": "EAIV15008",
+    "Then EAIV15009 (Selected Member Label) is not empty": "EAIV15009",
+    "Then EAIV15015 (Selection State) is not empty": "EAIV15015"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15010"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15009"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15015"
+    }
+  ]
+}

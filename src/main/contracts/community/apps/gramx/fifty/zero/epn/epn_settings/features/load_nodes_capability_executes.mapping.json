@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_load_nodes_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Nodes capability executes",
+  "capability": "EALC12018",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12019"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12019 is populated",
+    "state": "EAIV12019 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12018",
+    "When capability EALC12018 (Load Nodes) is invoked": "EALC12018",
+    "Then EAIV12019 (Nodes List) is not empty": "EAIV12019"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12018"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12019"
+    }
+  ]
+}

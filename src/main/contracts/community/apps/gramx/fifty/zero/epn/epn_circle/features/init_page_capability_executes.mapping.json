@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_init_page_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC15001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15001",
+      "EAIV15018"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15001 is populated; EAIV15018 is populated",
+    "state": "EAIV15001 populated, EAIV15018 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15001",
+    "When capability EALC15001 (Init Page) is invoked": "EALC15001",
+    "Then EAIV15001 (Circle Status) is not empty": "EAIV15001",
+    "Then EAIV15018 (Latest Notice) is not empty": "EAIV15018"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15018"
+    }
+  ]
+}

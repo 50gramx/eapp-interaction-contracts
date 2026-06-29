@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "test_open_help_request_form_capability_executes",
+  "app": "test",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Help Request Form capability executes",
+  "capability": "EALC1003",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1007"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1007 is populated",
+    "state": "EAIV1007 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the test eApp is open": "EALC1003",
+    "When capability EALC1003 (Open Help Request Form) is invoked": "EALC1003",
+    "Then EAIV1007 (Help Request Confirmation) is not empty": "EAIV1007"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1003"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1007"
+    }
+  ]
+}

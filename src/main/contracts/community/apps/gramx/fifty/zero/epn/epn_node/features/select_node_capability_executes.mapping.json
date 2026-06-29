@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_select_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Select Node capability executes",
+  "capability": "EALC14025",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14023",
+      "EAIV14024",
+      "EAIV14025"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14023 is populated; EAIV14024 is populated; EAIV14025 is populated",
+    "state": "EAIV14023 populated, EAIV14024 populated, EAIV14025 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14025",
+    "When capability EALC14025 (Select Node) is invoked": "EALC14025",
+    "Then EAIV14023 (Selected Node Id) is not empty": "EAIV14023",
+    "Then EAIV14024 (Selected Node Label) is not empty": "EAIV14024",
+    "Then EAIV14025 (Selected Node State) is not empty": "EAIV14025"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14025"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14023"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14024"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14025"
+    }
+  ]
+}

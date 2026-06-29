@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_save_openai_key_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Save OpenAI Key capability executes",
+  "capability": "EALC12013",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12014",
+      "EAIV12013"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12014 is populated; EAIV12013 is populated",
+    "state": "EAIV12014 populated, EAIV12013 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12013",
+    "When capability EALC12013 (Save OpenAI Key) is invoked": "EALC12013",
+    "Then EAIV12014 (Key Save Result) is not empty": "EAIV12014",
+    "Then EAIV12013 (Keys Status) is not empty": "EAIV12013"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12013"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12014"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12013"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "simplegame_start_game_capability_executes",
+  "app": "simplegame",
+  "org": "epn",
+  "community": 51,
+  "scenario": "Start Game capability executes",
+  "capability": "EALC1004",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1003 is populated",
+    "state": "EAIV1003 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the simplegame eApp is open": "EALC1004",
+    "When capability EALC1004 (Start Game) is invoked": "EALC1004",
+    "Then EAIV1003 (Player Name) is not empty": "EAIV1003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1003"
+    }
+  ]
+}

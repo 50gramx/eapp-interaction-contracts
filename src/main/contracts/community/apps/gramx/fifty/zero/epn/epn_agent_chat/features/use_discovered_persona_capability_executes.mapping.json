@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_use_discovered_persona_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Use Discovered Persona capability executes",
+  "capability": "EALC6016",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6014"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6014 is populated",
+    "state": "EAIV6014 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6016",
+    "When capability EALC6016 (Use Discovered Persona) is invoked": "EALC6016",
+    "Then EAIV6014 (Active Persona Id) is not empty": "EAIV6014"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6016"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6014"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "youtubemkbhd_send_collaboration_request_capability_executes",
+  "app": "youtubemkbhd",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Send Collaboration Request capability executes",
+  "capability": "EALC1007",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV1016"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV1016 is populated",
+    "state": "EAIV1016 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the youtubemkbhd eApp is open": "EALC1007",
+    "When capability EALC1007 (Send Collaboration Request) is invoked": "EALC1007",
+    "Then EAIV1016 (Notification) is not empty": "EAIV1016"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC1007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV1016"
+    }
+  ]
+}

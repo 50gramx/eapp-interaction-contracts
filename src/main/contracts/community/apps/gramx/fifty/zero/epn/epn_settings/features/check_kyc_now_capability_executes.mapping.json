@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_check_kyc_now_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Check KYC Now capability executes",
+  "capability": "EALC12026",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12025"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12025 is populated",
+    "state": "EAIV12025 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12026",
+    "When capability EALC12026 (Check KYC Now) is invoked": "EALC12026",
+    "Then EAIV12025 (KYC Poll Result) is not empty": "EAIV12025"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12026"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12025"
+    }
+  ]
+}

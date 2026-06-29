@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_cancel_add_member_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Cancel Add Member capability executes",
+  "capability": "EALC15006",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15005"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15005 is populated",
+    "state": "EAIV15005 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15006",
+    "When capability EALC15006 (Cancel Add Member) is invoked": "EALC15006",
+    "Then EAIV15005 (Add DID Error) is not empty": "EAIV15005"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15005"
+    }
+  ]
+}

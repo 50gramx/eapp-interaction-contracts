@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_remove_node_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Remove Node capability executes",
+  "capability": "EALC12020",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12021",
+      "EAIV12019"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12021 is populated; EAIV12019 is populated",
+    "state": "EAIV12021 populated, EAIV12019 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12020",
+    "When capability EALC12020 (Remove Node) is invoked": "EALC12020",
+    "Then EAIV12021 (Node Mgmt Result) is not empty": "EAIV12021",
+    "Then EAIV12019 (Nodes List) is not empty": "EAIV12019"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12021"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12019"
+    }
+  ]
+}

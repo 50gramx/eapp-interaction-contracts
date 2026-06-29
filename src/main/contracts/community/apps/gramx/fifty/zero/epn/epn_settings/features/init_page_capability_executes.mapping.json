@@ -1,0 +1,66 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_init_page_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC12001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12001",
+      "EAIV12006",
+      "EAIV12007",
+      "EAIV12013",
+      "EAIV12019"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12001 is populated; EAIV12006 is populated; EAIV12007 is populated; EAIV12013 is populated; EAIV12019 is populated",
+    "state": "EAIV12001 populated, EAIV12006 populated, EAIV12007 populated, EAIV12013 populated, EAIV12019 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12001",
+    "When capability EALC12001 (Init Page) is invoked": "EALC12001",
+    "Then EAIV12001 (Spend Policy) is not empty": "EAIV12001",
+    "Then EAIV12006 (KYC Status) is not empty": "EAIV12006",
+    "Then EAIV12007 (Energy Policy) is not empty": "EAIV12007",
+    "Then EAIV12013 (Keys Status) is not empty": "EAIV12013",
+    "Then EAIV12019 (Nodes List) is not empty": "EAIV12019"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12013"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12019"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_resend_kyc_email_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Resend KYC Email capability executes",
+  "capability": "EALC12027",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12028"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12028 is populated",
+    "state": "EAIV12028 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12027",
+    "When capability EALC12027 (Resend KYC Email) is invoked": "EALC12027",
+    "Then EAIV12028 (KYC Initiate Result) is not empty": "EAIV12028"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12027"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12028"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_dismiss_notice_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Dismiss Notice capability executes",
+  "capability": "EALC15015",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15023",
+      "EAIV15019"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15023 is populated; EAIV15019 is populated",
+    "state": "EAIV15023 populated, EAIV15019 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15015",
+    "When capability EALC15015 (Dismiss Notice) is invoked": "EALC15015",
+    "Then EAIV15023 (Dismiss Notice Result) is not empty": "EAIV15023",
+    "Then EAIV15019 (Notice Banner State) is not empty": "EAIV15019"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15015"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15023"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15019"
+    }
+  ]
+}

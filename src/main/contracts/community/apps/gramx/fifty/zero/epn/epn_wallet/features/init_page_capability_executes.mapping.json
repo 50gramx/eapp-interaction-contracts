@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_wallet_init_page_capability_executes",
+  "app": "epn_wallet",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Init Page capability executes",
+  "capability": "EALC8007",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV8001",
+      "EAIV8002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV8001 is populated; EAIV8002 is populated",
+    "state": "EAIV8001 populated, EAIV8002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Wallet eApp is open": "EALC8007",
+    "When capability EALC8007 (Init Page) is invoked": "EALC8007",
+    "Then EAIV8001 (Wallet Info) is not empty": "EAIV8001",
+    "Then EAIV8002 (Channel List) is not empty": "EAIV8002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC8007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8002"
+    }
+  ]
+}

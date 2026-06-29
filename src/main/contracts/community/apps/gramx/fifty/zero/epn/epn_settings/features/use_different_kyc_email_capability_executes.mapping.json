@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_use_different_kyc_email_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Use Different KYC Email capability executes",
+  "capability": "EALC12028",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12022",
+      "EAIV12024"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12022 is populated; EAIV12024 is populated",
+    "state": "EAIV12022 populated, EAIV12024 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12028",
+    "When capability EALC12028 (Use Different KYC Email) is invoked": "EALC12028",
+    "Then EAIV12022 (KYC Verify Flow Screen) is not empty": "EAIV12022",
+    "Then EAIV12024 (KYC Flow Error) is not empty": "EAIV12024"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12028"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12022"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12024"
+    }
+  ]
+}

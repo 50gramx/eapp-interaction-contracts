@@ -1,0 +1,39 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_clear_chat_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Clear Chat capability executes",
+  "capability": "EALC6003",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6002 list grows by at least 1 item",
+    "state": "n/a",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6003",
+    "When capability EALC6003 (Clear Chat) is invoked": "EALC6003",
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6003"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6002",
+      "expected": 1
+    }
+  ]
+}

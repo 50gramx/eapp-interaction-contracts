@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_save_energy_policy_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Save Energy Policy capability executes",
+  "capability": "EALC12009",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12007"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12007 is populated",
+    "state": "EAIV12007 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12009",
+    "When capability EALC12009 (Save Energy Policy) is invoked": "EALC12009",
+    "Then EAIV12007 (Energy Policy) is not empty": "EAIV12007"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12009"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12007"
+    }
+  ]
+}

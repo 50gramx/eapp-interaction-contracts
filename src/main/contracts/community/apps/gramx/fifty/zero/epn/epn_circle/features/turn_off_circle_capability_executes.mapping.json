@@ -1,0 +1,66 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_turn_off_circle_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Turn Off Circle capability executes",
+  "capability": "EALC15009",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15014",
+      "EAIV15002",
+      "EAIV15008",
+      "EAIV15009",
+      "EAIV15015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15014 is populated; EAIV15002 is populated; EAIV15008 is populated; EAIV15009 is populated; EAIV15015 is populated",
+    "state": "EAIV15014 populated, EAIV15002 populated, EAIV15008 populated, EAIV15009 populated, EAIV15015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15009",
+    "When capability EALC15009 (Turn Off Circle) is invoked": "EALC15009",
+    "Then EAIV15014 (Circle Action Result) is not empty": "EAIV15014",
+    "Then EAIV15002 (Circle Wizard State) is not empty": "EAIV15002",
+    "Then EAIV15008 (Selected Member DID) is not empty": "EAIV15008",
+    "Then EAIV15009 (Selected Member Label) is not empty": "EAIV15009",
+    "Then EAIV15015 (Selection State) is not empty": "EAIV15015"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15009"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15014"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15009"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15015"
+    }
+  ]
+}

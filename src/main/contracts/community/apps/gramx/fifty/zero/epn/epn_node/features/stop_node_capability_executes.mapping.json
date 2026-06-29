@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_stop_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Stop Node capability executes",
+  "capability": "EALC14002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14003 is populated",
+    "state": "EAIV14003 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14002",
+    "When capability EALC14002 (Stop Node) is invoked": "EALC14002",
+    "Then EAIV14003 (Stop Result) is not empty": "EAIV14003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14003"
+    }
+  ]
+}

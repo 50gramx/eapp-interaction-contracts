@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_submit_add_member_as_member_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Submit Add Member As Member capability executes",
+  "capability": "EALC15005",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15007"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15007 is populated",
+    "state": "EAIV15007 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15005",
+    "When capability EALC15005 (Submit Add Member As Member) is invoked": "EALC15005",
+    "Then EAIV15007 (Add DID Result) is not empty": "EAIV15007"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15005"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15007"
+    }
+  ]
+}

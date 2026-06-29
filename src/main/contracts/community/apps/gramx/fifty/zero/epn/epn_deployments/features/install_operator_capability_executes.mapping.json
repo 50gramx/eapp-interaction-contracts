@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_install_operator_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Install Operator capability executes",
+  "capability": "EALC9004",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9005"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9005 is populated",
+    "state": "EAIV9005 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9004",
+    "When capability EALC9004 (Install Operator) is invoked": "EALC9004",
+    "Then EAIV9005 (Action Result) is not empty": "EAIV9005"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9005"
+    }
+  ]
+}

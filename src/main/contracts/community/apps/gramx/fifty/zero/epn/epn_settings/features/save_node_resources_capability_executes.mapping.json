@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_save_node_resources_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Save Node Resources capability executes",
+  "capability": "EALC12017",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12018"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12018 is populated",
+    "state": "EAIV12018 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12017",
+    "When capability EALC12017 (Save Node Resources) is invoked": "EALC12017",
+    "Then EAIV12018 (Resources Save Result) is not empty": "EAIV12018"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12018"
+    }
+  ]
+}

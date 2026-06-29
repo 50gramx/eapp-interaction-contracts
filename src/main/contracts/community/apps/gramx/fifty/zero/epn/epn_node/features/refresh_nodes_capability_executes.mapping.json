@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_refresh_nodes_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Refresh Nodes capability executes",
+  "capability": "EALC14021",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14020 is populated",
+    "state": "EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14021",
+    "When capability EALC14021 (Refresh Nodes) is invoked": "EALC14021",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14021"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

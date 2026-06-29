@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_market_select_offer_capability_executes",
+  "app": "epn_market",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Select Offer capability executes",
+  "capability": "EALC13008",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV13008"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV13008 is populated",
+    "state": "EAIV13008 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Resource Market eApp is open": "EALC13008",
+    "When capability EALC13008 (Select Offer) is invoked": "EALC13008",
+    "Then EAIV13008 (Selected Offer) is not empty": "EAIV13008"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC13008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV13008"
+    }
+  ]
+}

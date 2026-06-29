@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_load_identity_capability_executes",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Identity capability executes",
+  "capability": "EALC7001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV7001"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV7001 is populated",
+    "state": "EAIV7001 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Network eApp is open": "EALC7001",
+    "When capability EALC7001 (Load Identity) is invoked": "EALC7001",
+    "Then EAIV7001 (Node Identity) is not empty": "EAIV7001"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC7001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7001"
+    }
+  ]
+}

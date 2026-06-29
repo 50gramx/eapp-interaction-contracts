@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_load_identity_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Identity capability executes",
+  "capability": "EALC14012",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14012"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14012 is populated",
+    "state": "EAIV14012 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14012",
+    "When capability EALC14012 (Load Identity) is invoked": "EALC14012",
+    "Then EAIV14012 (My Identity) is not empty": "EAIV14012"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14012"
+    }
+  ]
+}

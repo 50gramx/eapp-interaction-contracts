@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_peers_connect_peer_capability_executes",
+  "app": "epn_peers",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Connect Peer capability executes",
+  "capability": "EALC7004",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV7004",
+      "EAIV7002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV7004 is populated; EAIV7002 is populated",
+    "state": "EAIV7004 populated, EAIV7002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Network eApp is open": "EALC7004",
+    "When capability EALC7004 (Connect Peer) is invoked": "EALC7004",
+    "Then EAIV7004 (Connect Result) is not empty": "EAIV7004",
+    "Then EAIV7002 (Peer List) is not empty": "EAIV7002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC7004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7002"
+    }
+  ]
+}

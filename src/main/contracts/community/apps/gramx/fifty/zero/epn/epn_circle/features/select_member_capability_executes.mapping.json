@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_select_member_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Select Member capability executes",
+  "capability": "EALC15007",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15008",
+      "EAIV15009",
+      "EAIV15015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15008 is populated; EAIV15009 is populated; EAIV15015 is populated",
+    "state": "EAIV15008 populated, EAIV15009 populated, EAIV15015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15007",
+    "When capability EALC15007 (Select Member) is invoked": "EALC15007",
+    "Then EAIV15008 (Selected Member DID) is not empty": "EAIV15008",
+    "Then EAIV15009 (Selected Member Label) is not empty": "EAIV15009",
+    "Then EAIV15015 (Selection State) is not empty": "EAIV15015"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15008"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15009"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15015"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_remove_selected_node_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Remove Selected Node capability executes",
+  "capability": "EALC14027",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14027",
+      "EAIV14026",
+      "EAIV14020"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14027 is populated; EAIV14026 is populated; EAIV14020 is populated",
+    "state": "EAIV14027 populated, EAIV14026 populated, EAIV14020 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14027",
+    "When capability EALC14027 (Remove Selected Node) is invoked": "EALC14027",
+    "Then EAIV14027 (Action Result) is not empty": "EAIV14027",
+    "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14027"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14027"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14026"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14020"
+    }
+  ]
+}

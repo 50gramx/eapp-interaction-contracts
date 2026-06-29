@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_copy_own_did_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Copy Own DID capability executes",
+  "capability": "EALC15013",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15017"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15017 is populated",
+    "state": "EAIV15017 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15013",
+    "When capability EALC15013 (Copy Own DID) is invoked": "EALC15013",
+    "Then EAIV15017 (Copy Result) is not empty": "EAIV15017"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15013"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15017"
+    }
+  ]
+}

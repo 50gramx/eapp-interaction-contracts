@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_expose_service_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Expose Service capability executes",
+  "capability": "EALC14011",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14011",
+      "EAIV14012"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14011 is populated; EAIV14012 is populated",
+    "state": "EAIV14011 populated, EAIV14012 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Node eApp is open": "EALC14011",
+    "When capability EALC14011 (Expose Service) is invoked": "EALC14011",
+    "Then EAIV14011 (Expose Result) is not empty": "EAIV14011",
+    "Then EAIV14012 (My Identity) is not empty": "EAIV14012"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14012"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_start_email_verify_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Start Email Verify capability executes",
+  "capability": "EALC12023",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12022",
+      "EAIV12024"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12022 is populated; EAIV12024 is populated",
+    "state": "EAIV12022 populated, EAIV12024 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12023",
+    "When capability EALC12023 (Start Email Verify) is invoked": "EALC12023",
+    "Then EAIV12022 (KYC Verify Flow Screen) is not empty": "EAIV12022",
+    "Then EAIV12024 (KYC Flow Error) is not empty": "EAIV12024"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12023"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12022"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12024"
+    }
+  ]
+}

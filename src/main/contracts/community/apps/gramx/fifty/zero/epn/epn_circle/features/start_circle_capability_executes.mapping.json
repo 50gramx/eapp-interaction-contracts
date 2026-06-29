@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_start_circle_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Start Circle capability executes",
+  "capability": "EALC15002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15014",
+      "EAIV15001",
+      "EAIV15002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15014 is populated; EAIV15001 is populated; EAIV15002 is populated",
+    "state": "EAIV15014 populated, EAIV15001 populated, EAIV15002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Circle eApp is open": "EALC15002",
+    "When capability EALC15002 (Start Circle) is invoked": "EALC15002",
+    "Then EAIV15014 (Circle Action Result) is not empty": "EAIV15014",
+    "Then EAIV15001 (Circle Status) is not empty": "EAIV15001",
+    "Then EAIV15002 (Circle Wizard State) is not empty": "EAIV15002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15014"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15002"
+    }
+  ]
+}

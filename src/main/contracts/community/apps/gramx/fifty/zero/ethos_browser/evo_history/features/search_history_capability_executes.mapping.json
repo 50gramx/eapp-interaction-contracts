@@ -1,0 +1,39 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "evo_history_search_history_capability_executes",
+  "app": "evo_history",
+  "org": "ethos_browser",
+  "community": 50,
+  "scenario": "Search History capability executes",
+  "capability": "EALC4002",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV4003"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV4003 list grows by at least 1 item",
+    "state": "n/a",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the History eApp is open": "EALC4002",
+    "When capability EALC4002 (Search History) is invoked": "EALC4002",
+    "Then EAIV4003 (Search Results) has at least 1 item": "EAIV4003"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC4002"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV4003",
+      "expected": 1
+    }
+  ]
+}

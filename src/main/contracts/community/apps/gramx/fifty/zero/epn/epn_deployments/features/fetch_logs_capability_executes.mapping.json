@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_fetch_logs_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Fetch Logs capability executes",
+  "capability": "EALC9007",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9006"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9006 is populated",
+    "state": "EAIV9006 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9007",
+    "When capability EALC9007 (Fetch Logs) is invoked": "EALC9007",
+    "Then EAIV9006 (Deployment Logs) is not empty": "EAIV9006"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9007"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9006"
+    }
+  ]
+}

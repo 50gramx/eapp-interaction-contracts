@@ -7,6 +7,9 @@ on:
       - 'src/main/contracts/**/ethosapp_mesh_variables.yaml'
       - 'src/main/contracts/**/ethosapp_mesh_capabilities.yaml'
       - 'src/main/contracts/**/ethosapps.yaml'
+      - 'src/main/contracts/**/ethosapp_local_variables.yaml'
+      - 'src/main/contracts/**/ethosapp_local_capabilities.yaml'
+      - 'src/main/contracts/**/ethosapp.yaml'
   workflow_dispatch:
 
 permissions:
@@ -65,3 +68,37 @@ jobs:
             -f client_payload[source]=eapp-interaction-contracts \
             -f client_payload[ref]=main
           echo "✓ Dispatch sent. Manifest will be regenerated from proto files."
+
+  derive-features:
+    runs-on: ubuntu-latest
+    needs: compile
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PROTOBUF_TOKEN || github.token }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install yaml
+
+      - name: Derive BDD feature files from contracts
+        run: node tools/derive-features.mjs
+
+      - name: Commit derived feature files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'src/main/contracts/**/features/*.feature' \
+                  'src/main/contracts/**/features/*.mapping.json'
+          if git diff --cached --quiet; then
+            echo "ℹ  No feature file changes detected."
+          else
+            git commit -m "chore: auto-derive bdd feature files from contracts [skip ci]"
+            git push origin main
+            echo "✓ Derived feature files committed."
+          fi
