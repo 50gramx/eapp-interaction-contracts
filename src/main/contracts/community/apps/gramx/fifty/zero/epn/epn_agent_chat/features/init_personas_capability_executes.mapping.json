@@ -10,13 +10,15 @@
   "expected": {
     "outputs": [
       "EAIV6015",
+      "EAIV6002",
       "EAIV6016",
-      "EAIV6017"
+      "EAIV6017",
+      "EAIV6019"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV6015 list grows by at least 1 item",
-    "state": "EAIV6016 populated, EAIV6017 populated",
+    "behavioral": "EAIV6015 list grows by at least 1 item; EAIV6002 list grows by at least 1 item",
+    "state": "EAIV6016 populated, EAIV6017 populated, EAIV6019 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -25,8 +27,10 @@
     "Given the Evo eApp is open": "EALC6015",
     "When capability EALC6015 (Init Personas) is invoked": "EALC6015",
     "Then EAIV6015 (Personas) has at least 1 item": "EAIV6015",
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
     "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
-    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017"
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
+    "Then EAIV6019 (Active Conversation ID) is not empty": "EAIV6019"
   },
   "steps": [
     {
@@ -41,6 +45,12 @@
     },
     {
       "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
       "assert": "not-empty",
       "variable": "EAIV6016"
     },
@@ -48,6 +58,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV6017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6019"
     }
   ]
 }
