@@ -129,6 +129,14 @@
     activity-field: eamvt6013
     evidence-field: eamvt6014
     errors-field: eamvt6015
+    # Aha 5 tile variation: kind="approval" renders the Carbon approve/deny
+    # card; its buttons fire the approve/deny capabilities (act on the latest
+    # pending approval). target/risk are shown on the card.
+    kind-field: eamvt6017
+    target-field: eamvt6021
+    risk-field: eamvt6019
+    approve-capability: EALC6018
+    deny-capability: EALC6019
     self-sender-values:
       - You
     error-sender-values:
