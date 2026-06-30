@@ -253,8 +253,6 @@
     name-code: EIC1012
     children-components:
       - EAIC6005
-      - EAIC6033
-      - EAIC6035
       - EAIC6008
 
 # ── Clear button ──────────────────────────────────────────────────────────────
@@ -295,11 +293,11 @@
     name-code: EIC1005
     children-components:
       - EAIC6001
-      - EAIC6016
-      - EAIC6026
-      - EAIC6029
-      - EAIC6037
-      - EAIC6038
+      # Aha 4 is now conversational: durable runs are created from chat (Evo's
+      # plan_durable_task tool) and shown inline in the message work-trail, not
+      # via hardcoded demo panels. The old "latest run / plan / progress" top
+      # panels (EAIC6016/6026/6029/6037/6038) were removed — they surfaced a
+      # single scripted scenario and read as fake data.
       - EAIC6017
       - EAIC6023
       - EAIC6020
