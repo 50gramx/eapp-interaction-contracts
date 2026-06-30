@@ -9,24 +9,16 @@
       - command: platform-invoke
         handler: epn.agent.personas
         assign-to: EAIV6015
-      # Auto-select first persona if any are available
-      - command: list-get
-        target: EAIV6015
-        index: 0
-        assign-to: EAIV6024
-      - command: set
-        target: EAIV6014
-        value: EAIV6024.id
-      - command: platform-invoke
-        handler: epn.agent.run.latest
-        assign-to: EAIV6016
-      - command: platform-invoke
-        handler: epn.agent.approval.latest
-        assign-to: EAIV6017
-      # Restore the persisted rich chat history (Aha 1-5 persistence): the
-      # daemon keeps the full Carbon-for-AI item shape per user-Evo on disk, so
-      # reopening the chat after an app restart restores the conversation —
-      # message bubbles, work trails, approval cards — instead of an empty list.
+      # IMPORTANT: the state-restore steps run FIRST, before the persona
+      # default-selection below. A prior ordering put list-get first; when it
+      # threw ("type 'Null' is not a subtype of type 'String'") it aborted the
+      # whole on-appear capability, so chat history and the workflows board never
+      # loaded. Restoring state must not depend on the non-critical default pick.
+      #
+      # Restore the persisted rich chat history (Aha 1-5 persistence): the daemon
+      # keeps the full Carbon-for-AI item shape on disk, so reopening the chat
+      # after a restart restores the conversation — bubbles, work trails, approval
+      # cards — instead of an empty list.
       - command: platform-invoke
         handler: epn.agent.chat.history
         assign-to: EAIV6002
@@ -39,6 +31,21 @@
       - command: platform-invoke
         handler: epn.agent.run.list
         assign-to: EAIV6031
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+      - command: platform-invoke
+        handler: epn.agent.approval.latest
+        assign-to: EAIV6017
+      # Auto-select first persona as the default (non-critical; kept LAST so a
+      # failure here cannot abort the state restore above).
+      - command: list-get
+        target: EAIV6015
+        index: 0
+        assign-to: EAIV6024
+      - command: set
+        target: EAIV6014
+        value: EAIV6024.id
 
 # Approve the latest pending approval, or a specific approval if the
 # contract passes one through.
