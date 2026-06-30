@@ -45,6 +45,15 @@
       - command: platform-invoke
         handler: epn.agent.approval.approve
         assign-to: EAIV6017
+      # Aha 5 Phase 2: approving runs the deferred action as a durable task on the
+      # daemon; reload the chat so the outcome ("Approved — started …") appears
+      # inline, and refresh the latest-run header so the workflow is trackable.
+      - command: platform-invoke
+        handler: epn.agent.chat.history
+        assign-to: EAIV6002
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
 
 # Deny the latest pending approval, or a specific approval if the
 # contract passes one through.
@@ -55,6 +64,11 @@
       - command: platform-invoke
         handler: epn.agent.approval.deny
         assign-to: EAIV6017
+      # Denying cancels the deferred action run; reload the chat so the
+      # "Cancelled — … was not started" outcome appears inline.
+      - command: platform-invoke
+        handler: epn.agent.chat.history
+        assign-to: EAIV6002
 
 # UI-first durable readiness plan: creates the Aha 6 work graph from Evo Chat
 # without sending the phrase through the ordinary concierge/specialist route.
