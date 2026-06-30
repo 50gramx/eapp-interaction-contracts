@@ -10,12 +10,13 @@
   "expected": {
     "outputs": [
       "EAIV6002",
+      "EAIV6031",
       "EAIV6017",
       "EAIV6016"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV6002 list grows by at least 1 item",
+    "behavioral": "EAIV6002 list grows by at least 1 item; EAIV6031 list grows by at least 1 item",
     "state": "EAIV6017 populated, EAIV6016 populated",
     "visual": "n/a",
     "structural": "n/a",
@@ -25,6 +26,7 @@
     "Given the Evo eApp is open": "EALC6018",
     "When capability EALC6018 (Approve Latest Approval) is invoked": "EALC6018",
     "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6031 (Workflows) has at least 1 item": "EAIV6031",
     "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
     "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
   },
@@ -37,6 +39,12 @@
       "type": "then",
       "assert": "list-length-gte",
       "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6031",
       "expected": 1
     },
     {
