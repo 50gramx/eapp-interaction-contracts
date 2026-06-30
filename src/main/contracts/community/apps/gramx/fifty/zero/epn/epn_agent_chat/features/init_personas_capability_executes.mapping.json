@@ -12,14 +12,14 @@
       "EAIV6015",
       "EAIV6002",
       "EAIV6031",
+      "EAIV6019",
       "EAIV6016",
-      "EAIV6017",
-      "EAIV6019"
+      "EAIV6017"
     ]
   },
   "conformance": {
     "behavioral": "EAIV6015 list grows by at least 1 item; EAIV6002 list grows by at least 1 item; EAIV6031 list grows by at least 1 item",
-    "state": "EAIV6016 populated, EAIV6017 populated, EAIV6019 populated",
+    "state": "EAIV6019 populated, EAIV6016 populated, EAIV6017 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -30,9 +30,9 @@
     "Then EAIV6015 (Personas) has at least 1 item": "EAIV6015",
     "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
     "Then EAIV6031 (Workflows) has at least 1 item": "EAIV6031",
+    "Then EAIV6019 (Active Conversation ID) is not empty": "EAIV6019",
     "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
-    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
-    "Then EAIV6019 (Active Conversation ID) is not empty": "EAIV6019"
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017"
   },
   "steps": [
     {
@@ -60,17 +60,17 @@
     {
       "type": "then",
       "assert": "not-empty",
+      "variable": "EAIV6019"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
       "variable": "EAIV6016"
     },
     {
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV6017"
-    },
-    {
-      "type": "then",
-      "assert": "not-empty",
-      "variable": "EAIV6019"
     }
   ]
 }
