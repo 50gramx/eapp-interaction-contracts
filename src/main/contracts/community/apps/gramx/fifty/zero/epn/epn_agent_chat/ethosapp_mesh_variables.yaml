@@ -68,6 +68,29 @@
       name: conversation_id
       type: ELVT1007
       default: ""
+    # Tile/card variation (Aha 5). kind = "message" (default bubble) or
+    # "approval" (the Carbon approve/deny card). approval_* fields carry the
+    # pending action so the card can show risk/cost/target and act on it.
+    - name-code: EAMVT6017
+      name: kind
+      type: ELVT1007
+      default: "message"
+    - name-code: EAMVT6018
+      name: approval_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6019
+      name: risk
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6020
+      name: cost
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6021
+      name: target
+      type: ELVT1007
+      default: ""
 
 # EAMV6003 - Legacy StreamEvent token chunk (kept for compatibility while
 # consumers/daemon wrappers are migrated to the UI-fed snapshot shape).

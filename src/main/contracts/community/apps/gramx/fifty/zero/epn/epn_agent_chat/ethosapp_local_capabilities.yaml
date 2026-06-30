@@ -152,6 +152,13 @@
         handler: epn.agent.run.latest
         assign-to: EAIV6016
 
+      # Aha 5: refresh latest approval so a pending approval the agent just
+      # created (e.g. for a state-changing action) surfaces immediately in the
+      # approve/deny card without waiting for the next page open.
+      - command: platform-invoke
+        handler: epn.agent.approval.latest
+        assign-to: EAIV6017
+
 # Clear conversation history and reset the session.
 - name-code: EALC6003
   name: Clear Chat
