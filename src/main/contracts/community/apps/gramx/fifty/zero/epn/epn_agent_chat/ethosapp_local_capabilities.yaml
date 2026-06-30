@@ -35,6 +35,10 @@
       - command: platform-invoke
         handler: epn.agent.chat.conversationId
         assign-to: EAIV6019
+      # Workflows/jobs board: every durable run with its state.
+      - command: platform-invoke
+        handler: epn.agent.run.list
+        assign-to: EAIV6031
 
 # Approve the latest pending approval, or a specific approval if the
 # contract passes one through.
@@ -54,6 +58,10 @@
       - command: platform-invoke
         handler: epn.agent.run.latest
         assign-to: EAIV6016
+      # Refresh the workflows board so the just-approved job's new state shows.
+      - command: platform-invoke
+        handler: epn.agent.run.list
+        assign-to: EAIV6031
 
 # Deny the latest pending approval, or a specific approval if the
 # contract passes one through.

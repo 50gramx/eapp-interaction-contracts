@@ -293,6 +293,30 @@
     scrollable: true
     max-height: 96
 
+# ── Workflows / Jobs board ────────────────────────────────────────────────────
+# Every durable run with its state (Ongoing / Awaiting approval / Completed /
+# Failed / Cancelled / Pending), newest first. Sourced from EAIV6031
+# (epn.agent.run.list), refreshed on page open and after approve/deny. This is
+# the persistent job history the single "latest run" header never showed.
+- name-code: EAIC6042
+  name: Workflows Header
+  component:
+    name-code: EIC1020
+    text: Workflows & jobs
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6041
+  name: Workflows List
+  component:
+    name-code: EIC1026
+    source: EAIV6031
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    scrollable: true
+    max-height: 160
+
 # ── Layout columns ────────────────────────────────────────────────────────────
 
 - name-code: EAIC6009
@@ -311,6 +335,10 @@
       - EAIC6020
       - EAIC6021
       - EAIC6014
+      # Persistent workflows/jobs board (Ongoing / Awaiting approval / Completed
+      # / Failed / Cancelled) — the durable job history across restarts.
+      - EAIC6042
+      - EAIC6041
       - EAIC6003
       - EAIC6002
       - EAIC6040

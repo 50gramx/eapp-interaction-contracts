@@ -224,3 +224,12 @@
       name: id
       type: ELVT1007
       default: ""
+
+# Workflows / jobs board: every durable run with its state (Ongoing / Awaiting
+# approval / Completed / Failed / Cancelled / Pending), newest first. Populated
+# on page open and after approve/deny by epn.agent.run.list. Each item is
+# {id, title, status, state_label, steps, updated_at}.
+- name-code: EAIV6031
+  name: Workflows
+  type: ELVT1018
+  default: []
