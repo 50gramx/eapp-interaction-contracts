@@ -317,6 +317,13 @@
     scrollable: true
     max-height: 160
 
+- name-code: EAIC6043
+  name: Clear Finished Button
+  component:
+    name-code: EIC1008
+    label: Clear finished
+    on-click: EALC6022
+
 # ── Layout columns ────────────────────────────────────────────────────────────
 
 - name-code: EAIC6009
@@ -339,6 +346,7 @@
       # / Failed / Cancelled) — the durable job history across restarts.
       - EAIC6042
       - EAIC6041
+      - EAIC6043
       - EAIC6003
       - EAIC6002
       - EAIC6040

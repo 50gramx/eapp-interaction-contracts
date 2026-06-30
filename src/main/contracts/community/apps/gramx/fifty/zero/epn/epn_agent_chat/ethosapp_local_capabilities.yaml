@@ -111,6 +111,18 @@
         handler: epn.agent.run.latest
         assign-to: EAIV6016
 
+# Clears all terminal (completed / failed / cancelled) runs from the disk store
+# and refreshes the Workflows board.
+- name-code: EALC6022
+  name: Clear Finished Runs
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.run.dismiss
+        params:
+          finished: true
+        assign-to: EAIV6031
+
 # Called by the Send button. Composes request, calls mesh service (now unary),
 # and updates chat history.
 #
