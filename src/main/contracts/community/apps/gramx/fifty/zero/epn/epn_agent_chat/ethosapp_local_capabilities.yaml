@@ -23,6 +23,18 @@
       - command: platform-invoke
         handler: epn.agent.approval.latest
         assign-to: EAIV6017
+      # Restore the persisted rich chat history (Aha 1-5 persistence): the
+      # daemon keeps the full Carbon-for-AI item shape per user-Evo on disk, so
+      # reopening the chat after an app restart restores the conversation —
+      # message bubbles, work trails, approval cards — instead of an empty list.
+      - command: platform-invoke
+        handler: epn.agent.chat.history
+        assign-to: EAIV6002
+      # Continue the same conversation for the next message rather than starting
+      # a fresh session.
+      - command: platform-invoke
+        handler: epn.agent.chat.conversationId
+        assign-to: EAIV6019
 
 # Approve the latest pending approval, or a specific approval if the
 # contract passes one through.
