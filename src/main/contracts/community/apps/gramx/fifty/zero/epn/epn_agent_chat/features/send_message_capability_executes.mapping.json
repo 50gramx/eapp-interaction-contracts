@@ -17,12 +17,13 @@
       "EAIV6029",
       "EAIV6005",
       "EAIV6027",
-      "EAIV6016"
+      "EAIV6016",
+      "EAIV6017"
     ]
   },
   "conformance": {
     "behavioral": "EAIV6002 list grows by at least 1 item; EAIV6029 list grows by at least 1 item",
-    "state": "EAIV6005 populated, EAIV6027 populated, EAIV6016 populated",
+    "state": "EAIV6005 populated, EAIV6027 populated, EAIV6016 populated, EAIV6017 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -36,7 +37,8 @@
     "Then EAIV6029 (Pending Turn) has at least 1 item": "EAIV6029",
     "Then EAIV6005 (Composer Text) is not empty": "EAIV6005",
     "Then EAIV6027 (Mesh Response Message) is not empty": "EAIV6027",
-    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017"
   },
   "steps": [
     {
@@ -84,6 +86,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV6016"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6017"
     }
   ]
 }
