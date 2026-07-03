@@ -53,7 +53,10 @@
     display-name: EP&N
     product-name: EP&N Node
     window-title: EP&N Node
-    logo: lib/assets/brands/epn/logo.png
+    # Placeholder: no dedicated EP&N logo asset exists/bundles yet, so point at
+    # the default bundled logo to avoid a broken image. Replace with
+    # lib/assets/brands/epn/logo.png once that asset is added to pubspec assets.
+    logo: lib/assets/ethosverse-browser-logo-v3-transparent.png
     home-app: epn_home
     launch-environment: com.50gramx.50.epn.*
     runtime:
