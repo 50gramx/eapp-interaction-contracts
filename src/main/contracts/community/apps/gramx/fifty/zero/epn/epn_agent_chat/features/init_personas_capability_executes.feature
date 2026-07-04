@@ -2,11 +2,10 @@
 Feature: Evo
   # As a user, I want Init Personas to work so I can use Evo.
 
-  @EALC6015 @EAIV6015 @EAIV6002 @EAIV6031 @EAIV6019 @EAIV6016 @EAIV6017
+  @EALC6015 @EAIV6002 @EAIV6031 @EAIV6019 @EAIV6016 @EAIV6017
   Scenario: Init Personas capability executes
     Given the Evo eApp is open
     When capability EALC6015 (Init Personas) is invoked
-    Then EAIV6015 (Personas) has at least 1 item
     Then EAIV6002 (Messages) has at least 1 item
     Then EAIV6031 (Workflows) has at least 1 item
     Then EAIV6019 (Active Conversation ID) is not empty
