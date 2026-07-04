@@ -1,0 +1,46 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_open_workflows_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Workflows capability executes",
+  "capability": "EALC6024",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6031",
+      "EAIV6046"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6031 list grows by at least 1 item",
+    "state": "EAIV6046 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6024",
+    "When capability EALC6024 (Open Workflows) is invoked": "EALC6024",
+    "Then EAIV6031 (Workflows) has at least 1 item": "EAIV6031",
+    "Then EAIV6046 (View Mode) is not empty": "EAIV6046"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6024"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6031",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6046"
+    }
+  ]
+}

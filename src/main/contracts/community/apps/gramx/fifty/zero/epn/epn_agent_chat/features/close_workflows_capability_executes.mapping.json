@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_close_workflows_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Close Workflows capability executes",
+  "capability": "EALC6025",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6046"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6046 is populated",
+    "state": "EAIV6046 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6025",
+    "When capability EALC6025 (Close Workflows) is invoked": "EALC6025",
+    "Then EAIV6046 (View Mode) is not empty": "EAIV6046"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6025"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6046"
+    }
+  ]
+}
