@@ -212,13 +212,15 @@
         handler: epn.agent.approval.latest
         assign-to: EAIV6017
 
-# Clear conversation history and reset the session.
+# Start a NEW conversation: clear the on-screen thread and reset the session so
+# the next message opens a fresh conversation on the daemon. Non-destructive —
+# prior conversations are preserved on disk (see epn.agent.chat.new).
 - name-code: EALC6003
-  name: Clear Chat
+  name: New Chat
   context:
     steps:
       - command: platform-invoke
-        handler: epn.agent.chat.clear
+        handler: epn.agent.chat.new
         assign-to: EAIV6002
 
 # â”€â”€ Persona switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€

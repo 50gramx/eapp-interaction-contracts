@@ -253,7 +253,7 @@
     name-code: EIC1025
     height: 1
 
-# ── Action row: Send + Clear ──────────────────────────────────────────────────
+# ── Action row: Send + New chat ───────────────────────────────────────────────
 
 - name-code: EAIC6007
   name: Action Row
@@ -263,13 +263,15 @@
       - EAIC6005
       - EAIC6008
 
-# ── Clear button ──────────────────────────────────────────────────────────────
+# ── New chat button ───────────────────────────────────────────────────────────
+# Starts a fresh conversation (non-destructive; prior chats are preserved on
+# disk). Wired to EALC6003 (New Chat) → epn.agent.chat.new.
 
 - name-code: EAIC6008
-  name: Clear Button
+  name: New Chat Button
   component:
     name-code: EIC1008
-    label: Clear
+    label: New chat
     on-click: EALC6003
 
 # ── Persona picker ────────────────────────────────────────────────────────────
