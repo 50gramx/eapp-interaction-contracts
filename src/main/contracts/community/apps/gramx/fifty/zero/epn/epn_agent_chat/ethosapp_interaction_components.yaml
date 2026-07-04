@@ -60,6 +60,12 @@
     name-code: EIC1025
     height: 0
 
+# ── Approval (reused inside the footer -- see "Composer / footer states"
+# below). No longer rendered near the header: that was a second, independently
+# stale copy of the same approve/deny action shown here AND inline in the
+# transcript AND in the footer -- three places for one irreversible decision.
+# The footer is now the only interactive location.
+
 - name-code: EAIC6017
   name: Latest Approval
   component:
@@ -90,21 +96,6 @@
       - EAIC6018
       - EAIC6019
 
-- name-code: EAIC6023
-  name: Approval Buttons Match
-  component:
-    name-code: EIC1036
-    source: EAIV6017.status
-    cases:
-      pending: EAIC6022
-    default: EAIC6024
-
-- name-code: EAIC6024
-  name: Approval Buttons Hidden
-  component:
-    name-code: EIC1025
-    height: 0
-
 # ── Message list ──────────────────────────────────────────────────────────────
 
 # Reactive list — updated on every send. role field (You / Evo / error)
@@ -114,6 +105,15 @@
 # Carbon-for-AI chrome (_CarbonChatBubble in eapp-jittery-modelled) it
 # drives: AI label, locality/grounding tags, work-summary, and the "Why
 # this answer?" explainability disclosure.
+#
+# Renders as a plain flowing list (no `scrollable`/`max-height`): the page
+# has exactly one scroll region (the outer page scroll), not a page scroll
+# plus an independently-scrolling boxed transcript.
+#
+# No kind/target/risk/approve/deny wiring here anymore — the interactive
+# approve/deny card lives ONLY in the footer (see EAIC6044 below); a past
+# approval turn shows as Evo's own plain-text message, same as any other
+# turn, instead of a second live-looking action card.
 - name-code: EAIC6002
   name: Messages List
   component:
@@ -129,22 +129,12 @@
     activity-field: eamvt6013
     evidence-field: eamvt6014
     errors-field: eamvt6015
-    # Aha 5 tile variation: kind="approval" renders the Carbon approve/deny
-    # card; its buttons fire the approve/deny capabilities (act on the latest
-    # pending approval). target/risk are shown on the card.
-    kind-field: eamvt6017
-    target-field: eamvt6021
-    risk-field: eamvt6019
-    approve-capability: EALC6018
-    deny-capability: EALC6019
     self-sender-values:
       - You
     error-sender-values:
       - error
     show-sender-label: true
     show-avatar: true
-    scrollable: true
-    max-height: 440
 
 # Animated "thinking" indicator — a transient typing-dots bubble shown only
 # while a turn is in flight. Sourced from EAIV6029 (the pending-turn list,
@@ -173,7 +163,15 @@
     align: center
     color: on-surface-subtle
 
-# ── Composer ──────────────────────────────────────────────────────────────────
+# ── Composer / footer states ─────────────────────────────────────────────────
+# The footer is a single action surface that shows exactly ONE of three
+# things at a time, matched on state (EIC1036), never stacked:
+#   1. pending approval  -> approve/deny card (EAIC6044)
+#   2. workflows view open -> a single "Back to chat" control (EAIC6048)
+#   3. otherwise (normal chat) -> divider + input + action row (EAIC6045)
+# This mirrors Carbon AI Chat's own pattern: the footer/input area and any
+# blocking action share one anchored slot, and a secondary list (their
+# custom-panel concept) replaces the main view rather than living inline.
 
 - name-code: EAIC6004
   name: Input Field
@@ -270,7 +268,17 @@
     label: New chat
     on-click: EALC6003
 
-# ── Action row: Send + New chat ───────────────────────────────────────────────
+# Opens the workflows panel (replaces the transcript view; see EAIC6047 /
+# EAIC6051 below) — the footer-triggered overlay-style panel, matching
+# Carbon AI Chat's custom-panel pattern instead of an inline second scroll box.
+- name-code: EAIC6050
+  name: Workflows Button
+  component:
+    name-code: EIC1008
+    label: Workflows
+    on-click: EALC6024
+
+# ── Action row: Send + New chat + Workflows ──────────────────────────────────
 
 - name-code: EAIC6007
   name: Action Row
@@ -279,6 +287,7 @@
     children-components:
       - EAIC6005
       - EAIC6008
+      - EAIC6050
 
 # ── Persona picker: REMOVED ──────────────────────────────────────────────────
 # Per the EP&N agent boundary model, the user talks to Evo only; Evo silently
@@ -290,8 +299,10 @@
 # ── Workflows / Jobs board ────────────────────────────────────────────────────
 # Every durable run with its state (Ongoing / Awaiting approval / Completed /
 # Failed / Cancelled / Pending), newest first. Sourced from EAIV6031
-# (epn.agent.run.list), refreshed on page open and after approve/deny. This is
-# the persistent job history the single "latest run" header never showed.
+# (epn.agent.run.list), refreshed on page open, on opening the panel, and
+# after approve/deny. Lives in its own panel (EAIC6051) that replaces the
+# transcript view rather than stacking a second independently-scrollable list
+# above the chat — see EAIC6047 (Main Content Match).
 - name-code: EAIC6042
   name: Workflows Header
   component:
@@ -304,6 +315,10 @@
 # row's id). This lets the user clear a stuck pending/running "ghost" run that was
 # interrupted and never resumes — the reconcile requeue leaves such runs on the
 # board, and "Clear finished" only removes terminal ones.
+#
+# Renders as a plain flowing list (no `scrollable`/`max-height`) since it now
+# lives alone in its own panel view (EAIC6051), not nested inside the chat
+# transcript's scroll region.
 - name-code: EAIC6041
   name: Workflows List
   component:
@@ -313,8 +328,6 @@
     title-field: title
     subtitle-field: subtitle
     on-item-tap: EALC6023
-    scrollable: true
-    max-height: 160
 
 - name-code: EAIC6043
   name: Clear Finished Button
@@ -323,43 +336,13 @@
     label: Clear finished
     on-click: EALC6022
 
-# ── Layout columns ────────────────────────────────────────────────────────────
-
-- name-code: EAIC6009
-  name: Chat History Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC6001
-      # Aha 4 is now conversational: durable runs are created from chat (Evo's
-      # plan_durable_task tool) and shown inline in the message work-trail, not
-      # via hardcoded demo panels. The old "latest run / plan / progress" top
-      # panels (EAIC6016/6026/6029/6037/6038) were removed — they surfaced a
-      # single scripted scenario and read as fake data.
-      - EAIC6017
-      - EAIC6023
-      - EAIC6020
-      - EAIC6021
-      # Persistent workflows/jobs board (Ongoing / Awaiting approval / Completed
-      # / Failed / Cancelled) — the durable job history across restarts.
-      - EAIC6042
-      - EAIC6041
-      - EAIC6043
-      - EAIC6003
-      - EAIC6002
-      - EAIC6040
-
-# Input field (full width in column) + action buttons below it.
-- name-code: EAIC6010
-  name: Composer Section
-  component:
-    name-code: EIC1005
-    children-components:
-      - EAIC6006
-      - EAIC6004
-      - EAIC6007
-
 # ── Design framing: LEVEL chip + local-first cue ──────────────────────────────
+# Moved above EAIC6009 (which references both): componentResolver only finds
+# a children-components sibling if it was already processed earlier in file
+# order (see the New Chat Button note above) -- these were defined AFTER
+# EAIC6009 before, so they silently rendered as empty SizedBoxes the whole
+# time. Fixed by definition order, not a component change.
+
 - name-code: EAIC6020
   name: Language Chip
   component:
@@ -375,6 +358,99 @@
     variant: caption01
     color: on-surface-subtle
 
+# ── Layout columns ────────────────────────────────────────────────────────────
+
+# The chat transcript view: header + framing chips + messages. No workflows,
+# no approval card — those live in the footer / workflows panel respectively.
+- name-code: EAIC6009
+  name: Chat History Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6001
+      - EAIC6020
+      - EAIC6021
+      - EAIC6003
+      - EAIC6002
+      - EAIC6040
+
+# The workflows panel view: replaces the transcript entirely while open
+# (Carbon AI Chat's custom-panel pattern) instead of living inline above it.
+- name-code: EAIC6051
+  name: Workflows Panel Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6042
+      - EAIC6041
+      - EAIC6043
+
+# Main content match: exactly one of {chat transcript, workflows panel} is
+# visible at a time, keyed off EAIV6046 (view mode). No second scroll region
+# ever competes with the other.
+- name-code: EAIC6047
+  name: Main Content Match
+  component:
+    name-code: EIC1036
+    source: EAIV6046
+    cases:
+      workflows: EAIC6051
+    default: EAIC6009
+
+# Normal composer content (divider + input + action row) — the footer's
+# default state when there's no pending approval and the workflows panel
+# isn't open.
+- name-code: EAIC6045
+  name: Normal Composer Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6006
+      - EAIC6004
+      - EAIC6007
+
+# Shown in the footer instead of the composer while the workflows panel is
+# open — you can't compose a chat message and browse the workflows board at
+# the same time, so the footer's only control is getting back to chat.
+- name-code: EAIC6048
+  name: Back To Chat Button
+  component:
+    name-code: EIC1006
+    label: ← Back to chat
+    on-click: EALC6025
+
+# Footer view match (view-mode layer): workflows open -> Back button;
+# otherwise -> the normal composer.
+- name-code: EAIC6046
+  name: Composer View Match
+  component:
+    name-code: EIC1036
+    source: EAIV6046
+    cases:
+      workflows: EAIC6048
+    default: EAIC6045
+
+# Shown in the footer instead of anything else while an approval is pending
+# — the single interactive approve/deny surface (see header note above).
+- name-code: EAIC6044
+  name: Approval Footer Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6017
+      - EAIC6022
+
+# Footer state match (approval layer, outermost): a pending approval always
+# wins over the workflows/chat view match beneath it.
+- name-code: EAIC6010
+  name: Composer Section
+  component:
+    name-code: EIC1036
+    source: EAIV6017.status
+    cases:
+      pending: EAIC6044
+    default: EAIC6046
+
 # ── Carbon Tile wrappers ────────────────────────────────────────────────────
 # Matches Home/Node/Peers/Circle: history and composer each sit in an EIC1023
 # tile (layer-02). The chat bubble itself (EIC1026 item-type: chat-message)
@@ -385,7 +461,7 @@
   name: Chat History Tile
   component:
     name-code: EIC1023
-    child: EAIC6009
+    child: EAIC6047
     color: layer-02
 
 - name-code: EAIC6031

@@ -126,6 +126,30 @@
           run_id: id
         assign-to: EAIV6031
 
+# â”€â”€ Workflows panel (footer-triggered, replaces the transcript view) â”€â”€â”€â”€â”€â”€â”€
+# Opens the workflows panel: switches the main content match (EAIC6047) and
+# the footer match (EAIC6046) over to the "workflows" view, and refreshes the
+# board so it's current the moment it's shown.
+- name-code: EALC6024
+  name: Open Workflows
+  context:
+    steps:
+      - command: set
+        target: EAIV6046
+        value: workflows
+      - command: platform-invoke
+        handler: epn.agent.run.list
+        assign-to: EAIV6031
+
+# Closes the workflows panel: switches both matches back to the chat view.
+- name-code: EALC6025
+  name: Close Workflows
+  context:
+    steps:
+      - command: set
+        target: EAIV6046
+        value: chat
+
 # Called by the Send button. Composes request, calls mesh service (now unary),
 # and updates chat history.
 #

@@ -15,6 +15,15 @@
   type: ELVT1007
   default: "epn.concierge.v1"
 
+# View mode for the main content match (EAIC6047) and the footer match
+# (EAIC6046): "chat" (default) shows the transcript + normal composer;
+# "workflows" shows the workflows panel + a "Back to chat" footer instead.
+# Set by EALC6024 (Workflows button) / EALC6025 (Back to chat).
+- name-code: EAIV6046
+  name: View Mode
+  type: ELVT1007
+  default: "chat"
+
 # Local working copy of the outgoing request. The UI and local capability
 # keep this entity-shaped payload in memory while the user types, so the
 # mesh request is composed from local state instead of being built directly
