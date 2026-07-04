@@ -253,6 +253,23 @@
     name-code: EIC1025
     height: 1
 
+# ── New chat button ───────────────────────────────────────────────────────────
+# Starts a fresh conversation (non-destructive; prior chats are preserved on
+# disk). Wired to EALC6003 (New Chat) → epn.agent.chat.new.
+# NOTE: must be defined before Action Row (EAIC6007) below -- UIComponentManager's
+# componentResolver only finds a sibling in its in-progress local map if that
+# sibling was already processed earlier in file order; a forward reference
+# silently falls back to the (not-yet-populated) global cache and renders as
+# an empty SizedBox. Keep every children-components target defined above its
+# parent in this file.
+
+- name-code: EAIC6008
+  name: New Chat Button
+  component:
+    name-code: EIC1008
+    label: New chat
+    on-click: EALC6003
+
 # ── Action row: Send + New chat ───────────────────────────────────────────────
 
 - name-code: EAIC6007
@@ -262,17 +279,6 @@
     children-components:
       - EAIC6005
       - EAIC6008
-
-# ── New chat button ───────────────────────────────────────────────────────────
-# Starts a fresh conversation (non-destructive; prior chats are preserved on
-# disk). Wired to EALC6003 (New Chat) → epn.agent.chat.new.
-
-- name-code: EAIC6008
-  name: New Chat Button
-  component:
-    name-code: EIC1008
-    label: New chat
-    on-click: EALC6003
 
 # ── Persona picker ────────────────────────────────────────────────────────────
 # Aha 3 (ideal acceptance): personas are discovered live from the daemon
