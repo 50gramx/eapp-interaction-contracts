@@ -304,10 +304,14 @@
   name: Workflows Header
   component:
     name-code: EIC1020
-    text: Workflows & jobs
+    text: Workflows & jobs · tap a run to dismiss
     variant: caption01
     color: on-surface-subtle
 
+# on-item-tap dismisses the tapped run (EALC6023 → epn.agent.run.dismiss with the
+# row's id). This lets the user clear a stuck pending/running "ghost" run that was
+# interrupted and never resumes — the reconcile requeue leaves such runs on the
+# board, and "Clear finished" only removes terminal ones.
 - name-code: EAIC6041
   name: Workflows List
   component:
@@ -316,6 +320,7 @@
     item-type: list-item
     title-field: title
     subtitle-field: subtitle
+    on-item-tap: EALC6023
     scrollable: true
     max-height: 160
 

@@ -123,6 +123,22 @@
           finished: true
         assign-to: EAIV6031
 
+# Dismiss one run by id (any status, incl. a stuck pending/running "ghost" that
+# was interrupted and never resumes). Wired to the Workflows board's on-item-tap:
+# the tapped row's `id` is passed as run_id. Reuses the existing dismiss handler
+# (deletes ~/.epn/agent-runs/<id>.json) and refreshes the board.
+- name-code: EALC6023
+  name: Dismiss Run
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.run.dismiss
+        params:
+          run_id: id
+        assign-to: EAIV6031
+
 # Called by the Send button. Composes request, calls mesh service (now unary),
 # and updates chat history.
 #
