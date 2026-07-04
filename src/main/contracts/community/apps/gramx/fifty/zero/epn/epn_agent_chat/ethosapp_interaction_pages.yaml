@@ -13,3 +13,14 @@
     name-code: EIC1005
     children-components:
       - EAIT6001
+  # Footer pinning (Carbon only -- see _CarbonPageShell in eapp-flow-bob):
+  # the composer (input/Send, or the approval/workflows footer states) stays
+  # reachable at the bottom of the viewport instead of scrolling away with
+  # the transcript. EAIC6031 is referenced ONLY here, not inside EAIT6001's
+  # composition, so it renders exactly once. Non-Carbon design languages
+  # still render this footer (via _buildGenericPageShell) -- just stacked
+  # in the same scroll as everything else, without the pinning -- so
+  # switching design language never makes the composer disappear.
+  shell:
+    footer: EAIC6031
+    pin-footer: true

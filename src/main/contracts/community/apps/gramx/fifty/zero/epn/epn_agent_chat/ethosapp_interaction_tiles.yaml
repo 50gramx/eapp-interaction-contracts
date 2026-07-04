@@ -1,8 +1,10 @@
 - name-code: EAIT6001
   name: Evo Chat Tile
   about: Full-screen chat with the Evo EP&N concierge
+  # EAIC6031 (Composer Tile) is NOT listed here -- it's referenced by the
+  # page's shell.footer (see ethosapp_interaction_pages.yaml) so it renders
+  # exactly once, pinned, instead of scrolling with the transcript.
   composition:
     name-code: EIC1005
     children-components:
       - EAIC6030
-      - EAIC6031
