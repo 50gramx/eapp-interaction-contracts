@@ -280,26 +280,12 @@
       - EAIC6005
       - EAIC6008
 
-# ── Persona picker ────────────────────────────────────────────────────────────
-# Aha 3 (ideal acceptance): personas are discovered live from the daemon
-# (EAIV6015, populated by EALC6015 on-appear) instead of hardcoded
-# Evo/Sigma/Lume buttons -- new specialist personas (Pi, Mu, Rho, Nova,
-# Eta, Stigma, Tau, ...) appear automatically as their operators register,
-# with no contract change. EIC1026's own empty-state ("Nothing here yet")
-# covers the daemon-offline / not-yet-probed case -- no separate fallback
-# row, so there is exactly one picker, never a duplicate/stale one.
-
-- name-code: EAIC6014
-  name: Persona Picker Row
-  component:
-    name-code: EIC1026
-    source: EAIV6015
-    item-type: list-item
-    title-field: name
-    subtitle-field: role
-    on-item-tap: EALC6016
-    scrollable: true
-    max-height: 96
+# ── Persona picker: REMOVED ──────────────────────────────────────────────────
+# Per the EP&N agent boundary model, the user talks to Evo only; Evo silently
+# consults specialists via consult_deployment_agent and synthesizes the
+# answer. A direct persona picker let the user bypass Evo and chat straight
+# to a specialist's own agent loop, which contradicts that model. Fixed to
+# Evo-only (see EALC6015's now-static EAIV6014 assignment).
 
 # ── Workflows / Jobs board ────────────────────────────────────────────────────
 # Every durable run with its state (Ongoing / Awaiting approval / Completed /
@@ -354,7 +340,6 @@
       - EAIC6023
       - EAIC6020
       - EAIC6021
-      - EAIC6014
       # Persistent workflows/jobs board (Ongoing / Awaiting approval / Completed
       # / Failed / Cancelled) — the durable job history across restarts.
       - EAIC6042

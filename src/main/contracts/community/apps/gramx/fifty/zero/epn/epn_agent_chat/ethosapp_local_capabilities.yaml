@@ -1,20 +1,11 @@
-# Called via on-appear when the chat page opens. Discovers specialist
-# personas live from the daemon (epn.agent.personas) instead of the
-# hardcoded Evo/Sigma/Lume picker -- see EAIV6015.
-# Also auto-selects the first persona as default.
+# Called via on-appear when the chat page opens. Fixed to Evo-only (see the
+# `set EAIV6014` step below) -- the user talks to Evo only; Evo silently
+# consults specialists via consult_deployment_agent. There is no persona
+# picker/discovery anymore (removed; see components file history).
 - name-code: EALC6015
   name: Init Personas
   context:
     steps:
-      - command: platform-invoke
-        handler: epn.agent.personas
-        assign-to: EAIV6015
-      # IMPORTANT: the state-restore steps run FIRST, before the persona
-      # default-selection below. A prior ordering put list-get first; when it
-      # threw ("type 'Null' is not a subtype of type 'String'") it aborted the
-      # whole on-appear capability, so chat history and the workflows board never
-      # loaded. Restoring state must not depend on the non-critical default pick.
-      #
       # Restore the persisted rich chat history (Aha 1-5 persistence): the daemon
       # keeps the full Carbon-for-AI item shape on disk, so reopening the chat
       # after a restart restores the conversation — bubbles, work trails, approval
@@ -37,15 +28,11 @@
       - command: platform-invoke
         handler: epn.agent.approval.latest
         assign-to: EAIV6017
-      # Auto-select first persona as the default (non-critical; kept LAST so a
-      # failure here cannot abort the state restore above).
-      - command: list-get
-        target: EAIV6015
-        index: 0
-        assign-to: EAIV6024
+      # Fixed persona: always Evo (the concierge). This is not a "current
+      # selection" anymore -- there is nothing else to select.
       - command: set
         target: EAIV6014
-        value: EAIV6024.id
+        value: epn.concierge.v1
 
 # Approve the latest pending approval, or a specific approval if the
 # contract passes one through.
@@ -239,18 +226,7 @@
         handler: epn.agent.chat.new
         assign-to: EAIV6002
 
-# â”€â”€ Persona switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# Called via on-item-tap from the discovered persona list (EAIC6014, sourced
-# from EAIV6015 / epn.agent.personas -- see EALC6015). `id` arrives from the
-# tapped row (same proven pattern as epn_market's EALC13008 Select Offer).
-# The concierge persona's id is 'epn.concierge.v1', not ''.
-- name-code: EALC6016
-  name: Use Discovered Persona
-  context:
-    expects:
-      - id: ELVT1011
-    steps:
-      - command: set
-        target: EAIV6014
-        value: id
+# â”€â”€ Persona switcher: REMOVED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# (EALC6016 used to let the tapped persona-picker row override EAIV6014;
+# the picker is gone, so EAIV6014 is fixed to 'epn.concierge.v1' in EALC6015.)
 
