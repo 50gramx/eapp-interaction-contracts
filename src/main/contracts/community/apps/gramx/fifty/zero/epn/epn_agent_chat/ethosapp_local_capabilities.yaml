@@ -249,6 +249,15 @@
       - command: platform-invoke
         handler: epn.agent.chat.new
         assign-to: EAIV6002
+      # Reset the Active Conversation ID so the NEXT Send goes out with an empty
+      # conversation_id — the daemon then opens a genuinely fresh conversation
+      # (concierge generates a new id) instead of reloading the previous thread's
+      # history. Without this, "New Chat" cleared only the on-screen thread
+      # (EAIV6002) while EAIV6019 kept the old id, so prior-chat context leaked
+      # into the new one.
+      - command: set
+        target: EAIV6019
+        value: ""
 
 # â”€â”€ Persona switcher: REMOVED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # (EALC6016 used to let the tapped persona-picker row override EAIV6014;
