@@ -27,6 +27,16 @@
       original-filename: eapp_live.exe
       legal-copyright: Copyright (C) 2026 50GRAMx. All rights reserved.
       icon: resources\\app_icon.ico
+    web:
+      # evo keeps the Firebase project's DEFAULT hosting site (eapp-live), which
+      # already serves live.50gramx.com. New brands omit firebase-site and get
+      # their own <brand>.web.app site in the same project.
+      firebase-project: eapp-live
+      firebase-site: eapp-live
+      # `live` = the production channel that serves live.50gramx.com. Other
+      # brands omit this and deploy to a per-brand preview channel.
+      firebase-channel: live
+      url: https://live.50gramx.com
   apps:
     - name: evo_dl
       live: true
