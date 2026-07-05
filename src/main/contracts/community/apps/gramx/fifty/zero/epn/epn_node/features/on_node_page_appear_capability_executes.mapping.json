@@ -10,12 +10,13 @@
   "expected": {
     "outputs": [
       "EAIV14012",
-      "EAIV14020"
+      "EAIV14020",
+      "EAIV14049"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV14012 is populated; EAIV14020 is populated",
-    "state": "EAIV14012 populated, EAIV14020 populated",
+    "behavioral": "EAIV14012 is populated; EAIV14020 is populated; EAIV14049 is populated",
+    "state": "EAIV14012 populated, EAIV14020 populated, EAIV14049 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -24,7 +25,8 @@
     "Given the Node eApp is open": "EALC14020",
     "When capability EALC14020 (On Node Page Appear) is invoked": "EALC14020",
     "Then EAIV14012 (My Identity) is not empty": "EAIV14012",
-    "Then EAIV14020 (Nodes) is not empty": "EAIV14020"
+    "Then EAIV14020 (Nodes) is not empty": "EAIV14020",
+    "Then EAIV14049 (Node Capabilities) is not empty": "EAIV14049"
   },
   "steps": [
     {
@@ -40,6 +42,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV14020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14049"
     }
   ]
 }
