@@ -9,12 +9,13 @@
   "inputs": {},
   "expected": {
     "outputs": [
-      "EAIV6002"
+      "EAIV6002",
+      "EAIV6019"
     ]
   },
   "conformance": {
     "behavioral": "EAIV6002 list grows by at least 1 item",
-    "state": "n/a",
+    "state": "EAIV6019 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -22,7 +23,8 @@
   "textToCodeMapping": {
     "Given the Evo eApp is open": "EALC6003",
     "When capability EALC6003 (New Chat) is invoked": "EALC6003",
-    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002"
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6019 (Active Conversation ID) is not empty": "EAIV6019"
   },
   "steps": [
     {
@@ -34,6 +36,11 @@
       "assert": "list-length-gte",
       "variable": "EAIV6002",
       "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6019"
     }
   ]
 }
