@@ -105,6 +105,11 @@
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV14020
+      # Per-platform capabilities — hides the compute/upgrade affordances on
+      # mobile (lite-only devices). See EAIV14049 and the EAIC142{60,62,63} gates.
+      - command: platform-invoke
+        handler: epn.node.capabilities
+        assign-to: EAIV14049
 
 # Re-list the device's nodes (after any add/stop/remove/clean).
 - name-code: EALC14021

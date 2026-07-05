@@ -101,6 +101,36 @@
       - EAIC14205
       - EAIC14206
 
+# Empty placeholder used by the capability gates below as the "hide" branch
+# (an empty column renders nothing). Shared by every mobile-hidden affordance.
+- name-code: EAIC14261
+  name: Capability Hidden Placeholder
+  component:
+    name-code: EIC1005
+    children-components: []
+
+# The compute mode block (divider + "Compute — lend & earn" column) as one unit,
+# so it can be shown/hidden atomically.
+- name-code: EAIC14260
+  name: Off Compute Group
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14208
+      - EAIC14207
+
+# Platform gate: hide compute mode on mobile (lite-only devices). Unknown /
+# not-yet-loaded capabilities fall to `default` → compute stays visible (desktop
+# is the compute platform; never strip its UI on a slow fetch).
+- name-code: EAIC14262
+  name: Off Compute Gate
+  component:
+    name-code: EIC1036
+    source: EAIV14049.class
+    cases:
+      mobile: EAIC14261
+    default: EAIC14260
+
 - name-code: EAIC14073
   name: Off Column
   component:
@@ -109,8 +139,7 @@
       - EAIC14070
       - EAIC14071
       - EAIC14203
-      - EAIC14208
-      - EAIC14207
+      - EAIC14262
 
 - name-code: EAIC14074
   name: Off Card
@@ -260,15 +289,26 @@
     variant: caption01
     color: positive
 
+# Platform gate for the lite-node "Upgrade to compute" footer: on mobile there
+# is no compute to upgrade to, so hide it. Default (desktop/unknown) keeps it.
+- name-code: EAIC14263
+  name: Upgrade Compute Gate
+  component:
+    name-code: EIC1036
+    source: EAIV14049.class
+    cases:
+      mobile: EAIC14261
+    default: EAIC14212
+
 - name-code: EAIC14214
   name: Running Mode Match
   component:
     name-code: EIC1036
     source: EAIV14001.mode
     cases:
-      lite: EAIC14212
+      lite: EAIC14263
       compute: EAIC14213
-    default: EAIC14212
+    default: EAIC14263
 
 - name-code: EAIC14082
   name: Running Column
@@ -629,13 +669,23 @@
     label: Add compute node (k3s)
     on-click: EALC14024
 
+# Platform gate: no compute nodes on mobile (lite-only). Default keeps it.
+- name-code: EAIC14264
+  name: Add Compute Gate
+  component:
+    name-code: EIC1036
+    source: EAIV14049.class
+    cases:
+      mobile: EAIC14261
+    default: EAIC14106
+
 - name-code: EAIC14107
   name: Add Buttons Row
   component:
     name-code: EIC1012
     children-components:
       - EAIC14105
-      - EAIC14106
+      - EAIC14264
 
 - name-code: EAIC14108
   name: Create Note

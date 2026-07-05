@@ -18,6 +18,18 @@
   default:
     platform-stream: epn.node.network_contribution
 
+# Per-platform node capabilities — {class: mobile|desktop, supports_compute:
+# bool, supports_lite: bool}. Populated on page-appear from
+# epn.node.capabilities. Drives whether the "compute / upgrade to k3s"
+# affordances render: mobile devices run the lite node only. Default {} so the
+# gate falls back to the desktop (compute-visible) branch until it loads —
+# desktop never loses its compute UI to a slow/failed fetch; only an explicit
+# class == mobile hides it.
+- name-code: EAIV14049
+  name: Node Capabilities
+  type: ELVT1020
+  default: {}
+
 # Result of the last start attempt — the status map after starting, or {failure:...}.
 - name-code: EAIV14002
   name: Start Result
