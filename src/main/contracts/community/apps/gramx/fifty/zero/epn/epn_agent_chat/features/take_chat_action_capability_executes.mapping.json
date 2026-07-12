@@ -1,0 +1,61 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_take_chat_action_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Take Chat Action capability executes",
+  "capability": "EALC6026",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6002",
+      "EAIV6031",
+      "EAIV6017",
+      "EAIV6016"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6002 list grows by at least 1 item; EAIV6031 list grows by at least 1 item",
+    "state": "EAIV6017 populated, EAIV6016 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6026",
+    "When capability EALC6026 (Take Chat Action) is invoked": "EALC6026",
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6031 (Workflows) has at least 1 item": "EAIV6031",
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6026"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6031",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6016"
+    }
+  ]
+}
