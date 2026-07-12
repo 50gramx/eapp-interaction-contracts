@@ -150,6 +150,48 @@
         target: EAIV6046
         value: chat
 
+# â”€â”€ Chat actions (EAMVT6022) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# Take a decision a turn is waiting on. Wired to the message list's
+# on-action-tap: the tapped action row's `kind` (approve|deny) and `action_id`
+# (the approval it acts on) are passed through, exactly as EALC6023 passes a
+# tapped run's id.
+#
+# WHY THIS EXISTS when EALC6018/EALC6019 already approve and deny: those act on
+# "the latest pending approval" â€” they take no id, because the only person who
+# could ever see the footer card was sitting at the machine. That assumption
+# dies the moment Evo answers in a room: a post is read by strangers, on phones,
+# days later, possibly with several approvals outstanding. So an action must be
+# ADDRESSED. This capability is that, and the footer card becomes one consumer
+# of the action list rather than a parallel mechanism.
+#
+# Authority is unchanged and is NOT presence: the handler acts against the local
+# approval store on the owner's own gram. Many may see the decision; one may take
+# it; the record afterwards says who did.
+- name-code: EALC6026
+  name: Take Chat Action
+  context:
+    expects:
+      - kind: ELVT1011
+      - action_id: ELVT1011
+    steps:
+      - command: platform-invoke
+        handler: epn.agent.action.take
+        params:
+          kind: kind
+          approval_id: action_id
+        assign-to: EAIV6017
+      # Same refreshes the footer card does: the outcome ("Approved â€” started â€¦")
+      # appears inline in the transcript, and the workflows board shows the job.
+      - command: platform-invoke
+        handler: epn.agent.chat.history
+        assign-to: EAIV6002
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+      - command: platform-invoke
+        handler: epn.agent.run.list
+        assign-to: EAIV6031
+
 # Called by the Send button. Composes request, calls mesh service (now unary),
 # and updates chat history.
 #

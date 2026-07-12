@@ -129,6 +129,20 @@
     activity-field: eamvt6013
     evidence-field: eamvt6014
     errors-field: eamvt6015
+    # Actions the turn is WAITING ON (EAMVT6022) — the approve/deny buttons.
+    #
+    # This is not the old inline approval card coming back. That one was a second,
+    # independently STALE copy of the decision — it could act on a different
+    # approval than the footer was showing, because neither carried an id and both
+    # meant "the latest pending". These buttons each carry the id of the approval
+    # they act on (EALC6026), so an old turn cannot act on a newer approval. That
+    # was the actual defect; three surfaces was the symptom.
+    #
+    # The footer (EAIC6044) remains the primary place to decide and still reads
+    # the local approval store. It has NOT been migrated to this list yet — see
+    # EAMVT6022's note; doing so is what finally gives it an id too.
+    actions-field: eamvt6022
+    on-action-tap: EALC6026
     self-sender-values:
       - You
     error-sender-values:

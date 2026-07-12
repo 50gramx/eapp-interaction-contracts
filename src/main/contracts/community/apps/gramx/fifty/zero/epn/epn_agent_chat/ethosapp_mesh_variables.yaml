@@ -91,6 +91,30 @@
       name: target
       type: ELVT1007
       default: ""
+    # EAMVT6022 - actions: the decisions this turn is WAITING ON.
+    #
+    # A list of {id, label, kind, action_id, target, authority}. One list,
+    # produced once by the daemon, rendered by every surface: the approve/deny
+    # card in the app's footer AND the buttons under Evo's reply in a gramx
+    # room. Until now an approval could only be acted on from the app — the
+    # footer card read the LOCAL approval store and acted on "the latest
+    # pending" — so the same turn, answered in a room, could DESCRIBE an install
+    # but never OFFER it. The chat deviated purely because its interface was a
+    # post.
+    #
+    # `action_id` is what makes that fixable: an action is ADDRESSED (it names
+    # the approval it acts on) rather than positional. "Latest pending" only ever
+    # worked because the one person who could see it was sitting at the machine;
+    # a post is read by strangers, on phones, days later, with several approvals
+    # outstanding. Authority to TAKE the action stays the gram owner's key, so a
+    # public room may safely SHOW a decision that only one person may take.
+    #
+    # Supersedes EAMVT6017-6021 (the approval-tile fields), which no component
+    # binds today. Those stay for compatibility; new surfaces read this.
+    - name-code: EAMVT6022
+      name: actions
+      type: ELVT1018
+      default: []
 
 # EAMV6003 - Legacy StreamEvent token chunk (kept for compatibility while
 # consumers/daemon wrappers are migrated to the UI-fed snapshot shape).
