@@ -42,6 +42,30 @@
       - EAIC11002
       - EAIC11004
 
+# Per-resource TOTALS — the summary is the aggregation, one row per RESOURCE
+# NETWORK ("how much of each have I used, ever"). This is distinct from the
+# ledger below, which is the itemised statement of individual receipts.
+# Source: epn.metering.summary's resource_summary, from GET /v1/metering
+# aggregated by the daemon (payment.Summarize). All 8 networks are always
+# present, even at zero — a network nobody has used yet reads "not yet
+# metered", never a blank row.
+- name-code: EAIC11096
+  name: Resource Totals Table
+  component:
+    name-code: EIC1032
+    source: EAIV11005.resource_summary
+    columns:
+      - Resource
+      - Total
+      - Earned
+      - Spent
+    fields:
+      - resource
+      - total
+      - earned
+      - spent
+    empty-message: No resource networks configured on this node.
+
 - name-code: EAIC11010
   name: Refresh Button
   component:
@@ -63,29 +87,28 @@
       - EAIC11001
       - EAIC11060
       - EAIC11051
+      - EAIC11096
       - EAIC11061
       - EAIC11063
       - EAIC11062
       - EAIC11010
       - EAIC11011
 
-# ── Ledger section ─────────────────────────────────────────────────────────────
-# The actual design: ONE table, every kind of metered activity as a row
-# (what ran / quantity / direction / value), not separate cards per
-# category. Source: epn.metering.summary's meter_rows.
+# ── Ledger section: THE STATEMENT ───────────────────────────────────────────────
+# A bank statement, not a summary — one row per RECEIPT, newest first, not per
+# resource type. The totals live in Activity Summary (EAIC11096) above; this
+# answers "what actually happened, and when", the way a bank statement lists
+# transactions rather than only a balance.
 #
-# The per-resource-type breakdown this table was always meant to show is now
-# real. It used to be impossible — "no daemon endpoint aggregates the resource
-# operators' receipts by type" — because every MeteringReceipt was signed,
-# hash-chained, and then kept only in RAM, so there was nothing to aggregate and
-# nothing to serve. The daemon now persists them (payment.ReceiptStore) and
-# aggregates them per network at GET /v1/metering, so the rows are one per
-# RESOURCE NETWORK, from signed receipts: inference_token, gpu_second,
-# vcpu_second, gb_hour, gb_month, egress_gb, relay_second, kwh.
+# Source: epn.metering.summary's meter_rows, built from GET /v1/metering's
+# `recent` tail (the daemon's persisted, signed receipts — payment.ReceiptStore).
+# Each receipt was signed, hash-chained, and — until the store existed — kept
+# only in RAM and then lost on restart; this is that evidence, finally durable
+# and finally readable.
 #
-# All eight are listed even at zero. A network with no receipts is not missing —
-# it is untouched, or free by design (your own resource is never metered), and
-# hiding those rows would make a designed-in truth look like a broken page.
+# Empty is a true and complete state, not an error: a node that has not yet
+# lent or borrowed a cross-node resource has no statement lines, same as a bank
+# account before its first transaction.
 
 - name-code: EAIC11090
   name: Ledger Header
@@ -99,16 +122,18 @@
     name-code: EIC1032
     source: EAIV11005.meter_rows
     columns:
+      - When
       - What ran
       - Quantity
       - Direction
       - Value
     fields:
+      - when
       - what
       - qty
       - who
       - amt
-    empty-message: Nothing metered yet — your activity will show up here.
+    empty-message: Nothing metered yet — every cross-node receipt will show up here as it happens.
 
 - name-code: EAIC11077
   name: Local Receipts Metric
