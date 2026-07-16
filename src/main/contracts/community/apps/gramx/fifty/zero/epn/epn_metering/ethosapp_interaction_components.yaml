@@ -72,12 +72,20 @@
 # ── Ledger section ─────────────────────────────────────────────────────────────
 # The actual design: ONE table, every kind of metered activity as a row
 # (what ran / quantity / direction / value), not separate cards per
-# category. Source: epn.metering.summary's meter_rows, derived from real
-# GET /v1/metrics + wallet/channel data — never faked, falls back to zero
-# rows if the daemon is unreachable. A true per-resource-type breakdown
-# (storage lent, vcpu, gpu_second individually) isn't possible yet — no
-# daemon endpoint aggregates the resource operators' receipts by type;
-# today's rows are local inference + aggregate peer earn/spend.
+# category. Source: epn.metering.summary's meter_rows.
+#
+# The per-resource-type breakdown this table was always meant to show is now
+# real. It used to be impossible — "no daemon endpoint aggregates the resource
+# operators' receipts by type" — because every MeteringReceipt was signed,
+# hash-chained, and then kept only in RAM, so there was nothing to aggregate and
+# nothing to serve. The daemon now persists them (payment.ReceiptStore) and
+# aggregates them per network at GET /v1/metering, so the rows are one per
+# RESOURCE NETWORK, from signed receipts: inference_token, gpu_second,
+# vcpu_second, gb_hour, gb_month, egress_gb, relay_second, kwh.
+#
+# All eight are listed even at zero. A network with no receipts is not missing —
+# it is untouched, or free by design (your own resource is never metered), and
+# hiding those rows would make a designed-in truth look like a broken page.
 
 - name-code: EAIC11090
   name: Ledger Header

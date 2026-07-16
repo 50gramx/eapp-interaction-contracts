@@ -1,4 +1,10 @@
-# Load all metering data on page appear.
+# Load all metering data on page appear, then keep the ledger live.
+#
+# The metering summary SUBSCRIBES rather than polls-by-hand: EAIV11005 is an
+# ELVT1020 (live) variable, which rebuilds the UI on every emit. That is why the
+# page needed a Refresh button before — every EP&N handler was a one-shot method,
+# so nothing ever emitted and nothing could rebuild. Wallet balance, channels and
+# node resources stay one-shot: they change on user action, not continuously.
 - name-code: EALC11001
   name: Init Page
   context:
@@ -15,6 +21,9 @@
       - command: platform-invoke
         handler: epn.metering.summary
         assign-to: EAIV11005
+      - command: platform-subscribe
+        stream: epn.metering.stream
+        target: EAIV11005
 
 # Refresh all metering data.
 - name-code: EALC11002
