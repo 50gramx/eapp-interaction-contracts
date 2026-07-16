@@ -387,3 +387,407 @@
     name-code: EIC1023
     child: EAIC11019
     color: layer-02
+
+# ── Sessions section: PER-SESSION DRILL-DOWN ────────────────────────────────
+# "per resource core type one row... link to operator... per resource/operator
+# to be per session ledger... that record should have extra details... and
+# live metering for sessions which are ongoing." The Ledger above is the
+# receipt-by-receipt statement; this is the session-by-session view, one row
+# per (operator, resource type, session) — tap a row to see every field the
+# daemon signed and published for it.
+#
+# Source: epn.metering.summary's `sessions`, from GET /v1/metering's `sessions`
+# array (api.SessionRow — merges payment.SummarizeBySession's signed totals,
+# K8sResourceMeter.Sessions()'s live state, and the StatementIndex's publish
+# outcomes). Reusing EIC1026 (not EIC1032): the ledger table has no on-row-tap
+# (documented in EPN_DESIGN_BACKLOG.md; epn_circle's Roster List made the same
+# choice for the same reason).
+
+- name-code: EAIC11142
+  name: Sessions Header
+  component:
+    name-code: EIC1004
+    label: Sessions
+
+- name-code: EAIC11141
+  name: Sessions List
+  component:
+    name-code: EIC1026
+    source: EAIV11005.sessions
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC11003
+
+# ── Selected Session detail card — one value + caption row per field ────────
+
+- name-code: EAIC11100
+  name: Selected Session ID Value
+  component:
+    name-code: EIC1020
+    text: EAIV11010
+    variant: code01
+    middle-ellipsis: true
+    prefix-chars: 10
+    suffix-chars: 6
+    code-surface: true
+- name-code: EAIC11101
+  name: Selected Session ID Caption
+  component:
+    name-code: EIC1020
+    text: Session ID
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11102
+  name: Selected Session Operator Value
+  component:
+    name-code: EIC1020
+    text: EAIV11011
+    variant: body01
+- name-code: EAIC11103
+  name: Selected Session Operator Caption
+  component:
+    name-code: EIC1020
+    text: Operator
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11104
+  name: Selected Session Deployment Value
+  component:
+    name-code: EIC1020
+    text: EAIV11012
+    variant: body01
+- name-code: EAIC11105
+  name: Selected Session Deployment Caption
+  component:
+    name-code: EIC1020
+    text: Deployment
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11106
+  name: Selected Session Resource Value
+  component:
+    name-code: EIC1020
+    text: EAIV11013
+    variant: body01
+- name-code: EAIC11107
+  name: Selected Session Resource Caption
+  component:
+    name-code: EIC1020
+    text: Resource network
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11108
+  name: Selected Session Pod Value
+  component:
+    name-code: EIC1020
+    text: EAIV11014
+    variant: body01
+- name-code: EAIC11109
+  name: Selected Session Pod Caption
+  component:
+    name-code: EIC1020
+    text: Pod
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11110
+  name: Selected Session Units Value
+  component:
+    name-code: EIC1020
+    text: EAIV11015
+    variant: body01
+- name-code: EAIC11111
+  name: Selected Session Units Caption
+  component:
+    name-code: EIC1020
+    text: Quantity
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11112
+  name: Selected Session Unit Name Value
+  component:
+    name-code: EIC1020
+    text: EAIV11016
+    variant: body01
+- name-code: EAIC11113
+  name: Selected Session Unit Name Caption
+  component:
+    name-code: EIC1020
+    text: Unit
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11114
+  name: Selected Session Receipts Value
+  component:
+    name-code: EIC1020
+    text: EAIV11017
+    variant: body01
+- name-code: EAIC11115
+  name: Selected Session Receipts Caption
+  component:
+    name-code: EIC1020
+    text: Signed receipts
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11116
+  name: Selected Session Amount Value
+  component:
+    name-code: EIC1020
+    text: EAIV11018
+    variant: body01
+- name-code: EAIC11117
+  name: Selected Session Amount Caption
+  component:
+    name-code: EIC1020
+    text: Amount (μETC)
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11118
+  name: Selected Session First At Value
+  component:
+    name-code: EIC1020
+    text: EAIV11019
+    variant: body01
+- name-code: EAIC11119
+  name: Selected Session First At Caption
+  component:
+    name-code: EIC1020
+    text: First metered
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11120
+  name: Selected Session Last At Value
+  component:
+    name-code: EIC1020
+    text: EAIV11020
+    variant: body01
+- name-code: EAIC11121
+  name: Selected Session Last At Caption
+  component:
+    name-code: EIC1020
+    text: Last metered
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11122
+  name: Selected Session Updated At Value
+  component:
+    name-code: EIC1020
+    text: EAIV11021
+    variant: body01
+- name-code: EAIC11123
+  name: Selected Session Updated At Caption
+  component:
+    name-code: EIC1020
+    text: Live since / last sample
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11124
+  name: Selected Session Status Badge
+  component:
+    name-code: EIC1030
+    label: EAIV11022
+    status: neutral
+- name-code: EAIC11125
+  name: Selected Session Status Caption
+  component:
+    name-code: EIC1020
+    text: Status — running, metered, or published to the gramx
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11126
+  name: Selected Session CID Value
+  component:
+    name-code: EIC1020
+    text: EAIV11023
+    variant: code01
+    middle-ellipsis: true
+    prefix-chars: 10
+    suffix-chars: 6
+    code-surface: true
+- name-code: EAIC11127
+  name: Selected Session CID Caption
+  component:
+    name-code: EIC1020
+    text: Statement CID (content-addressed, signed)
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11128
+  name: Selected Session Redundancy Requested Value
+  component:
+    name-code: EIC1020
+    text: EAIV11024
+    variant: body01
+- name-code: EAIC11129
+  name: Selected Session Redundancy Requested Caption
+  component:
+    name-code: EIC1020
+    text: Redundancy requested
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11130
+  name: Selected Session Redundancy Achieved Value
+  component:
+    name-code: EIC1020
+    text: EAIV11025
+    variant: body01
+- name-code: EAIC11131
+  name: Selected Session Redundancy Achieved Caption
+  component:
+    name-code: EIC1020
+    text: Redundancy achieved (this node's copy + accepting peers)
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11132
+  name: Selected Session Replica Peers Value
+  component:
+    name-code: EIC1020
+    text: EAIV11026
+    variant: body01
+    middle-ellipsis: true
+    prefix-chars: 24
+    suffix-chars: 12
+- name-code: EAIC11133
+  name: Selected Session Replica Peers Caption
+  component:
+    name-code: EIC1020
+    text: Replicated to (gramx/circle peers)
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11134
+  name: Selected Session Published At Value
+  component:
+    name-code: EIC1020
+    text: EAIV11027
+    variant: body01
+- name-code: EAIC11135
+  name: Selected Session Published At Caption
+  component:
+    name-code: EIC1020
+    text: Published at
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11136
+  name: Selected Session Detail Fields
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11100
+      - EAIC11101
+      - EAIC11102
+      - EAIC11103
+      - EAIC11104
+      - EAIC11105
+      - EAIC11106
+      - EAIC11107
+      - EAIC11108
+      - EAIC11109
+      - EAIC11110
+      - EAIC11111
+      - EAIC11112
+      - EAIC11113
+      - EAIC11114
+      - EAIC11115
+      - EAIC11116
+      - EAIC11117
+      - EAIC11118
+      - EAIC11119
+      - EAIC11120
+      - EAIC11121
+      - EAIC11122
+      - EAIC11123
+      - EAIC11124
+      - EAIC11125
+      - EAIC11126
+      - EAIC11127
+      - EAIC11128
+      - EAIC11129
+      - EAIC11130
+      - EAIC11131
+      - EAIC11132
+      - EAIC11133
+      - EAIC11134
+      - EAIC11135
+
+- name-code: EAIC11137
+  name: Selected Session Detail Header
+  component:
+    name-code: EIC1004
+    label: Session Detail
+
+- name-code: EAIC11138
+  name: Selected Session Detail Card
+  component:
+    name-code: EIC1023
+    color: layer-01
+    child: EAIC11139
+
+- name-code: EAIC11139
+  name: Selected Session Detail Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11137
+      - EAIC11136
+
+- name-code: EAIC11140
+  name: No Session Selected Note
+  component:
+    name-code: EIC1020
+    text: Tap a session above to see its full detail — operator, deployment, pod, resource, cost, and whether its signed statement has reached the gramx.
+    variant: caption01
+    color: on-surface-subtle
+
+# Matches an explicit "selected"/"none" enum (EAIV11028), not the raw session
+# id — EIC1036 needs fixed case values (same reasoning as epn_circle's
+# Selection Match, EAIC15037).
+- name-code: EAIC11150
+  name: Session Selection Match
+  component:
+    name-code: EIC1036
+    source: EAIV11028
+    cases:
+      selected: EAIC11138
+      none: EAIC11140
+    default: EAIC11140
+
+- name-code: EAIC11151
+  name: Sessions Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11152
+  name: Sessions Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11142
+      - EAIC11141
+      - EAIC11150
+      - EAIC11151
+
+- name-code: EAIC11153
+  name: Sessions Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11152
+    color: layer-02

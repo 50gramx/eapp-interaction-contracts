@@ -39,3 +39,87 @@
       - command: platform-invoke
         handler: epn.metering.summary
         assign-to: EAIV11005
+
+# Copy one tapped Sessions-list row (EAIC11141) into the page-level "Selected
+# Session" variables, so the detail card can show the full record — every
+# field the daemon's SessionRow carries — with zero extra round-trips.
+- name-code: EALC11003
+  name: Select Session
+  context:
+    expects:
+      - session_id: ELVT1007
+      - operator_id: ELVT1007
+      - deployment_id: ELVT1007
+      - resource_label: ELVT1007
+      - pod_name: ELVT1007
+      - units: ELVT1006
+      - unit_name: ELVT1007
+      - receipts: ELVT1006
+      - amount_uetc: ELVT1006
+      - first_at: ELVT1007
+      - last_at: ELVT1007
+      - updated_at: ELVT1007
+      - status: ELVT1007
+      - cid: ELVT1007
+      - redundancy_requested: ELVT1006
+      - redundancy_achieved: ELVT1006
+      - replica_peers: ELVT1007
+      - published_at: ELVT1007
+    steps:
+      - command: set
+        target: EAIV11010
+        value: session_id
+      - command: set
+        target: EAIV11011
+        value: operator_id
+      - command: set
+        target: EAIV11012
+        value: deployment_id
+      - command: set
+        target: EAIV11013
+        value: resource_label
+      - command: set
+        target: EAIV11014
+        value: pod_name
+      - command: set
+        target: EAIV11015
+        value: units
+      - command: set
+        target: EAIV11016
+        value: unit_name
+      - command: set
+        target: EAIV11017
+        value: receipts
+      - command: set
+        target: EAIV11018
+        value: amount_uetc
+      - command: set
+        target: EAIV11019
+        value: first_at
+      - command: set
+        target: EAIV11020
+        value: last_at
+      - command: set
+        target: EAIV11021
+        value: updated_at
+      - command: set
+        target: EAIV11022
+        value: status
+      - command: set
+        target: EAIV11023
+        value: cid
+      - command: set
+        target: EAIV11024
+        value: redundancy_requested
+      - command: set
+        target: EAIV11025
+        value: redundancy_achieved
+      - command: set
+        target: EAIV11026
+        value: replica_peers
+      - command: set
+        target: EAIV11027
+        value: published_at
+      - command: set
+        target: EAIV11028
+        value: "selected"

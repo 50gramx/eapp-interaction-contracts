@@ -1,9 +1,10 @@
 - name-code: EAIT11001
   name: Metering Tile
-  about: Activity summary, the metering ledger, and node resource capacity
+  about: Activity summary, the metering ledger, per-session drill-down, and node resource capacity
   composition:
     name-code: EIC1005
     children-components:
       - EAIC11080
       - EAIC11095
+      - EAIC11153
       - EAIC11082
