@@ -38,11 +38,12 @@
 # ── Selected Session detail (drill-down) ────────────────────────────────────
 # Tapping a row in the Sessions list (EAIC11141, EIC1026 — EIC1032 tables have
 # no on-row-tap, see epn_circle's Roster List for the same documented
-# constraint) copies every field of that session into these page-level
-# variables via EALC11003, so the detail card below can show the full
-# per-operator/deployment/pod/session/resource record: what it cost, whether
-# it is still running, and whether its signed statement actually reached the
-# gramx (CID + redundancy achieved), not just a total.
+# constraint) copies every field of that (grouped) session into these
+# page-level variables via EALC11003, so the detail card below can show the
+# full record: who got metered (operator/deployment/pod), the per-resource
+# breakdown (Resources — one line per resource network, since the session
+# row itself is grouped across resources), and whether its signed statement
+# actually reached the gramx.
 
 - name-code: EAIV11010
   name: Selected Session ID
@@ -60,83 +61,53 @@
   default: ""
 
 - name-code: EAIV11013
-  name: Selected Session Resource
-  type: ELVT1007
-  default: ""
-
-- name-code: EAIV11014
   name: Selected Session Pod
   type: ELVT1007
   default: ""
 
-- name-code: EAIV11015
-  name: Selected Session Units
-  type: ELVT1006
-  default: 0
-
-- name-code: EAIV11016
-  name: Selected Session Unit Name
-  type: ELVT1007
-  default: ""
-
-- name-code: EAIV11017
+- name-code: EAIV11014
   name: Selected Session Receipts
   type: ELVT1006
   default: 0
 
-- name-code: EAIV11018
+- name-code: EAIV11015
   name: Selected Session Amount UETC
   type: ELVT1006
   default: 0
 
-- name-code: EAIV11019
-  name: Selected Session First At
+# Human-readable ("Today · 1:26 PM" / "since Today · 1:26 PM — ongoing" for a
+# still-running session), not a raw UTC ISO timestamp.
+- name-code: EAIV11016
+  name: Selected Session When
   type: ELVT1007
   default: ""
 
-- name-code: EAIV11020
-  name: Selected Session Last At
-  type: ELVT1007
-  default: ""
-
-- name-code: EAIV11021
-  name: Selected Session Updated At
-  type: ELVT1007
-  default: ""
-
-- name-code: EAIV11022
+- name-code: EAIV11017
   name: Selected Session Status
   type: ELVT1007
   default: ""
 
-- name-code: EAIV11023
-  name: Selected Session CID
+# One line per resource network this session touched — "GB-hour: 0.0036
+# GiB-hours · 1232 receipts · 0 μETC", etc. The per-resource-type accounting
+# granularity foundation asked for lives here, inside the grouped row.
+- name-code: EAIV11018
+  name: Selected Session Resources
   type: ELVT1007
   default: ""
 
-- name-code: EAIV11024
-  name: Selected Session Redundancy Requested
-  type: ELVT1006
-  default: 0
+- name-code: EAIV11019
+  name: Selected Session Publish Status
+  type: ELVT1007
+  default: ""
 
-- name-code: EAIV11025
-  name: Selected Session Redundancy Achieved
-  type: ELVT1006
-  default: 0
-
-- name-code: EAIV11026
+- name-code: EAIV11020
   name: Selected Session Replica Peers
-  type: ELVT1007
-  default: ""
-
-- name-code: EAIV11027
-  name: Selected Session Published At
   type: ELVT1007
   default: ""
 
 # Matches an explicit "selected"/"none" enum, not the raw session id — EIC1036
 # needs fixed case values (same reasoning as epn_circle's Selection State).
-- name-code: EAIV11028
+- name-code: EAIV11021
   name: Selected Session State
   type: ELVT1007
   default: "none"
