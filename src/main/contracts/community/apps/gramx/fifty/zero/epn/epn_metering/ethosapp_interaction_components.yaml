@@ -25,12 +25,18 @@
     status: negative
 
 - name-code: EAIC11003
-  name: Local Inferences Metric
+  name: Inferences Metric
   component:
     name-code: EIC1031
     value: EAIV11005.inferences_served
-    label: Local inferences
-    caption: owed 0.00 EC, always
+    label: Inferences served
+    # NOT "owed 0.00 EC, always" any more. That caption was the old promise that
+    # a gram's own inference is free — the assumption this system has dropped:
+    # inference is priced whoever asked for it, and self-consumption is settled
+    # by the periodic credit-back rather than by being worth nothing. This
+    # counter is how MUCH work was done; what it cost is the Inference row of
+    # the Activity Summary.
+    caption: served on this gram's own hardware
     status: positive
 
 - name-code: EAIC11051
@@ -137,26 +143,16 @@
       - amt
     empty-message: Nothing metered yet — every cross-node receipt will show up here as it happens.
 
-- name-code: EAIC11077
-  name: Local Receipts Metric
-  component:
-    name-code: EIC1031
-    value: EAIV11005.local_inference_receipts
-    label: Self-signed receipts
-    caption: zero-price, hash-chained — accountable like any other resource
-    status: positive
-
-- name-code: EAIC11078
-  name: Local Receipt Hash Label
-  component:
-    name-code: EIC1020
-    text: EAIV11005.local_inference_last_hash
-    variant: caption01
-    color: on-surface-subtle
-    middle-ellipsis: true
-    prefix-chars: 10
-    suffix-chars: 6
-    code-surface: true
+# EAIC11077 (Local Receipts Metric) and EAIC11078 (Local Receipt Hash Label)
+# are removed. They read EAIV11005.local_inference_receipts /
+# .local_inference_last_hash — a separate "local inference" receipt chain that
+# no longer exists: inference this gram serves itself is now an ordinary priced
+# gpu_second receipt, counted in the Inference row of the Activity Summary and
+# itemised in the ledger below like every other resource. Those two fields are
+# gone from the daemon, so these components would have rendered a permanent
+# "0" and an empty hash under a caption promising proof — which is what they
+# were already doing, for months, while the receipts they claimed to prove were
+# never being written at all.
 
 - name-code: EAIC11093
   name: Ledger Divider
@@ -171,8 +167,6 @@
     children-components:
       - EAIC11090
       - EAIC11091
-      - EAIC11077
-      - EAIC11078
       - EAIC11093
 
 # ── Resource section ──────────────────────────────────────────────────────────
