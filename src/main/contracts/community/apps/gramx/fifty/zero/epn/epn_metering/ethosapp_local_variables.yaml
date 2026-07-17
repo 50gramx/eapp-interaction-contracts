@@ -30,10 +30,21 @@
 # resource_summary, meter_rows, sessions, ...}. EAIV11005.sessions is one row per
 # (session_id, resource_type) — daemon /v1/metering's SessionRow, merging signed
 # receipts, live K8sResourceMeter state, and the statement publish log.
+#
+# `platform-stream` here (inside `default`, not a sibling key — that's where
+# VariableManager's ELVT1020 auto-subscribe reads it from) is what makes this
+# variable live: it is NOT the same mechanism as a capability's
+# `platform-subscribe` step (that command wraps every emission in a List —
+# `PlatformSubscribeCommandProcessor.execute`, `[data]` — which is wrong for
+# a Map-shaped summary like this one and was silently breaking auto-refresh).
+# The variable-level path VariableManager.loadAppLocalVariables uses instead
+# stores a Map emission directly, so dot-access bindings like
+# `EAIV11005.sessions` keep resolving correctly on every emit.
 - name-code: EAIV11005
   name: Metering Summary
   type: ELVT1020
-  default: {}
+  default:
+    platform-stream: epn.metering.stream
 
 # ── Selected Session detail (drill-down) ────────────────────────────────────
 # Tapping a row in the Sessions list (EAIC11141, EIC1026 — EIC1032 tables have

@@ -1,10 +1,15 @@
 # Load all metering data on page appear, then keep the ledger live.
 #
-# The metering summary SUBSCRIBES rather than polls-by-hand: EAIV11005 is an
-# ELVT1020 (live) variable, which rebuilds the UI on every emit. That is why the
-# page needed a Refresh button before — every EP&N handler was a one-shot method,
-# so nothing ever emitted and nothing could rebuild. Wallet balance, channels and
-# node resources stay one-shot: they change on user action, not continuously.
+# EAIV11005's `platform-stream` (declared on the variable itself, in
+# ethosapp_local_variables.yaml) makes VariableManager auto-subscribe it to
+# epn.metering.stream as soon as the variable is registered — that is the
+# ONLY subscribe mechanism used here. A `platform-subscribe` step used to sit
+# here too, but that command (PlatformSubscribeCommandProcessor) always wraps
+# each emission as `[data]` — correct for the List-shaped streams it was
+# built for, wrong for this Map-shaped summary, and it was silently breaking
+# every dot-access binding (EAIV11005.sessions, .earned_uetc, ...) on every
+# tick. The one-shot invoke below still runs on page appear so the page has
+# real data before the first stream tick, rather than an empty state.
 - name-code: EALC11001
   name: Init Page
   context:
@@ -21,9 +26,6 @@
       - command: platform-invoke
         handler: epn.metering.summary
         assign-to: EAIV11005
-      - command: platform-subscribe
-        stream: epn.metering.stream
-        target: EAIV11005
 
 # Refresh all metering data.
 - name-code: EALC11002
