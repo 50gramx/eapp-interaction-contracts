@@ -1,0 +1,115 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_metering_select_session_capability_executes",
+  "app": "epn_metering",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Select Session capability executes",
+  "capability": "EALC11003",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV11010",
+      "EAIV11011",
+      "EAIV11012",
+      "EAIV11013",
+      "EAIV11014",
+      "EAIV11015",
+      "EAIV11016",
+      "EAIV11017",
+      "EAIV11018",
+      "EAIV11019",
+      "EAIV11020",
+      "EAIV11021"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV11010 is populated; EAIV11011 is populated; EAIV11012 is populated; EAIV11013 is populated; EAIV11014 is populated; EAIV11015 is populated; EAIV11016 is populated; EAIV11017 is populated; EAIV11018 is populated; EAIV11019 is populated; EAIV11020 is populated; EAIV11021 is populated",
+    "state": "EAIV11010 populated, EAIV11011 populated, EAIV11012 populated, EAIV11013 populated, EAIV11014 populated, EAIV11015 populated, EAIV11016 populated, EAIV11017 populated, EAIV11018 populated, EAIV11019 populated, EAIV11020 populated, EAIV11021 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Metering eApp is open": "EALC11003",
+    "When capability EALC11003 (Select Session) is invoked": "EALC11003",
+    "Then EAIV11010 (Selected Session ID) is not empty": "EAIV11010",
+    "Then EAIV11011 (Selected Session Operator) is not empty": "EAIV11011",
+    "Then EAIV11012 (Selected Session Deployment) is not empty": "EAIV11012",
+    "Then EAIV11013 (Selected Session Pod) is not empty": "EAIV11013",
+    "Then EAIV11014 (Selected Session Receipts) is not empty": "EAIV11014",
+    "Then EAIV11015 (Selected Session Amount UETC) is not empty": "EAIV11015",
+    "Then EAIV11016 (Selected Session When) is not empty": "EAIV11016",
+    "Then EAIV11017 (Selected Session Status) is not empty": "EAIV11017",
+    "Then EAIV11018 (Selected Session Resources) is not empty": "EAIV11018",
+    "Then EAIV11019 (Selected Session Publish Status) is not empty": "EAIV11019",
+    "Then EAIV11020 (Selected Session Replica Peers) is not empty": "EAIV11020",
+    "Then EAIV11021 (Selected Session State) is not empty": "EAIV11021"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC11003"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11010"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11013"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11014"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11015"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11016"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11018"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11019"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11021"
+    }
+  ]
+}
