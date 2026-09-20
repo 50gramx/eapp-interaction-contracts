@@ -28,11 +28,20 @@
       legal-copyright: Copyright (C) 2026 50GRAMx. All rights reserved.
       icon: resources\\app_icon.ico
     web:
-      # evo keeps the Firebase project's DEFAULT hosting site (eapp-live), which
-      # already serves live.50gramx.com. New brands omit firebase-site and get
-      # their own <brand>.web.app site in the same project.
-      firebase-project: eapp-live
-      firebase-site: eapp-live
+      # live.50gramx.com is served by the `bharatsphere-app` Hosting site, which
+      # lives in the IDENTITY project (bharatsphere-183e7). The domain stays
+      # where it is: Google sign-in redirects to
+      # https://live.50gramx.com/__/auth/handler, and that reserved path only
+      # answers when the site sits in the project that owns Auth. Hosting the
+      # evo build anywhere else would mean a redirect_uri_mismatch or a domain
+      # re-verification; this way it is one deploy target change and no DNS.
+      #
+      # One build serves every brand: with no BRAND_ID the bundle is the evo
+      # browser, and main.dart turns a /<community>/<org>/<app> URL into the
+      # launch environment com.50gramx.<community>.<org>.<app>. Other brands are
+      # opened by address on this same domain -- nothing per-brand is built.
+      firebase-project: bharatsphere-183e7
+      firebase-site: bharatsphere-app
       # `live` = the production channel that serves live.50gramx.com. Other
       # brands omit this and deploy to a per-brand preview channel.
       firebase-channel: live
