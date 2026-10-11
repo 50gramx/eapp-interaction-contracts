@@ -5,3 +5,33 @@
     method: EAMC6002
     expects: EAMV6001
     returns: EAMV6002
+
+# EAMC6003 - Mesh Chat Stream
+#
+# The same turn as EAMC6002, watched while it runs.
+#
+# EAMC6002 is unary: the daemon streams internally (tokens, tool calls, tool
+# results, reasoning all arrive as callbacks) and then hands back ONE EAMV6002
+# at the end. On the machine that is tolerable, because whoever asked is sitting
+# in front of it. It stops being tolerable the moment the asker is on another
+# device: a turn on a small local engine takes minutes, and every one of those
+# minutes is a blank screen.
+#
+# So this is the same request and the same response shape, declared
+# server-streaming, and the daemon emits an EAMV6002 snapshot per step instead
+# of one at the end. Nothing new is invented to carry progress — a partial turn
+# is just a turn whose text is shorter and whose activity list is still growing,
+# which is exactly what EAMV6002 already describes.
+#
+# WHY A SECOND CODE RATHER THAN CHANGING EAMC6002. Changing `returns` to
+# `returning` changes the generated signature in every language domain at once,
+# so epn-daemon and eapp would have to land together or chat breaks between
+# them. A new code lets each consumer move when it is ready, and EAMC6002
+# retires when nothing calls it.
+- name-code: EAMC6003
+  name: Mesh Chat Stream
+  mesh:
+    context: discover
+    method: EAMC6003
+    expects: EAMV6001
+    returning: EAMV6002
