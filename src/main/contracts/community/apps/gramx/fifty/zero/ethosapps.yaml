@@ -12,6 +12,13 @@
     logo: lib/assets/ethosverse-browser-logo-v3-transparent.png
     home-app: evo_dl
     launch-environment: com.50gramx.50.ethos_browser.*
+    ios:
+      # The App Store Connect record "50GRAMX" (Apple id 1571003338) already
+      # owns this bundle id, and it is the Android package this app shipped
+      # under before brands. An Apple bundle id may not contain "_", so the
+      # launch-environment cannot be used here.
+      bundle-id: com.fiftygramx.ethosai
+      team-id: V9YYYP7GU9
     runtime:
       session-file: evo_session.json
       singleton-name: 50gramx_evo_singleton
