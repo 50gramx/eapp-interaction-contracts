@@ -19,6 +19,9 @@
       # launch-environment cannot be used here.
       bundle-id: com.fiftygramx.ethosai
       team-id: V9YYYP7GU9
+      # On iPhone and iPad this app is GramX, the live world (2026-11-04):
+      # it opens on the world, the browser sits behind "More".
+      display-name: GramX
     runtime:
       session-file: evo_session.json
       singleton-name: 50gramx_evo_singleton
