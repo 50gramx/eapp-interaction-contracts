@@ -88,9 +88,9 @@
     home-app: epn_home
     launch-environment: com.50gramx.50.epn.*
     ios:
-      # iPhone and iPad. The bundle id is the brand's Apple id by the usual
-      # nomenclature -- the launch-environment without ".*", com.50gramx.50.epn,
-      # as on macOS -- so none is named here. TestFlight takes the build once
+      # iPhone and iPad. The bundle id is the brand's store identity by the
+      # usual nomenclature -- its Android applicationId,
+      # com.fiftygramx.fifty.zero.epn -- so none is named here. TestFlight takes the build once
       # App Store Connect has an app record for that id; until then the upload
       # step fails and the next scheduled build tries again.
       team-id: V9YYYP7GU9
