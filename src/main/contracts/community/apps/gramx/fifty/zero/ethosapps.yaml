@@ -19,8 +19,18 @@
     #   distribution: public (stores and downloads) or private (gramx store only)
     #   website / play-store / app-store / testflight / mac-app-store /
     #   microsoft-store: listed only once they are public.
+    #   category, description, developer, privacy-policy, support: the store
+    #           facts; a field left out reads "not declared" on the page.
+    #   age-rating + rating-authority: only a rating someone issued (the IARC
+    #           questionnaire in Play Console or App Store Connect), never
+    #           self-assigned; without one the page says "not yet rated".
     site:
       summary: "The EVO browser, and GramX: the live world. Every Ethos eApp in one app."
+      category: Tools
+      developer: 50GRAMx
+      age-rating: "3+"
+      rating-authority: "IARC, via Google Play"
+      interactive-elements: Users interact
       website: https://live.50gramx.com
       play-store: https://play.google.com/store/apps/details?id=com.fiftygramx.ethosai
       access: alpha beta gamma
@@ -102,6 +112,8 @@
     launch-environment: com.50gramx.50.epn.*
     site:
       summary: "Run a gram: share your machine's compute on the EP&N network and see what it earns."
+      category: Tools
+      developer: 50GRAMx
       website: https://50gramx.com
       access: alpha beta gamma
       distribution: public
@@ -200,6 +212,8 @@
     launch-environment: com.50gramx.50.studio.*
     site:
       summary: "Build eApps from contracts, with Evo, without writing code."
+      category: Developer tools
+      developer: 50GRAMx
       access: alpha beta
       distribution: public
     runtime:
