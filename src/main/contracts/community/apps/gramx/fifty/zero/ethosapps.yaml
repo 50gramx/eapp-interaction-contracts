@@ -40,6 +40,9 @@
       interactive-elements: Users interact
       description: "A browser that keeps what you do on your own side: one search across several engines, trackers blocked before they load, your spaces and your neighbourhood (Mohalla Map, by pincode), and every Ethos eApp in one place. GramX, the live world, opens from the same app."
       data-safety: https://play.google.com/store/apps/datasafety?id=com.fiftygramx.ethosai
+      # As its Play listing declares: no ads, no in-app purchases.
+      ads: None
+      in-app-purchases: None
       website: https://live.50gramx.com
       play-store: https://play.google.com/store/apps/details?id=com.fiftygramx.ethosai
       access: alpha beta gamma
