@@ -19,8 +19,7 @@
       # launch-environment cannot be used here.
       bundle-id: com.fiftygramx.ethosai
       team-id: V9YYYP7GU9
-      # On iPhone and iPad this app is GramX, the live world (2026-11-04):
-      # it opens on the world, the browser sits behind "More".
+      # The name under the icon on iPhone and iPad: the App Store record's.
       display-name: GramX
     runtime:
       session-file: evo_session.json
@@ -88,6 +87,13 @@
     logo: lib/assets/ethosverse-browser-logo-v3-transparent.png
     home-app: epn_home
     launch-environment: com.50gramx.50.epn.*
+    ios:
+      # iPhone and iPad. The bundle id is the brand's Apple id by the usual
+      # nomenclature -- the launch-environment without ".*", com.50gramx.50.epn,
+      # as on macOS -- so none is named here. TestFlight takes the build once
+      # App Store Connect has an app record for that id; until then the upload
+      # step fails and the next scheduled build tries again.
+      team-id: V9YYYP7GU9
     runtime:
       session-file: epn_session.json
       singleton-name: 50gramx_epn_singleton
