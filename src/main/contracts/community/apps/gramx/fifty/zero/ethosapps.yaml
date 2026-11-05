@@ -19,8 +19,15 @@
     #   distribution: public (stores and downloads) or private (gramx store only)
     #   website / play-store / app-store / testflight / mac-app-store /
     #   microsoft-store: listed only once they are public.
-    #   category, description, developer, privacy-policy, support: the store
-    #           facts; a field left out reads "not declared" on the page.
+    #   category, description, developer, privacy-policy, terms, support:
+    #           the store facts. Any of them left out is taken from the
+    #           publisher (src/main/contracts/publisher.yaml) unless
+    #           publisher-defaults: off.
+    #   data-safety: the store's own data-safety page, linked as it stands.
+    #   screenshots: images (paths under the releases site, or https URLs),
+    #           comma separated; video: one https video (mp4/webm or a
+    #           YouTube link). Screens captured automatically from the web
+    #           app are added after these.
     #   age-rating + rating-authority: only a rating someone issued (the IARC
     #           questionnaire in Play Console or App Store Connect), never
     #           self-assigned; without one the page says "not yet rated".
@@ -31,6 +38,8 @@
       age-rating: "3+"
       rating-authority: "IARC, via Google Play"
       interactive-elements: Users interact
+      description: "A browser that keeps what you do on your own side: one search across several engines, trackers blocked before they load, your spaces and your neighbourhood (Mohalla Map, by pincode), and every Ethos eApp in one place. GramX, the live world, opens from the same app."
+      data-safety: https://play.google.com/store/apps/datasafety?id=com.fiftygramx.ethosai
       website: https://live.50gramx.com
       play-store: https://play.google.com/store/apps/details?id=com.fiftygramx.ethosai
       access: alpha beta gamma
@@ -114,6 +123,7 @@
       summary: "Run a gram: share your machine's compute on the EP&N network and see what it earns."
       category: Tools
       developer: 50GRAMx
+      description: "EP&N Node runs a gram on your machine. It joins the EP&N network, does work for other people when your machine is free, meters every unit of it, and shows what it earned. Using your own machine costs you nothing; you are paid only when others use it."
       website: https://50gramx.com
       access: alpha beta gamma
       distribution: public
@@ -214,6 +224,7 @@
       summary: "Build eApps from contracts, with Evo, without writing code."
       category: Developer tools
       developer: 50GRAMx
+      description: "Ethos Studio makes eApps out of contracts: describe the app to Evo, see it run, and ship it to the same stores and devices as every other Ethos app, without writing code."
       access: alpha beta
       distribution: public
     runtime:

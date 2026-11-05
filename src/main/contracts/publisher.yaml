@@ -1,0 +1,22 @@
+# THE PUBLISHER: who stands behind every brand in these contracts, and the
+# store facts a brand inherits until it declares its own.
+#
+# A brand's site: block (community/.../ethosapps.yaml) wins for any field it
+# names. Everything it leaves out falls back to the publisher's, so a new
+# brand ships with a real privacy policy, terms and a way to reach a person
+# from its first build. A brand that publishes under its own name sets
+# `publisher-defaults: off` in its site: block and must then name its own.
+#
+# Read by eapp-releases/tools/generate-catalog.mjs for the releases page.
+# Nothing in an app build reads this file.
+publisher:
+  name: 50GRAMx
+  legal-name: Fifty GramX Networks Private Limited
+  website: https://50gramx.com
+  privacy-policy: https://50gramx.com/legal/privacy
+  terms: https://50gramx.com/legal/terms
+  acceptable-use: https://50gramx.com/legal/acceptable-use
+  support: https://50gramx.com/contact-us
+  support-email: help@50gramx.com
+  # The law the privacy policy is written under, as the policy itself states.
+  data-protection: "India's Digital Personal Data Protection Act, 2023"
