@@ -811,3 +811,76 @@
     name-code: EIC1023
     child: EAIC12096
     color: layer-02
+
+# ── Claim this gram ───────────────────────────────────────────────────────────
+- name-code: EAIC12113
+  name: Claim Header
+  component:
+    name-code: EIC1004
+    label: Claim this gram
+
+- name-code: EAIC12114
+  name: Claim Helper
+  component:
+    name-code: EIC1020
+    text: "Make this gram yours: get a code at 50gramx.com/gram/link while signed in on any device, then enter it here. Your grams then work for each other, and this one counts under your account."
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12115
+  name: Claim Get Code Button
+  component:
+    name-code: EIC1035
+    label: Get a code at 50gramx.com
+    variant: inline
+    on-click: EALC12031
+
+- name-code: EAIC12116
+  name: Claim Code Input
+  component:
+    name-code: EIC1009
+    hint-text: ABCD-EFGH
+    text-controller: EALC12030
+
+- name-code: EAIC12117
+  name: Claim Error Label
+  component:
+    name-code: EIC1020
+    text: EAIV12032
+    variant: caption01
+    color: negative
+
+- name-code: EAIC12118
+  name: Claim Message Label
+  component:
+    name-code: EIC1020
+    text: EAIV12033
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12119
+  name: Claim Submit Button
+  component:
+    name-code: EIC1006
+    label: Claim
+    on-click: EALC12032
+
+- name-code: EAIC12120
+  name: Claim Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12113
+      - EAIC12114
+      - EAIC12115
+      - EAIC12116
+      - EAIC12117
+      - EAIC12118
+      - EAIC12119
+
+- name-code: EAIC12121
+  name: Claim Tile (Carbon)
+  component:
+    name-code: EIC1023
+    child: EAIC12120
+    color: layer-02

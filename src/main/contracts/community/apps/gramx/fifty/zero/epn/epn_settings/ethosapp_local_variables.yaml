@@ -181,3 +181,34 @@
   type: ELVT1007
   default:
     value: "false"
+
+# ── Claim this gram (code from 50gramx.com/gram/link) ─────────────────────────
+# The same claim `epnd claim <code>` makes, from the app: the person makes a
+# code on 50gramx.com while signed in on any device, types it here, and the
+# gram redeems it (handler epn.identity.claim_code).
+
+# TextEditingController for the claim code input.
+- name-code: EAIV12030
+  name: Claim Code Controller
+  type: ELVT1001
+  default: {}
+
+# Result of the last epn.identity.claim_code call: {ok, error, message}.
+- name-code: EAIV12031
+  name: Claim Result
+  type: ELVT1020
+  default: {}
+
+# Why the last claim did not go through ("" when it did).
+- name-code: EAIV12032
+  name: Claim Error
+  type: ELVT1007
+  default:
+    value: ""
+
+# What the last claim did, said to the person ("" before one runs).
+- name-code: EAIV12033
+  name: Claim Message
+  type: ELVT1007
+  default:
+    value: ""

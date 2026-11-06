@@ -95,3 +95,14 @@
     name-code: EIC1005
     children-components:
       - EAIC12112
+
+# Claim this gram: always available on a gram the app can reach. Claiming again
+# with the same account is answered "already claimed by your account".
+- name-code: EAIT12008
+  name: Claim Gram Tile
+  about: Claim this gram for the person's account with a code from 50gramx.com/gram/link
+  conditions: []
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12121

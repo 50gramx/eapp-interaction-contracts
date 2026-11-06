@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_claim_this_gram_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Claim This Gram capability executes",
+  "capability": "EALC12032",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12033",
+      "EAIV12031"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12033 is populated; EAIV12031 is populated",
+    "state": "EAIV12033 populated, EAIV12031 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12032",
+    "When capability EALC12032 (Claim This Gram) is invoked": "EALC12032",
+    "Then EAIV12033 (Claim Message) is not empty": "EAIV12033",
+    "Then EAIV12031 (Claim Result) is not empty": "EAIV12031"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12032"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12033"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12031"
+    }
+  ]
+}
