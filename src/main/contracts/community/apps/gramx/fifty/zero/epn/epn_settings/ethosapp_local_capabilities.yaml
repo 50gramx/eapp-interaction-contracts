@@ -37,6 +37,13 @@
         key: expiring_soon
         assign-to: EAIV12029
       - command: platform-invoke
+        handler: epn.identity.claim_state
+        assign-to: EAIV12035
+      - command: get-map-value
+        target-map: EAIV12035
+        key: state
+        assign-to: EAIV12034
+      - command: platform-invoke
         handler: epn.settings.energy.get
         assign-to: EAIV12007
       - command: local-capability
@@ -451,3 +458,10 @@
         target-map: EAIV12031
         key: message
         assign-to: EAIV12033
+      - command: platform-invoke
+        handler: epn.identity.claim_state
+        assign-to: EAIV12035
+      - command: get-map-value
+        target-map: EAIV12035
+        key: state
+        assign-to: EAIV12034

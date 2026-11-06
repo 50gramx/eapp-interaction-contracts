@@ -10,12 +10,13 @@
   "expected": {
     "outputs": [
       "EAIV12033",
-      "EAIV12031"
+      "EAIV12031",
+      "EAIV12035"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV12033 is populated; EAIV12031 is populated",
-    "state": "EAIV12033 populated, EAIV12031 populated",
+    "behavioral": "EAIV12033 is populated; EAIV12031 is populated; EAIV12035 is populated",
+    "state": "EAIV12033 populated, EAIV12031 populated, EAIV12035 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -24,7 +25,8 @@
     "Given the Settings eApp is open": "EALC12032",
     "When capability EALC12032 (Claim This Gram) is invoked": "EALC12032",
     "Then EAIV12033 (Claim Message) is not empty": "EAIV12033",
-    "Then EAIV12031 (Claim Result) is not empty": "EAIV12031"
+    "Then EAIV12031 (Claim Result) is not empty": "EAIV12031",
+    "Then EAIV12035 (Claim State Result) is not empty": "EAIV12035"
   },
   "steps": [
     {
@@ -40,6 +42,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV12031"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12035"
     }
   ]
 }

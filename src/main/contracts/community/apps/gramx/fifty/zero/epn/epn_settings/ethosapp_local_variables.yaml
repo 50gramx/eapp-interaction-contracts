@@ -212,3 +212,19 @@
   type: ELVT1007
   default:
     value: ""
+
+# Whether the gram the app talks to is claimed: "claimed" | "unclaimed"
+# (epn.identity.claim_state). The claim card shows only while "unclaimed";
+# it kept offering the code field after a claim had gone through. String, so
+# the tile condition reads it before the page's first action runs.
+- name-code: EAIV12034
+  name: Claim State
+  type: ELVT1007
+  default:
+    value: "unclaimed"
+
+# Result of the last epn.identity.claim_state call: {state}.
+- name-code: EAIV12035
+  name: Claim State Result
+  type: ELVT1020
+  default: {}

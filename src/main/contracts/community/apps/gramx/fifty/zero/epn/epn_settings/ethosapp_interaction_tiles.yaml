@@ -96,12 +96,14 @@
     children-components:
       - EAIC12112
 
-# Claim this gram: always available on a gram the app can reach. Claiming again
-# with the same account is answered "already claimed by your account".
+# Claim this gram: shown while the gram the app talks to is not claimed
+# (EAIV12034, from epn.identity.claim_state), and gone once it is.
 - name-code: EAIT12008
   name: Claim Gram Tile
   about: Claim this gram for the person's account with a code from 50gramx.com/gram/link
-  conditions: []
+  conditions:
+    - name-code: EAIV12034
+      value: "unclaimed"
   composition:
     name-code: EIC1005
     children-components:
