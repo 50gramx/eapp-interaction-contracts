@@ -182,6 +182,89 @@
       type: ELVT1007
       default: ""
 
+# EAMV6009 - Chats Request.
+- name-code: EAMV6009
+  name: Chats Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6036
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV6010 - Chats: one row per conversation, {id, title, subtitle,
+# updated_at, items, gramx_id, root_post_id, open}. `id` is the
+# conversation_id, so a tapped row resumes it.
+- name-code: EAMV6010
+  name: Chats
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6037
+      name: chats
+      type: ELVT1018
+      default: []
+
+# EAMV6011 - Open Chat Request.
+- name-code: EAMV6011
+  name: Open Chat Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6038
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+
+# EAMV6012 - Opened Chat: the conversation's messages in the EAMV6002 item
+# shape the transcript renders, and the thread it lives in.
+- name-code: EAMV6012
+  name: Opened Chat
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6039
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6040
+      name: items
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6041
+      name: thread
+      type: ELVT1007
+      default: ""
+
+# EAMV6013 - Activity Request.
+- name-code: EAMV6013
+  name: Activity Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6042
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+
+# EAMV6014 - Activity: grouped rows ({type: header, title} then {type: item,
+# id, kind, title, subtitle, status, conversation_id}) for runs, approvals and
+# requests, and a one-line summary shown beside Send.
+- name-code: EAMV6014
+  name: Activity
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6043
+      name: rows
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6044
+      name: summary
+      type: ELVT1007
+      default: ""
+
 # EAMV6003 - Legacy StreamEvent token chunk (kept for compatibility while
 # consumers/daemon wrappers are migrated to the UI-fed snapshot shape).
 - name-code: EAMV6003

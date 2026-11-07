@@ -242,3 +242,58 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Chats panel (EAIC6061): the request, and the list it returned (EAMC6005).
+- name-code: EAIV6052
+  name: Chats Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT6036
+      name: scope
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV6053
+  name: Chats
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# Resume a chat (EAMC6006): which conversation, and what it returned.
+- name-code: EAIV6054
+  name: Open Chat Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT6038
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV6055
+  name: Opened Chat
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# This chat's activity (EAMC6007): runs, approvals, requests, and the summary
+# line beside Send.
+- name-code: EAIV6056
+  name: Activity Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT6042
+      name: conversation_id
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV6057
+  name: Activity
+  type: ELVT1021
+  modelled: true
+  default: {}

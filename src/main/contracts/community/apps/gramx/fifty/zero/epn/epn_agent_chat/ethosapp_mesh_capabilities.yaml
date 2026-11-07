@@ -47,3 +47,43 @@
     method: EAMC6004
     expects: EAMV6007
     returns: EAMV6008
+
+# -- EVERY CHAT, RESUMABLE; EVERY QUEUE, BESIDE THE CHAT ---------------------
+#
+# The app read chat history, runs and approvals straight off the gram's disk
+# through platform handlers: only the newest conversation came back, so there
+# was no list of chats and no way to resume one, and nothing another gram did
+# could ever show. These three read the same things from the gram, through
+# the contract, keyed by conversation -- so each run, approval and specialist
+# request is shown with the chat it came from.
+
+# EAMC6005 - List Chats: every conversation this gram holds, newest first,
+# each with the home-gramx thread it lives in.
+- name-code: EAMC6005
+  name: List Chats
+  mesh:
+    context: discover
+    method: EAMC6005
+    expects: EAMV6009
+    returns: EAMV6010
+
+# EAMC6006 - Open Chat: one conversation's messages, to resume it. An empty
+# conversation_id opens the most recent one.
+- name-code: EAMC6006
+  name: Open Chat
+  mesh:
+    context: discover
+    method: EAMC6006
+    expects: EAMV6011
+    returns: EAMV6012
+
+# EAMC6007 - Chat Activity: the work a conversation started -- durable runs
+# and their plans, approvals (decided ones too), specialist requests to the
+# foundation -- each with its status. An empty conversation_id is everything.
+- name-code: EAMC6007
+  name: Chat Activity
+  mesh:
+    context: discover
+    method: EAMC6007
+    expects: EAMV6013
+    returns: EAMV6014

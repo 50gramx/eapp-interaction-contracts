@@ -296,6 +296,22 @@
     label: Workflows
     on-click: EALC6024
 
+# Opens every conversation, to resume one (EALC6031).
+- name-code: EAIC6056
+  name: Chats Button
+  component:
+    name-code: EIC1008
+    label: Chats
+    on-click: EALC6031
+
+# Opens this chat's work: runs, approvals, specialist requests (EALC6033).
+- name-code: EAIC6057
+  name: Activity Button
+  component:
+    name-code: EIC1008
+    label: Activity
+    on-click: EALC6033
+
 # ── Action row: Send + New chat + Workflows ──────────────────────────────────
 
 - name-code: EAIC6007
@@ -305,6 +321,8 @@
     children-components:
       - EAIC6005
       - EAIC6008
+      - EAIC6056
+      - EAIC6057
       - EAIC6050
 
 # ── Persona picker: REMOVED ──────────────────────────────────────────────────
@@ -411,6 +429,79 @@
     variant: caption01
     color: on-surface-subtle
 
+# -- Chats and activity panels -----------------------------------------------
+# Defined before the layout columns that reference them (componentResolver
+# only finds components processed earlier in file order).
+
+# One line beside Send: what this chat has running, waiting or decided.
+- name-code: EAIC6058
+  name: Chat Status Line
+  component:
+    name-code: EIC1020
+    text: EAIV6057.eamvt6044
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6059
+  name: Chats Header
+  component:
+    name-code: EIC1020
+    text: Your chats · tap one to continue its thread
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6060
+  name: Chats List
+  component:
+    name-code: EIC1026
+    source: EAIV6053.eamvt6037
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    on-item-tap: EALC6032
+
+- name-code: EAIC6061
+  name: Chats Panel
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6059
+      - EAIC6060
+
+- name-code: EAIC6062
+  name: Activity Header
+  component:
+    name-code: EIC1020
+    text: "Runs, approvals and specialist requests, with their status · tap one to open its chat"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6063
+  name: Activity List
+  component:
+    name-code: EIC1026
+    source: EAIV6057.eamvt6043
+    item-type: grouped
+    title-field: title
+    subtitle-field: subtitle
+    on-item-tap: EALC6035
+
+- name-code: EAIC6064
+  name: All Activity Button
+  component:
+    name-code: EIC1008
+    label: Everything on this gram
+    on-click: EALC6034
+
+- name-code: EAIC6065
+  name: Activity Panel
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6062
+      - EAIC6063
+      - EAIC6064
+
 # ── Layout columns ────────────────────────────────────────────────────────────
 
 # The chat transcript view: header + framing chips + messages. No workflows,
@@ -449,6 +540,8 @@
     cases:
       workflows: EAIC6051
       receipt: EAIC6055
+      chats: EAIC6061
+      activity: EAIC6065
     default: EAIC6009
 
 # Normal composer content (divider + input + action row) — the footer's
@@ -461,6 +554,7 @@
     children-components:
       - EAIC6006
       - EAIC6004
+      - EAIC6058
       - EAIC6007
 
 # Shown in the footer instead of the composer while the workflows panel is
@@ -483,6 +577,8 @@
     cases:
       workflows: EAIC6048
       receipt: EAIC6048
+      chats: EAIC6048
+      activity: EAIC6048
     default: EAIC6045
 
 # Shown in the footer instead of anything else while an approval is pending

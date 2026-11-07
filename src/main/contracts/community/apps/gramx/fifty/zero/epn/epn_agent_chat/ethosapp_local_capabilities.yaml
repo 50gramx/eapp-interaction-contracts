@@ -10,14 +10,30 @@
       # keeps the full Carbon-for-AI item shape on disk, so reopening the chat
       # after a restart restores the conversation — bubbles, work trails, approval
       # cards — instead of an empty list.
-      - command: platform-invoke
-        handler: epn.agent.chat.history
-        assign-to: EAIV6002
+      #
+      # Through the contract (EAMC6006, empty id = the most recent chat), not by
+      # reading the gram's files: the same call resumes any chat from the list.
+      - command: mesh-invoke
+        capability: EAMC6006
+        request: EAIV6054
+        assign-to: EAIV6055
+      - command: set
+        target: EAIV6002
+        value: EAIV6055.eamvt6040
       # Continue the same conversation for the next message rather than starting
       # a fresh session.
-      - command: platform-invoke
-        handler: epn.agent.chat.conversationId
-        assign-to: EAIV6019
+      - command: set
+        target: EAIV6019
+        value: EAIV6055.eamvt6039
+      # This chat's runs, approvals and requests, for the line beside Send.
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
       # Workflows/jobs board: every durable run with its state.
       - command: platform-invoke
         handler: epn.agent.run.list
@@ -281,6 +297,17 @@
         handler: epn.agent.approval.latest
         assign-to: EAIV6017
 
+      # What this turn started (a run, an approval, a specialist request) shows
+      # beside Send at once.
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+
 # Start a NEW conversation: clear the on-screen thread and reset the session so
 # the next message opens a fresh conversation on the daemon. Non-destructive —
 # prior conversations are preserved on disk (see epn.agent.chat.new).
@@ -300,6 +327,9 @@
       - command: set
         target: EAIV6019
         value: ""
+      - command: set
+        target: EAIV6057
+        value: {}
 
 # â”€â”€ Persona switcher: REMOVED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # (EALC6016 used to let the tapped persona-picker row override EAIV6014;
@@ -325,3 +355,121 @@
       - command: set
         target: EAIV6046
         value: receipt
+
+# -- Chats panel: every conversation, resumable -------------------------------
+# Opens the chats panel (replaces the transcript like the workflows panel) and
+# lists every conversation through the contract (EAMC6005).
+- name-code: EALC6031
+  name: Open Chats
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC6005
+        request: EAIV6052
+        assign-to: EAIV6053
+      - command: set
+        target: EAIV6046
+        value: chats
+
+# Resumes the tapped conversation: its messages become the transcript, its id
+# the one the next message continues, and its activity the line beside Send.
+- name-code: EALC6032
+  name: Resume Chat
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV6054
+        key: EAMVT6038
+        value: id
+      - command: mesh-invoke
+        capability: EAMC6006
+        request: EAIV6054
+        assign-to: EAIV6055
+      - command: set
+        target: EAIV6002
+        value: EAIV6055.eamvt6040
+      - command: set
+        target: EAIV6019
+        value: EAIV6055.eamvt6039
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+      - command: set
+        target: EAIV6046
+        value: chat
+
+# -- Activity panel: this chat's work, with its status ------------------------
+# Runs (and their plans), approvals -- decided ones too -- and specialist
+# requests this conversation started.
+- name-code: EALC6033
+  name: Open Chat Activity
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+      - command: set
+        target: EAIV6046
+        value: activity
+
+# Everything, across every chat on this gram.
+- name-code: EALC6034
+  name: Open All Activity
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+      - command: set
+        target: EAIV6046
+        value: activity
+
+# Opens the chat a tapped activity row came from.
+- name-code: EALC6035
+  name: Open Activity Chat
+  context:
+    expects:
+      - conversation_id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV6054
+        key: EAMVT6038
+        value: conversation_id
+      - command: mesh-invoke
+        capability: EAMC6006
+        request: EAIV6054
+        assign-to: EAIV6055
+      - command: set
+        target: EAIV6002
+        value: EAIV6055.eamvt6040
+      - command: set
+        target: EAIV6019
+        value: EAIV6055.eamvt6039
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+      - command: set
+        target: EAIV6046
+        value: chat
