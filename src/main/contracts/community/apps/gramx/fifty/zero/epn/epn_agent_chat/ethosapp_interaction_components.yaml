@@ -143,6 +143,10 @@
     # EAMVT6022's note; doing so is what finally gives it an id too.
     actions-field: eamvt6022
     on-action-tap: EALC6026
+    # Where each part of the answer came from (EAMVT6023): one row per step;
+    # tap a row to open its signed receipt.
+    steps-field: eamvt6023
+    on-step-tap: EALC6030
     self-sender-values:
       - You
     error-sender-values:
@@ -357,6 +361,41 @@
 # EAIC6009 before, so they silently rendered as empty SizedBoxes the whole
 # time. Fixed by definition order, not a component change.
 
+# Receipt panel: opened from a reply step (EALC6030); replaces the transcript
+# like the workflows panel, and the footer offers only Back to chat.
+- name-code: EAIC6052
+  name: Receipt Title
+  component:
+    name-code: EIC1020
+    text: EAIV6050.eamvt6032
+    variant: heading02
+
+- name-code: EAIC6053
+  name: Receipt Verify Note
+  component:
+    name-code: EIC1020
+    text: EAIV6050.eamvt6035
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC6054
+  name: Receipt Rows
+  component:
+    name-code: EIC1026
+    source: EAIV6050.eamvt6033
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+
+- name-code: EAIC6055
+  name: Receipt Panel
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC6052
+      - EAIC6053
+      - EAIC6054
+
 - name-code: EAIC6020
   name: Language Chip
   component:
@@ -368,7 +407,7 @@
   name: Local First Cue
   component:
     name-code: EIC1020
-    text: Evo and its specialist agents run locally. Cloud model escalation is disabled.
+    text: "Each part of an answer runs where it can be done best: this gram, your other grams or seats, your gramx, your region or the open network. Every step shows where it ran; tap it for its signed receipt."
     variant: caption01
     color: on-surface-subtle
 
@@ -409,6 +448,7 @@
     source: EAIV6046
     cases:
       workflows: EAIC6051
+      receipt: EAIC6055
     default: EAIC6009
 
 # Normal composer content (divider + input + action row) — the footer's
@@ -442,6 +482,7 @@
     source: EAIV6046
     cases:
       workflows: EAIC6048
+      receipt: EAIC6048
     default: EAIC6045
 
 # Shown in the footer instead of anything else while an approval is pending

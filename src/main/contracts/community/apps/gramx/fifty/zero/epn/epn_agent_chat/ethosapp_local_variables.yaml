@@ -223,3 +223,22 @@
   name: Workflows
   type: ELVT1018
   default: []
+
+# Receipt panel (EAIC6055): the request built from a tapped step, and the
+# receipt it opened (EAMC6004).
+- name-code: EAIV6051
+  name: Receipt Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT6030
+      name: receipt_id
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV6050
+  name: Open Receipt
+  type: ELVT1021
+  modelled: true
+  default: {}

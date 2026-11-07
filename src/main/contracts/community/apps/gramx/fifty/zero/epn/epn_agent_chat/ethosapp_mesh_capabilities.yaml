@@ -35,3 +35,15 @@
     method: EAMC6003
     expects: EAMV6001
     returning: EAMV6002
+
+# EAMC6004 - Get Receipt
+#
+# Opens one signed receipt a reply's step names (EAMVT6023 receipt_id), for the
+# receipt panel. Read-only: it shows the receipt and re-checks its signature.
+- name-code: EAMC6004
+  name: Get Receipt
+  mesh:
+    context: discover
+    method: EAMC6004
+    expects: EAMV6007
+    returns: EAMV6008

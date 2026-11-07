@@ -44,10 +44,13 @@
       name: persona_id
       type: ELVT1007
       default: ""
+    # Where the step that answered ran, in the person's words (see EAMVT6023's
+    # route). It was "local" on every reply, which was true of none of the
+    # replies an iPad received.
     - name-code: EAMVT6011
       name: locality
       type: ELVT1007
-      default: "local"
+      default: ""
     - name-code: EAMVT6012
       name: grounding
       type: ELVT1007
@@ -115,6 +118,69 @@
       name: actions
       type: ELVT1018
       default: []
+    # EAMVT6023 - steps: WHERE EACH PART OF THIS ANSWER CAME FROM.
+    #
+    # One row per piece of work the answer is made of, in order: Evo's own turn,
+    # then every specialist it consulted (each specialist runs on its own model,
+    # chosen per consult, possibly on another gram). A row is
+    # {who, persona_id, model, engine, route, gram, region, duration_ms,
+    #  cost_uusd, carbon_g, receipt_id, status, why}.
+    # `route` is in the person's words: this gram | your gram | your seat |
+    # gramx | region | open network | hosted. `receipt_id` names the signed
+    # receipt for that step (EAMC6004 opens it). One model rarely answers a
+    # whole reply, so attribution is per step, never a single chip.
+    - name-code: EAMVT6023
+      name: steps
+      type: ELVT1018
+      default: []
+    # EAMVT6024 - turn_id: the id every step's receipt carries as its parent.
+    - name-code: EAMVT6024
+      name: turn_id
+      type: ELVT1007
+      default: ""
+
+# EAMV6007 - Receipt Request: which signed receipt to open.
+- name-code: EAMV6007
+  name: Receipt Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6030
+      name: receipt_id
+      type: ELVT1007
+      default: ""
+
+# EAMV6008 - Receipt View: one signed receipt, as the person reads it.
+#
+# `rows` is {title, subtitle} pairs the panel lists as-is: who served, what
+# model, the units metered, energy and carbon, price, the parent turn, the
+# signer(s). `verified` is the daemon re-checking the signature over the
+# carried signed bytes (invariant 2), and `verify_note` says what it checked.
+- name-code: EAMV6008
+  name: Receipt View
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT6031
+      name: receipt_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6032
+      name: title
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT6033
+      name: rows
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT6034
+      name: verified
+      type: ELVT1002
+      default: false
+    - name-code: EAMVT6035
+      name: verify_note
+      type: ELVT1007
+      default: ""
 
 # EAMV6003 - Legacy StreamEvent token chunk (kept for compatibility while
 # consumers/daemon wrappers are migrated to the UI-fed snapshot shape).
