@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_open_chats_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Chats capability executes",
+  "capability": "EALC6031",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6053",
+      "EAIV6046"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6053 is populated; EAIV6046 is populated",
+    "state": "EAIV6053 populated, EAIV6046 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6031",
+    "When capability EALC6031 (Open Chats) is invoked": "EALC6031",
+    "Then EAIV6053 (Chats) is not empty": "EAIV6053",
+    "Then EAIV6046 (View Mode) is not empty": "EAIV6046"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6031"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6053"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6046"
+    }
+  ]
+}

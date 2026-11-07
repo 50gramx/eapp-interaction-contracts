@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_resume_chat_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Resume Chat capability executes",
+  "capability": "EALC6032",
+  "inputs": {
+    "EAIV6019": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV6055",
+      "EAIV6057",
+      "EAIV6046"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6055 is populated; EAIV6057 is populated; EAIV6046 is populated",
+    "state": "EAIV6055 populated, EAIV6057 populated, EAIV6046 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV6019 (Active Conversation ID) is set to \"test-value\"": "EAIV6019",
+    "When capability EALC6032 (Resume Chat) is invoked": "EALC6032",
+    "Then EAIV6055 (Opened Chat) is not empty": "EAIV6055",
+    "Then EAIV6057 (Activity) is not empty": "EAIV6057",
+    "Then EAIV6046 (View Mode) is not empty": "EAIV6046"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV6019",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC6032"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6055"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6057"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6046"
+    }
+  ]
+}
