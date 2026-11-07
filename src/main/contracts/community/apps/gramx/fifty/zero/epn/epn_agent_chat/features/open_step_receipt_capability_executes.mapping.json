@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_open_step_receipt_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Step Receipt capability executes",
+  "capability": "EALC6030",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV6050",
+      "EAIV6046"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6050 is populated; EAIV6046 is populated",
+    "state": "EAIV6050 populated, EAIV6046 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Evo eApp is open": "EALC6030",
+    "When capability EALC6030 (Open Step Receipt) is invoked": "EALC6030",
+    "Then EAIV6050 (Open Receipt) is not empty": "EAIV6050",
+    "Then EAIV6046 (View Mode) is not empty": "EAIV6046"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC6030"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6050"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6046"
+    }
+  ]
+}
