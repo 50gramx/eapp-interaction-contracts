@@ -315,12 +315,24 @@
     name-code: EIC1025
     height: 1
 
+# Start this gram when the app opens (EALC12033). On unless the person turns
+# it off.
+- name-code: EAIC12122
+  name: Start Gram With App Switch
+  component:
+    name-code: EIC1022
+    type: switch
+    value: EAIV12036
+    label: Start this gram when the app opens
+    on-change: EALC12033
+
 - name-code: EAIC12047
   name: Node Resources Section
   component:
     name-code: EIC1005
     children-components:
       - EAIC12039
+      - EAIC12122
       - EAIC12040
       - EAIC12041
       - EAIC12042

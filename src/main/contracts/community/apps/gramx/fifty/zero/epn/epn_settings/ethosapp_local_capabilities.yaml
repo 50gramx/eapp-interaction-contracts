@@ -6,6 +6,10 @@
       - command: platform-invoke
         handler: epn.settings.spend.get
         assign-to: EAIV12001
+      # Early, before the chain's known-broken step further down.
+      - command: platform-invoke
+        handler: epn.node.autostart.get
+        assign-to: EAIV12036
       - command: platform-invoke
         handler: epn.identity.kyc
         assign-to: EAIV12006
@@ -465,3 +469,13 @@
         target-map: EAIV12035
         key: state
         assign-to: EAIV12034
+
+# Turn "start this gram when the app opens" on or off; the handler keeps the
+# choice on this device and returns it.
+- name-code: EALC12033
+  name: Toggle Start Gram With App
+  context:
+    steps:
+      - command: platform-invoke
+        handler: epn.node.autostart.toggle
+        assign-to: EAIV12036

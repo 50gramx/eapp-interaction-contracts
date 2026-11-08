@@ -228,3 +228,12 @@
   name: Claim State Result
   type: ELVT1020
   default: {}
+
+# Whether this gram starts by itself when the app opens (founder, 2026-11-07:
+# on by default, and the person can turn it off). Kept on the device by
+# epn.node.autostart.get / .toggle.
+- name-code: EAIV12036
+  name: Start Gram With App
+  type: ELVT1002
+  default:
+    value: true
