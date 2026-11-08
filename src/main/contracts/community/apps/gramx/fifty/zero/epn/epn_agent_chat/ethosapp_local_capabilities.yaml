@@ -493,3 +493,127 @@
       - command: set
         target: EAIV6046
         value: chat
+
+# ── THE SAME SEND, WATCHED WHILE IT RUNS (EAMC6003, flow-bob mesh-subscribe) ──
+# Each snapshot of the running turn replaces the thinking row, so the reply,
+# the steps and who worked on it grow live; the finished turn is appended as
+# EALC6002 appends it. NOT WIRED YET: an app whose engine predates
+# mesh-subscribe would stop at this step, so the composer moves to it once the
+# build carrying flow-bob 20c9b38 is on every device.
+- name-code: EALC6036
+  name: Send Message (streamed)
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6001
+        value: EAIV6014
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6002
+        value: EAIV6019
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6003
+        value: EAIV6005
+
+      # Append user turn before sending so it appears immediately in the chat
+      - command: set-map-value
+        target-map: EAIV6028
+        key: eamvt6004
+        value: You
+      - command: set-map-value
+        target-map: EAIV6028
+        key: eamvt6008
+        value: EAIV6005
+      - command: list-append
+        target: EAIV6002
+        value: EAIV6028
+
+      # Clear the composer input immediately on send so the field empties and
+      # the just-sent text is not left sitting in the box.
+      - command: set
+        target: EAIV6005
+        value: ""
+
+      # Show the animated "thinking" indicator (EAIC6040) while the unary
+      # response is in flight: build the thinking item and append it to the
+      # transient pending-turn list.
+      - command: set-map-value
+        target-map: EAIV6030
+        key: thinking
+        value: true
+      - command: list-append
+        target: EAIV6029
+        value: EAIV6030
+
+      # Invoke mesh service (unary RPC — returns single Map). If the gram does
+      # not answer (stopped, unreachable), the thinking dots are hidden and the
+      # reason is said in the chat, with what to do -- not three dots forever.
+      - command: mesh-subscribe
+        capability: EAMC6003
+        request: EAIV6003
+        assign-to: EAIV6027
+        on-item:
+          - command: set
+            target: EAIV6029
+            value: []
+          - command: list-append
+            target: EAIV6029
+            value: EAIV6027
+        error-to: EAIV6058
+        on-error:
+          - command: set
+            target: EAIV6029
+            value: []
+          - command: set-map-value
+            target-map: EAIV6059
+            key: eamvt6004
+            value: error
+          - command: set-map-value
+            target-map: EAIV6059
+            key: eamvt6008
+            value: EAIV6058
+          - command: list-append
+            target: EAIV6002
+            value: EAIV6059
+          - command: return
+            value: false
+
+      # Response has arrived — hide the thinking indicator.
+      - command: set
+        target: EAIV6029
+        value: []
+
+      # Append response message directly to chat history
+      - command: list-append
+        target: EAIV6002
+        value: EAIV6027
+
+      # Extract conversation_id from response message
+      - command: set
+        target: EAIV6019
+        value: EAIV6027.eamvt6016
+
+      # Refresh run status
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+
+      # Aha 5: refresh latest approval so a pending approval the agent just
+      # created (e.g. for a state-changing action) surfaces immediately in the
+      # approve/deny card without waiting for the next page open.
+      - command: platform-invoke
+        handler: epn.agent.approval.latest
+        assign-to: EAIV6017
+
+      # What this turn started (a run, an approval, a specialist request) shows
+      # beside Send at once.
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057

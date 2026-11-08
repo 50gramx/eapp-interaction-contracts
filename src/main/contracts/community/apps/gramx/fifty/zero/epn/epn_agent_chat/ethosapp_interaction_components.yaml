@@ -167,6 +167,10 @@
     item-type: chat-message
     thinking-field: thinking
     sender-field: eamvt6004
+    # A streamed turn's snapshot renders here while it runs (EALC6036).
+    text-field: eamvt6008
+    ai-field: eamvt6009
+    activity-field: eamvt6013
     hide-empty: true
     show-sender-label: false
     show-avatar: true
