@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_open_gramx_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Gramx capability executes",
+  "capability": "EALC15017",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15027 is populated",
+    "state": "EAIV15027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Gramx eApp is open": "EALC15017",
+    "When capability EALC15017 (Open Gramx) is invoked": "EALC15017",
+    "Then EAIV15027 (Open Gramx) is not empty": "EAIV15027"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15027"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_pick_request_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Request capability executes",
+  "capability": "EALC15018",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15029",
+      "EAIV15030"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15029 is populated; EAIV15030 is populated",
+    "state": "EAIV15029 populated, EAIV15030 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Gramx eApp is open": "EALC15018",
+    "When capability EALC15018 (Pick Request) is invoked": "EALC15018",
+    "Then EAIV15029 (Picked Request) is not empty": "EAIV15029",
+    "Then EAIV15030 (Picked Request Text) is not empty": "EAIV15030"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15018"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15029"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15030"
+    }
+  ]
+}

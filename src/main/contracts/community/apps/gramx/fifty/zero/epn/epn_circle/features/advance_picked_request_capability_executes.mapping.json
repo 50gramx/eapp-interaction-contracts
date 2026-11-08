@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_advance_picked_request_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Advance Picked Request capability executes",
+  "capability": "EALC15019",
+  "inputs": {
+    "EAIV15026.EAMVT15006": "test-value",
+    "EAIV15029": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV15027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15027 is populated",
+    "state": "EAIV15027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV15026.EAMVT15006 (EAIV15026.EAMVT15006) is set to \"test-value\"": "EAIV15026.EAMVT15006",
+    "And EAIV15029 (Picked Request) is set to \"test-value\"": "EAIV15029",
+    "When capability EALC15019 (Advance Picked Request) is invoked": "EALC15019",
+    "Then EAIV15027 (Open Gramx) is not empty": "EAIV15027"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV15026.EAMVT15006",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV15029",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC15019"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15027"
+    }
+  ]
+}
