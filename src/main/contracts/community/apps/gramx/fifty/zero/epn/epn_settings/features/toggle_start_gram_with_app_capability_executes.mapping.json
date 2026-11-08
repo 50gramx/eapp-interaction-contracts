@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_toggle_start_gram_with_app_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Toggle Start Gram With App capability executes",
+  "capability": "EALC12033",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12036"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12036 is populated",
+    "state": "EAIV12036 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12033",
+    "When capability EALC12033 (Toggle Start Gram With App) is invoked": "EALC12033",
+    "Then EAIV12036 (Start Gram With App) is not empty": "EAIV12036"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12033"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12036"
+    }
+  ]
+}
