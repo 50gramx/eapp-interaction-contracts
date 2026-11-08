@@ -10,12 +10,13 @@
   "expected": {
     "outputs": [
       "EAIV8001",
-      "EAIV8002"
+      "EAIV8002",
+      "EAIV8008"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV8001 is populated; EAIV8002 is populated",
-    "state": "EAIV8001 populated, EAIV8002 populated",
+    "behavioral": "EAIV8001 is populated; EAIV8002 is populated; EAIV8008 is populated",
+    "state": "EAIV8001 populated, EAIV8002 populated, EAIV8008 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -24,7 +25,8 @@
     "Given the Wallet eApp is open": "EALC8007",
     "When capability EALC8007 (Init Page) is invoked": "EALC8007",
     "Then EAIV8001 (Wallet Info) is not empty": "EAIV8001",
-    "Then EAIV8002 (Channel List) is not empty": "EAIV8002"
+    "Then EAIV8002 (Channel List) is not empty": "EAIV8002",
+    "Then EAIV8008 (Credit) is not empty": "EAIV8008"
   },
   "steps": [
     {
@@ -40,6 +42,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV8002"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV8008"
     }
   ]
 }
