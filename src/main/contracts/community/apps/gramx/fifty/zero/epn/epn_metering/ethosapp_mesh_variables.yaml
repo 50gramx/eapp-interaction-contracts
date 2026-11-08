@@ -24,7 +24,7 @@
       name: summary
       type: ELVT1007
       default: ""
-    # Per day: {label, own, seat, network} vCPU-seconds -- where the work ran.
+    # Per day: {label, own, seat, network} steps -- where the work ran.
     - name-code: EAMVT11008
       name: days
       type: ELVT1018

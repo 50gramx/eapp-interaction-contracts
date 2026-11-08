@@ -746,7 +746,7 @@
     source: EAIV11023.eamvt11008
     x-field: label
     series-fields: own,seat,network
-    title: Compute by where it ran (vCPU-s)
+    title: Steps by where they ran
     height: 170
 
 - name-code: EAIC11174
@@ -755,7 +755,7 @@
     name-code: EIC1040
     kind: donut
     source: EAIV11023.eamvt11009
-    title: Share of compute
+    title: Share of steps
     height: 150
 
 - name-code: EAIC11175
