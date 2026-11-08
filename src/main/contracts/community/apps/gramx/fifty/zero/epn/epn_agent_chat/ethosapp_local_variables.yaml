@@ -297,3 +297,16 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Why the last message could not be sent (EALC6002's on-error), in words a
+# person can act on.
+- name-code: EAIV6058
+  name: Send Error
+  type: ELVT1007
+  default: ""
+
+# The chat item that says so.
+- name-code: EAIV6059
+  name: Send Error Message
+  type: ELVT1021
+  default: {}
