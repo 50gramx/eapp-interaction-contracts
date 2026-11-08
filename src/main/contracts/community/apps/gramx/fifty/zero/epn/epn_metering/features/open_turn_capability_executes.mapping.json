@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_metering_open_turn_capability_executes",
+  "app": "epn_metering",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Turn capability executes",
+  "capability": "EALC11004",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV11025"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV11025 is populated",
+    "state": "EAIV11025 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Metering eApp is open": "EALC11004",
+    "When capability EALC11004 (Open Turn) is invoked": "EALC11004",
+    "Then EAIV11025 (Opened Turn) is not empty": "EAIV11025"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC11004"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11025"
+    }
+  ]
+}

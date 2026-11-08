@@ -12,12 +12,13 @@
       "EAIV11001",
       "EAIV11002",
       "EAIV11004",
-      "EAIV11005"
+      "EAIV11005",
+      "EAIV11023"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV11001 is populated; EAIV11002 is populated; EAIV11004 is populated; EAIV11005 is populated",
-    "state": "EAIV11001 populated, EAIV11002 populated, EAIV11004 populated, EAIV11005 populated",
+    "behavioral": "EAIV11001 is populated; EAIV11002 is populated; EAIV11004 is populated; EAIV11005 is populated; EAIV11023 is populated",
+    "state": "EAIV11001 populated, EAIV11002 populated, EAIV11004 populated, EAIV11005 populated, EAIV11023 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -28,7 +29,8 @@
     "Then EAIV11001 (Wallet Info) is not empty": "EAIV11001",
     "Then EAIV11002 (Channels) is not empty": "EAIV11002",
     "Then EAIV11004 (Resources) is not empty": "EAIV11004",
-    "Then EAIV11005 (Metering Summary) is not empty": "EAIV11005"
+    "Then EAIV11005 (Metering Summary) is not empty": "EAIV11005",
+    "Then EAIV11023 (Turns) is not empty": "EAIV11023"
   },
   "steps": [
     {
@@ -54,6 +56,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV11005"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11023"
     }
   ]
 }
