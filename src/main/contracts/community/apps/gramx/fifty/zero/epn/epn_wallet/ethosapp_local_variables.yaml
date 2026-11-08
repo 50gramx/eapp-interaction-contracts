@@ -1,4 +1,4 @@
-# Wallet balance info — {node_did, balance_uetc, balance_etc, updated_at}.
+# Wallet balance info — the gram's /v1/wallet: {node_did, balance_uusd, balance_usd, disclosure, cap, updated_at}.
 - name-code: EAIV8001
   name: Wallet Info
   type: ELVT1020

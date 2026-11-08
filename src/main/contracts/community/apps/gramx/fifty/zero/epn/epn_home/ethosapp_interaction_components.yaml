@@ -1008,7 +1008,7 @@
   name: Wallet Balance Label
   component:
     name-code: EIC1020
-    text: EAIV5005.balance_etc
+    text: EAIV5005.balance_usd
     variant: heading02
     color: primary
 
@@ -1016,7 +1016,7 @@
   name: Wallet ETC Unit
   component:
     name-code: EIC1020
-    text: ETC
+    text: USD credit
     variant: caption01
     color: on-surface-subtle
 

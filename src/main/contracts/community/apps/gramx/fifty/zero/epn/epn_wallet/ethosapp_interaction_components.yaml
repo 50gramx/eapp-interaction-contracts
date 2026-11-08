@@ -4,22 +4,24 @@
   name: Balance Header
   component:
     name-code: EIC1004
-    label: EthosCoin Balance
+    label: Credit Balance
 
 - name-code: EAIC8002
   name: Balance Metric
   component:
     name-code: EIC1031
-    value: EAIV8001.balance_etc
+    # The gram's /v1/wallet answers in USD credit (balance_usd, balance_uusd);
+    # this read balance_etc, a field nothing sends, so it was always blank.
+    value: EAIV8001.balance_usd
     label: Wallet balance
-    caption: ETC
+    caption: USD credit
     status: primary
 
 - name-code: EAIC8004
   name: Balance MicroETC Label
   component:
     name-code: EIC1020
-    text: EAIV8001.balance_uetc
+    text: EAIV8001.disclosure
     variant: caption01
     align: center
     color: on-surface-subtle
