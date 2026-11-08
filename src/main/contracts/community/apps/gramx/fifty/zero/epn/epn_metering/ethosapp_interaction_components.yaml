@@ -736,6 +736,46 @@
     subtitle-field: subtitle
     trailing-text-field: trailing
 
+# Charts (EIC1040, Carbon): compute per day by where it ran, the share of
+# each place, and what was paid outside, per day.
+- name-code: EAIC11173
+  name: Compute By Place Chart
+  component:
+    name-code: EIC1040
+    kind: stacked-bar
+    source: EAIV11023.eamvt11008
+    x-field: label
+    series-fields: own,seat,network
+    title: Compute by where it ran (vCPU-s)
+    height: 170
+
+- name-code: EAIC11174
+  name: Where It Ran Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV11023.eamvt11009
+    title: Share of compute
+    height: 150
+
+- name-code: EAIC11175
+  name: Outside Cost Chart
+  component:
+    name-code: EIC1040
+    kind: area
+    source: EAIV11023.eamvt11010
+    title: Paid outside per day
+    unit: $
+    height: 130
+
+- name-code: EAIC11176
+  name: Turns Charts Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC11174
+      - EAIC11175
+
 - name-code: EAIC11170
   name: Turns Divider
   component:
@@ -749,6 +789,8 @@
     children-components:
       - EAIC11164
       - EAIC11165
+      - EAIC11173
+      - EAIC11176
       - EAIC11166
       - EAIC11170
       - EAIC11167

@@ -24,6 +24,21 @@
       name: summary
       type: ELVT1007
       default: ""
+    # Per day: {label, own, seat, network} vCPU-seconds -- where the work ran.
+    - name-code: EAMVT11008
+      name: days
+      type: ELVT1018
+      default: []
+    # The same, as parts of the whole: {label, value}.
+    - name-code: EAMVT11009
+      name: where
+      type: ELVT1018
+      default: []
+    # Per day: {label, value} US dollars paid outside (seats, providers).
+    - name-code: EAMVT11010
+      name: outside_by_day
+      type: ELVT1018
+      default: []
 
 # EAMV11003 - Turn Request.
 - name-code: EAMV11003
