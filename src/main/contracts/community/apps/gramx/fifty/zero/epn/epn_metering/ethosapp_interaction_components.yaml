@@ -772,6 +772,8 @@
   name: Turns Charts Row
   component:
     name-code: EIC1012
+    distribute: true
+    stack-below: 520
     children-components:
       - EAIC11174
       - EAIC11175
