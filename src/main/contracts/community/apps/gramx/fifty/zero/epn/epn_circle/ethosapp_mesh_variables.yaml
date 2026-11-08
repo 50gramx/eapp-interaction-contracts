@@ -34,3 +34,58 @@
       name: online
       type: ELVT1018
       default: []
+
+# ── ONE GRAMX, OPENED ─────────────────────────────────────────────────────────
+
+# EAMV15003 - which gramx to open.
+- name-code: EAMV15003
+  name: Open Gramx Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15006
+      name: gramx_id
+      type: ELVT1007
+      default: ""
+
+# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, and -- for the foundation gramx -- the requests on its desk {id, title, subtitle, trailing}.
+- name-code: EAMV15004
+  name: One Gramx
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15007
+      name: title
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15008
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15009
+      name: members
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15010
+      name: posts
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15011
+      name: desk
+      type: ELVT1018
+      default: []
+
+# EAMV15005 - take one foundation request to its next stage (approve the request, approve the output, release), signed by you.
+- name-code: EAMV15005
+  name: Advance Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15012
+      name: gramx_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15013
+      name: shape
+      type: ELVT1007
+      default: ""

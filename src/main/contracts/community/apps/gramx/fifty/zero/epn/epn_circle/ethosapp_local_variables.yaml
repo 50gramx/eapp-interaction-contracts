@@ -168,3 +168,35 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Which gramx is open (EAMC15002).
+- name-code: EAIV15026
+  name: Open Gramx Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC15002's answer.
+- name-code: EAIV15027
+  name: Open Gramx
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# Which request to advance (EAMC15003).
+- name-code: EAIV15028
+  name: Advance Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The foundation request picked on the desk.
+- name-code: EAIV15029
+  name: Picked Request
+  type: ELVT1007
+  default: ""
+
+- name-code: EAIV15030
+  name: Picked Request Text
+  type: ELVT1007
+  default: "Pick a request on the desk to see its next step."

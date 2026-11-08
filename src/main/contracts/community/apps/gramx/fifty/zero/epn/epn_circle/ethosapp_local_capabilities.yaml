@@ -342,3 +342,53 @@
       - command: set
         target: EAIV15019
         value: "hide"
+
+# ── ONE GRAMX ────────────────────────────────────────────────────────────────
+# Open a gramx picked from the list.
+- name-code: EALC15017
+  name: Open Gramx
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV15026
+        key: EAMVT15006
+        value: id
+      - command: mesh-invoke
+        capability: EAMC15002
+        request: EAIV15026
+        assign-to: EAIV15027
+
+# Pick a request on the foundation desk.
+- name-code: EALC15018
+  name: Pick Request
+  context:
+    expects:
+      - id: ELVT1011
+      - subtitle: ELVT1007
+    steps:
+      - command: set
+        target: EAIV15029
+        value: id
+      - command: set
+        target: EAIV15030
+        value: subtitle
+
+# Take the picked request to its next stage, signed by the person.
+- name-code: EALC15019
+  name: Advance Picked Request
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15028
+        key: EAMVT15012
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15028
+        key: EAMVT15013
+        value: EAIV15029
+      - command: mesh-invoke
+        capability: EAMC15003
+        request: EAIV15028
+        assign-to: EAIV15027

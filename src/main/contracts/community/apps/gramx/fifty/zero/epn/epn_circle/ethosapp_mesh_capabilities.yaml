@@ -8,3 +8,21 @@
     method: EAMC15001
     expects: EAMV15001
     returns: EAMV15002
+
+# EAMC15002 - one gramx: its grams, what was said in it, and its desk.
+- name-code: EAMC15002
+  name: Open Gramx
+  mesh:
+    context: discover
+    method: EAMC15002
+    expects: EAMV15003
+    returns: EAMV15004
+
+# EAMC15003 - approve a foundation request's next stage; answers with the gramx again.
+- name-code: EAMC15003
+  name: Advance Request
+  mesh:
+    context: discover
+    method: EAMC15003
+    expects: EAMV15005
+    returns: EAMV15004

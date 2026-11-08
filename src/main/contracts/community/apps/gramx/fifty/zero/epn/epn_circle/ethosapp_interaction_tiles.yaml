@@ -62,3 +62,11 @@
     name-code: EIC1005
     children-components:
       - EAIC15069
+
+- name-code: EAIT15007
+  name: Open Gramx Tile
+  about: The gramx you picked -- its grams, what was said, and its desk
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15080
