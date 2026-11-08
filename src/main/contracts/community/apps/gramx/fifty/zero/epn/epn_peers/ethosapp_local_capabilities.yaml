@@ -33,6 +33,14 @@
       - command: platform-invoke
         handler: epn.peers.familyStatus
         assign-to: EAIV7007
+      - command: mesh-invoke
+        capability: EAMC7105
+        request: EAIV7009
+        assign-to: EAIV7010
+      - command: mesh-invoke
+        capability: EAMC7106
+        request: EAIV7009
+        assign-to: EAIV7011
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003

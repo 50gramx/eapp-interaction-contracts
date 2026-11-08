@@ -10,3 +10,19 @@
 # Deferred definitions remain available for later restoration:
 # - EAIC14053: stable endpoint, after public URL and revoke UX exist
 # - EAIC14130: multi-node administration and destructive device cleanup
+
+- name-code: EAIT14002
+  name: Grams Tile
+  about: Every gram on your account, live
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC14311
+
+- name-code: EAIT14003
+  name: This Gram Tile
+  about: What this gram lends, uses and keeps
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC14320

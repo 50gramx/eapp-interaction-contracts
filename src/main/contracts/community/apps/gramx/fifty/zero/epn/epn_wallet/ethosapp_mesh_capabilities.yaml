@@ -1,0 +1,9 @@
+
+# EAMC8101 - the balance and the spend cap, from the gram.
+- name-code: EAMC8101
+  name: Credit
+  mesh:
+    context: discover
+    method: EAMC8101
+    expects: EAMV8101
+    returns: EAMV8102

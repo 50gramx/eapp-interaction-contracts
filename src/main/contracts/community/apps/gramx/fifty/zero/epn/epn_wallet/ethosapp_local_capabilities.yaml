@@ -27,6 +27,10 @@
       - command: platform-invoke
         handler: epn.wallet.channels
         assign-to: EAIV8002
+      - command: mesh-invoke
+        capability: EAMC8101
+        request: EAIV8007
+        assign-to: EAIV8008
 
 # Return the peer DID TextEditingController.
 - name-code: EALC8003

@@ -129,3 +129,24 @@
   name: Result Message
   type: ELVT1007
   default: ""
+
+# Request for EAMC14001/14002 (no fields needed).
+- name-code: EAIV14050
+  name: Gram Doors Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC14001's answer.
+- name-code: EAIV14051
+  name: Grams
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC14002's answer.
+- name-code: EAIV14052
+  name: This Gram
+  type: ELVT1021
+  modelled: true
+  default: {}

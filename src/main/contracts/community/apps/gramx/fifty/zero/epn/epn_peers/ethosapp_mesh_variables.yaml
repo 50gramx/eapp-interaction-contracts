@@ -109,3 +109,61 @@
       type: ELVT1007
 
 
+
+# ── WHAT THE NETWORK CAN DO: MODELS AND SPECIALISTS ─────────────────────────
+
+# EAMV7108 - Models Request.
+- name-code: EAMV7108
+  name: Models Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7122
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV7109 - every model serving now: rows {title, subtitle, trailing}; a summary; where {label, value}.
+- name-code: EAMV7109
+  name: Models
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7123
+      name: models
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT7124
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT7125
+      name: where
+      type: ELVT1018
+      default: []
+
+# EAMV7110 - Specialists Request.
+- name-code: EAMV7110
+  name: Specialists Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7126
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV7111 - every specialist on this gram: rows {title, subtitle, trailing}; a summary.
+- name-code: EAMV7111
+  name: Specialists
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7127
+      name: specialists
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT7128
+      name: summary
+      type: ELVT1007
+      default: ""

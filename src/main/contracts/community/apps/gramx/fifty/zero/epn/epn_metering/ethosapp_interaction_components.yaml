@@ -778,6 +778,46 @@
       - EAIC11174
       - EAIC11175
 
+- name-code: EAIC11177
+  name: Steps Today Tile
+  component:
+    name-code: EIC1031
+    value: EAIV11023.eamvt11011.0.value
+    label: Steps today
+
+- name-code: EAIC11178
+  name: CPU Today Tile
+  component:
+    name-code: EIC1031
+    value: EAIV11023.eamvt11011.1.value
+    label: vCPU-s today
+
+- name-code: EAIC11179
+  name: Outside Today Tile
+  component:
+    name-code: EIC1031
+    value: EAIV11023.eamvt11011.2.value
+    label: Paid outside today
+
+- name-code: EAIC11180
+  name: Steps Week Tile
+  component:
+    name-code: EIC1031
+    value: EAIV11023.eamvt11011.3.value
+    label: Steps, 7 days
+
+- name-code: EAIC11181
+  name: Turn Tiles Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 420
+    children-components:
+      - EAIC11177
+      - EAIC11178
+      - EAIC11179
+      - EAIC11180
+
 - name-code: EAIC11170
   name: Turns Divider
   component:
@@ -791,6 +831,7 @@
     children-components:
       - EAIC11164
       - EAIC11165
+      - EAIC11181
       - EAIC11173
       - EAIC11176
       - EAIC11166

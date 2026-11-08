@@ -33,3 +33,23 @@
     returns: EAMV7107
 
 
+
+# ── WHAT THE NETWORK CAN DO ──────────────────────────────────────────────────
+
+# EAMC7105 - every model serving now: on the person's grams, seats, the network.
+- name-code: EAMC7105
+  name: List Models
+  mesh:
+    context: discover
+    method: EAMC7105
+    expects: EAMV7108
+    returns: EAMV7109
+
+# EAMC7106 - the specialists (operators with a persona) on this gram.
+- name-code: EAMC7106
+  name: List Specialists
+  mesh:
+    context: discover
+    method: EAMC7106
+    expects: EAMV7110
+    returns: EAMV7111

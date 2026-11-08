@@ -1,0 +1,61 @@
+# ── THE GRAMS, FROM THE GRAM (not from files the app reads) ─────────────────
+
+# EAMV14001 - Grams Request ("" = the person's grams).
+- name-code: EAMV14001
+  name: Grams Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV14002 - every gram on the account: rows {title, subtitle, trailing, state}; a summary; states {label, value}.
+- name-code: EAMV14002
+  name: Grams
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14002
+      name: grams
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT14003
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14004
+      name: states
+      type: ELVT1018
+      default: []
+
+# EAMV14003 - This Gram Request.
+- name-code: EAMV14003
+  name: This Gram Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14005
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV14004 - this gram: mode (lite|full), what that means, and resources in fixed order [cores, memory, disk] as {label, value, max, unit, title, subtitle}.
+- name-code: EAMV14004
+  name: This Gram
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14006
+      name: mode
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14007
+      name: note
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14008
+      name: resources
+      type: ELVT1018
+      default: []

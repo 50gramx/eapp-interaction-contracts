@@ -1,0 +1,19 @@
+# ── THE GRAMS, FROM THE GRAM ──────────────────────────────────────────────
+
+# EAMC14001 - every gram on the person's account, live.
+- name-code: EAMC14001
+  name: List Grams
+  mesh:
+    context: discover
+    method: EAMC14001
+    expects: EAMV14001
+    returns: EAMV14002
+
+# EAMC14002 - this gram's mode and each resource: lent, used, kept.
+- name-code: EAMC14002
+  name: This Gram
+  mesh:
+    context: discover
+    method: EAMC14002
+    expects: EAMV14003
+    returns: EAMV14004

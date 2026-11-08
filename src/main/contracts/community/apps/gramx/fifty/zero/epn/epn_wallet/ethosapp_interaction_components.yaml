@@ -245,3 +245,54 @@
     name-code: EIC1023
     child: EAIC8023
     color: layer-02
+
+# ── CREDIT (EAMC8101) ─────────────────────────────────────────────────────────
+- name-code: EAIC8074
+  name: Credit Header
+  component:
+    name-code: EIC1004
+    label: Credit
+
+- name-code: EAIC8075
+  name: Credit Balance
+  component:
+    name-code: EIC1031
+    value: EAIV8008.eamvt8102
+    label: Balance
+    caption: USD credit
+    status: primary
+
+- name-code: EAIC8076
+  name: Credit Disclosure
+  component:
+    name-code: EIC1020
+    text: EAIV8008.eamvt8103
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC8077
+  name: Spend Cap Gauge
+  component:
+    name-code: EIC1040
+    kind: gauge
+    source: EAIV8008.eamvt8104.0
+    title: Spent this period
+    unit: $
+    height: 110
+
+- name-code: EAIC8078
+  name: Credit Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC8074
+      - EAIC8075
+      - EAIC8077
+      - EAIC8076
+
+- name-code: EAIC8079
+  name: Credit Card
+  component:
+    name-code: EIC1023
+    child: EAIC8078
+    color: layer-02

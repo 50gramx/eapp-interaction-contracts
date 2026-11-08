@@ -1,0 +1,31 @@
+# ── THE BALANCE, FROM THE GRAM ──────────────────────────────────────────────
+
+# EAMV8101 - Credit Request.
+- name-code: EAMV8101
+  name: Credit Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT8101
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV8102 - the balance as the gram keeps it, what credit is, and the period cap as [{label, value, max, unit}].
+- name-code: EAMV8102
+  name: Credit
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT8102
+      name: balance
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT8103
+      name: disclosure
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT8104
+      name: cap
+      type: ELVT1018
+      default: []

@@ -39,6 +39,12 @@
       name: outside_by_day
       type: ELVT1018
       default: []
+    # Tiles in fixed order: [steps today, vCPU-s today, paid outside today,
+    # steps in 7 days], each {label, value}.
+    - name-code: EAMVT11011
+      name: tiles
+      type: ELVT1018
+      default: []
 
 # EAMV11003 - Turn Request.
 - name-code: EAMV11003

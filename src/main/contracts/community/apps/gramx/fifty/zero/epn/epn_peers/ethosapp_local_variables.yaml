@@ -49,3 +49,24 @@
   type: ELVT1020
   default:
     platform-stream: epn.node.status
+
+# Request for EAMC7105/7106.
+- name-code: EAIV7009
+  name: Network Doors Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC7105's answer.
+- name-code: EAIV7010
+  name: Models
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC7106's answer.
+- name-code: EAIV7011
+  name: Specialists
+  type: ELVT1021
+  modelled: true
+  default: {}

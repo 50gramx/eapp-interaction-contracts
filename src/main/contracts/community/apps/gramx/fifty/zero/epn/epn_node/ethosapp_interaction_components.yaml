@@ -915,3 +915,133 @@
       - EAIC14121
       - EAIC14122
       - EAIC14123
+
+# ── YOUR GRAMS (EAMC14001) ────────────────────────────────────────────────────
+- name-code: EAIC14306
+  name: Grams Header
+  component:
+    name-code: EIC1004
+    label: Your grams
+
+- name-code: EAIC14307
+  name: Grams Summary
+  component:
+    name-code: EIC1020
+    text: EAIV14051.eamvt14003
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14308
+  name: Grams By State Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV14051.eamvt14004
+    title: By state
+    height: 140
+
+- name-code: EAIC14309
+  name: Grams List
+  component:
+    name-code: EIC1026
+    source: EAIV14051.eamvt14002
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC14310
+  name: Grams Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14306
+      - EAIC14307
+      - EAIC14308
+      - EAIC14309
+
+- name-code: EAIC14311
+  name: Grams Card
+  component:
+    name-code: EIC1023
+    child: EAIC14310
+    color: layer-02
+
+# ── THIS GRAM (EAMC14002): each resource as a gauge ─────────────────────────
+- name-code: EAIC14312
+  name: This Gram Header
+  component:
+    name-code: EIC1004
+    label: This gram
+
+- name-code: EAIC14313
+  name: This Gram Note
+  component:
+    name-code: EIC1020
+    text: EAIV14052.eamvt14007
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14314
+  name: Cores Gauge
+  component:
+    name-code: EIC1040
+    kind: gauge
+    source: EAIV14052.eamvt14008.0
+    title: Cores lent
+    height: 110
+
+- name-code: EAIC14315
+  name: Memory Gauge
+  component:
+    name-code: EIC1040
+    kind: gauge
+    source: EAIV14052.eamvt14008.1
+    title: Memory lent (GiB)
+    height: 110
+
+- name-code: EAIC14316
+  name: Disk Gauge
+  component:
+    name-code: EIC1040
+    kind: gauge
+    source: EAIV14052.eamvt14008.2
+    title: Disk lent (GiB)
+    height: 110
+
+- name-code: EAIC14317
+  name: Gauges Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 520
+    children-components:
+      - EAIC14314
+      - EAIC14315
+      - EAIC14316
+
+- name-code: EAIC14318
+  name: Resources List
+  component:
+    name-code: EIC1026
+    source: EAIV14052.eamvt14008
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+
+- name-code: EAIC14319
+  name: This Gram Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14312
+      - EAIC14313
+      - EAIC14317
+      - EAIC14318
+
+- name-code: EAIC14320
+  name: This Gram Card
+  component:
+    name-code: EIC1023
+    child: EAIC14319
+    color: layer-02

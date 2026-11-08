@@ -548,3 +548,95 @@
     name-code: EIC1023
     child: EAIC7078
     color: layer-02
+
+# -- MODELS (EAMC7105) ---------------------------------------------------------
+- name-code: EAIC7080
+  name: Models Header
+  component:
+    name-code: EIC1004
+    label: Models serving now
+
+- name-code: EAIC7081
+  name: Models Summary
+  component:
+    name-code: EIC1020
+    text: EAIV7010.eamvt7124
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC7082
+  name: Models By Place Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV7010.eamvt7125
+    title: Where they run
+    height: 140
+
+- name-code: EAIC7083
+  name: Models List
+  component:
+    name-code: EIC1026
+    source: EAIV7010.eamvt7123
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC7084
+  name: Models Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7080
+      - EAIC7081
+      - EAIC7082
+      - EAIC7083
+
+- name-code: EAIC7085
+  name: Models Card
+  component:
+    name-code: EIC1023
+    child: EAIC7084
+    color: layer-02
+
+# -- SPECIALISTS (EAMC7106) ----------------------------------------------------
+- name-code: EAIC7086
+  name: Specialists Header
+  component:
+    name-code: EIC1004
+    label: Specialists
+
+- name-code: EAIC7087
+  name: Specialists Summary
+  component:
+    name-code: EIC1020
+    text: EAIV7011.eamvt7128
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC7088
+  name: Specialists List
+  component:
+    name-code: EIC1026
+    source: EAIV7011.eamvt7127
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC7089
+  name: Specialists Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7086
+      - EAIC7087
+      - EAIC7088
+
+- name-code: EAIC7090
+  name: Specialists Card
+  component:
+    name-code: EIC1023
+    child: EAIC7089
+    color: layer-02

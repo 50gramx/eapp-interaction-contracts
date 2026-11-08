@@ -33,3 +33,17 @@
   name: Selected Channel ID
   type: ELVT1007
   default: ""
+
+# Request for EAMC8101.
+- name-code: EAIV8007
+  name: Credit Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC8101's answer.
+- name-code: EAIV8008
+  name: Credit
+  type: ELVT1021
+  modelled: true
+  default: {}

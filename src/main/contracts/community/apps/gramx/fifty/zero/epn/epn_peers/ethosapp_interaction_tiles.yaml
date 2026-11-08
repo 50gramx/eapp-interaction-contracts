@@ -6,3 +6,19 @@
     children-components:
       - EAIC7077
 
+
+- name-code: EAIT7004
+  name: Models Tile
+  about: Every model serving now, and where
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC7085
+
+- name-code: EAIT7005
+  name: Specialists Tile
+  about: The specialists Evo can ask
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC7090

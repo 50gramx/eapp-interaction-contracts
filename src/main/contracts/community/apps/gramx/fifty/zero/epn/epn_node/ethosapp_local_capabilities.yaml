@@ -110,6 +110,16 @@
       - command: platform-invoke
         handler: epn.node.capabilities
         assign-to: EAIV14049
+      # The person's grams and this gram's resources, from the gram itself.
+      # Last, so an app that cannot reach these doors still runs the steps above.
+      - command: mesh-invoke
+        capability: EAMC14001
+        request: EAIV14050
+        assign-to: EAIV14051
+      - command: mesh-invoke
+        capability: EAMC14002
+        request: EAIV14050
+        assign-to: EAIV14052
 
 # Re-list the device's nodes (after any add/stop/remove/clean).
 - name-code: EALC14021
