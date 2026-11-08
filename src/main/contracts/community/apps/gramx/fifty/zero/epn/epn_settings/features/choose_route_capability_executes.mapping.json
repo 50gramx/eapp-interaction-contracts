@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_choose_route_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Choose Route capability executes",
+  "capability": "EALC12035",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12037"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12037 is populated",
+    "state": "EAIV12037 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12035",
+    "When capability EALC12035 (Choose Route) is invoked": "EALC12035",
+    "Then EAIV12037 (Evo Preferences) is not empty": "EAIV12037"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12035"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12037"
+    }
+  ]
+}

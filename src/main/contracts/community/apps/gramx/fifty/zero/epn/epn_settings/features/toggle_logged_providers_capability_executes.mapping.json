@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_toggle_logged_providers_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Toggle Logged Providers capability executes",
+  "capability": "EALC12036",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12037"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12037 is populated",
+    "state": "EAIV12037 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12036",
+    "When capability EALC12036 (Toggle Logged Providers) is invoked": "EALC12036",
+    "Then EAIV12037 (Evo Preferences) is not empty": "EAIV12037"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12036"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12037"
+    }
+  ]
+}
