@@ -1,0 +1,57 @@
+# EAMV11001 - Turns Request: which turns ("" = the last two days).
+- name-code: EAMV11001
+  name: Turns Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT11001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV11002 - Turns: rows {id, title, subtitle, trailing} -- id is the turn
+# id, so a tapped row opens it -- and a one-line summary.
+- name-code: EAMV11002
+  name: Turns
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT11002
+      name: turns
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT11003
+      name: summary
+      type: ELVT1007
+      default: ""
+
+# EAMV11003 - Turn Request.
+- name-code: EAMV11003
+  name: Turn Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT11004
+      name: turn_id
+      type: ELVT1007
+      default: ""
+
+# EAMV11004 - Turn: a title, one row per step {title, subtitle, trailing},
+# and the turn's totals.
+- name-code: EAMV11004
+  name: Turn
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT11005
+      name: title
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11006
+      name: steps
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT11007
+      name: summary
+      type: ELVT1007
+      default: ""

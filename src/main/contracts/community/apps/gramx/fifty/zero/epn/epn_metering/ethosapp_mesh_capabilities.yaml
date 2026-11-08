@@ -1,0 +1,27 @@
+# ── EVERY TURN, AND EVERY STEP OF IT, WHERE IT RAN ──────────────────────────
+#
+# The ledger above shows resources as they settle -- seconds, vCPU, storage,
+# energy -- one receipt per resource. It could not show what a person asked
+# for: a turn (one message to Evo), the steps it took (Evo's own, each
+# specialist it consulted, each seat or other gram that served a part), what
+# each used (CPU, energy, carbon, tokens, bytes), and what left the network
+# (a seat provider's charge). These read the gram's signed work receipts --
+# its own, and the ones other grams returned with their answers.
+
+# EAMC11001 - List Turns: recent turns, newest first, with a summary.
+- name-code: EAMC11001
+  name: List Turns
+  mesh:
+    context: discover
+    method: EAMC11001
+    expects: EAMV11001
+    returns: EAMV11002
+
+# EAMC11002 - Open Turn: one turn's steps, each from its signed receipt.
+- name-code: EAMC11002
+  name: Open Turn
+  mesh:
+    context: discover
+    method: EAMC11002
+    expects: EAMV11003
+    returns: EAMV11004

@@ -680,3 +680,84 @@
     name-code: EIC1023
     child: EAIC11152
     color: layer-02
+
+# ── Turns: every turn and every step of it, where it ran ────────────────────
+# One row per turn (a message to Evo, a Claude Code session, work another gram
+# asked of this one); tap one for its steps, each from its signed receipt:
+# model, where it ran, CPU, energy, carbon, tokens, bytes, outside charge.
+
+- name-code: EAIC11164
+  name: Turns Header
+  component:
+    name-code: EIC1004
+    label: Turns
+
+- name-code: EAIC11165
+  name: Turns Summary
+  component:
+    name-code: EIC1020
+    text: EAIV11023.eamvt11003
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11166
+  name: Turns List
+  component:
+    name-code: EIC1026
+    source: EAIV11023.eamvt11002
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC11004
+
+- name-code: EAIC11167
+  name: Turn Title
+  component:
+    name-code: EIC1020
+    text: EAIV11025.eamvt11005
+    variant: heading02
+
+- name-code: EAIC11168
+  name: Turn Summary
+  component:
+    name-code: EIC1020
+    text: EAIV11025.eamvt11007
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC11169
+  name: Turn Steps
+  component:
+    name-code: EIC1026
+    source: EAIV11025.eamvt11006
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC11170
+  name: Turns Divider
+  component:
+    name-code: EIC1025
+    height: 1
+
+- name-code: EAIC11171
+  name: Turns Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11164
+      - EAIC11165
+      - EAIC11166
+      - EAIC11170
+      - EAIC11167
+      - EAIC11168
+      - EAIC11169
+
+- name-code: EAIC11172
+  name: Turns Tile
+  component:
+    name-code: EIC1023
+    child: EAIC11171
+    color: layer-02

@@ -5,6 +5,7 @@
     name-code: EIC1005
     children-components:
       - EAIC11080
+      - EAIC11172
       - EAIC11095
       - EAIC11153
       - EAIC11082

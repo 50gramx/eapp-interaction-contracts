@@ -122,3 +122,38 @@
   name: Selected Session State
   type: ELVT1007
   default: "none"
+
+# Turns (EAMC11001 / EAMC11002): the request, the list, the opened turn.
+- name-code: EAIV11022
+  name: Turns Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT11001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV11023
+  name: Turns
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+- name-code: EAIV11024
+  name: Turn Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT11004
+      name: turn_id
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV11025
+  name: Opened Turn
+  type: ELVT1021
+  modelled: true
+  default: {}

@@ -26,6 +26,10 @@
       - command: platform-invoke
         handler: epn.metering.summary
         assign-to: EAIV11005
+      - command: mesh-invoke
+        capability: EAMC11001
+        request: EAIV11022
+        assign-to: EAIV11023
 
 # Refresh all metering data.
 - name-code: EALC11002
@@ -41,6 +45,10 @@
       - command: platform-invoke
         handler: epn.metering.summary
         assign-to: EAIV11005
+      - command: mesh-invoke
+        capability: EAMC11001
+        request: EAIV11022
+        assign-to: EAIV11023
 
 # Copy one tapped Sessions-list row (EAIC11141) into the page-level "Selected
 # Session" variables, so the detail card can show the full record — operator,
@@ -99,3 +107,19 @@
       - command: set
         target: EAIV11021
         value: "selected"
+
+# Open one turn: its steps, each from its signed receipt (EAMC11002).
+- name-code: EALC11004
+  name: Open Turn
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV11024
+        key: EAMVT11004
+        value: id
+      - command: mesh-invoke
+        capability: EAMC11002
+        request: EAIV11024
+        assign-to: EAIV11025
