@@ -1,0 +1,50 @@
+
+# ── EVO'S PREFERENCES, KEPT ON THE GRAM ──────────────────────────────────────
+
+# EAMV12001 - Preferences Request.
+- name-code: EAMV12001
+  name: Preferences Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT12001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV12002 - Preferences: route choices {id, title, subtitle, trailing
+# ("chosen")}, what is chosen in words, and whether providers that may log
+# prompts are allowed.
+- name-code: EAMV12002
+  name: Preferences
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT12002
+      name: routes
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT12003
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT12004
+      name: allow_logged
+      type: ELVT1002
+      default: false
+
+# EAMV12003 - Set Preference: a route to choose ("" leaves it), and
+# allow_logged "true" | "false" | "toggle" ("" leaves it).
+- name-code: EAMV12003
+  name: Set Preference
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT12005
+      name: route
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT12006
+      name: allow_logged
+      type: ELVT1007
+      default: ""

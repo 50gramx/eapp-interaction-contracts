@@ -108,3 +108,11 @@
     name-code: EIC1005
     children-components:
       - EAIC12121
+
+- name-code: EAIT12009
+  name: Evo Preferences Tile
+  about: How Evo chooses where each answer runs
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC12128

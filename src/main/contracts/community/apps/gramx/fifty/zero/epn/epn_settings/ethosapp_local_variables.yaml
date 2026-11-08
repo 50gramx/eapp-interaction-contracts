@@ -237,3 +237,28 @@
   type: ELVT1002
   default:
     value: true
+
+# Evo's preferences (EAMC12001/12002): the answer, the switch, the requests.
+- name-code: EAIV12037
+  name: Evo Preferences
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+- name-code: EAIV12038
+  name: Allow Logged Providers
+  type: ELVT1002
+  default:
+    value: false
+
+- name-code: EAIV12039
+  name: Set Preference Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+- name-code: EAIV12040
+  name: Preferences Request
+  type: ELVT1021
+  modelled: true
+  default: {}

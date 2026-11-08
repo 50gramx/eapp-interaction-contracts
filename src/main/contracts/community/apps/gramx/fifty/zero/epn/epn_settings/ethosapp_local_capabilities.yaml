@@ -50,10 +50,10 @@
       - command: platform-invoke
         handler: epn.settings.energy.get
         assign-to: EAIV12007
-      - command: local-capability
+      - command: call
         capability: EALC12010
         assign-to: EAIV12011
-      - command: local-capability
+      - command: call
         capability: EALC12011
         assign-to: EAIV12012
       - command: platform-invoke
@@ -62,6 +62,9 @@
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV12019
+      # Evo's preferences, from the gram (EAMC12001).
+      - command: call
+        capability: EALC12034
 
 # Return the max-per-hour TextEditingController.
 - name-code: EALC12002
@@ -479,3 +482,61 @@
       - command: platform-invoke
         handler: epn.node.autostart.toggle
         assign-to: EAIV12036
+
+# ── EVO'S PREFERENCES (EAMC12001 / EAMC12002) ─────────────────────────────────
+# Load them from the gram.
+- name-code: EALC12034
+  name: Load Evo Preferences
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC12001
+        request: EAIV12040
+        assign-to: EAIV12037
+      - command: set
+        target: EAIV12038
+        value: EAIV12037.eamvt12004
+
+# Choose how Evo picks where each answer runs (a tapped route row).
+- name-code: EALC12035
+  name: Choose Route
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV12039
+        key: EAMVT12005
+        value: id
+      - command: set-map-value
+        target-map: EAIV12039
+        key: EAMVT12006
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC12002
+        request: EAIV12039
+        assign-to: EAIV12037
+      - command: set
+        target: EAIV12038
+        value: EAIV12037.eamvt12004
+
+# Allow or stop providers that may log prompts (open questions only).
+- name-code: EALC12036
+  name: Toggle Logged Providers
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV12039
+        key: EAMVT12005
+        value: ""
+      - command: set-map-value
+        target-map: EAIV12039
+        key: EAMVT12006
+        value: toggle
+      - command: mesh-invoke
+        capability: EAMC12002
+        request: EAIV12039
+        assign-to: EAIV12037
+      - command: set
+        target: EAIV12038
+        value: EAIV12037.eamvt12004

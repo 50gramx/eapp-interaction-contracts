@@ -896,3 +896,55 @@
     name-code: EIC1023
     child: EAIC12120
     color: layer-02
+
+# ── EVO'S PREFERENCES (EAMC12001/12002) ───────────────────────────────────────
+- name-code: EAIC12123
+  name: Evo Preferences Header
+  component:
+    name-code: EIC1004
+    label: How Evo chooses where each answer runs
+
+- name-code: EAIC12124
+  name: Evo Preferences Summary
+  component:
+    name-code: EIC1020
+    text: EAIV12037.eamvt12003
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12125
+  name: Route Choices
+  component:
+    name-code: EIC1026
+    source: EAIV12037.eamvt12002
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC12035
+
+- name-code: EAIC12126
+  name: Logged Providers Switch
+  component:
+    name-code: EIC1022
+    type: switch
+    value: EAIV12038
+    label: Allow free providers that may log prompts (open questions only)
+    on-change: EALC12036
+
+- name-code: EAIC12127
+  name: Evo Preferences Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC12123
+      - EAIC12124
+      - EAIC12125
+      - EAIC12126
+
+- name-code: EAIC12128
+  name: Evo Preferences Card
+  component:
+    name-code: EIC1023
+    child: EAIC12127
+    color: layer-02

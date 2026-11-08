@@ -1,0 +1,22 @@
+
+# ── EVO'S PREFERENCES ─────────────────────────────────────────────────────────
+# They change where every answer runs, so they live on the gram and every
+# device reads the same ones.
+
+# EAMC12001 - Get Preferences.
+- name-code: EAMC12001
+  name: Get Preferences
+  mesh:
+    context: discover
+    method: EAMC12001
+    expects: EAMV12001
+    returns: EAMV12002
+
+# EAMC12002 - Set Preference.
+- name-code: EAMC12002
+  name: Set Preference
+  mesh:
+    context: discover
+    method: EAMC12002
+    expects: EAMV12003
+    returns: EAMV12002
