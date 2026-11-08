@@ -286,15 +286,16 @@
     label: New chat
     on-click: EALC6003
 
-# Opens the workflows panel (replaces the transcript view; see EAIC6047 /
-# EAIC6051 below) — the footer-triggered overlay-style panel, matching
-# Carbon AI Chat's custom-panel pattern instead of an inline second scroll box.
+# Every run, plan, approval and specialist request on this gram, from the gram
+# itself (EALC6034 -> EAMC6007). The old workflows panel (EALC6024) read run
+# files off the app's own disk through a platform handler: on a phone or
+# tablet the gram's files are not where the app looks, so it was always empty.
 - name-code: EAIC6050
   name: Workflows Button
   component:
     name-code: EIC1008
     label: Workflows
-    on-click: EALC6024
+    on-click: EALC6034
 
 # Opens every conversation, to resume one (EALC6031).
 - name-code: EAIC6056
