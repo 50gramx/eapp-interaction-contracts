@@ -22,7 +22,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Circle eApp is open": "EALC15004",
+    "Given the Gramx eApp is open": "EALC15004",
     "When capability EALC15004 (Begin Add Member From Setup) is invoked": "EALC15004",
     "Then EAIV15003 (Circle Return State) is not empty": "EAIV15003",
     "Then EAIV15002 (Circle Wizard State) is not empty": "EAIV15002",

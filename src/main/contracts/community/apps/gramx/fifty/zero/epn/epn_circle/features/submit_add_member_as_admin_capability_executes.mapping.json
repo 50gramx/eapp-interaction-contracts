@@ -20,7 +20,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Circle eApp is open": "EALC15016",
+    "Given the Gramx eApp is open": "EALC15016",
     "When capability EALC15016 (Submit Add Member As Admin) is invoked": "EALC15016",
     "Then EAIV15007 (Add DID Result) is not empty": "EAIV15007"
   },

@@ -2,7 +2,7 @@
 Feature: Network
   # As a user, I want Init Page to work so I can use Network.
 
-  @EALC7007 @EAIV7001 @EAIV7002 @EAIV7007 @EAIV7010 @EAIV7011
+  @EALC7007 @EAIV7001 @EAIV7002 @EAIV7007 @EAIV7010 @EAIV7011 @EAIV7012
   Scenario: Init Page capability executes
     Given the Network eApp is open
     When capability EALC7007 (Init Page) is invoked
@@ -11,3 +11,4 @@ Feature: Network
     Then EAIV7007 (Family Status) is not empty
     Then EAIV7010 (Models) is not empty
     Then EAIV7011 (Specialists) is not empty
+    Then EAIV7012 (Identity) is not empty

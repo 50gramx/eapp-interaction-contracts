@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Circle eApp is open": "EALC15015",
+    "Given the Gramx eApp is open": "EALC15015",
     "When capability EALC15015 (Dismiss Notice) is invoked": "EALC15015",
     "Then EAIV15023 (Dismiss Notice Result) is not empty": "EAIV15023",
     "Then EAIV15019 (Notice Banner State) is not empty": "EAIV15019"

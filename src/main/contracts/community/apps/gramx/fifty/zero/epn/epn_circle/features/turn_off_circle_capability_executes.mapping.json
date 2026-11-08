@@ -24,7 +24,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Circle eApp is open": "EALC15009",
+    "Given the Gramx eApp is open": "EALC15009",
     "When capability EALC15009 (Turn Off Circle) is invoked": "EALC15009",
     "Then EAIV15014 (Circle Action Result) is not empty": "EAIV15014",
     "Then EAIV15002 (Circle Wizard State) is not empty": "EAIV15002",

@@ -13,12 +13,13 @@
       "EAIV7002",
       "EAIV7007",
       "EAIV7010",
-      "EAIV7011"
+      "EAIV7011",
+      "EAIV7012"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV7001 is populated; EAIV7002 is populated; EAIV7007 is populated; EAIV7010 is populated; EAIV7011 is populated",
-    "state": "EAIV7001 populated, EAIV7002 populated, EAIV7007 populated, EAIV7010 populated, EAIV7011 populated",
+    "behavioral": "EAIV7001 is populated; EAIV7002 is populated; EAIV7007 is populated; EAIV7010 is populated; EAIV7011 is populated; EAIV7012 is populated",
+    "state": "EAIV7001 populated, EAIV7002 populated, EAIV7007 populated, EAIV7010 populated, EAIV7011 populated, EAIV7012 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -30,7 +31,8 @@
     "Then EAIV7002 (Peer List) is not empty": "EAIV7002",
     "Then EAIV7007 (Family Status) is not empty": "EAIV7007",
     "Then EAIV7010 (Models) is not empty": "EAIV7010",
-    "Then EAIV7011 (Specialists) is not empty": "EAIV7011"
+    "Then EAIV7011 (Specialists) is not empty": "EAIV7011",
+    "Then EAIV7012 (Identity) is not empty": "EAIV7012"
   },
   "steps": [
     {
@@ -61,6 +63,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV7011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV7012"
     }
   ]
 }

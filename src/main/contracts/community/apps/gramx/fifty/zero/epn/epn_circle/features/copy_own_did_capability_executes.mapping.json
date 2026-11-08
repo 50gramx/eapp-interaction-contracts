@@ -20,7 +20,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Circle eApp is open": "EALC15013",
+    "Given the Gramx eApp is open": "EALC15013",
     "When capability EALC15013 (Copy Own DID) is invoked": "EALC15013",
     "Then EAIV15017 (Copy Result) is not empty": "EAIV15017"
   },
