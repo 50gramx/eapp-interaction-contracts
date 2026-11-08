@@ -70,3 +70,10 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# EAMC7107's answer.
+- name-code: EAIV7012
+  name: Identity
+  type: ELVT1021
+  modelled: true
+  default: {}

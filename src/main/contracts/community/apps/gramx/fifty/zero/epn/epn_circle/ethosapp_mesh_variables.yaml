@@ -1,0 +1,36 @@
+
+# ── YOUR GRAMX, FROM THE GRAM ───────────────────────────────────────────────
+
+# EAMV15001 - Gramx Request.
+- name-code: EAMV15001
+  name: Gramx Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV15002 - your gramx rooms {title, subtitle, trailing}, the grams in your home gramx {title, subtitle, trailing}, a summary, and online/offline {label, value}.
+- name-code: EAMV15002
+  name: Gramx
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15002
+      name: rooms
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15003
+      name: members
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15004
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15005
+      name: online
+      type: ELVT1018
+      default: []

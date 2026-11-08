@@ -64,6 +64,10 @@
           - command: set
             target: EAIV15019
             value: "hide"
+      - command: mesh-invoke
+        capability: EAMC15001
+        request: EAIV15024
+        assign-to: EAIV15025
 
 # "Start a Circle" — enables the trusted ring on the daemon (still empty —
 # this device only) and moves to Setup so the operator can add the first

@@ -22,3 +22,11 @@
     name-code: EIC1005
     children-components:
       - EAIC7090
+
+- name-code: EAIT7006
+  name: Identity Tile
+  about: You, this gram, your identity check and your grams
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC7096

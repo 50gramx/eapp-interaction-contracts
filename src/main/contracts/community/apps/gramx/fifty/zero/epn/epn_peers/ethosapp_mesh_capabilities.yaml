@@ -53,3 +53,12 @@
     method: EAMC7106
     expects: EAMV7110
     returns: EAMV7111
+
+# EAMC7107 - you, this gram, your identity check and your grams -- and whether they agree.
+- name-code: EAMC7107
+  name: Identity
+  mesh:
+    context: discover
+    method: EAMC7107
+    expects: EAMV7112
+    returns: EAMV7113

@@ -1,0 +1,10 @@
+
+
+# EAMC15001 - every gramx you are in, and the grams in your home gramx, live.
+- name-code: EAMC15001
+  name: My Gramx
+  mesh:
+    context: discover
+    method: EAMC15001
+    expects: EAMV15001
+    returns: EAMV15002

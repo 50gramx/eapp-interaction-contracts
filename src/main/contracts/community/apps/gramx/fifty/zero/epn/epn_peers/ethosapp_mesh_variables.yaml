@@ -167,3 +167,35 @@
       name: summary
       type: ELVT1007
       default: ""
+
+# ── WHO YOU ARE, FROM THE GRAM ─────────────────────────────────────────────
+
+# EAMV7112 - Identity Request.
+- name-code: EAMV7112
+  name: Identity Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7129
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV7113 - who you are: facts {title, subtitle, trailing} (you, this gram, your identity check, your grams, keys), a summary, and what disagrees.
+- name-code: EAMV7113
+  name: Identity
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT7130
+      name: facts
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT7131
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT7132
+      name: issues
+      type: ELVT1018
+      default: []

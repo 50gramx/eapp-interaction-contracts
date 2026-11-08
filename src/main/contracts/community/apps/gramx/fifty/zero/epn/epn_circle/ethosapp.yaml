@@ -1,5 +1,5 @@
 name-code: epn_circle
-name: Circle
+name: Gramx
 org: epn
 version: 1.0.0
 about: Restrict this device to mesh and schedule work only with people you trust — your Circle. Off by default; the open network is unchanged until you start one.

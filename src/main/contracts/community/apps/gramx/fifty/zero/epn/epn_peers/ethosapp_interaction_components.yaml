@@ -640,3 +640,55 @@
     name-code: EIC1023
     child: EAIC7089
     color: layer-02
+
+# -- WHO YOU ARE (EAMC7107) ----------------------------------------------------
+- name-code: EAIC7091
+  name: Identity Header
+  component:
+    name-code: EIC1004
+    label: Who you are
+
+- name-code: EAIC7092
+  name: Identity Summary
+  component:
+    name-code: EIC1020
+    text: EAIV7012.eamvt7131
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC7093
+  name: Identity Issues
+  component:
+    name-code: EIC1026
+    source: EAIV7012.eamvt7132
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC7094
+  name: Identity Facts
+  component:
+    name-code: EIC1026
+    source: EAIV7012.eamvt7130
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC7095
+  name: Identity Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7091
+      - EAIC7092
+      - EAIC7093
+      - EAIC7094
+
+- name-code: EAIC7096
+  name: Identity Card
+  component:
+    name-code: EIC1023
+    child: EAIC7095
+    color: layer-02

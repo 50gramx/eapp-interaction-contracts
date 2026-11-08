@@ -154,3 +154,17 @@
   name: Dismiss Notice Result
   type: ELVT1020
   default: {}
+
+# Request for EAMC15001.
+- name-code: EAIV15024
+  name: Gramx Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC15001's answer.
+- name-code: EAIV15025
+  name: Gramx
+  type: ELVT1021
+  modelled: true
+  default: {}

@@ -2,12 +2,13 @@
   name: Circle Page
   navigation:
     heading: Identity & Street
-    label: Circle
+    label: Gramx
     order: 85
   on-appear: EALC15001
   composition:
     name-code: EIC1005
     children-components:
+      - EAIT15006
       - EAIT15005
       - EAIT15001
       - EAIT15002

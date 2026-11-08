@@ -433,3 +433,65 @@
   component:
     name-code: EIC1023
     child: EAIC15044
+
+# ── YOUR GRAMX (EAMC15001) ────────────────────────────────────────────────────
+- name-code: EAIC15063
+  name: Gramx Header
+  component:
+    name-code: EIC1004
+    label: Your gramx
+
+- name-code: EAIC15064
+  name: Gramx Summary
+  component:
+    name-code: EIC1020
+    text: EAIV15025.eamvt15004
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15065
+  name: Gramx Online Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV15025.eamvt15005
+    title: Grams online
+    height: 130
+
+- name-code: EAIC15066
+  name: Gramx Rooms
+  component:
+    name-code: EIC1026
+    source: EAIV15025.eamvt15002
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC15067
+  name: Gramx Members
+  component:
+    name-code: EIC1026
+    source: EAIV15025.eamvt15003
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC15068
+  name: Gramx Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC15063
+      - EAIC15064
+      - EAIC15065
+      - EAIC15066
+      - EAIC15067
+
+- name-code: EAIC15069
+  name: Gramx Card
+  component:
+    name-code: EIC1023
+    child: EAIC15068
+    color: layer-02

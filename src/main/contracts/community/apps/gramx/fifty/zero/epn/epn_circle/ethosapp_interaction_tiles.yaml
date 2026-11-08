@@ -54,3 +54,11 @@
     name-code: EIC1005
     children-components:
       - EAIC15045
+
+- name-code: EAIT15006
+  name: Gramx Tile
+  about: Every gramx you are in, and its grams
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC15069

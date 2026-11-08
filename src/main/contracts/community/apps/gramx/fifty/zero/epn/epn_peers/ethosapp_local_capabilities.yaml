@@ -41,6 +41,10 @@
         capability: EAMC7106
         request: EAIV7009
         assign-to: EAIV7011
+      - command: mesh-invoke
+        capability: EAMC7107
+        request: EAIV7009
+        assign-to: EAIV7012
 
 # Return the TextEditingController so the input field can bind to it.
 - name-code: EALC7003
