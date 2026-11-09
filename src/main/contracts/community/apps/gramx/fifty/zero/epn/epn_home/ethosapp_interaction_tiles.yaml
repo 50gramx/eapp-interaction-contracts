@@ -1,6 +1,6 @@
 - name-code: EAIT5001
   name: EP&N Home Tile
-  about: Node status, state-aware quick actions, and the EP&N room launcher
+  about: Gram status, quick actions and the room launcher
   composition:
     name-code: EIC1005
     children-components:

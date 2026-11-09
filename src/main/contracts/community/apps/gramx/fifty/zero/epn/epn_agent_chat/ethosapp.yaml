@@ -2,7 +2,7 @@ name-code: epn_agent_chat
 name: Evo
 org: epn
 version: 1.0.0
-about: Chat with Evo — your EP&N node concierge
+about: Chat with Evo
 icon: smart_toy
 platform: core
 design-language: carbon

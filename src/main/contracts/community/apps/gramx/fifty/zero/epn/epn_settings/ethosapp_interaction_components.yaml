@@ -167,13 +167,13 @@
   name: About Header
   component:
     name-code: EIC1004
-    label: About This Node
+    label: About this gram
 
 - name-code: EAIC12019
   name: Version Label
   component:
     name-code: EIC1020
-    text: EP&N Daemon v0.1.0 — Phase F
+    text: Gram v0.1.0, Phase F
     variant: caption01
     color: on-surface-subtle
 
@@ -263,7 +263,7 @@
   name: Resources Header
   component:
     name-code: EIC1004
-    label: Node Resources
+    label: Gram resources
 
 - name-code: EAIC12040
   name: Resources Note
@@ -347,13 +347,13 @@
   name: Nodes Header
   component:
     name-code: EIC1004
-    label: Nodes & Device
+    label: Grams on this device
 
 - name-code: EAIC12049
   name: Nodes Note
   component:
     name-code: EIC1020
-    text: Each node is isolated (own identity, wallet, and WSL distro). Remove a node by id, or clean every EP&N node and distro from this device.
+    text: Each gram is isolated, with its own identity, wallet and WSL distro. Remove a gram by id, or clean every gram and distro from this device.
     variant: caption01
     color: on-surface-subtle
 
@@ -363,27 +363,27 @@
     name-code: EIC1032
     source: EAIV12019.nodes
     columns:
-      - Node
+      - Gram
       - Distro
       - State
     fields:
       - id
       - distro
       - state
-    empty-message: No EP&N nodes on this device yet.
+    empty-message: No grams on this device yet.
 
 - name-code: EAIC12051
   name: Remove Node Id Input
   component:
     name-code: EIC1009
-    hint-text: "Node id to remove (blank = primary)"
+    hint-text: "Gram id to remove (blank = primary)"
     text-controller: EALC12019
 
 - name-code: EAIC12052
   name: Remove Node Button
   component:
     name-code: EIC1008
-    label: Remove node
+    label: Remove gram
     on-click: EALC12020
 
 - name-code: EAIC12053
@@ -433,7 +433,7 @@
   name: Private Ring Header
   component:
     name-code: EIC1004
-    label: Private ring
+    label: Private gramx
 
 - name-code: EAIC12062
   name: Private Ring Badge
@@ -446,7 +446,7 @@
   name: Private Ring Copy
   component:
     name-code: EIC1020
-    text: Draw a circle around your own machines — home, office, team. Inside the ring, everything stays among you — free, private, yours. The warm version of an allow-list.
+    text: "Group your own machines into a gramx: home, office, team. Inside it, everything stays among you, free and private."
     variant: caption01
     color: on-surface-subtle
 
@@ -475,7 +475,7 @@
   name: KYC Ladder Intro
   component:
     name-code: EIC1020
-    text: The more the street knows you're real, the bigger the jobs you can take. Staying private is always allowed.
+    text: The more the network knows you're real, the bigger the jobs you can take. Staying private is always allowed.
     variant: caption01
     color: on-surface-subtle
 

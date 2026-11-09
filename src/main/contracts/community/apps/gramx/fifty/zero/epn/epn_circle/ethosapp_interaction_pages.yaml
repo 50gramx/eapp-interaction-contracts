@@ -1,7 +1,7 @@
 - name-code: EAIP15001
   name: Circle Page
   navigation:
-    heading: Identity & Street
+    heading: Gramx
     label: Gramx
     order: 85
   on-appear: EALC15001

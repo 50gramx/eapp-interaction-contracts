@@ -4,7 +4,7 @@
   name: Evo Header
   component:
     name-code: EIC1004
-    label: Evo — EP&N Concierge
+    label: Evo
 
 - name-code: EAIC6016
   name: Latest Durable Run
@@ -180,7 +180,7 @@
   name: Empty State Label
   component:
     name-code: EIC1020
-    text: Ask Evo anything about your node — deployments, status, costs.
+    text: Bring real work. Connect the right capabilities. Prove the outcome. Reuse what works.
     variant: body01
     align: center
     color: on-surface-subtle

@@ -5,8 +5,8 @@
 - name-code: EAIP14001
   name: Node Page
   navigation:
-    heading: Controls
-    label: Node
+    heading: Your grams
+    label: Gram
     order: 30
   on-appear: EALC14020
   composition:

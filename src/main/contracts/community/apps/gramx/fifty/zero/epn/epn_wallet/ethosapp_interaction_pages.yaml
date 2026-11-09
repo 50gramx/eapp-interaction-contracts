@@ -1,7 +1,7 @@
 - name-code: EAIP8001
   name: Wallet Page
   navigation:
-    heading: Ledger
+    heading: Account
     label: Wallet
     order: 80
   on-appear: EALC8007

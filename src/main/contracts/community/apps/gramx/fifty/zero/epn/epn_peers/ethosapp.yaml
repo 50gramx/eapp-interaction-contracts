@@ -2,7 +2,7 @@ name-code: epn_peers
 name: Network
 org: epn
 version: 1.0.0
-about: View this node's DID, peer ID, multiaddrs and connected EP&N peers. Connect to new peers by multiaddr.
+about: See this gram's identity, peer ID, addresses and connected peers. Connect to new peers by address.
 icon: hub
 platform: core
 design-language: carbon
@@ -10,8 +10,7 @@ color-scheme: two-tone
 keywords:
   - peers
   - p2p
-  - node
+  - gram
   - identity
   - did
   - network
-  - epn

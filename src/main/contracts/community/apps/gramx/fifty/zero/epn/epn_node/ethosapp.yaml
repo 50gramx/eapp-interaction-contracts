@@ -1,18 +1,16 @@
 name-code: epn_node
-name: Node
+name: Gram
 org: epn
 version: 1.0.0
-about: Start, stop and monitor your local EP&N node. The node is off until you start it — you are always in control.
+about: Start, stop and watch your gram. It stays off until you start it.
 icon: power_settings_new
 platform: core
 design-language: carbon
 color-scheme: two-tone
 keywords:
-  - node
+  - gram
   - daemon
-  - epnd
   - start
   - stop
   - status
   - lifecycle
-  - epn

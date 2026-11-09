@@ -113,9 +113,9 @@
   brand:
     id: epn
     community-code: 50
-    display-name: EP&N
+    display-name: 50GRAMx Gram
     product-name: EP&N Node
-    window-title: EP&N Node
+    window-title: 50GRAMx Gram
     # Placeholder: no dedicated EP&N logo asset exists/bundles yet, so point at
     # the default bundled logo to avoid a broken image. Replace with
     # lib/assets/brands/epn/logo.png once that asset is added to pubspec assets.
@@ -123,10 +123,10 @@
     home-app: epn_home
     launch-environment: com.50gramx.50.epn.*
     site:
-      summary: "Run a gram: share your machine's compute on the EP&N network and see what it earns."
+      summary: "Run a gram: share your machine's compute on the 50GRAMx network and see what it earns."
       category: Tools
       developer: 50GRAMx
-      description: "EP&N Node runs a gram on your machine. It joins the EP&N network, does work for other people when your machine is free, meters every unit of it, and shows what it earned. Using your own machine costs you nothing; you are paid only when others use it."
+      description: "This app runs a gram on your machine. It joins the 50GRAMx network, does work for other people when your machine is free, meters every unit of it, and shows what it earned. Using your own machine costs you nothing; you are paid only when others use it."
       website: https://50gramx.com
       access: alpha beta gamma
       distribution: public
@@ -144,10 +144,10 @@
       binary-name: epn_node
       installer-output-name: EpnNodeSetup
       installer-default-dir: EpnNode
-      window-title: EP&N Node
+      window-title: 50GRAMx Gram
       product-name: EP&N Node
       company-name: 50GRAMx
-      file-description: EP&N Node
+      file-description: 50GRAMx Gram
       internal-name: epn_node
       original-filename: epn_node.exe
       legal-copyright: Copyright (C) 2026 50GRAMx. All rights reserved.

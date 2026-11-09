@@ -462,7 +462,7 @@
   name: Network Off Message
   component:
     name-code: EIC1020
-    text: Your node is off - the street is outside the door.
+    text: Your gram is off. Start it to see the network.
     variant: body01
     color: on-surface-muted
     overflow: visible
@@ -537,7 +537,7 @@
   name: Network Transition Message
   component:
     name-code: EIC1020
-    text: Your node is changing state - the street will update when it is ready.
+    text: Your gram is changing state. The network will update when it is ready.
     variant: body01
     color: on-surface-muted
     overflow: visible

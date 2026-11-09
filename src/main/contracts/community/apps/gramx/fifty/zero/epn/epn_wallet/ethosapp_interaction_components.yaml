@@ -210,7 +210,7 @@
   name: Free Tier Footer
   component:
     name-code: EIC1020
-    text: Your local work this week cost 0.00 EC. It always will.
+    text: Your local work this week cost nothing. It always will.
     variant: caption01
     color: on-surface-subtle
 

@@ -1,6 +1,6 @@
 - name-code: EAIT8001
   name: Wallet Tile
-  about: EthosCoin balance and payment channels
+  about: Balance and payment channels
   composition:
     name-code: EIC1005
     children-components:

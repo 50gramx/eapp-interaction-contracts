@@ -2,7 +2,7 @@ name-code: epn_metering
 name: Metering
 org: epn
 version: 1.0.0
-about: Real-time resource usage, earnings from peers, and spending across the EP&N network.
+about: Real-time resource usage, earnings from peers, and spending across the network.
 icon: bar_chart
 platform: core
 design-language: carbon
@@ -14,4 +14,3 @@ keywords:
   - spending
   - channels
   - resources
-  - epn

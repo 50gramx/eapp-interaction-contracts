@@ -1,8 +1,8 @@
 name-code: epn_home
-name: EP&N Node
+name: Home
 org: epn
 version: 1.0.0
-about: EP&N DePIN Node — manage operators, deployments, and node identity
+about: "Your gram at a glance: operators, deployments and identity"
 icon: hub
 platform: core
 design-language: carbon

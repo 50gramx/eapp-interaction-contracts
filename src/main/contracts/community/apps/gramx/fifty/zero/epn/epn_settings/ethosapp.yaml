@@ -2,7 +2,7 @@ name-code: epn_settings
 name: Settings
 org: epn
 version: 1.0.0
-about: Configure EP&N node policies — spend limits, KYC level, bootstrap peers, and agent escalation rules.
+about: "Set your gram's rules: spend limits, KYC level, bootstrap peers and approval rules."
 icon: settings
 platform: core
 design-language: carbon
@@ -14,4 +14,3 @@ keywords:
   - kyc
   - bootstrap
   - peers
-  - epn

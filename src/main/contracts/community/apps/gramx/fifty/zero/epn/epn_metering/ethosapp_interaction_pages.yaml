@@ -1,7 +1,7 @@
 - name-code: EAIP11001
   name: Metering Page
   navigation:
-    heading: Ledger
+    heading: Account
     label: Metering
     order: 70
   on-appear: EALC11001

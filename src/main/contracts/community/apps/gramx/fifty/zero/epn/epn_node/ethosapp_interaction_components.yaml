@@ -4,7 +4,7 @@
   name: Node Header
   component:
     name-code: EIC1004
-    label: Node
+    label: Gram
 
 - name-code: EAIC14060
   name: Surface Chip
@@ -20,14 +20,14 @@
   name: Off Title
   component:
     name-code: EIC1020
-    text: Your node is off
+    text: Your gram is off
     variant: heading02
 
 - name-code: EAIC14071
   name: Off Body
   component:
     name-code: EIC1020
-    text: Nothing runs or leaves this machine until you start it — that act is yours alone. Choose how this node should join the mesh.
+    text: Nothing runs or leaves this machine until you start it. Choose how this gram should join the network.
     variant: body01
     color: on-surface-muted
 
@@ -81,7 +81,7 @@
   name: Compute Mode Desc
   component:
     name-code: EIC1020
-    text: Adds a k3s cluster (a Linux VM) so your node can lend CPU, GPU and storage to peers and earn EC. First setup downloads Linux + k3s — a few minutes.
+    text: Adds a k3s cluster (a Linux VM) so your gram can lend CPU, GPU and storage to peers and earn credit. First setup downloads Linux and k3s and takes a few minutes.
     variant: caption01
     color: on-surface-subtle
 
@@ -160,13 +160,13 @@
   component:
     name-code: EIC1038
     status: active
-    label: Starting the node…
+    label: Starting the gram…
 
 - name-code: EAIC14076
   name: Starting Body
   component:
     name-code: EIC1020
-    text: Bringing the node up. Nothing else on this machine changed.
+    text: Bringing the gram up. Nothing else on this machine changed.
     variant: body01
     color: on-surface-muted
 
@@ -213,7 +213,7 @@
   name: Stopping Body
   component:
     name-code: EIC1020
-    text: Asking the node to shut down cleanly. Nothing else on this machine is touched.
+    text: Asking the gram to shut down cleanly. Nothing else on this machine is touched.
     variant: body01
     color: on-surface-muted
 
@@ -253,7 +253,7 @@
   name: Running Stop Button
   component:
     name-code: EIC1008
-    label: Stop my node
+    label: Stop my gram
     on-click: EALC14002
 
 # Mode-contextual footer: lite nodes can upgrade to compute; compute nodes
@@ -269,7 +269,7 @@
   name: Upgrade Note
   component:
     name-code: EIC1020
-    text: This node is lite. Upgrade to compute to lend CPU, GPU and storage to peers and earn EC.
+    text: This gram is lite. Upgrade to compute to lend CPU, GPU and storage to peers and earn credit.
     variant: caption01
     color: on-surface-subtle
 
@@ -285,7 +285,7 @@
   name: Compute Active Note
   component:
     name-code: EIC1020
-    text: Compute mode — k3s is running. You can lend resources to peers and earn EC.
+    text: "Compute mode: k3s is running. You can lend resources to peers and earn credit."
     variant: caption01
     color: positive
 
@@ -338,7 +338,7 @@
   name: Adopted Body
   component:
     name-code: EIC1020
-    text: A node you didn't start is already running here. We left it untouched — stop it where it was started.
+    text: A gram you didn't start is already running here. We left it alone. Stop it where it was started.
     variant: body01
     color: on-surface-muted
 
@@ -508,7 +508,7 @@
   name: Share Note
   component:
     name-code: EIC1020
-    text: Expose a local service over your node — a stable, DID-backed endpoint. No account, no splash page. Give the address below to a peer.
+    text: Share a local service through your gram at a stable address tied to your identity. No account, no splash page. Give the address below to a peer.
     variant: caption01
     color: on-surface-subtle
 
@@ -617,13 +617,13 @@
   name: Manage Header
   component:
     name-code: EIC1004
-    label: Nodes on this device
+    label: Grams on this device
 
 - name-code: EAIC14101
   name: Manage Note
   component:
     name-code: EIC1020
-    text: Every node here is yours. Add more, stop what you started, or remove one entirely — nothing runs or leaves this machine without your say.
+    text: Every gram here is yours. Add more, stop what you started, or remove one. Nothing runs or leaves this machine without your say.
     variant: body01
     color: on-surface-muted
 
@@ -652,21 +652,21 @@
   name: New Node Id Input
   component:
     name-code: EIC1009
-    hint-text: "Name for a new node (e.g. work, gpu-box)"
+    hint-text: "Name for a new gram (e.g. work, gpu-box)"
     text-controller: EALC14022
 
 - name-code: EAIC14105
   name: Add Lite Button
   component:
     name-code: EIC1006
-    label: Add node
+    label: Add gram
     on-click: EALC14023
 
 - name-code: EAIC14106
   name: Add Compute Button
   component:
     name-code: EIC1008
-    label: Add compute node (k3s)
+    label: Add compute gram (k3s)
     on-click: EALC14024
 
 # Platform gate: no compute nodes on mobile (lite-only). Default keeps it.
@@ -691,7 +691,7 @@
   name: Create Note
   component:
     name-code: EIC1020
-    text: A new node gets its own identity, wallet and ports, and joins the same mesh. Lite is light and device-safe; compute provisions k3s so the node can run operators and lend resources.
+    text: A new gram gets its own identity, wallet and ports, and joins the same network. Lite is light and safe for the device. Compute sets up k3s so the gram can run operators and lend resources.
     variant: caption01
     color: on-surface-subtle
 
@@ -730,7 +730,7 @@
   name: Remove Selected Button
   component:
     name-code: EIC1008
-    label: Remove this node
+    label: Remove this gram
     on-click: EALC14027
 
 # Per-state button rows
@@ -830,7 +830,7 @@
   name: No Selection Note
   component:
     name-code: EIC1020
-    text: Tap a node above to start, stop, or remove it.
+    text: Tap a gram above to start, stop, or remove it.
     variant: caption01
     color: on-surface-subtle
 
@@ -863,7 +863,7 @@
   name: Advanced Nodes Expander
   component:
     name-code: EIC1039
-    label: Advanced — run more nodes
+    label: "Advanced: run more grams"
     expanded: false
     children-components:
       - EAIC14104
@@ -881,13 +881,13 @@
   name: Danger Header
   component:
     name-code: EIC1004
-    label: Remove EP&N from this device
+    label: Remove 50GRAMx from this device
 
 - name-code: EAIC14122
   name: Danger Note
   component:
     name-code: EIC1020
-    text: Stops every node and deletes all EP&N data on this machine — ~/.epn and every node distro. This cannot be undone.
+    text: Stops every gram and deletes all its data on this machine, including ~/.epn and every gram distro. This cannot be undone.
     variant: caption01
     color: on-surface-subtle
 

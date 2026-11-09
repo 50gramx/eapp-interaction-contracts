@@ -2,7 +2,7 @@ name-code: epn_deployments
 name: Operators
 org: epn
 version: 1.0.0
-about: Install, manage, and monitor EP&N Deployment-Operators. Spin pods up or down and chat with their AI personas.
+about: Install, manage and monitor operators. Spin pods up or down and chat with their AI personas.
 icon: extension
 platform: core
 design-language: carbon
@@ -14,4 +14,3 @@ keywords:
   - install
   - gpu
   - ollama
-  - epn

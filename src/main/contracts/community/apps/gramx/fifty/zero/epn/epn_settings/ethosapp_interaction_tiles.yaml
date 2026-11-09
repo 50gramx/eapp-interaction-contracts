@@ -1,6 +1,6 @@
 - name-code: EAIT12001
   name: Settings Tile
-  about: Spend limits, escalation policy, energy preference, and node configuration
+  about: Spend limits, escalation policy, energy preference and gram settings
   conditions: []
   composition:
     name-code: EIC1005

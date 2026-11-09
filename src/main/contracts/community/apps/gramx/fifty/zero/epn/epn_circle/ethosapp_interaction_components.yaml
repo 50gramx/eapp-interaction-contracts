@@ -12,7 +12,7 @@
   name: Notice Header
   component:
     name-code: EIC1004
-    label: New in your circle
+    label: New in your gramx
 
 - name-code: EAIC15051
   name: Notice From
@@ -25,7 +25,7 @@
   name: Notice Body
   component:
     name-code: EIC1020
-    text: added you to their circle. Add their code back so you can use each other's devices too.
+    text: added you to their gramx. Add their code back so you can use each other's devices too.
     variant: caption01
     color: on-surface-subtle
 
@@ -81,7 +81,7 @@
   name: Circle Header
   component:
     name-code: EIC1004
-    label: Circle
+    label: Gramx
 
 - name-code: EAIC15060
   name: Off Status Chip
@@ -94,7 +94,7 @@
   name: Off Explainer
   component:
     name-code: EIC1020
-    text: By default, this device works with anyone on the open network. Start a Circle to restrict it to only the people you trust.
+    text: By default, this device works with anyone on the open network. Start a gramx to work only with the people you trust.
     variant: body01
     color: on-surface-muted
 
@@ -102,7 +102,7 @@
   name: Start Circle Button
   component:
     name-code: EIC1006
-    label: Start a Circle
+    label: Start a gramx
     on-click: EALC15002
 
 - name-code: EAIC15004
@@ -127,7 +127,7 @@
   name: Setup Header
   component:
     name-code: EIC1004
-    label: Circle
+    label: Gramx
 
 - name-code: EAIC15061
   name: Setup Status Chip
@@ -218,7 +218,7 @@
   name: Adding Header
   component:
     name-code: EIC1004
-    label: Add to your Circle
+    label: Add to your gramx
 
 - name-code: EAIC15021
   name: Adding Note
@@ -263,7 +263,7 @@
   name: Role Explainer
   component:
     name-code: EIC1020
-    text: Admins can also use this device's GPU. Members can use everything else this Circle shares.
+    text: Admins can also use this device's GPU. Members can use everything else this gramx shares.
     variant: caption01
     color: on-surface-subtle
 
@@ -307,7 +307,7 @@
   name: Active Header
   component:
     name-code: EIC1004
-    label: Circle
+    label: Gramx
 
 - name-code: EAIC15062
   name: Active Status Chip
@@ -321,7 +321,7 @@
   component:
     name-code: EIC1031
     value: EAIV15012
-    label: In your circle
+    label: In your gramx
     caption: only these devices can mesh and schedule work with this one
     status: primary
 
@@ -396,7 +396,7 @@
   name: Turn Off Circle Button
   component:
     name-code: EIC1008
-    label: Turn off Circle
+    label: Turn off gramx
     on-click: EALC15009
 
 - name-code: EAIC15043

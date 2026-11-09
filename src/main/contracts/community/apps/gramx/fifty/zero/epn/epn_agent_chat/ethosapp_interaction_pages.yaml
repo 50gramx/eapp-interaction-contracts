@@ -1,7 +1,7 @@
 - name-code: EAIP6001
   name: Evo Chat Page
   navigation:
-    heading: Assistant
+    heading: Evo
     label: Evo
     order: 20
   # Aha 3 (ideal acceptance): discover specialist personas from the daemon

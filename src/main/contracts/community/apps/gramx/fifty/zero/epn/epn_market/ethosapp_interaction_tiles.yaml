@@ -1,6 +1,6 @@
 - name-code: EAIT13001
   name: Resource Market Tile
-  about: Browse, post, and bid on resource offers across the EP&N network
+  about: Browse, post and bid on resource offers across the network
   composition:
     name-code: EIC1005
     children-components:

@@ -1,7 +1,7 @@
 - name-code: EAIP5001
   name: EP&N Home Page
   navigation:
-    heading: Front Hall
+    heading: Your grams
     label: Home
     order: 10
   on-appear: EALC5005

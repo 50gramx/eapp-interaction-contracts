@@ -2,16 +2,14 @@ name-code: epn_circle
 name: Gramx
 org: epn
 version: 1.0.0
-about: Restrict this device to mesh and schedule work only with people you trust — your Circle. Off by default; the open network is unchanged until you start one.
+about: Work only with people you trust, in your gramx. Off by default. The open network is unchanged until you start one.
 icon: groups
 platform: core
 design-language: carbon
 color-scheme: two-tone
 keywords:
-  - circle
+  - gramx
   - team
   - trust
   - private
   - pool
-  - ring
-  - epn

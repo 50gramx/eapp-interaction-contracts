@@ -4,7 +4,7 @@
   name: Glance Title
   component:
     name-code: EIC1020
-    text: Your node, at a glance
+    text: Your gram, at a glance
     variant: heading03
     font-weight: 600
     color: primary
@@ -17,7 +17,7 @@
   name: Hero Off Title
   component:
     name-code: EIC1020
-    text: Your node is off
+    text: Your gram is off
     variant: heading02
     font-weight: 600
     color: primary
@@ -35,7 +35,7 @@
   name: Hero Start Button
   component:
     name-code: EIC1006
-    label: Start my node
+    label: Start my gram
     on-click: EALC5014
 
 - name-code: EAIC5081
@@ -45,7 +45,7 @@
     icon: status-dot
     size: 12
     color: primary
-    semantic-label: Node is not running
+    semantic-label: Gram is not running
 
 - name-code: EAIC5082
   name: Hero Off Status Row
@@ -86,7 +86,7 @@
   name: Hero Starting Body
   component:
     name-code: EIC1020
-    text: Bringing the node up. Nothing else on this machine changed.
+    text: Bringing the gram up. Nothing else on this machine changed.
     variant: body01
     color: on-surface-muted
 
@@ -110,7 +110,7 @@
   name: Hero Running Title
   component:
     name-code: EIC1020
-    text: Your node is running
+    text: Your gram is running
     variant: heading02
     font-weight: 600
     color: primary
@@ -131,7 +131,7 @@
     icon: status-dot
     size: 12
     color: positive
-    semantic-label: Node is running
+    semantic-label: Gram is running
 
 - name-code: EAIC5084
   name: Hero Running Status Row
@@ -181,7 +181,7 @@
   name: Hero Stop Button
   component:
     name-code: EIC1008
-    label: Stop my node
+    label: Stop my gram
     on-click: EALC5015
 
 - name-code: EAIC5071
@@ -249,7 +249,7 @@
   name: Hero Adopted Body
   component:
     name-code: EIC1020
-    text: A node you didn't start is already running here. We left it untouched — stop it where it was started.
+    text: A gram you didn't start is already running here. We left it alone. Stop it where it was started.
     variant: body01
     overflow: visible
     color: on-surface-muted
@@ -433,7 +433,7 @@
   name: What Now Off Start Title
   component:
     name-code: EIC1020
-    text: Start your node
+    text: Start your gram
     variant: heading02
     font-weight: 600
     color: primary
@@ -442,7 +442,7 @@
   name: What Now Off Start Body
   component:
     name-code: EIC1020
-    text: It does nothing, until you do. The switch is in Controls.
+    text: It does nothing, until you do. The switch is under Your grams.
     variant: body01
     color: on-surface-muted
     overflow: visible
@@ -501,7 +501,7 @@
   name: What Now Off Rules Title
   component:
     name-code: EIC1020
-    text: Read the house rules
+    text: Check your settings
     variant: heading02
     font-weight: 600
     color: primary
@@ -581,7 +581,7 @@
   name: What Now On Market Title
   component:
     name-code: EIC1020
-    text: Walk the street
+    text: Browse the market
     variant: heading02
     font-weight: 600
     color: primary
@@ -693,7 +693,7 @@
   name: Room Node Title
   component:
     name-code: EIC1020
-    text: Node
+    text: Gram
     variant: heading01
     font-weight: 600
     color: primary
@@ -940,7 +940,7 @@
   name: Room Evo Body
   component:
     name-code: EIC1020
-    text: Chat with your EP&N concierge.
+    text: Chat with Evo.
     variant: caption01
     color: on-surface-muted
     overflow: visible

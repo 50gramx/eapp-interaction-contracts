@@ -1,6 +1,6 @@
 - name-code: EAIT14001
   name: Node Tile
-  about: Start, stop and monitor your local EP&N node
+  about: Start, stop and watch your gram
   composition:
     name-code: EIC1005
     children-components:

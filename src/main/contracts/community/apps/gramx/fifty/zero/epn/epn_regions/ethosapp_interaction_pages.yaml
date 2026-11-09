@@ -1,7 +1,7 @@
 - name-code: EAIP16001
   name: Regions Page
   navigation:
-    heading: Identity & Street
+    heading: Gramx
     label: Regions
     order: 41
   on-appear: EALC16001

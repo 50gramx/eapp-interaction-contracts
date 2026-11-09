@@ -317,7 +317,7 @@
         assign-to: EAIV14027
       - command: set
         target: EAIV14030
-        value: "Node removed."
+        value: "Gram removed."
       - command: set
         target: EAIV14026
         value: "none"

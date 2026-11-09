@@ -1,7 +1,7 @@
 - name-code: EAIP12001
   name: Settings Page
   navigation:
-    heading: House Rules
+    heading: Account
     label: Settings
     order: 90
   on-appear: EALC12001

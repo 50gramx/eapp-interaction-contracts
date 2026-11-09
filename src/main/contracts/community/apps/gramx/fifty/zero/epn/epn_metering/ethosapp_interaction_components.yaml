@@ -70,7 +70,7 @@
       - total
       - earned
       - spent
-    empty-message: No resource networks configured on this node.
+    empty-message: No resource networks configured on this gram.
 
 - name-code: EAIC11010
   name: Refresh Button
@@ -141,7 +141,7 @@
       - qty
       - who
       - amt
-    empty-message: Nothing metered yet — every cross-node receipt will show up here as it happens.
+    empty-message: Nothing metered yet. Every receipt between grams shows up here as it happens.
 
 # EAIC11077 (Local Receipts Metric) and EAIC11078 (Local Receipt Hash Label)
 # are removed. They read EAIV11005.local_inference_receipts /
@@ -175,7 +175,7 @@
   name: Resources Header
   component:
     name-code: EIC1004
-    label: Node Resources
+    label: Gram resources
 
 - name-code: EAIC11014
   name: GPU Class Label
@@ -584,7 +584,7 @@
   name: Selected Session Replica Peers Caption
   component:
     name-code: EIC1020
-    text: Replicated to (gramx/circle peers)
+    text: Replicated to (gramx peers)
     variant: caption01
     color: on-surface-subtle
 

@@ -5,7 +5,7 @@
 
 - name-code: EAIT15005
   name: Circle Notice Banner Tile
-  about: SA-RING-RECIPROCITY-GAP — "you were added to a circle" notice, independent of wizard state
+  about: Notice that someone added you to their gramx, shown in any state
   composition:
     name-code: EIC1005
     children-components:
@@ -13,7 +13,7 @@
 
 - name-code: EAIT15001
   name: Circle Off Tile
-  about: Default state — open mesh, no Circle configured
+  about: Default state, open network, no gramx set up
   conditions:
     - name-code: EAIV15002
       value: "off"
@@ -24,7 +24,7 @@
 
 - name-code: EAIT15002
   name: Circle Setup Tile
-  about: Circle enabled, no members added yet — show own DID to share
+  about: Gramx on, no members yet. Shows your code to share
   conditions:
     - name-code: EAIV15002
       value: "setup"

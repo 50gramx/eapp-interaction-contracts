@@ -1,7 +1,7 @@
 - name-code: EAIP7001
   name: Network Page
   navigation:
-    heading: Identity & Street
+    heading: Your grams
     label: Network
     order: 40
   on-appear: EALC7007

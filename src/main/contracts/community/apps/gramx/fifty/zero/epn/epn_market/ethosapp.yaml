@@ -2,7 +2,7 @@ name-code: epn_market
 name: Resource Market
 org: epn
 version: 1.0.0
-about: Browse, post, and bid on EP&N resource offers gossiped across the peer network.
+about: Browse, post and bid on resource offers shared across the network.
 icon: storefront
 platform: core
 design-language: carbon
@@ -13,4 +13,3 @@ keywords:
   - bids
   - resources
   - rent
-  - epn
