@@ -1,0 +1,35 @@
+# ── REGIONS, FROM THE GRAM ─────────────────────────────────────────────────────
+
+# EAMV16001 - Regions Request.
+- name-code: EAMV16001
+  name: Regions Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT16001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV16002 - every region this gram knows {title, subtitle, trailing}, the models each keeps up and why {title, subtitle, trailing}, a summary, and models up per region {label, value}.
+- name-code: EAMV16002
+  name: Regions
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT16002
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT16003
+      name: regions
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT16004
+      name: models
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT16005
+      name: up
+      type: ELVT1018
+      default: []

@@ -8,4 +8,17 @@
   composition:
     name-code: EIC1005
     children-components:
+      - EAIT9002
       - EAIT9001
+
+- name-code: EAIP9002
+  name: Operators Board Page
+  navigation:
+    heading: Workshop
+    label: Operators board
+    order: 51
+  on-appear: EALC9010
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT9003

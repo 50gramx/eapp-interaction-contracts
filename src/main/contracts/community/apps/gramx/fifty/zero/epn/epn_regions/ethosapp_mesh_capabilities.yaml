@@ -1,0 +1,8 @@
+# EAMC16001 - which regions are up and which models each keeps up, learnt from demand.
+- name-code: EAMC16001
+  name: Regions
+  mesh:
+    context: discover
+    method: EAMC16001
+    expects: EAMV16001
+    returns: EAMV16002

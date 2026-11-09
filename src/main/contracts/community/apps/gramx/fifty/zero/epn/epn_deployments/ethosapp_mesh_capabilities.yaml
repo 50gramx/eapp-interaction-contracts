@@ -1,0 +1,8 @@
+# EAMC9001 - operators and their work across all your grams, from each gram's post in your home gramx.
+- name-code: EAMC9001
+  name: Fleet Operators
+  mesh:
+    context: discover
+    method: EAMC9001
+    expects: EAMV9001
+    returns: EAMV9002

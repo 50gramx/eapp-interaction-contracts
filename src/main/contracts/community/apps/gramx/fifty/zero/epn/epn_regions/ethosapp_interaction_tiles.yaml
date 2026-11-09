@@ -1,0 +1,7 @@
+- name-code: EAIT16001
+  name: Regions Tile
+  about: Which regions are up and what they keep up
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC16008

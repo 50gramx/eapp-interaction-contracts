@@ -1,0 +1,47 @@
+# ── OPERATORS, ACROSS YOUR GRAMS ─────────────────────────────────────────────
+
+# EAMV9001 - Fleet Request.
+- name-code: EAMV9001
+  name: Fleet Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV9002 - every operator on every one of your grams: a summary, counts {label, value}, the work running, waiting, done and failed {title, subtitle, trailing}, and each operator with the grams it is on.
+- name-code: EAMV9002
+  name: Fleet Operators
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9002
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9003
+      name: counts
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9004
+      name: running
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9005
+      name: waiting
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9006
+      name: done
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9007
+      name: failed
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9008
+      name: operators
+      type: ELVT1018
+      default: []

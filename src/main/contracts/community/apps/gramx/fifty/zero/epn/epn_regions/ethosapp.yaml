@@ -1,0 +1,15 @@
+name-code: epn_regions
+name: Regions
+org: epn
+version: 1.0.0
+about: The regions of the network -- which are up, which models each keeps up, how fast they answer from where you are. Your own gramx serve; regions are where you borrow.
+icon: public
+platform: core
+design-language: carbon
+color-scheme: two-tone
+keywords:
+  - regions
+  - models
+  - residency
+  - network
+  - epn

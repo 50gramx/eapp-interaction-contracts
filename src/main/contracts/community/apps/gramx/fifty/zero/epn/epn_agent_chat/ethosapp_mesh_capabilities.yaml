@@ -35,6 +35,10 @@
     method: EAMC6003
     expects: EAMV6001
     returning: EAMV6002
+    # The engine binds a capability as a stream only on a stream flag;
+    # without it the app collected every snapshot into one list at the end,
+    # so the reply never showed until the chat was reopened.
+    stream: true
 
 # EAMC6004 - Get Receipt
 #

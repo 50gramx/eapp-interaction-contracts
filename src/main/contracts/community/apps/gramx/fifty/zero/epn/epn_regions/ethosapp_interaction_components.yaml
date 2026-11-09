@@ -1,0 +1,70 @@
+# ── REGIONS (EAMC16001) ──────────────────────────────────────────────────────
+- name-code: EAIC16001
+  name: Regions Header
+  component:
+    name-code: EIC1004
+    label: Regions
+
+- name-code: EAIC16002
+  name: Regions Summary
+  component:
+    name-code: EIC1020
+    text: EAIV16002.eamvt16002
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC16003
+  name: Models Up Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV16002.eamvt16005
+    title: Models up, by region
+    height: 130
+
+- name-code: EAIC16004
+  name: Regions List
+  component:
+    name-code: EIC1026
+    source: EAIV16002.eamvt16003
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC16005
+  name: Resident Header
+  component:
+    name-code: EIC1020
+    text: What each region keeps up, and why
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC16006
+  name: Resident Models
+  component:
+    name-code: EIC1026
+    source: EAIV16002.eamvt16004
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC16007
+  name: Regions Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC16001
+      - EAIC16002
+      - EAIC16003
+      - EAIC16004
+      - EAIC16005
+      - EAIC16006
+
+- name-code: EAIC16008
+  name: Regions Card
+  component:
+    name-code: EIC1023
+    child: EAIC16007
+    color: layer-02

@@ -1,0 +1,11 @@
+- name-code: EAIP16001
+  name: Regions Page
+  navigation:
+    heading: Identity & Street
+    label: Regions
+    order: 41
+  on-appear: EALC16001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT16001

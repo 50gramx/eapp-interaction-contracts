@@ -254,3 +254,219 @@
     name-code: EIC1023
     child: EAIC9024
     color: layer-02
+
+# ── OPERATORS ACROSS YOUR GRAMS (EAMC9001): SUMMARY, AND THE BOARD ───────────
+- name-code: EAIC9080
+  name: Fleet Header
+  component:
+    name-code: EIC1004
+    label: Across your grams
+
+- name-code: EAIC9081
+  name: Fleet Summary
+  component:
+    name-code: EIC1020
+    text: EAIV9009.eamvt9002
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9082
+  name: Fleet Counts
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV9009.eamvt9003
+    title: Work
+    height: 130
+
+- name-code: EAIC9083
+  name: Fleet Operators Header
+  component:
+    name-code: EIC1020
+    text: Operators, and the grams they are on
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9084
+  name: Fleet Operators
+  component:
+    name-code: EIC1026
+    source: EAIV9009.eamvt9008
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9085
+  name: Fleet Summary Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9080
+      - EAIC9081
+      - EAIC9082
+      - EAIC9083
+      - EAIC9084
+
+- name-code: EAIC9086
+  name: Fleet Summary Card
+  component:
+    name-code: EIC1023
+    child: EAIC9085
+    color: layer-02
+
+- name-code: EAIC9087
+  name: Board Running Header
+  component:
+    name-code: EIC1020
+    text: Running
+    variant: heading02
+
+- name-code: EAIC9088
+  name: Board Running
+  component:
+    name-code: EIC1026
+    source: EAIV9009.eamvt9004
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9089
+  name: Board Running Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9087
+      - EAIC9088
+
+- name-code: EAIC9090
+  name: Board Running Card
+  component:
+    name-code: EIC1023
+    child: EAIC9089
+    color: layer-02
+
+- name-code: EAIC9091
+  name: Board Waiting Header
+  component:
+    name-code: EIC1020
+    text: Waiting
+    variant: heading02
+
+- name-code: EAIC9092
+  name: Board Waiting
+  component:
+    name-code: EIC1026
+    source: EAIV9009.eamvt9005
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9093
+  name: Board Waiting Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9091
+      - EAIC9092
+
+- name-code: EAIC9094
+  name: Board Waiting Card
+  component:
+    name-code: EIC1023
+    child: EAIC9093
+    color: layer-02
+
+- name-code: EAIC9095
+  name: Board Done Header
+  component:
+    name-code: EIC1020
+    text: Done
+    variant: heading02
+
+- name-code: EAIC9096
+  name: Board Done
+  component:
+    name-code: EIC1026
+    source: EAIV9009.eamvt9006
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9097
+  name: Board Done Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9095
+      - EAIC9096
+
+- name-code: EAIC9098
+  name: Board Done Card
+  component:
+    name-code: EIC1023
+    child: EAIC9097
+    color: layer-02
+
+- name-code: EAIC9099
+  name: Board Failed Header
+  component:
+    name-code: EIC1020
+    text: Failed
+    variant: heading02
+
+- name-code: EAIC9100
+  name: Board Failed
+  component:
+    name-code: EIC1026
+    source: EAIV9009.eamvt9007
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9101
+  name: Board Failed Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9099
+      - EAIC9100
+
+- name-code: EAIC9102
+  name: Board Failed Card
+  component:
+    name-code: EIC1023
+    child: EAIC9101
+    color: layer-02
+
+- name-code: EAIC9103
+  name: Board Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 672
+    children-components:
+      - EAIC9090
+      - EAIC9094
+      - EAIC9098
+      - EAIC9102
+
+- name-code: EAIC9104
+  name: Board Summary
+  component:
+    name-code: EIC1020
+    text: EAIV9009.eamvt9002
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9105
+  name: Board Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9104
+      - EAIC9103

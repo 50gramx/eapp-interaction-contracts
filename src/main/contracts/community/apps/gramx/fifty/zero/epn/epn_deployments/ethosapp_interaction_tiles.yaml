@@ -8,3 +8,19 @@
       - EAIC9071
       - EAIC9072
       - EAIC9073
+
+- name-code: EAIT9002
+  name: Fleet Summary Tile
+  about: Operators and their work across all your grams
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9086
+
+- name-code: EAIT9003
+  name: Fleet Board Tile
+  about: Running, waiting, done and failed, across your grams
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9105

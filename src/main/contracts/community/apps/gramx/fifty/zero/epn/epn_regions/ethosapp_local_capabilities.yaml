@@ -1,0 +1,9 @@
+# Load the regions on page appear.
+- name-code: EALC16001
+  name: Load Regions
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC16001
+        request: EAIV16001
+        assign-to: EAIV16002

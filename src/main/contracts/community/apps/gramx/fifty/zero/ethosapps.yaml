@@ -199,6 +199,8 @@
       live: true
     - name: epn_circle
       live: true
+    - name: epn_regions
+      live: true
 
 - organisation: ethos
   apps:

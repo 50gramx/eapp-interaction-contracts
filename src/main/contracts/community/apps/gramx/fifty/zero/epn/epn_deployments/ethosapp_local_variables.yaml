@@ -40,3 +40,17 @@
   name: Install Package CID Controller
   type: ELVT1001
   default: {}
+
+# Request for EAMC9001.
+- name-code: EAIV9008
+  name: Fleet Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC9001's answer.
+- name-code: EAIV9009
+  name: Fleet Operators
+  type: ELVT1021
+  modelled: true
+  default: {}

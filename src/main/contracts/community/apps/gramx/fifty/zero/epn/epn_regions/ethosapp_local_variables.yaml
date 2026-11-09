@@ -1,0 +1,13 @@
+# Request for EAMC16001.
+- name-code: EAIV16001
+  name: Regions Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC16001's answer.
+- name-code: EAIV16002
+  name: Regions
+  type: ELVT1021
+  modelled: true
+  default: {}
