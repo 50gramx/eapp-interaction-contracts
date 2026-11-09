@@ -16,14 +16,12 @@
       "EAIV6002",
       "EAIV6029",
       "EAIV6005",
-      "EAIV6016",
-      "EAIV6017",
-      "EAIV6057"
+      "EAIV6060"
     ]
   },
   "conformance": {
     "behavioral": "EAIV6002 list grows by at least 1 item; EAIV6029 list grows by at least 1 item",
-    "state": "EAIV6005 populated, EAIV6016 populated, EAIV6017 populated, EAIV6057 populated",
+    "state": "EAIV6005 populated, EAIV6060 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -36,9 +34,7 @@
     "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
     "Then EAIV6029 (Pending Turn) has at least 1 item": "EAIV6029",
     "Then EAIV6005 (Composer Text) is not empty": "EAIV6005",
-    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
-    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
-    "Then EAIV6057 (Activity) is not empty": "EAIV6057"
+    "Then EAIV6060 (Watched Send Result) is not empty": "EAIV6060"
   },
   "steps": [
     {
@@ -80,17 +76,7 @@
     {
       "type": "then",
       "assert": "not-empty",
-      "variable": "EAIV6016"
-    },
-    {
-      "type": "then",
-      "assert": "not-empty",
-      "variable": "EAIV6017"
-    },
-    {
-      "type": "then",
-      "assert": "not-empty",
-      "variable": "EAIV6057"
+      "variable": "EAIV6060"
     }
   ]
 }

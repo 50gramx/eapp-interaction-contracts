@@ -1,0 +1,67 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_agent_chat_send_message_watch_the_turn_capability_executes",
+  "app": "epn_agent_chat",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Send Message (watch the turn) capability executes",
+  "capability": "EALC6037",
+  "inputs": {
+    "EAIV6019": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV6002",
+      "EAIV6016",
+      "EAIV6017",
+      "EAIV6057"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV6002 list grows by at least 1 item",
+    "state": "EAIV6016 populated, EAIV6017 populated, EAIV6057 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV6019 (Active Conversation ID) is set to \"test-value\"": "EAIV6019",
+    "When capability EALC6037 (Send Message (watch the turn)) is invoked": "EALC6037",
+    "Then EAIV6002 (Messages) has at least 1 item": "EAIV6002",
+    "Then EAIV6016 (Latest Run) is not empty": "EAIV6016",
+    "Then EAIV6017 (Latest Approval) is not empty": "EAIV6017",
+    "Then EAIV6057 (Activity) is not empty": "EAIV6057"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV6019",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC6037"
+    },
+    {
+      "type": "then",
+      "assert": "list-length-gte",
+      "variable": "EAIV6002",
+      "expected": 1
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6016"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6017"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV6057"
+    }
+  ]
+}
