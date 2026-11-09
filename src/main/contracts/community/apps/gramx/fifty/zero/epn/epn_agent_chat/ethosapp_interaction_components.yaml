@@ -201,15 +201,16 @@
     name-code: EIC1009
     hint-text: Ask Evo anything…
     text-bind: EAIV6005
-    # Pressing Enter submits the message (same as the Send button → EALC6002).
-    on-submit: EALC6002
+    # Pressing Enter submits the message (same as the Send button → EALC6036,
+    # the send that streams the turn as it runs).
+    on-submit: EALC6036
 
 - name-code: EAIC6005
   name: Send Button
   component:
     name-code: EIC1006
     label: Send
-    on-click: EALC6002
+    on-click: EALC6036
 
 - name-code: EAIC6033
   name: Check Readiness Button

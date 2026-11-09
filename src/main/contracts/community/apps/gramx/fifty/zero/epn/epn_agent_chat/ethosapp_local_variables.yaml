@@ -310,3 +310,10 @@
   name: Send Error Message
   type: ELVT1021
   default: {}
+
+# What the watched send (EALC6037) ended with, so EALC6036 can tell an engine
+# without mesh-subscribe and send plainly instead.
+- name-code: EAIV6060
+  name: Watched Send Result
+  type: ELVT1007
+  default: ""

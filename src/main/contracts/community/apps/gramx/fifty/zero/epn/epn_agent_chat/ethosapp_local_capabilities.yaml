@@ -495,11 +495,14 @@
         value: chat
 
 # ── THE SAME SEND, WATCHED WHILE IT RUNS (EAMC6003, flow-bob mesh-subscribe) ──
-# Each snapshot of the running turn replaces the thinking row, so the reply,
-# the steps and who worked on it grow live; the finished turn is appended as
-# EALC6002 appends it. NOT WIRED YET: an app whose engine predates
-# mesh-subscribe would stop at this step, so the composer moves to it once the
-# build carrying flow-bob 20c9b38 is on every device.
+# Send (EAIC6004 / EAIC6005). The reply, the steps and who worked on it grow
+# live; the finished turn is appended as EALC6002 appends it.
+#
+# SAFE ON EVERY APP. The watching is EALC6037, reached through `call`, which
+# every engine has. An engine older than mesh-subscribe stops EALC6037 at that
+# step with exactly "Unknown command: mesh-subscribe" and `call` goes on, so the
+# plain send (EALC6038) runs instead -- an older app sends as it always did. A
+# gram that does not serve the stream yet falls back the same way.
 - name-code: EALC6036
   name: Send Message (streamed)
   context:
@@ -547,9 +550,24 @@
         target: EAIV6029
         value: EAIV6030
 
-      # Invoke mesh service (unary RPC — returns single Map). If the gram does
-      # not answer (stopped, unreachable), the thinking dots are hidden and the
-      # reason is said in the chat, with what to do -- not three dots forever.
+      - command: set
+        target: EAIV6060
+        value: ""
+      - command: call
+        capability: EALC6037
+        assign-to: EAIV6060
+      - command: if
+        condition: [EAIV6060, equals, "Unknown command: mesh-subscribe"]
+        then:
+          - command: call
+            capability: EALC6038
+
+# The watching half of EALC6036: the request is already composed.
+- name-code: EALC6037
+  name: Send Message (watch the turn)
+  context:
+    steps:
+      # Each snapshot of the running turn replaces the thinking row.
       - command: mesh-subscribe
         capability: EAMC6003
         request: EAIV6003
@@ -561,6 +579,66 @@
           - command: list-append
             target: EAIV6029
             value: EAIV6027
+        # A gram that does not serve the stream yet (an older build), or a
+        # stream that broke: the plain send runs instead, and says its own
+        # error if it fails too.
+        on-error:
+          - command: call
+            capability: EALC6038
+          - command: return
+            value: done
+
+      # Response has arrived — hide the thinking indicator.
+      - command: set
+        target: EAIV6029
+        value: []
+
+      # Append response message directly to chat history
+      - command: list-append
+        target: EAIV6002
+        value: EAIV6027
+
+      # Extract conversation_id from response message
+      - command: set
+        target: EAIV6019
+        value: EAIV6027.eamvt6016
+
+      # Refresh run status
+      - command: platform-invoke
+        handler: epn.agent.run.latest
+        assign-to: EAIV6016
+
+      # Aha 5: refresh latest approval so a pending approval the agent just
+      # created (e.g. for a state-changing action) surfaces immediately in the
+      # approve/deny card without waiting for the next page open.
+      - command: platform-invoke
+        handler: epn.agent.approval.latest
+        assign-to: EAIV6017
+
+      # What this turn started (a run, an approval, a specialist request) shows
+      # beside Send at once.
+      - command: set-map-value
+        target-map: EAIV6056
+        key: EAMVT6042
+        value: EAIV6019
+      - command: mesh-invoke
+        capability: EAMC6007
+        request: EAIV6056
+        assign-to: EAIV6057
+
+# The plain half of EALC6036, for an engine or a gram without the stream: the
+# request is already composed, so it is EALC6002 from the mesh call on.
+- name-code: EALC6038
+  name: Send Message (plain)
+  context:
+    steps:
+      # Invoke mesh service (unary RPC — returns single Map). If the gram does
+      # not answer (stopped, unreachable), the thinking dots are hidden and the
+      # reason is said in the chat, with what to do -- not three dots forever.
+      - command: mesh-invoke
+        capability: EAMC6002
+        request: EAIV6003
+        assign-to: EAIV6027
         error-to: EAIV6058
         on-error:
           - command: set
