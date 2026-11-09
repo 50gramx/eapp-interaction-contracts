@@ -150,3 +150,10 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# The device as the app sees it (device.state): lifecycle, battery, charging,
+# low_power, network and a summary sentence.
+- name-code: EAIV14053
+  name: Device State
+  type: ELVT1021
+  default: {}

@@ -110,6 +110,17 @@
       - command: platform-invoke
         handler: epn.node.capabilities
         assign-to: EAIV14049
+      # The device (lifecycle, battery, charging, network), live; each change
+      # re-reads This Gram, so its power and "up next hour" follow the device.
+      - command: platform-subscribe
+        handler: device.state
+        assign-to: EAIV14053
+        value: as-is
+        on-item:
+          - command: mesh-invoke
+            capability: EAMC14002
+            request: EAIV14050
+            assign-to: EAIV14052
       # The person's grams and this gram's resources, from the gram itself.
       # Last, so an app that cannot reach these doors still runs the steps above.
       - command: mesh-invoke

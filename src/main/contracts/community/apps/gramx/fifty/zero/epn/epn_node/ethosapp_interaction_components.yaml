@@ -1045,3 +1045,12 @@
     name-code: EIC1023
     child: EAIC14319
     color: layer-02
+
+# The device this gram runs on, live (device.state).
+- name-code: EAIC14321
+  name: Device State Text
+  component:
+    name-code: EIC1020
+    text: EAIV14053.summary
+    variant: caption01
+    color: on-surface-subtle

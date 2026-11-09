@@ -25,4 +25,5 @@
   composition:
     name-code: EIC1005
     children-components:
+      - EAIC14321
       - EAIC14320
