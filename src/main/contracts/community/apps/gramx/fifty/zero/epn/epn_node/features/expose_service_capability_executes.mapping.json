@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14011",
+    "Given the Gram eApp is open": "EALC14011",
     "When capability EALC14011 (Expose Service) is invoked": "EALC14011",
     "Then EAIV14011 (Expose Result) is not empty": "EAIV14011",
     "Then EAIV14012 (My Identity) is not empty": "EAIV14012"

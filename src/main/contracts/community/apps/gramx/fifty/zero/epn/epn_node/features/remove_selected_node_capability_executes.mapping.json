@@ -22,7 +22,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14027",
+    "Given the Gram eApp is open": "EALC14027",
     "When capability EALC14027 (Remove Selected Node) is invoked": "EALC14027",
     "Then EAIV14027 (Action Result) is not empty": "EAIV14027",
     "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",

@@ -22,7 +22,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14025",
+    "Given the Gram eApp is open": "EALC14025",
     "When capability EALC14025 (Select Node) is invoked": "EALC14025",
     "Then EAIV14023 (Selected Node Id) is not empty": "EAIV14023",
     "Then EAIV14024 (Selected Node Label) is not empty": "EAIV14024",

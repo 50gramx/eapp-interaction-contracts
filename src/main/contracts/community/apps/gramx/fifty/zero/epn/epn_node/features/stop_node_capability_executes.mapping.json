@@ -20,7 +20,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14002",
+    "Given the Gram eApp is open": "EALC14002",
     "When capability EALC14002 (Stop Node) is invoked": "EALC14002",
     "Then EAIV14003 (Stop Result) is not empty": "EAIV14003"
   },

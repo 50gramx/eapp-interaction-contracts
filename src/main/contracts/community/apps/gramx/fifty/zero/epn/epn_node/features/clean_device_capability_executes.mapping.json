@@ -22,7 +22,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14028",
+    "Given the Gram eApp is open": "EALC14028",
     "When capability EALC14028 (Clean Device) is invoked": "EALC14028",
     "Then EAIV14028 (Clean Result) is not empty": "EAIV14028",
     "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",

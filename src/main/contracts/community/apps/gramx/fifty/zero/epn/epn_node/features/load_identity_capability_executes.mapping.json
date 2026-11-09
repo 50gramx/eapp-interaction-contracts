@@ -20,7 +20,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14012",
+    "Given the Gram eApp is open": "EALC14012",
     "When capability EALC14012 (Load Identity) is invoked": "EALC14012",
     "Then EAIV14012 (My Identity) is not empty": "EAIV14012"
   },

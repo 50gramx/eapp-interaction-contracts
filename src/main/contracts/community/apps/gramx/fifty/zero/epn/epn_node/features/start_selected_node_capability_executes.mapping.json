@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14029",
+    "Given the Gram eApp is open": "EALC14029",
     "When capability EALC14029 (Start Selected Node) is invoked": "EALC14029",
     "Then EAIV14026 (Selection Flag) is not empty": "EAIV14026",
     "Then EAIV14020 (Nodes) is not empty": "EAIV14020"

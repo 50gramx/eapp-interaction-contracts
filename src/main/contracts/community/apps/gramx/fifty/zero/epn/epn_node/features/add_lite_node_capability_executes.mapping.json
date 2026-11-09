@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14023",
+    "Given the Gram eApp is open": "EALC14023",
     "When capability EALC14023 (Add Lite Node) is invoked": "EALC14023",
     "Then EAIV14022 (Create Result) is not empty": "EAIV14022",
     "Then EAIV14020 (Nodes) is not empty": "EAIV14020"

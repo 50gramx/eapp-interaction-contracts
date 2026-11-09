@@ -20,7 +20,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14015",
+    "Given the Gram eApp is open": "EALC14015",
     "When capability EALC14015 (Connect Endpoint) is invoked": "EALC14015",
     "Then EAIV14015 (Connect Result) is not empty": "EAIV14015"
   },

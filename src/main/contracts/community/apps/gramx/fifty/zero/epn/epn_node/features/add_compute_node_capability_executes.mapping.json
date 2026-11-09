@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the Node eApp is open": "EALC14024",
+    "Given the Gram eApp is open": "EALC14024",
     "When capability EALC14024 (Add Compute Node) is invoked": "EALC14024",
     "Then EAIV14022 (Create Result) is not empty": "EAIV14022",
     "Then EAIV14020 (Nodes) is not empty": "EAIV14020"

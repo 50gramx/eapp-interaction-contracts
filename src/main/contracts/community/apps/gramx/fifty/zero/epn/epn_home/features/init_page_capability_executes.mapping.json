@@ -21,7 +21,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given the EP&N Node eApp is open": "EALC5005",
+    "Given the Home eApp is open": "EALC5005",
     "When capability EALC5005 (Init Page) is invoked": "EALC5005",
     "Then EAIV5008 (Capacity Plan) is not empty": "EAIV5008",
     "Then EAIV5004 (Node Identity) is not empty": "EAIV5004"
