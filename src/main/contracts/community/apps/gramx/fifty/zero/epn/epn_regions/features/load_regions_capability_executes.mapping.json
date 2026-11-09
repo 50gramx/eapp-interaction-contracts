@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_regions_load_regions_capability_executes",
+  "app": "epn_regions",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Regions capability executes",
+  "capability": "EALC16001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV16002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV16002 is populated",
+    "state": "EAIV16002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Regions eApp is open": "EALC16001",
+    "When capability EALC16001 (Load Regions) is invoked": "EALC16001",
+    "Then EAIV16002 (Regions) is not empty": "EAIV16002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC16001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV16002"
+    }
+  ]
+}
