@@ -470,3 +470,116 @@
     children-components:
       - EAIC9104
       - EAIC9103
+
+# ── GROWTH (EAMC9002): THE SITE'S VISITS, LIVE ───────────────────────────────
+- name-code: EAIC9106
+  name: Growth Header
+  component:
+    name-code: EIC1004
+    label: Growth
+
+- name-code: EAIC9107
+  name: Growth Summary
+  component:
+    name-code: EIC1020
+    text: EAIV9011.eamvt9011
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9108
+  name: Growth Sources
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV9011.eamvt9012
+    title: Where they came from
+    height: 130
+
+- name-code: EAIC9109
+  name: Growth Kinds
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV9011.eamvt9013
+    title: What they looked at
+    height: 130
+
+- name-code: EAIC9110
+  name: Growth Charts Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    stack-below: 672
+    children-components:
+      - EAIC9108
+      - EAIC9109
+
+- name-code: EAIC9111
+  name: Growth Pages Header
+  component:
+    name-code: EIC1020
+    text: Top pages
+    variant: heading02
+
+- name-code: EAIC9112
+  name: Growth Pages
+  component:
+    name-code: EIC1026
+    source: EAIV9011.eamvt9014
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9113
+  name: Growth Last Hour Header
+  component:
+    name-code: EIC1020
+    text: Last hour
+    variant: heading02
+
+- name-code: EAIC9114
+  name: Growth Last Hour
+  component:
+    name-code: EIC1026
+    source: EAIV9011.eamvt9015
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9115
+  name: Growth Report Header
+  component:
+    name-code: EIC1020
+    text: This week
+    variant: heading02
+
+- name-code: EAIC9116
+  name: Growth Report
+  component:
+    name-code: EIC1020
+    text: EAIV9011.eamvt9016
+    variant: body01
+
+- name-code: EAIC9117
+  name: Growth Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9106
+      - EAIC9107
+      - EAIC9110
+      - EAIC9111
+      - EAIC9112
+      - EAIC9113
+      - EAIC9114
+      - EAIC9115
+      - EAIC9116
+
+- name-code: EAIC9118
+  name: Growth Card
+  component:
+    name-code: EIC1023
+    child: EAIC9117
+    color: layer-02

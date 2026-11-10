@@ -113,3 +113,13 @@
         capability: EAMC9001
         request: EAIV9008
         assign-to: EAIV9009
+
+# The growth board, loaded each time its page appears.
+- name-code: EALC9011
+  name: Load Growth Board
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC9002
+        request: EAIV9010
+        assign-to: EAIV9011

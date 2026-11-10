@@ -22,3 +22,15 @@
     name-code: EIC1005
     children-components:
       - EAIT9003
+
+- name-code: EAIP9003
+  name: Growth Page
+  navigation:
+    heading: Work
+    label: Growth
+    order: 52
+  on-appear: EALC9011
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT9004

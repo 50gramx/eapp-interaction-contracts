@@ -45,3 +45,47 @@
       name: operators
       type: ELVT1018
       default: []
+
+# ── GROWTH: WHO CAME TO THE SITE, AND WHAT THEY DID ─────────────────────────
+
+# EAMV9003 - Growth Request.
+- name-code: EAMV9003
+  name: Growth Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9010
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV9004 - the site's visits as this gram counts them: a summary, where visitors came from and which kinds of page they saw {label, value}, the top pages and the last hour {title, subtitle, trailing}, and the weekly report.
+- name-code: EAMV9004
+  name: Growth
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9011
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9012
+      name: sources
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9013
+      name: kinds
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9014
+      name: pages
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9015
+      name: last_hour
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9016
+      name: report
+      type: ELVT1007
+      default: ""

@@ -54,3 +54,17 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Request for EAMC9002.
+- name-code: EAIV9010
+  name: Growth Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC9002's answer.
+- name-code: EAIV9011
+  name: Growth
+  type: ELVT1021
+  modelled: true
+  default: {}

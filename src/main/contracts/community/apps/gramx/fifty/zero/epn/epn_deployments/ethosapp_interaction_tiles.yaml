@@ -24,3 +24,11 @@
     name-code: EIC1005
     children-components:
       - EAIC9105
+
+- name-code: EAIT9004
+  name: Growth Tile
+  about: The site's visits and actions, live
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9118

@@ -6,3 +6,12 @@
     method: EAMC9001
     expects: EAMV9001
     returns: EAMV9002
+
+# EAMC9002 - the live growth board: the site's visits and actions, counted by the gram that ingests them and shared through your home gramx.
+- name-code: EAMC9002
+  name: Growth
+  mesh:
+    context: discover
+    method: EAMC9002
+    expects: EAMV9003
+    returns: EAMV9004
