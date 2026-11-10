@@ -114,7 +114,7 @@
     id: epn
     community-code: 50
     display-name: 50GRAMx Gram
-    product-name: EP&N Node
+    product-name: 50GRAMx Gram
     window-title: 50GRAMx Gram
     # Placeholder: no dedicated EP&N logo asset exists/bundles yet, so point at
     # the default bundled logo to avoid a broken image. Replace with
@@ -142,10 +142,10 @@
       singleton-name: 50gramx_epn_singleton
     windows:
       binary-name: epn_node
-      installer-output-name: EpnNodeSetup
+      installer-output-name: 50GRAMxGramSetup
       installer-default-dir: EpnNode
       window-title: 50GRAMx Gram
-      product-name: EP&N Node
+      product-name: 50GRAMx Gram
       company-name: 50GRAMx
       file-description: 50GRAMx Gram
       internal-name: epn_node
