@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_load_growth_board_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Growth Board capability executes",
+  "capability": "EALC9011",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9011"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9011 is populated",
+    "state": "EAIV9011 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9011",
+    "When capability EALC9011 (Load Growth Board) is invoked": "EALC9011",
+    "Then EAIV9011 (Growth) is not empty": "EAIV9011"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9011"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9011"
+    }
+  ]
+}
