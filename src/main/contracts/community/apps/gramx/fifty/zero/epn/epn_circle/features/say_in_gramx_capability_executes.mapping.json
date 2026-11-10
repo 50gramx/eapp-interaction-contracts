@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_say_in_gramx_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Say In Gramx capability executes",
+  "capability": "EALC15020",
+  "inputs": {
+    "EAIV15026.EAMVT15006": "test-value",
+    "EAIV15031": "hello from scenario test"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV15031",
+      "EAIV15027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15031 is populated; EAIV15027 is populated",
+    "state": "EAIV15031 populated, EAIV15027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV15026.EAMVT15006 (EAIV15026.EAMVT15006) is set to \"test-value\"": "EAIV15026.EAMVT15006",
+    "And EAIV15031 (Say Text) is set to \"hello from scenario test\"": "EAIV15031",
+    "When capability EALC15020 (Say In Gramx) is invoked": "EALC15020",
+    "Then EAIV15031 (Say Text) is not empty": "EAIV15031",
+    "Then EAIV15027 (Open Gramx) is not empty": "EAIV15027"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV15026.EAMVT15006",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV15031",
+      "value": "hello from scenario test"
+    },
+    {
+      "type": "when",
+      "capability": "EALC15020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15031"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15027"
+    }
+  ]
+}
