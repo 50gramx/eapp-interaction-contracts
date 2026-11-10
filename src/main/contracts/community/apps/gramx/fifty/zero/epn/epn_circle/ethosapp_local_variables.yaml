@@ -200,3 +200,16 @@
   name: Picked Request Text
   type: ELVT1007
   default: "Pick a request on the desk to see its next step."
+
+# What you are about to say in the open gramx (EAMC15004).
+- name-code: EAIV15031
+  name: Say Text
+  type: ELVT1007
+  default: ""
+
+# The say request (EAMC15004).
+- name-code: EAIV15032
+  name: Say Request
+  type: ELVT1021
+  modelled: true
+  default: {}

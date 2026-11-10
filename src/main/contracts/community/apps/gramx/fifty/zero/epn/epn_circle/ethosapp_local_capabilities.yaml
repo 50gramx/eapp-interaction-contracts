@@ -68,6 +68,12 @@
         capability: EAMC15001
         request: EAIV15024
         assign-to: EAIV15025
+      # ONE GRAMX IN FRONT OF YOU (backlog K2): open the home gramx on arrival;
+      # an empty id is the home gramx on the gram.
+      - command: mesh-invoke
+        capability: EAMC15002
+        request: EAIV15026
+        assign-to: EAIV15027
 
 # "Start a Circle" — enables the trusted ring on the daemon (still empty —
 # this device only) and moves to Setup so the operator can add the first
@@ -391,4 +397,26 @@
       - command: mesh-invoke
         capability: EAMC15003
         request: EAIV15028
+        assign-to: EAIV15027
+
+# Say something in the open gramx, as yourself; the gram signs it with your key
+# and answers with the gramx again, so the post appears at once (backlog K2).
+- name-code: EALC15020
+  name: Say In Gramx
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15032
+        key: EAMVT15014
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15032
+        key: EAMVT15015
+        value: EAIV15031
+      - command: set
+        target: EAIV15031
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC15004
+        request: EAIV15032
         assign-to: EAIV15027

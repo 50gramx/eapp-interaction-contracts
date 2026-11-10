@@ -439,7 +439,7 @@
   name: Gramx Header
   component:
     name-code: EIC1004
-    label: Your gramx
+    label: Switch gramx
 
 - name-code: EAIC15064
   name: Gramx Summary
@@ -527,7 +527,7 @@
   name: Open Gramx Posts Header
   component:
     name-code: EIC1020
-    text: Lately in this gramx
+    text: What was said here
     variant: caption01
     color: on-surface-subtle
 
@@ -574,6 +574,31 @@
     label: Approve its next step (signed by you)
     on-click: EALC15019
 
+- name-code: EAIC15081
+  name: Say Input
+  component:
+    name-code: EIC1009
+    hint-text: Say something in this gramx…
+    text-bind: EAIV15031
+    on-submit: EALC15020
+
+- name-code: EAIC15082
+  name: Say Button
+  component:
+    name-code: EIC1006
+    label: Post
+    on-click: EALC15020
+
+- name-code: EAIC15083
+  name: People Header
+  component:
+    name-code: EIC1020
+    text: People and grams in this gramx
+    variant: caption01
+    color: on-surface-subtle
+
+# ONE GRAMX IN FRONT OF YOU (backlog K2): the room, then what to say, then what
+# was said, then who is here; the desk only for the foundation.
 - name-code: EAIC15079
   name: Open Gramx Column
   component:
@@ -581,9 +606,12 @@
     children-components:
       - EAIC15070
       - EAIC15071
-      - EAIC15072
+      - EAIC15081
+      - EAIC15082
       - EAIC15073
       - EAIC15074
+      - EAIC15083
+      - EAIC15072
       - EAIC15075
       - EAIC15076
       - EAIC15077

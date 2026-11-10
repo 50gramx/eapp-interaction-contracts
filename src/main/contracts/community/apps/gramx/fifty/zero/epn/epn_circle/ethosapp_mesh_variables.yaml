@@ -89,3 +89,18 @@
       name: shape
       type: ELVT1007
       default: ""
+
+# EAMV15006 - what to say, and in which gramx (empty = your home gramx).
+- name-code: EAMV15006
+  name: Say In Gramx
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15014
+      name: gramx_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15015
+      name: text
+      type: ELVT1007
+      default: ""

@@ -26,3 +26,12 @@
     method: EAMC15003
     expects: EAMV15005
     returns: EAMV15004
+
+# EAMC15004 - say something in one gramx, as yourself (signed by your gram with your key); answers with the gramx again.
+- name-code: EAMC15004
+  name: Say In Gramx
+  mesh:
+    context: discover
+    method: EAMC15004
+    expects: EAMV15006
+    returns: EAMV15004
