@@ -115,3 +115,16 @@
   name: Picked Domain
   type: ELVT1007
   default: ""
+
+# The monthly limit being set, in GB.
+- name-code: EAIV9019
+  name: Cap Text
+  type: ELVT1007
+  default: ""
+
+# Request for EAMC9008.
+- name-code: EAIV9020
+  name: Cap Request
+  type: ELVT1021
+  modelled: true
+  default: {}

@@ -217,3 +217,35 @@
         capability: EAMC9007
         request: EAIV9014
         assign-to: EAIV9015
+
+# Set the open site's monthly limit.
+- name-code: EALC9018
+  name: Set Site Cap
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9020
+        key: EAMVT9032
+        value: EAIV9015.EAMVT9028
+      - command: set-map-value
+        target-map: EAIV9020
+        key: EAMVT9033
+        value: EAIV9019
+      - command: mesh-invoke
+        capability: EAMC9008
+        request: EAIV9020
+        assign-to: EAIV9015
+
+# Roll the open site back to its previous version.
+- name-code: EALC9019
+  name: Roll Back Site
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9014
+        key: EAMVT9020
+        value: EAIV9015.EAMVT9028
+      - command: mesh-invoke
+        capability: EAMC9009
+        request: EAIV9014
+        assign-to: EAIV9015

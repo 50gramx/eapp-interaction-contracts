@@ -751,6 +751,28 @@
     label: New deploy token for CI
     on-click: EALC9017
 
+- name-code: EAIC9141
+  name: Cap Input
+  component:
+    name-code: EIC1009
+    hint-text: Monthly limit in GB served (0 = none)
+    text-bind: EAIV9019
+    on-submit: EALC9018
+
+- name-code: EAIC9142
+  name: Set Cap Button
+  component:
+    name-code: EIC1008
+    label: Set monthly limit
+    on-click: EALC9018
+
+- name-code: EAIC9143
+  name: Roll Back Button
+  component:
+    name-code: EIC1008
+    label: Roll back to the previous version
+    on-click: EALC9019
+
 - name-code: EAIC9139
   name: Sites Column
   component:
@@ -776,6 +798,9 @@
       - EAIC9136
       - EAIC9137
       - EAIC9138
+      - EAIC9141
+      - EAIC9142
+      - EAIC9143
 
 - name-code: EAIC9140
   name: Sites Card

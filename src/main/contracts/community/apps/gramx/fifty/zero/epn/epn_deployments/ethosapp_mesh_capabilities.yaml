@@ -60,3 +60,21 @@
     method: EAMC9007
     expects: EAMV9007
     returns: EAMV9008
+
+# EAMC9008 - set a site's monthly limit in GB served; at the limit the site pauses until the month turns.
+- name-code: EAMC9008
+  name: Set Site Cap
+  mesh:
+    context: discover
+    method: EAMC9008
+    expects: EAMV9010
+    returns: EAMV9008
+
+# EAMC9009 - point a site back at its previous version (instant; the files are still held).
+- name-code: EAMC9009
+  name: Roll Back Site
+  mesh:
+    context: discover
+    method: EAMC9009
+    expects: EAMV9007
+    returns: EAMV9008

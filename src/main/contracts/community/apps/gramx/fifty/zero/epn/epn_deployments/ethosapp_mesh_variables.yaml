@@ -186,3 +186,18 @@
       name: domain
       type: ELVT1007
       default: ""
+
+# EAMV9010 - Site Cap Request: the site and its monthly limit in GB served ("0" = none).
+- name-code: EAMV9010
+  name: Site Cap Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9032
+      name: site_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9033
+      name: cap_gb
+      type: ELVT1007
+      default: ""
