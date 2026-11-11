@@ -123,3 +123,97 @@
         capability: EAMC9002
         request: EAIV9010
         assign-to: EAIV9011
+
+# The sites page: the list, then the first site opened.
+- name-code: EALC9012
+  name: Load Sites
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC9003
+        request: EAIV9012
+        assign-to: EAIV9013
+      - command: mesh-invoke
+        capability: EAMC9004
+        request: EAIV9014
+        assign-to: EAIV9015
+
+# Open one site from the list.
+- name-code: EALC9013
+  name: Open Site
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV9014
+        key: EAMVT9020
+        value: id
+      - command: mesh-invoke
+        capability: EAMC9004
+        request: EAIV9014
+        assign-to: EAIV9015
+
+# Add the typed domain to the open site.
+- name-code: EALC9014
+  name: Add Domain
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9017
+        key: EAMVT9029
+        value: EAIV9015.EAMVT9028
+      - command: set-map-value
+        target-map: EAIV9017
+        key: EAMVT9030
+        value: EAIV9016
+      - command: set
+        target: EAIV9016
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9005
+        request: EAIV9017
+        assign-to: EAIV9015
+
+# Pick a domain in the list.
+- name-code: EALC9015
+  name: Pick Domain
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set
+        target: EAIV9018
+        value: id
+
+# Remove the picked domain.
+- name-code: EALC9016
+  name: Remove Domain
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9017
+        key: EAMVT9029
+        value: EAIV9015.EAMVT9028
+      - command: set-map-value
+        target-map: EAIV9017
+        key: EAMVT9030
+        value: EAIV9018
+      - command: mesh-invoke
+        capability: EAMC9006
+        request: EAIV9017
+        assign-to: EAIV9015
+
+# A new deploy token for the open site (for CI); shown once in the publish text.
+- name-code: EALC9017
+  name: New Deploy Token
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9014
+        key: EAMVT9020
+        value: EAIV9015.EAMVT9028
+      - command: mesh-invoke
+        capability: EAMC9007
+        request: EAIV9014
+        assign-to: EAIV9015

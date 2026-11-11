@@ -583,3 +583,203 @@
     name-code: EIC1023
     child: EAIC9117
     color: layer-02
+
+# ── SITES AND DOMAINS (EAMC9003-9007) ───────────────────────────────────────
+- name-code: EAIC9119
+  name: Sites Header
+  component:
+    name-code: EIC1004
+    label: Your sites
+
+- name-code: EAIC9120
+  name: Sites Summary
+  component:
+    name-code: EIC1020
+    text: EAIV9013.eamvt9019
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9121
+  name: Sites List
+  component:
+    name-code: EIC1026
+    source: EAIV9013.eamvt9018
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC9013
+
+- name-code: EAIC9122
+  name: Site Title
+  component:
+    name-code: EIC1020
+    text: EAIV9015.eamvt9021
+    variant: heading02
+
+- name-code: EAIC9123
+  name: Site Summary
+  component:
+    name-code: EIC1020
+    text: EAIV9015.eamvt9022
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9124
+  name: Site Addresses
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9023
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9125
+  name: Domains Header
+  component:
+    name-code: EIC1020
+    text: Your domains (white label: visitors see only your domain)
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9126
+  name: Domains List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9024
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC9015
+
+- name-code: EAIC9127
+  name: Domain Input
+  component:
+    name-code: EIC1009
+    hint-text: shop.example.com
+    text-bind: EAIV9016
+    on-submit: EALC9014
+
+- name-code: EAIC9128
+  name: Add Domain Button
+  component:
+    name-code: EIC1006
+    label: Add domain
+    on-click: EALC9014
+
+- name-code: EAIC9129
+  name: Records Header
+  component:
+    name-code: EIC1020
+    text: Add these at your domain's DNS; the rest is automatic
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9130
+  name: Records List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9025
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9131
+  name: Picked Domain Text
+  component:
+    name-code: EIC1020
+    text: EAIV9018
+    variant: code01
+
+- name-code: EAIC9132
+  name: Remove Domain Button
+  component:
+    name-code: EIC1008
+    label: Remove the picked domain
+    on-click: EALC9016
+
+- name-code: EAIC9133
+  name: Holders Header
+  component:
+    name-code: EIC1020
+    text: Grams holding copies, and edges serving it
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9134
+  name: Holders List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9026
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9135
+  name: Site Edges List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9027
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC9136
+  name: Publish Header
+  component:
+    name-code: EIC1020
+    text: Publish: from your gram, the command line or CI
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9137
+  name: Publish Text
+  component:
+    name-code: EIC1020
+    text: EAIV9015.eamvt9031
+    variant: code01
+
+- name-code: EAIC9138
+  name: Deploy Token Button
+  component:
+    name-code: EIC1008
+    label: New deploy token for CI
+    on-click: EALC9017
+
+- name-code: EAIC9139
+  name: Sites Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9119
+      - EAIC9120
+      - EAIC9121
+      - EAIC9122
+      - EAIC9123
+      - EAIC9124
+      - EAIC9125
+      - EAIC9126
+      - EAIC9127
+      - EAIC9128
+      - EAIC9129
+      - EAIC9130
+      - EAIC9131
+      - EAIC9132
+      - EAIC9133
+      - EAIC9134
+      - EAIC9135
+      - EAIC9136
+      - EAIC9137
+      - EAIC9138
+
+- name-code: EAIC9140
+  name: Sites Card
+  component:
+    name-code: EIC1023
+    child: EAIC9139
+    color: layer-02

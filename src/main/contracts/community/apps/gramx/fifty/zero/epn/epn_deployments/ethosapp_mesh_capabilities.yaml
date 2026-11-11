@@ -15,3 +15,48 @@
     method: EAMC9002
     expects: EAMV9003
     returns: EAMV9004
+
+# EAMC9003 - the person's sites: what each serves, at which addresses, from how many grams.
+- name-code: EAMC9003
+  name: List Sites
+  mesh:
+    context: discover
+    method: EAMC9003
+    expects: EAMV9005
+    returns: EAMV9006
+
+# EAMC9004 - one site: addresses, custom domains and their state, the DNS records to add, holders, edges, how to publish.
+- name-code: EAMC9004
+  name: Open Site
+  mesh:
+    context: discover
+    method: EAMC9004
+    expects: EAMV9007
+    returns: EAMV9008
+
+# EAMC9005 - add a custom domain to a site; answers with the site, including the two DNS records that prove and point it.
+- name-code: EAMC9005
+  name: Add Domain
+  mesh:
+    context: discover
+    method: EAMC9005
+    expects: EAMV9009
+    returns: EAMV9008
+
+# EAMC9006 - remove a custom domain from a site.
+- name-code: EAMC9006
+  name: Remove Domain
+  mesh:
+    context: discover
+    method: EAMC9006
+    expects: EAMV9009
+    returns: EAMV9008
+
+# EAMC9007 - a new deploy token for a site, for CI (shown once; any earlier token keeps working until revoked).
+- name-code: EAMC9007
+  name: New Deploy Token
+  mesh:
+    context: discover
+    method: EAMC9007
+    expects: EAMV9007
+    returns: EAMV9008

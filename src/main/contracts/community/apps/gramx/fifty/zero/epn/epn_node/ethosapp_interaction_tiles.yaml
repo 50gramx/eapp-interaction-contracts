@@ -27,3 +27,11 @@
     children-components:
       - EAIC14321
       - EAIC14320
+
+- name-code: EAIT14004
+  name: Network Tile
+  about: Each gram's links, doors from outside, edge duty and address
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC14334

@@ -131,6 +131,11 @@
         capability: EAMC14002
         request: EAIV14050
         assign-to: EAIV14052
+      # Each gram's network: doors from outside, edges, addresses.
+      - command: mesh-invoke
+        capability: EAMC14003
+        request: EAIV14050
+        assign-to: EAIV14054
 
 # Re-list the device's nodes (after any add/stop/remove/clean).
 - name-code: EALC14021
@@ -343,3 +348,31 @@
       - command: platform-invoke
         handler: epn.node.list
         assign-to: EAIV14020
+
+# This gram serves names for the internet when it is publicly reachable.
+- name-code: EALC14030
+  name: Edge On
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV14055
+        key: EAMVT14016
+        value: "on"
+      - command: mesh-invoke
+        capability: EAMC14004
+        request: EAIV14055
+        assign-to: EAIV14054
+
+# This gram stops serving names for strangers (its line is not shared).
+- name-code: EALC14031
+  name: Edge Off
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV14055
+        key: EAMVT14016
+        value: "off"
+      - command: mesh-invoke
+        capability: EAMC14004
+        request: EAIV14055
+        assign-to: EAIV14054

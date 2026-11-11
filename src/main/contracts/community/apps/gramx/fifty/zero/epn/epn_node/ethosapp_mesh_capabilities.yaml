@@ -17,3 +17,21 @@
     method: EAMC14002
     expects: EAMV14003
     returns: EAMV14004
+
+# EAMC14003 - each gram's network: links, doors open from outside, whether it serves names, its address, what to open.
+- name-code: EAMC14003
+  name: Network
+  mesh:
+    context: discover
+    method: EAMC14003
+    expects: EAMV14005
+    returns: EAMV14006
+
+# EAMC14004 - turn a gram's edge duty on or off (the owner's choice; on by default); answers with the network again.
+- name-code: EAMC14004
+  name: Set Edge Duty
+  mesh:
+    context: discover
+    method: EAMC14004
+    expects: EAMV14007
+    returns: EAMV14006

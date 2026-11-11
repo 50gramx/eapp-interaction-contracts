@@ -89,3 +89,100 @@
       name: report
       type: ELVT1007
       default: ""
+
+# ── SITES AND DOMAINS (hosting on the network) ──────────────────────────────
+
+# EAMV9005 - Sites Request ("" = every site the person owns).
+- name-code: EAMV9005
+  name: Sites Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9017
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV9006 - the person's sites: rows {id, title, subtitle, trailing}; a summary.
+- name-code: EAMV9006
+  name: Sites
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9018
+      name: sites
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9019
+      name: summary
+      type: ELVT1007
+      default: ""
+
+# EAMV9007 - Site Request: which site ("" = the first).
+- name-code: EAMV9007
+  name: Site Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9020
+      name: site_id
+      type: ELVT1007
+      default: ""
+
+# EAMV9008 - one site: its id, title and summary; its addresses; its domains {id, title, subtitle, trailing}; the DNS records to add {title, subtitle}; the grams holding copies; the edges serving it; how to publish to it (and a deploy token, shown once).
+- name-code: EAMV9008
+  name: Site
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9028
+      name: site_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9021
+      name: title
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9022
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9023
+      name: addresses
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9024
+      name: domains
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9025
+      name: records
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9026
+      name: holders
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9027
+      name: edges
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9031
+      name: publish
+      type: ELVT1007
+      default: ""
+
+# EAMV9009 - Domain Request: the site and the domain (e.g. shop.example.com).
+- name-code: EAMV9009
+  name: Domain Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9029
+      name: site_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9030
+      name: domain
+      type: ELVT1007
+      default: ""

@@ -34,3 +34,15 @@
     name-code: EIC1005
     children-components:
       - EAIT9004
+
+- name-code: EAIP9004
+  name: Sites Page
+  navigation:
+    heading: Work
+    label: Sites
+    order: 53
+  on-appear: EALC9012
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT9005

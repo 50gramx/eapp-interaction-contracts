@@ -59,3 +59,58 @@
       name: resources
       type: ELVT1018
       default: []
+
+# ── NETWORK AND EDGES (from the gram) ─────────────────────────────────────
+
+# EAMV14005 - Network Request ("" = the person's grams).
+- name-code: EAMV14005
+  name: Network Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14009
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV14006 - each gram's network: a summary; this gram's doors as checked from outside {title, subtitle, trailing}; every gram {id, title, subtitle, trailing, address, advice}; the edges serving names {title, subtitle, trailing}; this gram's edge duty (serving | on | off).
+- name-code: EAMV14006
+  name: Network
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14010
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14011
+      name: doors
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT14012
+      name: grams
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT14013
+      name: edges
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT14014
+      name: edge_duty
+      type: ELVT1007
+      default: ""
+
+# EAMV14007 - Set Edge Duty: which gram ("" = this gram), and "on" or "off".
+- name-code: EAMV14007
+  name: Set Edge Duty
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14015
+      name: node_did
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14016
+      name: edge
+      type: ELVT1007
+      default: ""

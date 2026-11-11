@@ -32,3 +32,11 @@
     name-code: EIC1005
     children-components:
       - EAIC9118
+
+- name-code: EAIT9005
+  name: Sites Tile
+  about: Your sites, their domains, and the grams serving them
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9140

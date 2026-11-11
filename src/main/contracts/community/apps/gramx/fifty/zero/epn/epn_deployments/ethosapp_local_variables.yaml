@@ -68,3 +68,50 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Request for EAMC9003.
+- name-code: EAIV9012
+  name: Sites Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC9003's answer.
+- name-code: EAIV9013
+  name: Sites
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# Request for EAMC9004 / EAMC9007.
+- name-code: EAIV9014
+  name: Site Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The open site (EAMC9004, 9005, 9006, 9007).
+- name-code: EAIV9015
+  name: Site
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The domain being added.
+- name-code: EAIV9016
+  name: Domain Text
+  type: ELVT1007
+  default: ""
+
+# Request for EAMC9005 / EAMC9006.
+- name-code: EAIV9017
+  name: Domain Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The domain picked in the list (to remove).
+- name-code: EAIV9018
+  name: Picked Domain
+  type: ELVT1007
+  default: ""

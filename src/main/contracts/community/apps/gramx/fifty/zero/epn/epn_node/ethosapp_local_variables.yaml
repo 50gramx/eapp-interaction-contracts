@@ -157,3 +157,17 @@
   name: Device State
   type: ELVT1021
   default: {}
+
+# EAMC14003's answer.
+- name-code: EAIV14054
+  name: Network
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The edge duty request (EAMC14004).
+- name-code: EAIV14055
+  name: Edge Duty Request
+  type: ELVT1021
+  modelled: true
+  default: {}

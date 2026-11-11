@@ -1054,3 +1054,117 @@
     text: EAIV14053.summary
     variant: caption01
     color: on-surface-subtle
+
+# ── NETWORK AND EDGES (EAMC14003/14004) ─────────────────────────────────────
+- name-code: EAIC14322
+  name: Network Header
+  component:
+    name-code: EIC1004
+    label: Network and edges
+
+- name-code: EAIC14323
+  name: Network Summary
+  component:
+    name-code: EIC1020
+    text: EAIV14054.eamvt14010
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14324
+  name: Doors Header
+  component:
+    name-code: EIC1020
+    text: This gram's doors, as a gram outside sees them
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14325
+  name: Doors List
+  component:
+    name-code: EIC1026
+    source: EAIV14054.eamvt14011
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC14326
+  name: Network Grams Header
+  component:
+    name-code: EIC1020
+    text: Each gram's links, doors and edge duty
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14327
+  name: Network Grams List
+  component:
+    name-code: EIC1026
+    source: EAIV14054.eamvt14012
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC14328
+  name: Edges Header
+  component:
+    name-code: EIC1020
+    text: Edges answering names for the internet
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14329
+  name: Edges List
+  component:
+    name-code: EIC1026
+    source: EAIV14054.eamvt14013
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC14330
+  name: Edge Duty Text
+  component:
+    name-code: EIC1020
+    text: EAIV14054.eamvt14014
+    variant: body01
+
+- name-code: EAIC14331
+  name: Edge On Button
+  component:
+    name-code: EIC1006
+    label: Serve as an edge when reachable
+    on-click: EALC14030
+
+- name-code: EAIC14332
+  name: Edge Off Button
+  component:
+    name-code: EIC1008
+    label: Do not serve strangers from this gram
+    on-click: EALC14031
+
+- name-code: EAIC14333
+  name: Network Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14322
+      - EAIC14323
+      - EAIC14324
+      - EAIC14325
+      - EAIC14330
+      - EAIC14331
+      - EAIC14332
+      - EAIC14326
+      - EAIC14327
+      - EAIC14328
+      - EAIC14329
+
+- name-code: EAIC14334
+  name: Network Card
+  component:
+    name-code: EIC1023
+    child: EAIC14333
+    color: layer-02
