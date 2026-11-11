@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_load_sites_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load Sites capability executes",
+  "capability": "EALC9012",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9013",
+      "EAIV9015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9013 is populated; EAIV9015 is populated",
+    "state": "EAIV9013 populated, EAIV9015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9012",
+    "When capability EALC9012 (Load Sites) is invoked": "EALC9012",
+    "Then EAIV9013 (Sites) is not empty": "EAIV9013",
+    "Then EAIV9015 (Site) is not empty": "EAIV9015"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9012"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9013"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9015"
+    }
+  ]
+}

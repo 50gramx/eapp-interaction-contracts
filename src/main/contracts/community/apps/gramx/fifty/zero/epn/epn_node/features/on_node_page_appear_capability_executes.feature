@@ -2,7 +2,7 @@
 Feature: Gram
   # As a user, I want On Node Page Appear to work so I can use Gram.
 
-  @EALC14020 @EAIV14012 @EAIV14020 @EAIV14049 @EAIV14051 @EAIV14052
+  @EALC14020 @EAIV14012 @EAIV14020 @EAIV14049 @EAIV14051 @EAIV14052 @EAIV14054
   Scenario: On Node Page Appear capability executes
     Given the Gram eApp is open
     When capability EALC14020 (On Node Page Appear) is invoked
@@ -11,3 +11,4 @@ Feature: Gram
     Then EAIV14049 (Node Capabilities) is not empty
     Then EAIV14051 (Grams) is not empty
     Then EAIV14052 (This Gram) is not empty
+    Then EAIV14054 (Network) is not empty

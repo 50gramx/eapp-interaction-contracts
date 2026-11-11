@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_pick_domain_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Domain capability executes",
+  "capability": "EALC9015",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9018"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9018 is populated",
+    "state": "EAIV9018 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9015",
+    "When capability EALC9015 (Pick Domain) is invoked": "EALC9015",
+    "Then EAIV9018 (Picked Domain) is not empty": "EAIV9018"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9015"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9018"
+    }
+  ]
+}

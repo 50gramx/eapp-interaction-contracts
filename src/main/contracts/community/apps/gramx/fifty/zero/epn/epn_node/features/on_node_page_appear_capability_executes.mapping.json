@@ -13,12 +13,13 @@
       "EAIV14020",
       "EAIV14049",
       "EAIV14051",
-      "EAIV14052"
+      "EAIV14052",
+      "EAIV14054"
     ]
   },
   "conformance": {
-    "behavioral": "EAIV14012 is populated; EAIV14020 is populated; EAIV14049 is populated; EAIV14051 is populated; EAIV14052 is populated",
-    "state": "EAIV14012 populated, EAIV14020 populated, EAIV14049 populated, EAIV14051 populated, EAIV14052 populated",
+    "behavioral": "EAIV14012 is populated; EAIV14020 is populated; EAIV14049 is populated; EAIV14051 is populated; EAIV14052 is populated; EAIV14054 is populated",
+    "state": "EAIV14012 populated, EAIV14020 populated, EAIV14049 populated, EAIV14051 populated, EAIV14052 populated, EAIV14054 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -30,7 +31,8 @@
     "Then EAIV14020 (Nodes) is not empty": "EAIV14020",
     "Then EAIV14049 (Node Capabilities) is not empty": "EAIV14049",
     "Then EAIV14051 (Grams) is not empty": "EAIV14051",
-    "Then EAIV14052 (This Gram) is not empty": "EAIV14052"
+    "Then EAIV14052 (This Gram) is not empty": "EAIV14052",
+    "Then EAIV14054 (Network) is not empty": "EAIV14054"
   },
   "steps": [
     {
@@ -61,6 +63,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV14052"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14054"
     }
   ]
 }

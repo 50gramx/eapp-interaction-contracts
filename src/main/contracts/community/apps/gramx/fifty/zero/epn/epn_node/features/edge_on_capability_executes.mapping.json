@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_edge_on_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Edge On capability executes",
+  "capability": "EALC14030",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14054"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14054 is populated",
+    "state": "EAIV14054 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Gram eApp is open": "EALC14030",
+    "When capability EALC14030 (Edge On) is invoked": "EALC14030",
+    "Then EAIV14054 (Network) is not empty": "EAIV14054"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14030"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14054"
+    }
+  ]
+}
