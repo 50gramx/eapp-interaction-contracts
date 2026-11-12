@@ -45,7 +45,7 @@
   name: App-Primitives Text
   component:
     name-code: EIC1020
-    text: The demo also shows the app-level primitives usually needed to ship a real app: text controllers, URL/URI, UUID, color, email, phone, currency, and geo.
+    text: "The demo also shows the app-level primitives usually needed to ship a real app: text controllers, URL/URI, UUID, color, email, phone, currency, and geo."
     variant: body01
 
 - name-code: EAIC8007
@@ -228,7 +228,7 @@
   name: Map Field
   component:
     name-code: EIC1020
-    text: EAMV8002 = { user_id: usr-456 } / ELVT1019 map
+    text: "EAMV8002 = { user_id: usr-456 } / ELVT1019 map"
     variant: body02
 
 - name-code: EAIC8030

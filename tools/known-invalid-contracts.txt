@@ -1,0 +1,10 @@
+# Contract files known not to parse, each with the reason it is tolerated.
+# Every other file must be UTF-8 and valid YAML (tools/validate-contracts.rb).
+# Remove a line when its file is fixed or deleted.
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp.yaml # an HTML page saved under contract names since de48990 (2026-04-05); the app needs its real contracts or removal (founder's call)
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_interaction_components.yaml # same
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_interaction_pages.yaml # same
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_interaction_personas.yaml # same
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_interaction_tiles.yaml # same
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_local_capabilities.yaml # same
+src/main/contracts/community/apps/gramx/seventy/zero/lozomo/pizza/ethosapp_local_variables.yaml # same

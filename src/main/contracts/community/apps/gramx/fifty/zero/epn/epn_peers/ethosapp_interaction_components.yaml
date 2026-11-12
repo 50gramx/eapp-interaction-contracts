@@ -10,7 +10,7 @@
   name: Language Chip
   component:
     name-code: EIC1030
-    label: CARBON · instrument
+    label: CARBON Â· instrument
     status: neutral
 
 - name-code: EAIC7051

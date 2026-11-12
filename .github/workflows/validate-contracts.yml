@@ -1,0 +1,15 @@
+# Every contract must be UTF-8 and parse: the app drops a file that does not,
+# whole and silently (tools/validate-contracts.rb says why this exists).
+name: Validate contracts
+on:
+  push:
+    paths: ['src/main/contracts/**', 'tools/validate-contracts.rb', 'tools/known-invalid-contracts.txt']
+  pull_request:
+    paths: ['src/main/contracts/**']
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ruby tools/validate-contracts.rb
