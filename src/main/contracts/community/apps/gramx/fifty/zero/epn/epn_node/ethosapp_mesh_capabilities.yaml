@@ -35,3 +35,12 @@
     method: EAMC14004
     expects: EAMV14007
     returns: EAMV14006
+
+# EAMC14005 - set the most a gram's object store may hold (the owner's choice; learned from the disk by default); answers with the network again.
+- name-code: EAMC14005
+  name: Set Store Ceiling
+  mesh:
+    context: discover
+    method: EAMC14005
+    expects: EAMV14008
+    returns: EAMV14006

@@ -99,6 +99,14 @@
       name: edge_duty
       type: ELVT1007
       default: ""
+    - name-code: EAMVT14017
+      name: storage
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT14018
+      name: storage_summary
+      type: ELVT1007
+      default: ""
 
 # EAMV14007 - Set Edge Duty: which gram ("" = this gram), and "on" or "off".
 - name-code: EAMV14007
@@ -112,5 +120,21 @@
       default: ""
     - name-code: EAMVT14016
       name: edge
+      type: ELVT1007
+      default: ""
+
+# EAMV14008 - Set Store Ceiling: which gram ("" = this gram), and the most its
+# object store may hold, in GiB ("0" = learned from the disk, the default).
+- name-code: EAMV14008
+  name: Set Store Ceiling
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT14019
+      name: node_did
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT14020
+      name: gib
       type: ELVT1007
       default: ""

@@ -1168,3 +1168,70 @@
     name-code: EIC1023
     child: EAIC14333
     color: layer-02
+
+# ── STORAGE (EAMC14003/14005) ───────────────────────────────────────────────
+# Every gram's disk, what the gram keeps on it, and its object store's ceiling:
+# learned from the disk unless the owner sets one here.
+- name-code: EAIC14335
+  name: Storage Header
+  component:
+    name-code: EIC1004
+    label: Storage
+
+- name-code: EAIC14336
+  name: Storage Summary
+  component:
+    name-code: EIC1020
+    text: EAIV14054.eamvt14018
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC14337
+  name: Storage List
+  component:
+    name-code: EIC1026
+    source: EAIV14054.eamvt14017
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
+- name-code: EAIC14338
+  name: Store Ceiling Input
+  component:
+    name-code: EIC1009
+    hint-text: "Most this gram's store may hold, in GiB"
+    text-controller: EALC14032
+
+- name-code: EAIC14339
+  name: Set Store Ceiling Button
+  component:
+    name-code: EIC1006
+    label: Set this gram's store ceiling
+    on-click: EALC14033
+
+- name-code: EAIC14340
+  name: Learned Store Ceiling Button
+  component:
+    name-code: EIC1008
+    label: Let the gram choose it from the disk
+    on-click: EALC14034
+
+- name-code: EAIC14341
+  name: Storage Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC14335
+      - EAIC14336
+      - EAIC14337
+      - EAIC14338
+      - EAIC14339
+      - EAIC14340
+
+- name-code: EAIC14342
+  name: Storage Card
+  component:
+    name-code: EIC1023
+    child: EAIC14341
+    color: layer-02

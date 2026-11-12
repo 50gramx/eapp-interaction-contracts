@@ -171,3 +171,15 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# The store ceiling request (EAMC14005) and the field it is typed into.
+- name-code: EAIV14056
+  name: Store Ceiling Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+- name-code: EAIV14057
+  name: Store Ceiling Controller
+  type: ELVT1001
+  default: {}

@@ -376,3 +376,44 @@
         capability: EAMC14004
         request: EAIV14055
         assign-to: EAIV14054
+
+- name-code: EALC14032
+  name: Get Store Ceiling Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV14057
+
+# This gram's store may hold up to the typed number of GiB.
+- name-code: EALC14033
+  name: Set Store Ceiling
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV14056
+        key: EAMVT14020
+        value: EAIV14057.text
+      - command: mesh-invoke
+        capability: EAMC14005
+        request: EAIV14056
+        assign-to: EAIV14054
+      - command: notify
+        text: Store ceiling saved
+
+# Back to the ceiling the gram learns from its disk.
+- name-code: EALC14034
+  name: Use Learned Store Ceiling
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV14056
+        key: EAMVT14020
+        value: "0"
+      - command: mesh-invoke
+        capability: EAMC14005
+        request: EAIV14056
+        assign-to: EAIV14054
+      - command: notify
+        text: The gram chooses its store ceiling again
