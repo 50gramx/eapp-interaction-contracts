@@ -78,3 +78,12 @@
     method: EAMC9009
     expects: EAMV9007
     returns: EAMV9008
+
+# EAMC9010 - one change to a site (EAMV9011's actions); answers with the site and a notice saying what happened.
+- name-code: EAMC9010
+  name: Site Action
+  mesh:
+    context: discover
+    method: EAMC9010
+    expects: EAMV9011
+    returns: EAMV9008

@@ -129,7 +129,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV9008 - one site: its id, title and summary; its addresses; its domains {id, title, subtitle, trailing}; the DNS records to add {title, subtitle}; the grams holding copies; the edges serving it; how to publish to it (and a deploy token, shown once).
+# EAMV9008 - one site: its id, title, summary and status (live | paused by you | paused at its limit | not published); usage rows {title, subtitle}; versions, previews, deploy tokens and activity {id, title, subtitle, trailing}; the result of the last action (notice); paused ("yes" | ""); and its addresses; its domains {id, title, subtitle, trailing}; the DNS records to add {title, subtitle}; the grams holding copies; the edges serving it; how to publish to it (and a deploy token, shown once).
 - name-code: EAMV9008
   name: Site
   type: ELVT1021
@@ -171,6 +171,38 @@
       name: publish
       type: ELVT1007
       default: ""
+    - name-code: EAMVT9034
+      name: status
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9035
+      name: usage
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9036
+      name: versions
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9037
+      name: previews
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9038
+      name: tokens
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9039
+      name: activity
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9040
+      name: notice
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9041
+      name: paused
+      type: ELVT1007
+      default: ""
 
 # EAMV9009 - Domain Request: the site and the domain (e.g. shop.example.com).
 - name-code: EAMV9009
@@ -199,5 +231,32 @@
       default: ""
     - name-code: EAMVT9033
       name: cap_gb
+      type: ELVT1007
+      default: ""
+
+# EAMV9011 - Site Action Request: one change to a site. action is one of
+# create (arg = name), rollback-to (arg = version id), new-token (arg = label,
+# arg2 = deployer | preview), revoke-token (arg = label), check-domain
+# (arg = domain), pause, resume, promote-preview (arg = preview site),
+# delete-preview (arg = preview site).
+- name-code: EAMV9011
+  name: Site Action Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT9042
+      name: site_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9043
+      name: action
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9044
+      name: arg
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9045
+      name: arg2
       type: ELVT1007
       default: ""

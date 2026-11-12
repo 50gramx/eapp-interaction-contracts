@@ -634,12 +634,13 @@
     title-field: title
     subtitle-field: subtitle
     trailing-text-field: trailing
+    on-item-tap: EALC9032
 
 - name-code: EAIC9125
   name: Domains Header
   component:
     name-code: EIC1020
-    text: Your domains (white label: visitors see only your domain)
+    text: "Your domains (white label: visitors see only your domain)"
     variant: caption01
     color: on-surface-subtle
 
@@ -686,6 +687,7 @@
     title-field: title
     subtitle-field: subtitle
     trailing-text-field: trailing
+    on-item-tap: EALC9032
 
 - name-code: EAIC9131
   name: Picked Domain Text
@@ -733,7 +735,7 @@
   name: Publish Header
   component:
     name-code: EIC1020
-    text: Publish: from your gram, the command line or CI
+    text: "Publish from your gram, the command line or CI"
     variant: caption01
     color: on-surface-subtle
 
@@ -780,31 +782,466 @@
     children-components:
       - EAIC9119
       - EAIC9120
+      - EAIC9154
+      - EAIC9155
       - EAIC9121
-      - EAIC9122
-      - EAIC9123
-      - EAIC9124
-      - EAIC9125
-      - EAIC9126
-      - EAIC9127
-      - EAIC9128
-      - EAIC9129
-      - EAIC9130
-      - EAIC9131
-      - EAIC9132
-      - EAIC9133
-      - EAIC9134
-      - EAIC9135
-      - EAIC9136
-      - EAIC9137
-      - EAIC9138
-      - EAIC9141
-      - EAIC9142
-      - EAIC9143
 
 - name-code: EAIC9140
   name: Sites Card
   component:
     name-code: EIC1023
     child: EAIC9139
+    color: layer-02
+
+# ── FRONT PAGE LINKS, AND THE SITE PAGE (open-page) ──────────────────────────
+
+- name-code: EAIC9150
+  name: Operators board Link
+  component:
+    name-code: EIC1035
+    label: Operators board
+    variant: inline
+    on-click: EALC9034
+
+- name-code: EAIC9151
+  name: Growth Link
+  component:
+    name-code: EIC1035
+    label: Growth
+    variant: inline
+    on-click: EALC9035
+
+- name-code: EAIC9152
+  name: Sites Link
+  component:
+    name-code: EIC1035
+    label: Sites
+    variant: inline
+    on-click: EALC9036
+
+- name-code: EAIC9153
+  name: Work Links Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9150
+      - EAIC9151
+      - EAIC9152
+
+- name-code: EAIC9154
+  name: New Site Name Input
+  component:
+    name-code: EIC1009
+    hint-text: New site name, e.g. shop
+    text-bind: EAIV9022
+    on-submit: EALC9020
+
+- name-code: EAIC9155
+  name: Create site Button
+  component:
+    name-code: EIC1006
+    label: Create site
+    on-click: EALC9020
+
+- name-code: EAIC9161
+  name: Site Status Badge
+  component:
+    name-code: EIC1030
+    label: EAIV9015.eamvt9034
+    status: info
+
+- name-code: EAIC9156
+  name: Overview Header
+  component:
+    name-code: EIC1004
+    label: Overview
+
+- name-code: EAIC9157
+  name: Addresses Hint
+  component:
+    name-code: EIC1020
+    text: Tap an address to copy it
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9158
+  name: Usage Header
+  component:
+    name-code: EIC1004
+    label: Usage
+
+- name-code: EAIC9162
+  name: Usage List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9035
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    empty-message: No visits counted yet
+
+- name-code: EAIC9160
+  name: Overview Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9156
+      - EAIC9161
+      - EAIC9123
+      - EAIC9124
+      - EAIC9157
+      - EAIC9158
+      - EAIC9162
+
+- name-code: EAIC9180
+  name: Overview Card
+  component:
+    name-code: EIC1023
+    child: EAIC9160
+    color: layer-02
+
+- name-code: EAIC9159
+  name: Domains Header
+  component:
+    name-code: EIC1004
+    label: Domains
+
+- name-code: EAIC9163
+  name: Check now Button
+  component:
+    name-code: EIC1008
+    label: Check now
+    on-click: EALC9029
+
+- name-code: EAIC9181
+  name: Domain Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9163
+      - EAIC9132
+
+- name-code: EAIC9182
+  name: Add Domain Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9127
+      - EAIC9128
+
+- name-code: EAIC9183
+  name: Records Copy Hint
+  component:
+    name-code: EIC1020
+    text: Tap a record to copy its value. A bare domain (example.com) uses an ALIAS record, or A records to the edges, instead of the CNAME.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9184
+  name: Domains Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9159
+      - EAIC9125
+      - EAIC9126
+      - EAIC9131
+      - EAIC9181
+      - EAIC9182
+      - EAIC9129
+      - EAIC9130
+      - EAIC9183
+
+- name-code: EAIC9185
+  name: Domains Card
+  component:
+    name-code: EIC1023
+    child: EAIC9184
+    color: layer-02
+
+- name-code: EAIC9164
+  name: Versions Header
+  component:
+    name-code: EIC1004
+    label: Versions
+
+- name-code: EAIC9186
+  name: Versions Hint
+  component:
+    name-code: EIC1020
+    text: Tap a version to make it live again. The current one and the last ten are kept.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC9165
+  name: Versions List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9036
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC9021
+    empty-message: Not published yet
+
+- name-code: EAIC9166
+  name: Previews Header
+  component:
+    name-code: EIC1004
+    label: Previews
+
+- name-code: EAIC9167
+  name: Previews List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9037
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC9022
+    empty-message: No previews. CI publishes one with --preview <name>.
+
+- name-code: EAIC9187
+  name: Picked Preview Text
+  component:
+    name-code: EIC1020
+    text: EAIV9024
+    variant: code01
+    color: on-surface
+
+- name-code: EAIC9168
+  name: Make the picked preview live Button
+  component:
+    name-code: EIC1008
+    label: Make the picked preview live
+    on-click: EALC9023
+
+- name-code: EAIC9169
+  name: Delete the picked preview Button
+  component:
+    name-code: EIC1008
+    label: Delete the picked preview
+    on-click: EALC9024
+
+- name-code: EAIC9188
+  name: Preview Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9168
+      - EAIC9169
+
+- name-code: EAIC9189
+  name: Versions Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9164
+      - EAIC9186
+      - EAIC9165
+      - EAIC9143
+      - EAIC9166
+      - EAIC9167
+      - EAIC9187
+      - EAIC9188
+
+- name-code: EAIC9190
+  name: Versions Card
+  component:
+    name-code: EIC1023
+    child: EAIC9189
+    color: layer-02
+
+- name-code: EAIC9191
+  name: Publish and access Header
+  component:
+    name-code: EIC1004
+    label: Publish and access
+
+- name-code: EAIC9170
+  name: Copy publish commands Button
+  component:
+    name-code: EIC1008
+    label: Copy publish commands
+    on-click: EALC9033
+
+- name-code: EAIC9171
+  name: Token Label Input
+  component:
+    name-code: EIC1009
+    hint-text: Token label, e.g. github
+    text-bind: EAIV9026
+
+- name-code: EAIC9172
+  name: New deploy token Button
+  component:
+    name-code: EIC1008
+    label: New deploy token
+    on-click: EALC9025
+
+- name-code: EAIC9173
+  name: New preview-only token Button
+  component:
+    name-code: EIC1008
+    label: New preview-only token
+    on-click: EALC9026
+
+- name-code: EAIC9192
+  name: Token Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9172
+      - EAIC9173
+
+- name-code: EAIC9174
+  name: Tokens List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9038
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC9027
+    empty-message: No deploy tokens
+
+- name-code: EAIC9193
+  name: Picked Token Text
+  component:
+    name-code: EIC1020
+    text: EAIV9025
+    variant: code01
+    color: on-surface
+
+- name-code: EAIC9175
+  name: Revoke the picked token Button
+  component:
+    name-code: EIC1008
+    label: Revoke the picked token
+    on-click: EALC9028
+
+- name-code: EAIC9194
+  name: Publish Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9191
+      - EAIC9136
+      - EAIC9137
+      - EAIC9170
+      - EAIC9171
+      - EAIC9192
+      - EAIC9174
+      - EAIC9193
+      - EAIC9175
+
+- name-code: EAIC9195
+  name: Publish Card
+  component:
+    name-code: EIC1023
+    child: EAIC9194
+    color: layer-02
+
+- name-code: EAIC9196
+  name: Copies Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9133
+      - EAIC9134
+      - EAIC9135
+
+- name-code: EAIC9197
+  name: Copies Card
+  component:
+    name-code: EIC1023
+    child: EAIC9196
+    color: layer-02
+
+- name-code: EAIC9198
+  name: Limits and pause Header
+  component:
+    name-code: EIC1004
+    label: Limits and pause
+
+- name-code: EAIC9176
+  name: Pause site Button
+  component:
+    name-code: EIC1008
+    label: Pause site
+    on-click: EALC9030
+
+- name-code: EAIC9177
+  name: Resume site Button
+  component:
+    name-code: EIC1008
+    label: Resume site
+    on-click: EALC9031
+
+- name-code: EAIC9199
+  name: Cap Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9141
+      - EAIC9142
+
+- name-code: EAIC9200
+  name: Pause Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9176
+      - EAIC9177
+
+- name-code: EAIC9201
+  name: Settings Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9198
+      - EAIC9199
+      - EAIC9200
+
+- name-code: EAIC9202
+  name: Settings Card
+  component:
+    name-code: EIC1023
+    child: EAIC9201
+    color: layer-02
+
+- name-code: EAIC9178
+  name: Activity Header
+  component:
+    name-code: EIC1004
+    label: Activity
+
+- name-code: EAIC9179
+  name: Activity List
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9039
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    empty-message: Nothing yet
+
+- name-code: EAIC9203
+  name: Activity Column
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC9178
+      - EAIC9179
+
+- name-code: EAIC9204
+  name: Activity Card
+  component:
+    name-code: EIC1023
+    child: EAIC9203
     color: layer-02

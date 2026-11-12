@@ -153,6 +153,9 @@
         capability: EAMC9004
         request: EAIV9014
         assign-to: EAIV9015
+      - command: open-page
+        page: EAIP9005
+        title: EAIV9015.eamvt9021
 
 # Add the typed domain to the open site.
 - name-code: EALC9014
@@ -162,7 +165,7 @@
       - command: set-map-value
         target-map: EAIV9017
         key: EAMVT9029
-        value: EAIV9015.EAMVT9028
+        value: EAIV9015.eamvt9028
       - command: set-map-value
         target-map: EAIV9017
         key: EAMVT9030
@@ -191,10 +194,15 @@
   name: Remove Domain
   context:
     steps:
+      - command: confirm
+        title: Remove this domain?
+        message: Visitors to it will stop reaching the site, and its certificate is released. You can add it again later.
+        confirm-label: Remove
+        destructive: true
       - command: set-map-value
         target-map: EAIV9017
         key: EAMVT9029
-        value: EAIV9015.EAMVT9028
+        value: EAIV9015.eamvt9028
       - command: set-map-value
         target-map: EAIV9017
         key: EAMVT9030
@@ -212,7 +220,7 @@
       - command: set-map-value
         target-map: EAIV9014
         key: EAMVT9020
-        value: EAIV9015.EAMVT9028
+        value: EAIV9015.eamvt9028
       - command: mesh-invoke
         capability: EAMC9007
         request: EAIV9014
@@ -226,7 +234,7 @@
       - command: set-map-value
         target-map: EAIV9020
         key: EAMVT9032
-        value: EAIV9015.EAMVT9028
+        value: EAIV9015.eamvt9028
       - command: set-map-value
         target-map: EAIV9020
         key: EAMVT9033
@@ -241,11 +249,396 @@
   name: Roll Back Site
   context:
     steps:
+      - command: confirm
+        title: Roll back to the previous version?
+        message: Visitors get it within a minute. The version live now is kept, so this can be undone.
+        confirm-label: Roll back
       - command: set-map-value
         target-map: EAIV9014
         key: EAMVT9020
-        value: EAIV9015.EAMVT9028
+        value: EAIV9015.eamvt9028
       - command: mesh-invoke
         capability: EAMC9009
         request: EAIV9014
         assign-to: EAIV9015
+
+# Create a site: the gram makes its name, a deploy token, and the commands to publish.
+- name-code: EALC9020
+  name: Create Site
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: ""
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: create
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9022
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: set
+        target: EAIV9022
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9003
+        request: EAIV9012
+        assign-to: EAIV9013
+      - command: open-page
+        page: EAIP9005
+        title: EAIV9015.eamvt9021
+
+# Pick a version in the list, then confirm rolling back to it.
+- name-code: EALC9021
+  name: Roll Back To Version
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set
+        target: EAIV9023
+        value: id
+      - command: confirm
+        title: Make this version live?
+        message: Visitors get this version within a minute. The version live now is kept, so this can be undone.
+        confirm-label: Make it live
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: rollback-to
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9023
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Pick a preview in the list.
+- name-code: EALC9022
+  name: Pick Preview
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set
+        target: EAIV9024
+        value: id
+
+# Make the picked preview the live site.
+- name-code: EALC9023
+  name: Promote Preview
+  context:
+    steps:
+      - command: confirm
+        title: Make this preview the live site?
+        message: Its files become the live version; the version live now is kept for rollback.
+        confirm-label: Make it live
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: promote-preview
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9024
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Delete the picked preview.
+- name-code: EALC9024
+  name: Delete Preview
+  context:
+    steps:
+      - command: confirm
+        title: Delete this preview?
+        message: Its address stops answering. The live site is not touched.
+        confirm-label: Delete
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: delete-preview
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9024
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# A new deploy token for CI (publishes the site and its previews); shown once.
+- name-code: EALC9025
+  name: New Deployer Token
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: new-token
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9026
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: deployer
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# A new preview-only token (safe for pull requests from forks); shown once.
+- name-code: EALC9026
+  name: New Preview Token
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: new-token
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9026
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: preview
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Pick a deploy token in the list (by its label).
+- name-code: EALC9027
+  name: Pick Token
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set
+        target: EAIV9025
+        value: id
+
+# Revoke the picked token.
+- name-code: EALC9028
+  name: Revoke Token
+  context:
+    steps:
+      - command: confirm
+        title: Revoke this token?
+        message: Any CI job using it stops being able to publish.
+        confirm-label: Revoke
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: revoke-token
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9025
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Check the picked domain now: proof, pointing, certificate, serving.
+- name-code: EALC9029
+  name: Check Domain
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: check-domain
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: EAIV9018
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Pause the site (visitors see a paused notice) until resumed.
+- name-code: EALC9030
+  name: Pause Site
+  context:
+    steps:
+      - command: confirm
+        title: Pause this site?
+        message: Every address of it answers "paused" until you resume it.
+        confirm-label: Pause
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: pause
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: ""
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Resume a paused site.
+- name-code: EALC9031
+  name: Resume Site
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: resume
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: ""
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Copy the tapped value (an address, a DNS record value, a command).
+- name-code: EALC9032
+  name: Copy Value
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: copy
+        value: id
+        notice: Copied
+
+# Copy the publish instructions.
+- name-code: EALC9033
+  name: Copy Publish
+  context:
+    steps:
+      - command: copy
+        value: EAIV9015.eamvt9031
+        notice: Copied
+
+# Open the Operators board page.
+- name-code: EALC9034
+  name: Open Operators board
+  context:
+    steps:
+      - command: open-page
+        page: EAIP9002
+        title: Operators board
+
+# Open the Growth page.
+- name-code: EALC9035
+  name: Open Growth
+  context:
+    steps:
+      - command: open-page
+        page: EAIP9003
+        title: Growth
+
+# Open the Sites page.
+- name-code: EALC9036
+  name: Open Sites
+  context:
+    steps:
+      - command: open-page
+        page: EAIP9004
+        title: Sites

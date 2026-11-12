@@ -128,3 +128,40 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Request for EAMC9010.
+- name-code: EAIV9021
+  name: Site Action Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The new site's name.
+- name-code: EAIV9022
+  name: New Site Name
+  type: ELVT1007
+  default: ""
+
+# The version picked in the list.
+- name-code: EAIV9023
+  name: Picked Version
+  type: ELVT1007
+  default: ""
+
+# The preview picked in the list.
+- name-code: EAIV9024
+  name: Picked Preview
+  type: ELVT1007
+  default: ""
+
+# The deploy token picked in the list (its label).
+- name-code: EAIV9025
+  name: Picked Token
+  type: ELVT1007
+  default: ""
+
+# The label for a new deploy token.
+- name-code: EAIV9026
+  name: Token Label Text
+  type: ELVT1007
+  default: ""

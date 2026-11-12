@@ -16,6 +16,7 @@
     name-code: EIC1005
     children-components:
       - EAIC9086
+      - EAIC9153
 
 - name-code: EAIT9003
   name: Fleet Board Tile
@@ -40,3 +41,17 @@
     name-code: EIC1005
     children-components:
       - EAIC9140
+
+- name-code: EAIT9006
+  name: Site Tile
+  about: "One site: overview, domains, versions, publishing and access, copies, limits, activity"
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC9180
+      - EAIC9185
+      - EAIC9190
+      - EAIC9195
+      - EAIC9197
+      - EAIC9202
+      - EAIC9204

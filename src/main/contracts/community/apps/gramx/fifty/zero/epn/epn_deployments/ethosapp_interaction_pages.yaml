@@ -46,3 +46,11 @@
     name-code: EIC1005
     children-components:
       - EAIT9005
+
+# Opened from the sites list (open-page); not in the sidebar.
+- name-code: EAIP9005
+  name: Site Page
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT9006
