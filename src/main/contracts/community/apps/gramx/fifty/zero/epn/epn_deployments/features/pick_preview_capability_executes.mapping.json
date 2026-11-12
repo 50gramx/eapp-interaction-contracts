@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_pick_preview_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Preview capability executes",
+  "capability": "EALC9022",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV9024"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9024 is populated",
+    "state": "EAIV9024 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Operators eApp is open": "EALC9022",
+    "When capability EALC9022 (Pick Preview) is invoked": "EALC9022",
+    "Then EAIV9024 (Picked Preview) is not empty": "EAIV9024"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC9022"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9024"
+    }
+  ]
+}

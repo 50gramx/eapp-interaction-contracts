@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_roll_back_to_version_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Roll Back To Version capability executes",
+  "capability": "EALC9021",
+  "inputs": {
+    "EAIV9015.eamvt9028": "test-value",
+    "EAIV9023": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV9023",
+      "EAIV9015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9023 is populated; EAIV9015 is populated",
+    "state": "EAIV9023 populated, EAIV9015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
+    "And EAIV9023 (Picked Version) is set to \"test-value\"": "EAIV9023",
+    "When capability EALC9021 (Roll Back To Version) is invoked": "EALC9021",
+    "Then EAIV9023 (Picked Version) is not empty": "EAIV9023",
+    "Then EAIV9015 (Site) is not empty": "EAIV9015"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV9015.eamvt9028",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV9023",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC9021"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9023"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9015"
+    }
+  ]
+}

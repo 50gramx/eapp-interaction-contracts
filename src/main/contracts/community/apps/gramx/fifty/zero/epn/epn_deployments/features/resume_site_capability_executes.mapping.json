@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_resume_site_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Resume Site capability executes",
+  "capability": "EALC9031",
+  "inputs": {
+    "EAIV9015.eamvt9028": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV9015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9015 is populated",
+    "state": "EAIV9015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
+    "When capability EALC9031 (Resume Site) is invoked": "EALC9031",
+    "Then EAIV9015 (Site) is not empty": "EAIV9015"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV9015.eamvt9028",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC9031"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9015"
+    }
+  ]
+}

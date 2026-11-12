@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_create_site_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Create Site capability executes",
+  "capability": "EALC9020",
+  "inputs": {
+    "EAIV9022": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV9015",
+      "EAIV9022",
+      "EAIV9013"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9015 is populated; EAIV9022 is populated; EAIV9013 is populated",
+    "state": "EAIV9015 populated, EAIV9022 populated, EAIV9013 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV9022 (New Site Name) is set to \"test-value\"": "EAIV9022",
+    "When capability EALC9020 (Create Site) is invoked": "EALC9020",
+    "Then EAIV9015 (Site) is not empty": "EAIV9015",
+    "Then EAIV9022 (New Site Name) is not empty": "EAIV9022",
+    "Then EAIV9013 (Sites) is not empty": "EAIV9013"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV9022",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC9020"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9015"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9022"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9013"
+    }
+  ]
+}

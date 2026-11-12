@@ -7,7 +7,7 @@
   "scenario": "Add Domain capability executes",
   "capability": "EALC9014",
   "inputs": {
-    "EAIV9015.EAMVT9028": "test-value",
+    "EAIV9015.eamvt9028": "test-value",
     "EAIV9016": "hello from scenario test"
   },
   "expected": {
@@ -24,7 +24,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given EAIV9015.EAMVT9028 (EAIV9015.EAMVT9028) is set to \"test-value\"": "EAIV9015.EAMVT9028",
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
     "And EAIV9016 (Domain Text) is set to \"hello from scenario test\"": "EAIV9016",
     "When capability EALC9014 (Add Domain) is invoked": "EALC9014",
     "Then EAIV9016 (Domain Text) is not empty": "EAIV9016",
@@ -33,7 +33,7 @@
   "steps": [
     {
       "type": "given",
-      "variable": "EAIV9015.EAMVT9028",
+      "variable": "EAIV9015.eamvt9028",
       "value": "test-value"
     },
     {

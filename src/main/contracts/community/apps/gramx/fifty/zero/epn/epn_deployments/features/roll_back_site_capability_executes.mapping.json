@@ -7,7 +7,7 @@
   "scenario": "Roll Back Site capability executes",
   "capability": "EALC9019",
   "inputs": {
-    "EAIV9015.EAMVT9028": "test-value"
+    "EAIV9015.eamvt9028": "test-value"
   },
   "expected": {
     "outputs": [
@@ -22,14 +22,14 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given EAIV9015.EAMVT9028 (EAIV9015.EAMVT9028) is set to \"test-value\"": "EAIV9015.EAMVT9028",
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
     "When capability EALC9019 (Roll Back Site) is invoked": "EALC9019",
     "Then EAIV9015 (Site) is not empty": "EAIV9015"
   },
   "steps": [
     {
       "type": "given",
-      "variable": "EAIV9015.EAMVT9028",
+      "variable": "EAIV9015.eamvt9028",
       "value": "test-value"
     },
     {

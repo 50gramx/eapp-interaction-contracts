@@ -7,7 +7,7 @@
   "scenario": "Set Site Cap capability executes",
   "capability": "EALC9018",
   "inputs": {
-    "EAIV9015.EAMVT9028": "test-value",
+    "EAIV9015.eamvt9028": "test-value",
     "EAIV9019": "hello from scenario test"
   },
   "expected": {
@@ -23,7 +23,7 @@
     "experience": "n/a"
   },
   "textToCodeMapping": {
-    "Given EAIV9015.EAMVT9028 (EAIV9015.EAMVT9028) is set to \"test-value\"": "EAIV9015.EAMVT9028",
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
     "And EAIV9019 (Cap Text) is set to \"hello from scenario test\"": "EAIV9019",
     "When capability EALC9018 (Set Site Cap) is invoked": "EALC9018",
     "Then EAIV9015 (Site) is not empty": "EAIV9015"
@@ -31,7 +31,7 @@
   "steps": [
     {
       "type": "given",
-      "variable": "EAIV9015.EAMVT9028",
+      "variable": "EAIV9015.eamvt9028",
       "value": "test-value"
     },
     {

@@ -1,0 +1,52 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_deployments_delete_preview_capability_executes",
+  "app": "epn_deployments",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Delete Preview capability executes",
+  "capability": "EALC9024",
+  "inputs": {
+    "EAIV9015.eamvt9028": "test-value",
+    "EAIV9024": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV9015"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV9015 is populated",
+    "state": "EAIV9015 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV9015.eamvt9028 (EAIV9015.eamvt9028) is set to \"test-value\"": "EAIV9015.eamvt9028",
+    "And EAIV9024 (Picked Preview) is set to \"test-value\"": "EAIV9024",
+    "When capability EALC9024 (Delete Preview) is invoked": "EALC9024",
+    "Then EAIV9015 (Site) is not empty": "EAIV9015"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV9015.eamvt9028",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV9024",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC9024"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV9015"
+    }
+  ]
+}
