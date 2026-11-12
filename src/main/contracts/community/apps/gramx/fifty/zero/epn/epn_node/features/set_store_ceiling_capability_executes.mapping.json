@@ -1,0 +1,45 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_set_store_ceiling_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Set Store Ceiling capability executes",
+  "capability": "EALC14033",
+  "inputs": {
+    "EAIV14057.text": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV14054"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14054 is populated",
+    "state": "EAIV14054 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV14057.text (EAIV14057.text) is set to \"test-value\"": "EAIV14057.text",
+    "When capability EALC14033 (Set Store Ceiling) is invoked": "EALC14033",
+    "Then EAIV14054 (Network) is not empty": "EAIV14054"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV14057.text",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC14033"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14054"
+    }
+  ]
+}

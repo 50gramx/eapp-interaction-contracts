@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_node_use_learned_store_ceiling_capability_executes",
+  "app": "epn_node",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Use Learned Store Ceiling capability executes",
+  "capability": "EALC14034",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV14054"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV14054 is populated",
+    "state": "EAIV14054 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Gram eApp is open": "EALC14034",
+    "When capability EALC14034 (Use Learned Store Ceiling) is invoked": "EALC14034",
+    "Then EAIV14054 (Network) is not empty": "EAIV14054"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC14034"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV14054"
+    }
+  ]
+}
