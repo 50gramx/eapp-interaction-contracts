@@ -819,10 +819,14 @@
     variant: inline
     on-click: EALC9036
 
+# A COLUMN, NOT A ROW (13 Nov). EIC1035 draws a full-width list row; three of them
+# side by side in a Row have no width to take, Flutter's layout fails, and a
+# release build draws nothing: the tester saw an empty band on 657 and 659, and
+# Sites could not be reached at all.
 - name-code: EAIC9153
   name: Work Links Row
   component:
-    name-code: EIC1012
+    name-code: EIC1005
     children-components:
       - EAIC9150
       - EAIC9151
