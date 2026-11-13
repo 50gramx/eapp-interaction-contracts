@@ -48,7 +48,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, and -- for the foundation gramx -- the requests on its desk {id, title, subtitle, trailing}.
+# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, the keys and accounts it holds (never their values: what each is for, who may use it, created, expiry, rotation), and -- for the foundation gramx -- the requests on its desk {id, title, subtitle, trailing}.
 - name-code: EAMV15004
   name: One Gramx
   type: ELVT1021
@@ -72,6 +72,10 @@
       default: []
     - name-code: EAMVT15011
       name: desk
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15016
+      name: keys
       type: ELVT1018
       default: []
 

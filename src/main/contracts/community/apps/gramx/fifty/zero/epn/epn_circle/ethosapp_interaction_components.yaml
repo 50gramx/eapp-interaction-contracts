@@ -597,6 +597,24 @@
     variant: caption01
     color: on-surface-subtle
 
+- name-code: EAIC15084
+  name: Keys Header
+  component:
+    name-code: EIC1020
+    text: "Keys and accounts this gramx holds (values are never shown here)"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15085
+  name: Keys List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15016
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
 # ONE GRAMX IN FRONT OF YOU (backlog K2): the room, then what to say, then what
 # was said, then who is here; the desk only for the foundation.
 - name-code: EAIC15079
@@ -612,6 +630,8 @@
       - EAIC15074
       - EAIC15083
       - EAIC15072
+      - EAIC15084
+      - EAIC15085
       - EAIC15075
       - EAIC15076
       - EAIC15077
