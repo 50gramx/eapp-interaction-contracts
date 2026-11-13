@@ -24,7 +24,10 @@ failed = []
 Dir.glob(File.join(root, '**', '*.{yaml,yml}')).sort.each do |f|
   bytes = File.binread(f)
   err =
-    if !bytes.dup.force_encoding('UTF-8').valid_encoding?
+    if bytes.empty?
+      # An empty file broke every installed app's contract refresh (13 Nov).
+      'empty: write [] for an empty list'
+    elsif !bytes.dup.force_encoding('UTF-8').valid_encoding?
       'not valid UTF-8'
     else
       # A byte-order mark is allowed at the start of a YAML stream; noted only.
