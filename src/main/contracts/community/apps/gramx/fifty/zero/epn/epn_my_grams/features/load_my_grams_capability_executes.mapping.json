@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_my_grams_load_my_grams_capability_executes",
+  "app": "epn_my_grams",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Load My Grams capability executes",
+  "capability": "EALC17001",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV17002"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV17002 is populated",
+    "state": "EAIV17002 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the My grams eApp is open": "EALC17001",
+    "When capability EALC17001 (Load My Grams) is invoked": "EALC17001",
+    "Then EAIV17002 (My Grams) is not empty": "EAIV17002"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC17001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV17002"
+    }
+  ]
+}

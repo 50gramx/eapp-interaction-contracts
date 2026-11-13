@@ -2,10 +2,9 @@
 Feature: Operators
   # As a user, I want Init Page to work so I can use Operators.
 
-  @EALC9001 @EAIV9002 @EAIV9009 @EAIV9027
+  @EALC9001 @EAIV9002 @EAIV9009
   Scenario: Init Page capability executes
     Given the Operators eApp is open
     When capability EALC9001 (Init Page) is invoked
     Then EAIV9002 (Personas) is not empty
     Then EAIV9009 (Fleet Operators) is not empty
-    Then EAIV9027 (Your Grams) is not empty
