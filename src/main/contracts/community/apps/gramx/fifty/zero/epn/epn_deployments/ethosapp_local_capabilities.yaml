@@ -10,10 +10,6 @@
         capability: EAMC9001
         request: EAIV9008
         assign-to: EAIV9009
-      # Last: an app without this handler (before build 662) still loads the rest.
-      - command: platform-invoke
-        handler: epn.grams.list
-        assign-to: EAIV9027
 
 # Return the operator ID TextEditingController.
 - name-code: EALC9002
@@ -647,20 +643,3 @@
         page: EAIP9004
         title: Sites
 
-# Look at one of the person's grams: every page of the app then shows that
-# gram's sites, operators, meters and wallet (the gram relays its doors).
-- name-code: EALC9037
-  name: Look At Gram
-  context:
-    expects:
-      - id: ELVT1011
-    steps:
-      - command: platform-invoke
-        handler: epn.grams.view
-        params:
-          gram: id
-        assign-to: EAIV9027
-      - command: mesh-invoke
-        capability: EAMC9001
-        request: EAIV9008
-        assign-to: EAIV9009

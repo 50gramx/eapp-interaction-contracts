@@ -1250,28 +1250,3 @@
     child: EAIC9203
     color: layer-02
 
-# Every gram of the person; tapping one makes the whole app look at it.
-- name-code: EAIC9205
-  name: Your Grams Header
-  component:
-    name-code: EIC1020
-    text: Your grams
-    variant: heading02
-
-- name-code: EAIC9206
-  name: Your Grams Summary
-  component:
-    name-code: EIC1020
-    text: EAIV9027.summary
-    variant: body01
-
-- name-code: EAIC9207
-  name: Your Grams List
-  component:
-    name-code: EIC1026
-    source: EAIV9027.grams
-    item-type: list-item
-    title-field: title
-    subtitle-field: subtitle
-    trailing-text-field: trailing
-    on-item-tap: EALC9037

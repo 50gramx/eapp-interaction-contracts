@@ -1,0 +1,9 @@
+# Load every gram, each time the page appears.
+- name-code: EALC17001
+  name: Load My Grams
+  context:
+    steps:
+      - command: mesh-invoke
+        capability: EAMC17001
+        request: EAIV17001
+        assign-to: EAIV17002

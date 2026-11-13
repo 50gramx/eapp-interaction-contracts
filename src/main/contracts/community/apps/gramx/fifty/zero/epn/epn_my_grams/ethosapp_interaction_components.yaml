@@ -1,0 +1,148 @@
+# ── TOGETHER ──────────────────────────────────────────────────────────────
+- name-code: EAIC17001
+  name: My Grams Header
+  component:
+    name-code: EIC1004
+    label: All your grams
+
+- name-code: EAIC17002
+  name: Summary Text
+  component:
+    name-code: EIC1020
+    text: EAIV17002.eamvt17003
+    variant: body01
+
+# Short values only: a phone shows two per row, a tablet five.
+- name-code: EAIC17003
+  name: Totals Grid
+  component:
+    name-code: EIC1037
+    max-columns: 5
+    min-item-width: 140
+    spacing: 12
+    child-aspect-ratio: 1.6
+    children-components:
+      - EAIC17004
+      - EAIC17005
+      - EAIC17006
+      - EAIC17007
+      - EAIC17008
+
+- name-code: EAIC17004
+  name: Online Metric
+  component:
+    name-code: EIC1031
+    value: EAIV17002.eamvt17006
+    label: Online
+    status: primary
+
+- name-code: EAIC17005
+  name: Cores Metric
+  component:
+    name-code: EIC1031
+    value: EAIV17002.eamvt17007
+    label: CPU cores
+
+- name-code: EAIC17006
+  name: Memory Metric
+  component:
+    name-code: EIC1031
+    value: EAIV17002.eamvt17008
+    label: Memory
+
+- name-code: EAIC17007
+  name: GPUs Metric
+  component:
+    name-code: EIC1031
+    value: EAIV17002.eamvt17009
+    label: GPUs
+
+- name-code: EAIC17008
+  name: Compute Metric
+  component:
+    name-code: EIC1031
+    value: EAIV17002.eamvt17010
+    label: Compute (est.)
+
+- name-code: EAIC17009
+  name: Power Text
+  component:
+    name-code: EIC1020
+    text: EAIV17002.eamvt17011
+    variant: caption01
+    color: on-surface-subtle
+
+# ── CHARTS ────────────────────────────────────────────────────────────────
+- name-code: EAIC17010
+  name: Charts Grid
+  component:
+    name-code: EIC1037
+    max-columns: 3
+    min-item-width: 220
+    spacing: 16
+    children-components:
+      - EAIC17011
+      - EAIC17012
+      - EAIC17013
+
+- name-code: EAIC17011
+  name: By Status Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV17002.eamvt17004
+    title: By status
+    height: 150
+
+- name-code: EAIC17012
+  name: By Device Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV17002.eamvt17012
+    title: By device
+    height: 150
+
+- name-code: EAIC17013
+  name: Compute Per Gram Chart
+  component:
+    name-code: EIC1040
+    kind: bar
+    source: EAIV17002.eamvt17005
+    title: Compute per gram (TFLOP/s, est.)
+    height: 150
+
+# ── EACH GRAM ─────────────────────────────────────────────────────────────
+- name-code: EAIC17014
+  name: Each Gram Header
+  component:
+    name-code: EIC1004
+    label: Each gram
+
+- name-code: EAIC17015
+  name: Grams Table
+  component:
+    name-code: EIC1032
+    source: EAIV17002.eamvt17002
+    columns:
+      - Gram
+      - Device
+      - Status
+      - Cores
+      - Memory
+      - GPU
+      - Seen
+    fields:
+      - name
+      - device
+      - status
+      - cores
+      - memory
+      - gpu
+      - seen
+    # One per column: the row field holding that cell's tone (success,
+    # warning, error, info); "none" leaves a cell plain.
+    status-fields: [none, none, tone, none, none, none, none]
+    column-weights: [2.2, 1.4, 1.1, 0.8, 1, 1.4, 1]
+    min-width: 640
+    empty-message: No grams on your account yet.

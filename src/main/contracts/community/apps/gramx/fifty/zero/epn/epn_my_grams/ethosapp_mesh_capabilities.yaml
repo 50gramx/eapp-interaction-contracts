@@ -1,0 +1,11 @@
+# ── EVERY GRAM OF THE PERSON, TOGETHER ────────────────────────────────────
+
+# EAMC17001 - all the person's grams: totals, by status and device, compute per
+# gram, the network on the TOP500 scale (an estimate), and each gram by name.
+- name-code: EAMC17001
+  name: My Grams
+  mesh:
+    context: discover
+    method: EAMC17001
+    expects: EAMV17001
+    returns: EAMV17002

@@ -1,0 +1,27 @@
+- name-code: EAIT17001
+  name: Together Tile
+  about: What all your grams add up to
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC17001
+      - EAIC17002
+      - EAIC17003
+      - EAIC17009
+
+- name-code: EAIT17002
+  name: Charts Tile
+  about: By status and kind of device, and compute per gram
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC17010
+
+- name-code: EAIT17003
+  name: Each Gram Tile
+  about: Every gram by name
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIC17014
+      - EAIC17015

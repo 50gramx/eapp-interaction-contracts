@@ -1,0 +1,13 @@
+# Request for EAMC17001.
+- name-code: EAIV17001
+  name: My Grams Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# EAMC17001's answer.
+- name-code: EAIV17002
+  name: My Grams
+  type: ELVT1021
+  modelled: true
+  default: {}

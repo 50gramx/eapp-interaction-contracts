@@ -471,10 +471,15 @@
       off: EAIC14303
     default: EAIC14303
 
+# A grid, not a row: three metrics side by side squeezed a phone's width and
+# wrapped their values into tall columns of large text (founder, 14 Nov).
 - name-code: EAIC14305
   name: Network Contribution Row
   component:
-    name-code: EIC1012
+    name-code: EIC1037
+    max-columns: 3
+    min-item-width: 150
+    spacing: 12
     children-components:
       - EAIC14300
       - EAIC14301

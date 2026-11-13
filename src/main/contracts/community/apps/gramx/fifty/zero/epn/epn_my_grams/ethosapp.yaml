@@ -1,0 +1,15 @@
+name-code: epn_my_grams
+name: My grams
+org: epn
+version: 1.0.0
+about: All your grams together, what they add up to, which are online, and each one by name.
+icon: devices
+platform: core
+design-language: carbon
+color-scheme: two-tone
+keywords:
+  - grams
+  - fleet
+  - devices
+  - compute
+  - status

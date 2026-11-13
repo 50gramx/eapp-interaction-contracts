@@ -16,9 +16,6 @@
     name-code: EIC1005
     children-components:
       - EAIC9153
-      - EAIC9205
-      - EAIC9206
-      - EAIC9207
       - EAIC9086
 
 - name-code: EAIT9003

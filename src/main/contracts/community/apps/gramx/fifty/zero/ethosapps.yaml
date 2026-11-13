@@ -185,6 +185,8 @@
       live: true
     - name: epn_node
       live: true
+    - name: epn_my_grams
+      live: true
     - name: epn_peers
       live: true
     - name: epn_wallet

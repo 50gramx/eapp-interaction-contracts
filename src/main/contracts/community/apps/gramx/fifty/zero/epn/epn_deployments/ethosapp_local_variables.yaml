@@ -166,8 +166,3 @@
   type: ELVT1007
   default: ""
 
-# The person's grams and which one this app is looking at (epn.grams.list).
-- name-code: EAIV9027
-  name: Your Grams
-  type: ELVT1021
-  default: {}

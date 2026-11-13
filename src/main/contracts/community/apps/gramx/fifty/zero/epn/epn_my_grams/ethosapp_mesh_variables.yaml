@@ -1,0 +1,66 @@
+# EAMV17001 - My Grams Request ("" = all the person's grams).
+- name-code: EAMV17001
+  name: My Grams Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT17001
+      name: scope
+      type: ELVT1007
+      default: ""
+
+# EAMV17002 - every gram together.
+- name-code: EAMV17002
+  name: My Grams
+  type: ELVT1021
+  modelled: true
+  properties:
+    # rows {id, name, device, status, cores, memory, gpu, compute, seen}; status in online | busy | offline | this gram
+    - name-code: EAMVT17002
+      name: grams
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT17003
+      name: summary
+      type: ELVT1007
+      default: ""
+    # {label, value} by status
+    - name-code: EAMVT17004
+      name: states
+      type: ELVT1018
+      default: []
+    # {label, value}: estimated TFLOP/s per gram
+    - name-code: EAMVT17005
+      name: compute_by_gram
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT17006
+      name: online
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT17007
+      name: cores
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT17008
+      name: memory
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT17009
+      name: gpus
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT17010
+      name: compute
+      type: ELVT1007
+      default: ""
+    # where the total sits on the TOP500 scale, labelled as an estimate
+    - name-code: EAMVT17011
+      name: power
+      type: ELVT1007
+      default: ""
+    # {label, value} by kind of device
+    - name-code: EAMVT17012
+      name: devices
+      type: ELVT1018
+      default: []

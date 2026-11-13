@@ -1,0 +1,13 @@
+- name-code: EAIP17001
+  name: My Grams Page
+  navigation:
+    heading: Your grams
+    label: My grams
+    order: 31
+  on-appear: EALC17001
+  composition:
+    name-code: EIC1005
+    children-components:
+      - EAIT17001
+      - EAIT17002
+      - EAIT17003
