@@ -15,8 +15,8 @@
   composition:
     name-code: EIC1005
     children-components:
-      - EAIC9086
       - EAIC9153
+      - EAIC9086
 
 - name-code: EAIT9003
   name: Fleet Board Tile
