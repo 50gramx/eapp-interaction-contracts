@@ -1,0 +1,59 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_renew_key_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Renew Key capability executes",
+  "capability": "EALC15029",
+  "inputs": {
+    "EAIV15026.EAMVT15006": "test-value",
+    "EAIV15034": "test-value",
+    "EAIV15035": "test-value"
+  },
+  "expected": {
+    "outputs": [
+      "EAIV15027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15027 is populated",
+    "state": "EAIV15027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given EAIV15026.EAMVT15006 (EAIV15026.EAMVT15006) is set to \"test-value\"": "EAIV15026.EAMVT15006",
+    "And EAIV15034 (Owned Field One) is set to \"test-value\"": "EAIV15034",
+    "And EAIV15035 (Owned Field Two) is set to \"test-value\"": "EAIV15035",
+    "When capability EALC15029 (Renew Key) is invoked": "EALC15029",
+    "Then EAIV15027 (Open Gramx) is not empty": "EAIV15027"
+  },
+  "steps": [
+    {
+      "type": "given",
+      "variable": "EAIV15026.EAMVT15006",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV15034",
+      "value": "test-value"
+    },
+    {
+      "type": "given",
+      "variable": "EAIV15035",
+      "value": "test-value"
+    },
+    {
+      "type": "when",
+      "capability": "EALC15029"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15027"
+    }
+  ]
+}

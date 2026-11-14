@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_circle_pick_owned_row_capability_executes",
+  "app": "epn_circle",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Owned Row capability executes",
+  "capability": "EALC15021",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV15034"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV15034 is populated",
+    "state": "EAIV15034 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Gramx eApp is open": "EALC15021",
+    "When capability EALC15021 (Pick Owned Row) is invoked": "EALC15021",
+    "Then EAIV15034 (Owned Field One) is not empty": "EAIV15034"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC15021"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV15034"
+    }
+  ]
+}
