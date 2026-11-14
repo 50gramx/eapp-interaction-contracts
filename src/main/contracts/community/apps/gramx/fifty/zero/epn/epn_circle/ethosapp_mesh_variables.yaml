@@ -48,7 +48,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, the keys and accounts it holds (never their values: what each is for, who may use it, created, expiry, rotation), for the foundation gramx the requests on its desk {id, title, subtitle, trailing}, this gram's role in it, its domains (state in words and the records to add), its routes and its sites.
+# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, the keys and accounts it holds (never their values: what each is for, who may use it, created, expiry, rotation), for the foundation gramx the requests on its desk {id, title, subtitle, trailing}, this gram's role in it, its domains (state in words and the records to add), its routes and its sites, and how far the gramx's state has reached its member grams (a summary, and one row per member gram).
 - name-code: EAMV15004
   name: One Gramx
   type: ELVT1021
@@ -92,6 +92,14 @@
       default: []
     - name-code: EAMVT15020
       name: sites
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15025
+      name: sync_summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15026
+      name: sync
       type: ELVT1018
       default: []
 

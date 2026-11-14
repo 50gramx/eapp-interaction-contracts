@@ -631,6 +631,8 @@
       - EAIC15074
       - EAIC15083
       - EAIC15072
+      - EAIC15109
+      - EAIC15110
       - EAIC15086
       - EAIC15087
       - EAIC15088
@@ -840,3 +842,21 @@
       - EAIC15106
       - EAIC15107
       - EAIC15108
+
+- name-code: EAIC15109
+  name: Sync Summary
+  component:
+    name-code: EIC1020
+    text: EAIV15027.eamvt15025
+    variant: body01
+
+- name-code: EAIC15110
+  name: Sync List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15026
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+
