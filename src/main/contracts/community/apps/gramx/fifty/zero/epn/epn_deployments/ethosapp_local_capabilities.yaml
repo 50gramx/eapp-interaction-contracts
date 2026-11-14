@@ -643,3 +643,63 @@
         page: EAIP9004
         title: Sites
 
+# Unpublish the site: offline everywhere, domains released, restorable for 7 days, then deleted.
+- name-code: EALC9041
+  name: Unpublish Site
+  context:
+    steps:
+      - command: confirm
+        title: Unpublish this site?
+        message: It stops answering on every edge within a minute and its domains are released. You can restore it for 7 days; after that it is deleted.
+        confirm-label: Unpublish
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: unpublish
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: ""
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040
+
+# Bring an unpublished site back within its 7 days.
+- name-code: EALC9042
+  name: Restore Site
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9042
+        value: EAIV9015.eamvt9028
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9043
+        value: restore
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9044
+        value: ""
+      - command: set-map-value
+        target-map: EAIV9021
+        key: EAMVT9045
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC9010
+        request: EAIV9021
+        assign-to: EAIV9015
+      - command: notify
+        text: EAIV9015.eamvt9040

@@ -1210,6 +1210,8 @@
       - EAIC9198
       - EAIC9199
       - EAIC9200
+      - EAIC9205
+      - EAIC9208
 
 - name-code: EAIC9202
   name: Settings Card
@@ -1250,3 +1252,30 @@
     child: EAIC9203
     color: layer-02
 
+- name-code: EAIC9205
+  name: Unpublish Header
+  component:
+    name-code: EIC1004
+    label: Unpublish
+
+- name-code: EAIC9206
+  name: Unpublish site Button
+  component:
+    name-code: EIC1008
+    label: Unpublish site
+    on-click: EALC9041
+
+- name-code: EAIC9207
+  name: Restore site Button
+  component:
+    name-code: EIC1008
+    label: Restore site
+    on-click: EALC9042
+
+- name-code: EAIC9208
+  name: Unpublish Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC9206
+      - EAIC9207
