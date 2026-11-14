@@ -143,6 +143,14 @@
     # One per column: the row field holding that cell's tone (success,
     # warning, error, info); "none" leaves a cell plain.
     status-fields: [none, none, tone, none, none, none, none]
+    # The data table (eapp-jittery-modelled 7d577cf): tap a column to sort,
+    # chips filter by status, status shows as a tag, each gram leads with its
+    # device's icon and badges (busy, GPU, edge, battery, lite).
+    sortable: true
+    filter-field: status
+    chip-columns: [2]
+    icon-field: device
+    badges-field: badges
     column-weights: [2.2, 1.4, 1.1, 0.8, 1, 1.4, 1]
     min-width: 640
     empty-message: No grams on your account yet.
