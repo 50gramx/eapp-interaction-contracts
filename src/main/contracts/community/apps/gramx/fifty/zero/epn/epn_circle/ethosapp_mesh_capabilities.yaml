@@ -35,3 +35,12 @@
     method: EAMC15004
     expects: EAMV15006
     returns: EAMV15004
+
+# EAMC15005 - one change to what the gramx owns (its domains, routes, keys and sites), made with this gram's membership and role; answers with the gramx again and a note saying what happened.
+- name-code: EAMC15005
+  name: Gramx Action
+  mesh:
+    context: discover
+    method: EAMC15005
+    expects: EAMV15007
+    returns: EAMV15004

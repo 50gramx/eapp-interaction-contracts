@@ -48,7 +48,7 @@
       type: ELVT1007
       default: ""
 
-# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, the keys and accounts it holds (never their values: what each is for, who may use it, created, expiry, rotation), and -- for the foundation gramx -- the requests on its desk {id, title, subtitle, trailing}.
+# EAMV15004 - one gramx: its name, a summary, its grams, what was said in it lately, the keys and accounts it holds (never their values: what each is for, who may use it, created, expiry, rotation), for the foundation gramx the requests on its desk {id, title, subtitle, trailing}, this gram's role in it, its domains (state in words and the records to add), its routes and its sites.
 - name-code: EAMV15004
   name: One Gramx
   type: ELVT1021
@@ -76,6 +76,22 @@
       default: []
     - name-code: EAMVT15016
       name: keys
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15017
+      name: rank
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15018
+      name: domains
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15019
+      name: routes
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT15020
+      name: sites
       type: ELVT1018
       default: []
 
@@ -106,5 +122,33 @@
       default: ""
     - name-code: EAMVT15015
       name: text
+      type: ELVT1007
+      default: ""
+
+# EAMV15007 - one change to what the gramx owns, made by this gram with its own membership and role.
+# action is one of:
+#   domain-add (arg = host), domain-remove (arg = host),
+#   route (arg = host or host/path, arg2 = site), unroute (arg = host or host/path),
+#   key-create (arg = platform, arg2 = scope), key-rotate (arg = key id), key-revoke (arg = key id),
+#   site-source (arg = site, arg2 = the build's address), move-site (arg = one of this gram's own sites, arg2 = name in the gramx).
+- name-code: EAMV15007
+  name: Gramx Action
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT15021
+      name: gramx_id
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15022
+      name: action
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15023
+      name: arg
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT15024
+      name: arg2
       type: ELVT1007
       default: ""
