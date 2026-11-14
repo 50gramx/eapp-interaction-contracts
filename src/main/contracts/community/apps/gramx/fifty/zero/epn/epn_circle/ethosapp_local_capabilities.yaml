@@ -420,3 +420,264 @@
         capability: EAMC15004
         request: EAIV15032
         assign-to: EAIV15027
+
+# Tap a row of what the gramx owns: its id fills the first field.
+- name-code: EALC15021
+  name: Pick Owned Row
+  context:
+    expects:
+      - id: ELVT1007
+    steps:
+      - command: set
+        target: EAIV15034
+        value: id
+
+
+# Add Domain: EAMC15005 action "domain-add", with the two fields.
+- name-code: EALC15022
+  name: Add Domain
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: domain-add
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Remove Domain: EAMC15005 action "domain-remove", with the two fields.
+- name-code: EALC15023
+  name: Remove Domain
+  context:
+    steps:
+      - command: confirm
+        title: Remove this domain from the gramx?
+        message: It stops being served by the gramx, and its routes go with it. Its DNS records stay at your DNS host.
+        confirm-label: Remove
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: domain-remove
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Route: EAMC15005 action "route", with the two fields.
+- name-code: EALC15024
+  name: Route
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: route
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Unroute: EAMC15005 action "unroute", with the two fields.
+- name-code: EALC15025
+  name: Unroute
+  context:
+    steps:
+      - command: confirm
+        title: Remove this route?
+        message: That address stops going to its site.
+        confirm-label: Remove
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: unroute
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Connect Site Source: EAMC15005 action "site-source", with the two fields.
+- name-code: EALC15026
+  name: Connect Site Source
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: site-source
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Move Site In: EAMC15005 action "move-site", with the two fields.
+- name-code: EALC15027
+  name: Move Site In
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: move-site
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Connect Account: EAMC15005 action "key-create", with the two fields.
+- name-code: EALC15028
+  name: Connect Account
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: key-create
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Renew Key: EAMC15005 action "key-rotate", with the two fields.
+- name-code: EALC15029
+  name: Renew Key
+  context:
+    steps:
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: key-rotate
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027
+
+# Revoke Key: EAMC15005 action "key-revoke", with the two fields.
+- name-code: EALC15030
+  name: Revoke Key
+  context:
+    steps:
+      - command: confirm
+        title: Revoke this key on every gram?
+        message: Every member gram forgets it and whatever used it stops working until it is connected again.
+        confirm-label: Revoke
+        destructive: true
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15021
+        value: EAIV15026.EAMVT15006
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15022
+        value: key-revoke
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15023
+        value: EAIV15034
+      - command: set-map-value
+        target-map: EAIV15033
+        key: EAMVT15024
+        value: EAIV15035
+      - command: mesh-invoke
+        capability: EAMC15005
+        request: EAIV15033
+        assign-to: EAIV15027

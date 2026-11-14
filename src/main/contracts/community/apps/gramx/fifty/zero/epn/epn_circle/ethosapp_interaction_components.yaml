@@ -614,6 +614,7 @@
     title-field: title
     subtitle-field: subtitle
     trailing-text-field: trailing
+    on-item-tap: EALC15021
 
 # ONE GRAMX IN FRONT OF YOU (backlog K2): the room, then what to say, then what
 # was said, then who is here; the desk only for the foundation.
@@ -630,8 +631,22 @@
       - EAIC15074
       - EAIC15083
       - EAIC15072
+      - EAIC15086
+      - EAIC15087
+      - EAIC15088
+      - EAIC15089
+      - EAIC15090
+      - EAIC15091
+      - EAIC15092
+      - EAIC15093
       - EAIC15084
       - EAIC15085
+      - EAIC15094
+      - EAIC15095
+      - EAIC15096
+      - EAIC15097
+      - EAIC15098
+      - EAIC15099
       - EAIC15075
       - EAIC15076
       - EAIC15077
@@ -643,3 +658,185 @@
     name-code: EIC1023
     child: EAIC15079
     color: layer-02
+
+- name-code: EAIC15086
+  name: Owns Header
+  component:
+    name-code: EIC1020
+    text: "What this gramx owns. Your gram's role in it:"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15087
+  name: Owns Rank
+  component:
+    name-code: EIC1020
+    text: EAIV15027.eamvt15017
+    variant: body01
+
+- name-code: EAIC15088
+  name: Sites Header
+  component:
+    name-code: EIC1020
+    text: "Sites (tap one to pick it)"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15089
+  name: Sites List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15020
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC15021
+
+- name-code: EAIC15090
+  name: Domains Header
+  component:
+    name-code: EIC1020
+    text: "Domains, with the record that proves each (tap one to pick it)"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15091
+  name: Domains List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15018
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC15021
+
+- name-code: EAIC15092
+  name: Routes Header
+  component:
+    name-code: EIC1020
+    text: "Routes: which address goes to which site"
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC15093
+  name: Routes List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15019
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC15021
+
+- name-code: EAIC15094
+  name: Owned Field One Input
+  component:
+    name-code: EIC1009
+    hint-text: "Site, domain, address (host or host/path), account, or a picked key"
+    text-bind: EAIV15034
+
+- name-code: EAIC15095
+  name: Owned Field Two Input
+  component:
+    name-code: EIC1009
+    hint-text: "Site for a route, a source's https address (.tar.gz), a new name, or what an account is for"
+    text-bind: EAIV15035
+
+- name-code: EAIC15100
+  name: Add domain Button
+  component:
+    name-code: EIC1006
+    label: Add domain
+    on-click: EALC15022
+
+- name-code: EAIC15101
+  name: Remove domain Button
+  component:
+    name-code: EIC1008
+    label: Remove domain
+    on-click: EALC15023
+
+- name-code: EAIC15102
+  name: Route to site Button
+  component:
+    name-code: EIC1006
+    label: Route to site
+    on-click: EALC15024
+
+- name-code: EAIC15103
+  name: Remove route Button
+  component:
+    name-code: EIC1008
+    label: Remove route
+    on-click: EALC15025
+
+- name-code: EAIC15104
+  name: Follow source Button
+  component:
+    name-code: EIC1006
+    label: Follow source
+    on-click: EALC15026
+
+- name-code: EAIC15105
+  name: Move my site in Button
+  component:
+    name-code: EIC1008
+    label: Move my site in
+    on-click: EALC15027
+
+- name-code: EAIC15106
+  name: Connect account Button
+  component:
+    name-code: EIC1006
+    label: Connect account
+    on-click: EALC15028
+
+- name-code: EAIC15107
+  name: Renew key Button
+  component:
+    name-code: EIC1008
+    label: Renew key
+    on-click: EALC15029
+
+- name-code: EAIC15108
+  name: Revoke key Button
+  component:
+    name-code: EIC1008
+    label: Revoke key
+    on-click: EALC15030
+
+- name-code: EAIC15096
+  name: Domain Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15100
+      - EAIC15101
+
+- name-code: EAIC15097
+  name: Route Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15102
+      - EAIC15103
+
+- name-code: EAIC15098
+  name: Site Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15104
+      - EAIC15105
+
+- name-code: EAIC15099
+  name: Key Actions Row
+  component:
+    name-code: EIC1012
+    children-components:
+      - EAIC15106
+      - EAIC15107
+      - EAIC15108

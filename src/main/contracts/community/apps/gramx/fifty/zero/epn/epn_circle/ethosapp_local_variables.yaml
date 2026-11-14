@@ -213,3 +213,22 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# A change to what the gramx owns (EAMC15005).
+- name-code: EAIV15033
+  name: Gramx Action Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+
+# The two fields the gramx actions read; tapping a row fills the first.
+- name-code: EAIV15034
+  name: Owned Field One
+  type: ELVT1007
+  default: ""
+
+- name-code: EAIV15035
+  name: Owned Field Two
+  type: ELVT1007
+  default: ""
+
