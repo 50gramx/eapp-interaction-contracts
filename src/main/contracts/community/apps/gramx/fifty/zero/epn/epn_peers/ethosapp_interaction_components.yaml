@@ -383,6 +383,68 @@
     stack-below: 672
     children-components:
       - EAIC7059
+      - EAIC7100
+
+# THE WAYS IN, FOR PEOPLE (16 Nov 2026). The raw address list (22 lines on
+# one gram) becomes one sentence, the protocols as a pill, and one row per way
+# in: your home network, each relay, the internet, each with its address and
+# protocols as chips and direct/relay as a coloured chip. The raw list stays
+# below, labelled for machines. Fields come from epn.peers.identity
+# (eapp-live lib/platform/epn_ways_in.dart).
+- name-code: EAIC7097
+  name: Reach Summary
+  component:
+    name-code: EIC1020
+    text: EAIV7001.reach_summary
+    variant: body01
+
+- name-code: EAIC7098
+  name: Protocols Accepted
+  component:
+    name-code: EIC1030
+    label: EAIV7001.protocols_display
+    status: success
+
+- name-code: EAIC7099
+  name: Ways In Table
+  component:
+    name-code: EIC1032
+    source: EAIV7001.ways
+    columns: [Way in, Address, Protocols, Reach]
+    fields: [where, address, protocols, reach]
+    status-fields: [none, address_status, none, reach_status]
+    chip-columns: [1, 2, 3]
+    icon-field: icon
+    column-weights: [1.6, 1.8, 2, 1.1]
+    min-width: 560
+    empty-message: The gram is still finding its way in.
+
+- name-code: EAIC7100
+  name: Reachable At Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC7097
+      - EAIC7098
+      - EAIC7099
+
+- name-code: EAIC7101
+  name: Machine Addresses Label
+  component:
+    name-code: EIC1020
+    text: For machines
+    variant: label01
+    color: on-surface-muted
+
+- name-code: EAIC7102
+  name: Machine Addresses Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    weights: [1, 5]
+    stack-below: 672
+    children-components:
+      - EAIC7101
       - EAIC7060
 
 - name-code: EAIC7062
@@ -394,6 +456,7 @@
       - EAIC7056
       - EAIC7058
       - EAIC7061
+      - EAIC7102
       - EAIC7051
 
 - name-code: EAIC7063
