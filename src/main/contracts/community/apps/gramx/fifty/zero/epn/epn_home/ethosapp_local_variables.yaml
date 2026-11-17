@@ -42,3 +42,25 @@
 
 # Identity & Trust flow state (EAIV5009-5015) relocated to epn_settings
 # entirely (EAIV12022-12029) — Home shouldn't have hosted this section.
+
+# What the brand is showing (EAMC5001): the request and the answer.
+- name-code: EAIV5300
+  name: Showing Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT5001
+      name: scope
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT5002
+      name: set
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV5301
+  name: Showing
+  type: ELVT1021
+  modelled: true
+  default: {}

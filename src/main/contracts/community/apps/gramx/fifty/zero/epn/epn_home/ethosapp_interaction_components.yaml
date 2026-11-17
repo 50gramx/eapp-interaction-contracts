@@ -1079,3 +1079,47 @@
 
 # Identity & Trust section (EAIC5010-5016, 5145-5168) relocated to
 # epn_settings entirely -- Home shouldn't have hosted it.
+
+# ── SHOWING (17 Nov 2026): what every page sums across, picked once here ────
+- name-code: EAIC5300
+  name: Showing Label
+  component:
+    name-code: EIC1020
+    text: EAIV5301.eamvt5003
+    variant: heading02
+
+- name-code: EAIC5301
+  name: Showing Hint
+  component:
+    name-code: EIC1020
+    text: Showing. Pick a brand, all your grams or one gram; every page follows.
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC5302
+  name: Showing Choices
+  component:
+    name-code: EIC1026
+    source: EAIV5301.eamvt5004
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC5300
+    empty-message: Only this gram so far
+
+- name-code: EAIC5303
+  name: Showing Card Content
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC5300
+      - EAIC5301
+      - EAIC5302
+
+- name-code: EAIC5304
+  name: Showing Card
+  component:
+    name-code: EIC1023
+    child: EAIC5303
+    color: layer-02

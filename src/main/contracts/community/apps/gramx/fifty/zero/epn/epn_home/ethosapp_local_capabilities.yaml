@@ -31,6 +31,10 @@
       - command: platform-invoke
         handler: epn.peers.identity
         assign-to: EAIV5004
+      - command: mesh-invoke
+        capability: EAMC5001
+        request: EAIV5300
+        assign-to: EAIV5301
 
 # Start the local node from Home — invokes the SAME host platform handler that
 # epn_node uses (epn.node.start → NodeController singleton). The shared surface
@@ -166,3 +170,24 @@
 # Identity & Trust flow capabilities (EALC5017-5024) relocated to
 # epn_settings entirely — see that app's local_capabilities.yaml
 # (EALC12022-12029).
+
+# Pick what the brand shows: kept by the gram, followed by every page that
+# sums across grams (Metering's usage, Sites).
+- name-code: EALC5300
+  name: Pick Showing
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV5300
+        key: EAMVT5001
+        value: id
+      - command: set-map-value
+        target-map: EAIV5300
+        key: EAMVT5002
+        value: "yes"
+      - command: mesh-invoke
+        capability: EAMC5001
+        request: EAIV5300
+        assign-to: EAIV5301

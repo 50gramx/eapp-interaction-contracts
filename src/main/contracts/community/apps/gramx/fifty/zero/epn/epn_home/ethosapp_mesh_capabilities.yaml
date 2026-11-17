@@ -1,0 +1,8 @@
+# EAMC5001 - Showing: what the brand's pages sum across, and the choices.
+- name-code: EAMC5001
+  name: Showing
+  mesh:
+    context: discover
+    method: EAMC5001
+    expects: EAMV5001
+    returns: EAMV5002

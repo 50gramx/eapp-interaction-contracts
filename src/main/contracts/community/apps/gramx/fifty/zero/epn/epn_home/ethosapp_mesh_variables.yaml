@@ -1,0 +1,36 @@
+# ── WHAT THE BRAND IS SHOWING (17 Nov 2026) ─────────────────────────────────
+# The person picks once, on Home, what every page sums across: this gram, all
+# their grams, or a brand (a gramx: its domain, or its grams' names). The gram
+# keeps the pick; the pages that sum across grams follow it.
+
+# EAMV5001 - Showing Request. scope: "" = read; "gram:<did>", "mine" or
+# "gramx:<id>" with set "yes" = pick it.
+- name-code: EAMV5001
+  name: Showing Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT5001
+      name: scope
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT5002
+      name: set
+      type: ELVT1007
+      default: ""
+
+# EAMV5002 - Showing: what is shown, and the scopes to pick from as rows
+# {id, title, subtitle, trailing}.
+- name-code: EAMV5002
+  name: Showing
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT5003
+      name: label
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT5004
+      name: scopes
+      type: ELVT1018
+      default: []
