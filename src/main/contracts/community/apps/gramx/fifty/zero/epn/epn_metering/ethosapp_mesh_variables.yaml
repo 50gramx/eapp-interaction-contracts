@@ -170,3 +170,9 @@
       name: operator
       type: ELVT1007
       default: ""
+    # One gram's own counts as JSON, when another of the person's grams asks it
+    # (the door relay): what the asking gram sums. Empty on a person's answer.
+    - name-code: EAMVT11036
+      name: raw
+      type: ELVT1007
+      default: ""
