@@ -374,13 +374,13 @@
     variant: code01
     overflow: visible
 
+# The ways in sit under their label, full width, not in a weighted row: a
+# table with a minimum width inside a row that stacks on a phone drew
+# nothing on iPhone (17 Nov 2026).
 - name-code: EAIC7061
-  name: Reachable At Field Row
+  name: Reachable At Field
   component:
-    name-code: EIC1012
-    distribute: true
-    weights: [1, 5]
-    stack-below: 672
+    name-code: EIC1005
     children-components:
       - EAIC7059
       - EAIC7100
