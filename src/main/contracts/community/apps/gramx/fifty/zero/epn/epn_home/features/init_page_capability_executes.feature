@@ -2,9 +2,10 @@
 Feature: Home
   # As a user, I want Init Page to work so I can use Home.
 
-  @EALC5005 @EAIV5008 @EAIV5004
+  @EALC5005 @EAIV5008 @EAIV5004 @EAIV5301
   Scenario: Init Page capability executes
     Given the Home eApp is open
     When capability EALC5005 (Init Page) is invoked
     Then EAIV5008 (Capacity Plan) is not empty
     Then EAIV5004 (Node Identity) is not empty
+    Then EAIV5301 (Showing) is not empty

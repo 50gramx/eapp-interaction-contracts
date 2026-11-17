@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_home_pick_showing_capability_executes",
+  "app": "epn_home",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Showing capability executes",
+  "capability": "EALC5300",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV5301"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV5301 is populated",
+    "state": "EAIV5301 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Home eApp is open": "EALC5300",
+    "When capability EALC5300 (Pick Showing) is invoked": "EALC5300",
+    "Then EAIV5301 (Showing) is not empty": "EAIV5301"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC5300"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV5301"
+    }
+  ]
+}
