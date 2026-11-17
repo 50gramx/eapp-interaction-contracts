@@ -846,3 +846,177 @@
     name-code: EIC1023
     child: EAIC11171
     color: layer-02
+
+# ── ACROSS YOUR GRAMS AND BRANDS (17 Nov 2026) ─────────────────────────────
+# What every operator used, summed over the grams of a scope: this gram, all
+# the person's grams, or a brand (a gramx: its domain, or its grams' names).
+# The scope picked here is kept as the person's, so every page follows it.
+# Fields from EAMC11003 (epn-daemon internal/cmd/usage_view.go).
+- name-code: EAIC11200
+  name: Usage Header
+  component:
+    name-code: EIC1004
+    label: Across your grams
+
+- name-code: EAIC11201
+  name: Usage Scope Label
+  component:
+    name-code: EIC1020
+    text: EAIV11027.eamvt11023
+    variant: heading02
+
+- name-code: EAIC11202
+  name: Usage Scopes
+  component:
+    name-code: EIC1026
+    source: EAIV11027.eamvt11024
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC11005
+    empty-message: Only this gram so far
+
+- name-code: EAIC11203
+  name: Usage Summary
+  component:
+    name-code: EIC1020
+    text: EAIV11027.eamvt11025
+    variant: body01
+
+- name-code: EAIC11204
+  name: Usage Insights
+  component:
+    name-code: EIC1020
+    text: EAIV11027.eamvt11026
+    variant: body01
+    color: on-surface-subtle
+
+- name-code: EAIC11205
+  name: Jobs By Day Chart
+  component:
+    name-code: EIC1040
+    kind: stacked-bar
+    source: EAIV11027.eamvt11029
+    x-field: label
+    series-fields: done,failed,interrupted
+    title: Jobs per day (done, failed, interrupted)
+    height: 170
+
+- name-code: EAIC11206
+  name: Served By Day Chart
+  component:
+    name-code: EIC1040
+    kind: bar
+    source: EAIV11027.eamvt11030
+    title: GB served per day
+    unit: GB
+    height: 150
+
+- name-code: EAIC11207
+  name: By Operator Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV11027.eamvt11033
+    title: Job hours this week, by operator
+    height: 140
+
+- name-code: EAIC11208
+  name: By Gram Chart
+  component:
+    name-code: EIC1040
+    kind: bar
+    source: EAIV11027.eamvt11031
+    title: GB served this week, by gram
+    unit: GB
+    height: 140
+
+- name-code: EAIC11209
+  name: Usage Charts Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    weights: [1, 1]
+    stack-below: 672
+    children-components:
+      - EAIC11207
+      - EAIC11208
+
+- name-code: EAIC11210
+  name: Operators Header
+  component:
+    name-code: EIC1020
+    text: Operators (tap one to look inside)
+    variant: label01
+    color: on-surface-muted
+
+- name-code: EAIC11211
+  name: Usage Operators
+  component:
+    name-code: EIC1026
+    source: EAIV11027.eamvt11028
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    on-item-tap: EALC11006
+    empty-message: No operator work recorded yet
+
+- name-code: EAIC11212
+  name: Grams Header
+  component:
+    name-code: EIC1020
+    text: Grams in this scope
+    variant: label01
+    color: on-surface-muted
+
+- name-code: EAIC11213
+  name: Usage Grams
+  component:
+    name-code: EIC1026
+    source: EAIV11027.eamvt11032
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    empty-message: No gram answered
+
+- name-code: EAIC11214
+  name: Jobs Header
+  component:
+    name-code: EIC1020
+    text: Recent jobs
+    variant: label01
+    color: on-surface-muted
+
+- name-code: EAIC11215
+  name: Usage Jobs
+  component:
+    name-code: EIC1026
+    source: EAIV11027.eamvt11034
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    empty-message: No jobs yet
+
+- name-code: EAIC11216
+  name: Usage Section
+  component:
+    name-code: EIC1005
+    children-components:
+      - EAIC11200
+      - EAIC11201
+      - EAIC11202
+      - EAIC11203
+      - EAIC11204
+      - EAIC11205
+      - EAIC11206
+      - EAIC11209
+      - EAIC11210
+      - EAIC11211
+      - EAIC11212
+      - EAIC11213
+      - EAIC11214
+      - EAIC11215

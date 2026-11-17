@@ -30,6 +30,10 @@
         capability: EAMC11001
         request: EAIV11022
         assign-to: EAIV11023
+      - command: mesh-invoke
+        capability: EAMC11003
+        request: EAIV11026
+        assign-to: EAIV11027
 
 # Refresh all metering data.
 - name-code: EALC11002
@@ -49,6 +53,10 @@
         capability: EAMC11001
         request: EAIV11022
         assign-to: EAIV11023
+      - command: mesh-invoke
+        capability: EAMC11003
+        request: EAIV11026
+        assign-to: EAIV11027
 
 # Copy one tapped Sessions-list row (EAIC11141) into the page-level "Selected
 # Session" variables, so the detail card can show the full record — operator,
@@ -123,3 +131,48 @@
         capability: EAMC11002
         request: EAIV11024
         assign-to: EAIV11025
+
+# Pick a scope (this gram, all my grams, a brand): kept as the person's, so
+# every page that sums across grams follows it.
+- name-code: EALC11005
+  name: Pick Scope
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV11026
+        key: EAMVT11020
+        value: id
+      - command: set-map-value
+        target-map: EAIV11026
+        key: EAMVT11021
+        value: ""
+      - command: set-map-value
+        target-map: EAIV11026
+        key: EAMVT11022
+        value: "yes"
+      - command: mesh-invoke
+        capability: EAMC11003
+        request: EAIV11026
+        assign-to: EAIV11027
+
+# Drill into one operator (tapping it again from the all-operators view).
+- name-code: EALC11006
+  name: Open Operator
+  context:
+    expects:
+      - id: ELVT1011
+    steps:
+      - command: set-map-value
+        target-map: EAIV11026
+        key: EAMVT11021
+        value: id
+      - command: set-map-value
+        target-map: EAIV11026
+        key: EAMVT11022
+        value: ""
+      - command: mesh-invoke
+        capability: EAMC11003
+        request: EAIV11026
+        assign-to: EAIV11027

@@ -157,3 +157,29 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# Usage across the person's grams and brands (EAMC11003): the request, the view.
+- name-code: EAIV11026
+  name: Usage Request
+  type: ELVT1021
+  modelled: true
+  default: {}
+  properties:
+    - name-code: EAMVT11020
+      name: scope
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11021
+      name: operator
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11022
+      name: set
+      type: ELVT1007
+      default: ""
+
+- name-code: EAIV11027
+  name: Usage
+  type: ELVT1021
+  modelled: true
+  default: {}

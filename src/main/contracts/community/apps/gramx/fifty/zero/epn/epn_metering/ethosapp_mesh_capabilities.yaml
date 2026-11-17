@@ -25,3 +25,15 @@
     method: EAMC11002
     expects: EAMV11003
     returns: EAMV11004
+
+# EAMC11003 - Usage: what each operator used, for a scope (this gram, all the
+# person's grams, or a brand), summed over the grams that answer; with jobs,
+# trends and insights. Asked with set=yes it also keeps the scope as the
+# person's.
+- name-code: EAMC11003
+  name: Usage
+  mesh:
+    context: discover
+    method: EAMC11003
+    expects: EAMV11005
+    returns: EAMV11006

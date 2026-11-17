@@ -76,3 +76,97 @@
       name: summary
       type: ELVT1007
       default: ""
+
+# ── WHAT EACH OPERATOR USED, ACROSS THE PERSON'S GRAMS AND BRANDS (17 Nov) ──
+# EAMV11005 - Usage Request. scope: "" = the scope this gram keeps for the
+# person; "gram:<did>", "mine" (all the person's grams) or "gramx:<id>" (a
+# brand: its grams). operator: drill into one operator ("" = all). set: "yes"
+# keeps this scope as the person's, so every page follows it.
+- name-code: EAMV11005
+  name: Usage Request
+  type: ELVT1021
+  modelled: true
+  properties:
+    - name-code: EAMVT11020
+      name: scope
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11021
+      name: operator
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11022
+      name: set
+      type: ELVT1007
+      default: ""
+
+# EAMV11006 - Usage: one scope's usage, summed over its grams.
+- name-code: EAMV11006
+  name: Usage
+  type: ELVT1021
+  modelled: true
+  properties:
+    # What is shown: "All my grams (5)", "50gramx.com (6 grams)".
+    - name-code: EAMVT11023
+      name: scope_label
+      type: ELVT1007
+      default: ""
+    # The scopes to pick from: rows {id, title, subtitle, trailing}.
+    - name-code: EAMVT11024
+      name: scopes
+      type: ELVT1018
+      default: []
+    # The scope in sentences, and what changed or is wrong.
+    - name-code: EAMVT11025
+      name: summary
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT11026
+      name: insights
+      type: ELVT1007
+      default: ""
+    # Tiles: [jobs today, interrupted this week, served this week, stored now], {label, value}.
+    - name-code: EAMVT11027
+      name: tiles
+      type: ELVT1018
+      default: []
+    # Operators: rows {id, title, subtitle, trailing}; a tapped row drills in.
+    - name-code: EAMVT11028
+      name: operators
+      type: ELVT1018
+      default: []
+    # Per day, 14 days: {label, done, failed, interrupted} jobs.
+    - name-code: EAMVT11029
+      name: job_days
+      type: ELVT1018
+      default: []
+    # Per day, 14 days: {label, value} GB served.
+    - name-code: EAMVT11030
+      name: served_days
+      type: ELVT1018
+      default: []
+    # Per gram: {label, value} GB served this week (chart) ...
+    - name-code: EAMVT11031
+      name: by_gram
+      type: ELVT1018
+      default: []
+    # ... and the grams as rows {id, title, subtitle, trailing}: answered or not.
+    - name-code: EAMVT11032
+      name: grams
+      type: ELVT1018
+      default: []
+    # Per operator: {label, value} job hours this week.
+    - name-code: EAMVT11033
+      name: by_operator
+      type: ELVT1018
+      default: []
+    # Recent jobs: rows {id, title, subtitle, trailing}, newest first.
+    - name-code: EAMVT11034
+      name: jobs
+      type: ELVT1018
+      default: []
+    # The operator drilled into ("" = all).
+    - name-code: EAMVT11035
+      name: operator
+      type: ELVT1007
+      default: ""
