@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_metering_pick_scope_capability_executes",
+  "app": "epn_metering",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Pick Scope capability executes",
+  "capability": "EALC11005",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV11027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV11027 is populated",
+    "state": "EAIV11027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Metering eApp is open": "EALC11005",
+    "When capability EALC11005 (Pick Scope) is invoked": "EALC11005",
+    "Then EAIV11027 (Usage) is not empty": "EAIV11027"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC11005"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11027"
+    }
+  ]
+}

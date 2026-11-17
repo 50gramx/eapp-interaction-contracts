@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_metering_open_operator_capability_executes",
+  "app": "epn_metering",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Open Operator capability executes",
+  "capability": "EALC11006",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV11027"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV11027 is populated",
+    "state": "EAIV11027 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Metering eApp is open": "EALC11006",
+    "When capability EALC11006 (Open Operator) is invoked": "EALC11006",
+    "Then EAIV11027 (Usage) is not empty": "EAIV11027"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC11006"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV11027"
+    }
+  ]
+}
