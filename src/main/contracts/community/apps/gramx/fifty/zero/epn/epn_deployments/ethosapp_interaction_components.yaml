@@ -897,6 +897,14 @@
       - EAIC9157
       - EAIC9158
       - EAIC9162
+      - EAIC9220
+      - EAIC9221
+      - EAIC9222
+      - EAIC9223
+      - EAIC9224
+      - EAIC9225
+      - EAIC9228
+      - EAIC9229
 
 - name-code: EAIC9180
   name: Overview Card
@@ -1279,3 +1287,101 @@
     children-components:
       - EAIC9206
       - EAIC9207
+
+# HOW THE SITE IS DOING (17 Nov 2026). The numbers were one caption of
+# sentences; an owner could not see a trend, an outage or who visits. Now: a
+# health line, written insights, the last 24 hours hour by hour (served and
+# failed), 14 days of traffic (people and bots), speed, devices, where the
+# files came from, and the top pages. Fields come from EAMC9004
+# (epn-daemon internal/cmd/serve_sites_insights.go).
+- name-code: EAIC9220
+  name: Insights Header
+  component:
+    name-code: EIC1004
+    label: How it is doing
+
+- name-code: EAIC9221
+  name: Site Health
+  component:
+    name-code: EIC1020
+    text: EAIV9015.eamvt9050
+    variant: body01
+
+- name-code: EAIC9222
+  name: Site Insights
+  component:
+    name-code: EIC1020
+    text: EAIV9015.eamvt9051
+    variant: body01
+
+- name-code: EAIC9223
+  name: Last 24 Hours Chart
+  component:
+    name-code: EIC1040
+    kind: stacked-bar
+    source: EAIV9015.eamvt9052
+    x-field: label
+    series-fields: served,failed
+    title: Last 24 hours (requests per hour, IST)
+    height: 170
+
+- name-code: EAIC9224
+  name: Traffic Chart
+  component:
+    name-code: EIC1040
+    kind: stacked-bar
+    source: EAIV9015.eamvt9053
+    x-field: label
+    series-fields: people,bots
+    title: Last 14 days (requests per day)
+    height: 170
+
+- name-code: EAIC9225
+  name: Speed Chart
+  component:
+    name-code: EIC1040
+    kind: bar
+    source: EAIV9015.eamvt9054
+    title: Speed today (% of requests)
+    unit: "%"
+    height: 150
+
+- name-code: EAIC9226
+  name: Devices Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV9015.eamvt9055
+    title: Devices
+    height: 130
+
+- name-code: EAIC9227
+  name: Sources Chart
+  component:
+    name-code: EIC1040
+    kind: donut
+    source: EAIV9015.eamvt9056
+    title: Where the files came from
+    height: 130
+
+- name-code: EAIC9228
+  name: Small Charts Row
+  component:
+    name-code: EIC1012
+    distribute: true
+    weights: [1, 1]
+    stack-below: 672
+    children-components:
+      - EAIC9226
+      - EAIC9227
+
+- name-code: EAIC9229
+  name: Top Pages
+  component:
+    name-code: EIC1026
+    source: EAIV9015.eamvt9057
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
+    empty-message: No pages visited yet

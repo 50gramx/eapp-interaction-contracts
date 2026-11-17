@@ -203,6 +203,41 @@
       name: paused
       type: ELVT1007
       default: ""
+    # HOW THE SITE IS DOING, AS CHARTS AND INSIGHTS (17 Nov 2026): health and
+    # insights are sentences; hours (last 24, served/failed), traffic (14 days,
+    # people/bots), speed, devices and sources are chart rows; pages are rows.
+    - name-code: EAMVT9050
+      name: health
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9051
+      name: insights
+      type: ELVT1007
+      default: ""
+    - name-code: EAMVT9052
+      name: hours
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9053
+      name: traffic
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9054
+      name: speed
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9055
+      name: devices
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9056
+      name: sources
+      type: ELVT1018
+      default: []
+    - name-code: EAMVT9057
+      name: pages
+      type: ELVT1018
+      default: []
 
 # EAMV9009 - Domain Request: the site and the domain (e.g. shop.example.com).
 - name-code: EAMV9009
