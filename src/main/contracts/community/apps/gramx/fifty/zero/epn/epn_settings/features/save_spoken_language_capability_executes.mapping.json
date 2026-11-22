@@ -1,0 +1,38 @@
+{
+  "schema": "epn.scenario.mapping/1",
+  "scenario_id": "epn_settings_save_spoken_language_capability_executes",
+  "app": "epn_settings",
+  "org": "epn",
+  "community": 50,
+  "scenario": "Save Spoken Language capability executes",
+  "capability": "EALC12038",
+  "inputs": {},
+  "expected": {
+    "outputs": [
+      "EAIV12042"
+    ]
+  },
+  "conformance": {
+    "behavioral": "EAIV12042 is populated",
+    "state": "EAIV12042 populated",
+    "visual": "n/a",
+    "structural": "n/a",
+    "experience": "n/a"
+  },
+  "textToCodeMapping": {
+    "Given the Settings eApp is open": "EALC12038",
+    "When capability EALC12038 (Save Spoken Language) is invoked": "EALC12038",
+    "Then EAIV12042 (Spoken Language) is not empty": "EAIV12042"
+  },
+  "steps": [
+    {
+      "type": "when",
+      "capability": "EALC12038"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12042"
+    }
+  ]
+}

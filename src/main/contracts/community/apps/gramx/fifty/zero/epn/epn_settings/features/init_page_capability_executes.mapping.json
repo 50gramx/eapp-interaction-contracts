@@ -10,6 +10,7 @@
   "expected": {
     "outputs": [
       "EAIV12001",
+      "EAIV12042",
       "EAIV12036",
       "EAIV12006",
       "EAIV12035",
@@ -19,8 +20,8 @@
     ]
   },
   "conformance": {
-    "behavioral": "EAIV12001 is populated; EAIV12036 is populated; EAIV12006 is populated; EAIV12035 is populated; EAIV12007 is populated; EAIV12013 is populated; EAIV12019 is populated",
-    "state": "EAIV12001 populated, EAIV12036 populated, EAIV12006 populated, EAIV12035 populated, EAIV12007 populated, EAIV12013 populated, EAIV12019 populated",
+    "behavioral": "EAIV12001 is populated; EAIV12042 is populated; EAIV12036 is populated; EAIV12006 is populated; EAIV12035 is populated; EAIV12007 is populated; EAIV12013 is populated; EAIV12019 is populated",
+    "state": "EAIV12001 populated, EAIV12042 populated, EAIV12036 populated, EAIV12006 populated, EAIV12035 populated, EAIV12007 populated, EAIV12013 populated, EAIV12019 populated",
     "visual": "n/a",
     "structural": "n/a",
     "experience": "n/a"
@@ -29,6 +30,7 @@
     "Given the Settings eApp is open": "EALC12001",
     "When capability EALC12001 (Init Page) is invoked": "EALC12001",
     "Then EAIV12001 (Spend Policy) is not empty": "EAIV12001",
+    "Then EAIV12042 (Spoken Language) is not empty": "EAIV12042",
     "Then EAIV12036 (Start Gram With App) is not empty": "EAIV12036",
     "Then EAIV12006 (KYC Status) is not empty": "EAIV12006",
     "Then EAIV12035 (Claim State Result) is not empty": "EAIV12035",
@@ -45,6 +47,11 @@
       "type": "then",
       "assert": "not-empty",
       "variable": "EAIV12001"
+    },
+    {
+      "type": "then",
+      "assert": "not-empty",
+      "variable": "EAIV12042"
     },
     {
       "type": "then",
