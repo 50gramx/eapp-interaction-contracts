@@ -6,6 +6,10 @@
       - command: platform-invoke
         handler: epn.settings.spend.get
         assign-to: EAIV12001
+      # The language this person speaks, for the Spoken Language tile.
+      - command: platform-invoke
+        handler: language.spoken
+        assign-to: EAIV12042
       # Early, before the chain's known-broken step further down.
       - command: platform-invoke
         handler: epn.node.autostart.get
@@ -540,3 +544,24 @@
       - command: set
         target: EAIV12038
         value: EAIV12037.eamvt12004
+
+# Return the spoken-language TextEditingController.
+- name-code: EALC12037
+  name: Get Spoken Language Controller
+  context:
+    returns:
+      type: ELVT1001
+    steps:
+      - command: return
+        value: EAIV12041
+
+# Save the language this person speaks. Empty goes back to the device's.
+- name-code: EALC12038
+  name: Save Spoken Language
+  context:
+    steps:
+      - command: platform-invoke
+        handler: language.choose
+        params:
+          tag: EAIV12041
+        assign-to: EAIV12042

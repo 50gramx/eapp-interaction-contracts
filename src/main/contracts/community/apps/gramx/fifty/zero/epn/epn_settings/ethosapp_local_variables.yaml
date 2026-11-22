@@ -262,3 +262,16 @@
   type: ELVT1021
   modelled: true
   default: {}
+
+# TextEditingController for the language this person speaks (a BCP 47 tag).
+- name-code: EAIV12041
+  name: Spoken Language Controller
+  type: ELVT1001
+  default: {}
+
+# The language this person speaks now: {tag, chosen, summary} from
+# language.spoken / language.choose ("chosen" false = the device's language).
+- name-code: EAIV12042
+  name: Spoken Language
+  type: ELVT1020
+  default: {}

@@ -233,6 +233,14 @@
         target-map: EAIV6003
         key: EAMVT6003
         value: EAIV6005
+      # The language spoken: the person's choice, else the device's.
+      - command: platform-invoke
+        handler: language.spoken
+        assign-to: EAIV6061
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6045
+        value: EAIV6061.tag
 
       # Append user turn before sending so it appears immediately in the chat
       - command: set-map-value
@@ -519,6 +527,14 @@
         target-map: EAIV6003
         key: EAMVT6003
         value: EAIV6005
+      # The language spoken: the person's choice, else the device's.
+      - command: platform-invoke
+        handler: language.spoken
+        assign-to: EAIV6061
+      - command: set-map-value
+        target-map: EAIV6003
+        key: EAMVT6045
+        value: EAIV6061.tag
 
       # Append user turn before sending so it appears immediately in the chat
       - command: set-map-value

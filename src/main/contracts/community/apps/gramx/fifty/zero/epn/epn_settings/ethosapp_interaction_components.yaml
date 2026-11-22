@@ -948,3 +948,33 @@
     name-code: EIC1023
     child: EAIC12127
     color: layer-02
+
+# ── Spoken language ──────────────────────────────────────────────────────────
+
+- name-code: EAIC12129
+  name: Spoken Language Header
+  component:
+    name-code: EIC1004
+    label: The language you speak
+
+- name-code: EAIC12130
+  name: Spoken Language Now
+  component:
+    name-code: EIC1020
+    text: EAIV12042.summary
+    variant: caption01
+    color: on-surface-subtle
+
+- name-code: EAIC12131
+  name: Spoken Language Input
+  component:
+    name-code: EIC1009
+    hint-text: "A language tag: hi, ta, bn, hi-Latn (Hindi in Latin letters). Empty = this device's language"
+    text-controller: EALC12037
+
+- name-code: EAIC12132
+  name: Save Spoken Language Button
+  component:
+    name-code: EIC1006
+    label: Save language
+    on-click: EALC12038

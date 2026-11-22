@@ -317,3 +317,11 @@
   name: Watched Send Result
   type: ELVT1007
   default: ""
+
+# The language this person speaks (platform-invoke language.spoken):
+# {tag, chosen, summary} -- their choice in Settings, else the device's
+# language. Its tag is sent on every chat turn (EAMVT6045).
+- name-code: EAIV6061
+  name: Spoken Language
+  type: ELVT1020
+  default: {}

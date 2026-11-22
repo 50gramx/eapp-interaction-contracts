@@ -10,6 +10,7 @@
     children-components:
       - EAIT12001
       - EAIT12009
+      - EAIT12010
       - EAIT12008
       - EAIT12002
       - EAIT12003

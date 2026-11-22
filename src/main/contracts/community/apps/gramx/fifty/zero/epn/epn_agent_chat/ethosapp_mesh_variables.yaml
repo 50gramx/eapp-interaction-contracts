@@ -16,6 +16,14 @@
       name: text
       type: ELVT1007
       default: ""
+    # The language the person speaks or writes in, as a BCP 47 tag (hi, hi-Deva,
+    # hi-Latn ...): what they chose in Settings, else the device's language.
+    # The daemon reads it as the turn's language (spokenlang) and fills the
+    # script when the tag leaves it out. Empty = not said; never assumed.
+    - name-code: EAMVT6045
+      name: language
+      type: ELVT1007
+      default: ""
 
 # EAMV6002 - ChatMessage (UI-fed response shape for the chat list)
 #
