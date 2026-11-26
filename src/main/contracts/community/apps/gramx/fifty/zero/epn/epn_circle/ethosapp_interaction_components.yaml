@@ -633,6 +633,7 @@
       - EAIC15072
       - EAIC15109
       - EAIC15110
+      - EAIC15111
       - EAIC15086
       - EAIC15087
       - EAIC15088
@@ -860,3 +861,12 @@
     subtitle-field: subtitle
     trailing-text-field: trailing
 
+- name-code: EAIC15111
+  name: Operators List
+  component:
+    name-code: EIC1026
+    source: EAIV15027.eamvt15027
+    item-type: list-item
+    title-field: title
+    subtitle-field: subtitle
+    trailing-text-field: trailing
